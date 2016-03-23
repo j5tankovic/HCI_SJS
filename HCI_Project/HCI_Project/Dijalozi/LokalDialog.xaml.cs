@@ -9,24 +9,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using HCI_Project.Dijalozi;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
-namespace HCI_Project
+namespace HCI_Project.Dijalozi
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LokalDijalog.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LokalDialog : Window
     {
-        public MainWindow()
+        public LokalDialog()
         {
-            //InitializeComponent();
-            
-            TabelaLokala l = new TabelaLokala();
-            l.InitializeComponent();
-            l.Show();
+            InitializeComponent();
         }
     }
 }

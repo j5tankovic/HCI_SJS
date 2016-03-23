@@ -3,6 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <TextBlock >May the source (code) be with us! :) Jasna rules! :D TEST2..... Stefan was here.</TextBlock> 
+        <TextBlock >Mayj the source (code) be with us! :) Jasna rules! :D TEST2..... Stefan was here.</TextBlock> 
     </Grid>
 </Window>

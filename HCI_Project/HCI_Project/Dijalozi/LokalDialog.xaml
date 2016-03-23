@@ -1,0 +1,75 @@
+﻿<Window x:Class="HCI_Project.Dijalozi.LokalDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Unos novog lokala" Height="300" Width="600">
+    <Window.Resources>
+        <sys:String x:Key="strOznaka">Oznaka lokala: </sys:String>
+        <sys:String x:Key="strNaziv">Naziv lokala: </sys:String>
+        <sys:String x:Key="strOpis">Opis: </sys:String>
+        <sys:String x:Key="strTip">Tip lokala: </sys:String>
+        <sys:String x:Key="strAlkohol">Status za sluzenje alkohola: </sys:String>
+        <sys:String x:Key="strHendikep">Dostupan za hendikepirane: </sys:String>
+        <sys:String x:Key="strPusenje">Dozvoljeno pusenje: </sys:String>
+        <sys:String x:Key="strRezervacije">Prima rezervacije: </sys:String>
+        <sys:String x:Key="strCena">Kategorija cene: </sys:String>
+        <sys:String x:Key="strKapacitet">Kapacitet: </sys:String>
+        <sys:String x:Key="strDatum">Datum otvaranja: </sys:String>
+        <sys:String x:Key="strIkonica">Ikonica: </sys:String>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strOznaka}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strNaziv}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strOpis}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strTip}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="4" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strAlkohol}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="5" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strHendikep}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strPusenje}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="7" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strRezervacije}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="8" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strCena}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="9" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strKapacitet}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="10" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strDatum}"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="11" Margin="10 0 0 0" Text="{StaticResource ResourceKey=strIkonica}"></TextBlock>
+        
+        <TextBox Grid.Column="1" Grid.Row="0"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="1"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="2"></TextBox>
+        <ComboBox Grid.Column="1" Grid.Row="3"></ComboBox>
+        <ComboBox Grid.Column="1" Grid.Row="4"></ComboBox>
+        <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+            <RadioButton GroupName="hendikep">Da</RadioButton>
+            <RadioButton GroupName="hendikep" Margin="10 0 0 0">Ne</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal">
+            <RadioButton GroupName="pusenje">Da</RadioButton>
+            <RadioButton GroupName="pusenje" Margin="10 0 0 0">Ne</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal">
+            <RadioButton GroupName="rezervacije">Da</RadioButton>
+            <RadioButton GroupName="rezervacije" Margin="10 0 0 0">Ne</RadioButton>
+        </StackPanel>
+        <ComboBox Grid.Column="1" Grid.Row="8"></ComboBox>
+        <TextBox Grid.Column="1" Grid.Row="9"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="10"></TextBox>
+        <Button Grid.Column="1" Grid.Row="11" Width="Auto">Browse...</Button>
+    </Grid>
+</Window>

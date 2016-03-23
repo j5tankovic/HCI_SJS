@@ -1,0 +1,66 @@
+﻿<Window x:Class="HCI_Project.Dijalozi.TabelaLokala"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TabelaLokala" Height="300" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Lokali}" IsReadOnly="True"/>
+        <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0">Oznaka:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1">Naziv:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="2">Opis:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3">Tip:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="4">Alkohol:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="5">Za hendik.:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="6">Pusenje:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="7">Rezervacije:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="8">Cene:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="9">Kapacitet:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="10">Datum otv.:</TextBlock>
+
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=oznaka}"></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="1"></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="2"></TextBox>
+            <ComboBox Grid.Column="1" Grid.Row="3"></ComboBox>
+            <ComboBox Grid.Column="1" Grid.Row="4"></ComboBox>
+            <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+                <RadioButton GroupName="hendikep">Da</RadioButton>
+                <RadioButton GroupName="hendikep" Margin="10 0 0 0">Ne</RadioButton>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal">
+                <RadioButton GroupName="pusenje">Da</RadioButton>
+                <RadioButton GroupName="pusenje" Margin="10 0 0 0">Ne</RadioButton>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal">
+                <RadioButton GroupName="rezervacije">Da</RadioButton>
+                <RadioButton GroupName="rezervacije" Margin="10 0 0 0">Ne</RadioButton>
+            </StackPanel>
+            <ComboBox Grid.Column="1" Grid.Row="8"></ComboBox>
+            <TextBox Grid.Column="1" Grid.Row="9"></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="10"></TextBox>
+            <Button Grid.Column="1" Grid.Row="11" Width="Auto">Browse...</Button>
+        </Grid>
+    </Grid>
+</Window>
