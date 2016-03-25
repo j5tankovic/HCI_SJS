@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using HCI_Project.Beans;
 
 namespace HCI_Project.Dijalozi
 {
@@ -29,7 +30,19 @@ namespace HCI_Project.Dijalozi
             InitializeComponent();
             this.DataContext = this;
             Lokali = new ObservableCollection<Lokal>();
-            Lokali.Add(new Lokal ());
+            Lokal l = new Lokal();
+            l.Oznaka = "a11";
+            l.Naziv = "Kafana";
+            l.Hendikep = true;
+            l.Pusenje = false;
+            l.Rezervacije = true;
+            l.Opis = "Opisss";
+            l.Tip = "tttippp";
+            l.Alkohol = SluzenjeAlkohola.SLUZI_DO_23;
+            l.Cene = KategorijaCene.VISOKA;
+            l.Datum = "10.2.2014.";
+            l.Kapacitet = 100;
+            Lokali.Add(l);
         }
     }
 }

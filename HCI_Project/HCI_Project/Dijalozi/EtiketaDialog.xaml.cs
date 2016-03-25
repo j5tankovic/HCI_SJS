@@ -9,24 +9,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using HCI_Project.Dijalozi;
 
-namespace HCI_Project
+namespace HCI_Project.Dijalozi
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EtiketaDialog.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EtiketaDialog : Window
     {
-        public MainWindow()
+        public EtiketaDialog()
         {
-            //InitializeComponent();
-
-            TipDialog l = new TipDialog();
-            l.InitializeComponent();
-            l.Show();
+            InitializeComponent();
         }
     }
 }
