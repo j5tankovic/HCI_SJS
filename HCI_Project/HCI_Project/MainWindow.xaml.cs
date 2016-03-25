@@ -24,7 +24,7 @@ namespace HCI_Project
         {
             //InitializeComponent();
 
-            TipDialog l = new TipDialog();
+            TabelaLokala l = new TabelaLokala();
             l.InitializeComponent();
             l.Show();
         }

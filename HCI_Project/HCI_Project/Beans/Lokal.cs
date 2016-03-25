@@ -21,7 +21,7 @@ namespace HCI_Project.Beans
         private string _oznaka;
         private string _naziv;
         private string _opis;
-        private string _tip;
+        private TipLokala _tip;
         private SluzenjeAlkohola _alhohol;
         private Boolean _hendikep;
         private Boolean _pusenje;
@@ -29,6 +29,7 @@ namespace HCI_Project.Beans
         private KategorijaCene _cene;
         private int _kapacitet;
         private string _datum;
+        private List<Etiketa> _etikete;
 
         public string Oznaka
         {
@@ -78,7 +79,7 @@ namespace HCI_Project.Beans
             }
         }
         
-        public string Tip
+        public TipLokala Tip
         {
             get
             {
@@ -202,6 +203,22 @@ namespace HCI_Project.Beans
                 {
                     _datum = value;
                     OnPropertyChanged("Datum");
+                }
+            }
+        }
+
+        public List<Etiketa> Etikete
+        {
+            get
+            {
+                return _etikete;
+            }
+            set
+            {
+                if (value != _etikete)
+                {
+                    _etikete = value;
+                    OnPropertyChanged("Etikete");
                 }
             }
         }

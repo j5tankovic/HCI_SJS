@@ -10,7 +10,7 @@ namespace HCI_Project.Beans
     public class Etiketa : INotifyPropertyChanged
     {
         private string _oznaka;
-        private Colors _boja;
+        private Color _boja;
         private string _opis;
 
         public string Oznaka
@@ -29,7 +29,7 @@ namespace HCI_Project.Beans
             }
         }
         
-        public Colors Boja
+        public Color Boja
         {
             get
             {
