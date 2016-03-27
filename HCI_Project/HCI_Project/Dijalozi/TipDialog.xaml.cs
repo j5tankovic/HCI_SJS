@@ -22,10 +22,5 @@ namespace HCI_Project.Dijalozi
         {
             InitializeComponent();
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

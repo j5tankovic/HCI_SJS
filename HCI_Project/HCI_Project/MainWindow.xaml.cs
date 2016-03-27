@@ -24,26 +24,19 @@ namespace HCI_Project
         {
             //InitializeComponent();
 
-            EtiketaDialog ed = new EtiketaDialog();
-            ed.InitializeComponent();
-            ed.Show();
-
-            LokalDialog ld = new LokalDialog();
-            ld.InitializeComponent();
-            ld.Show();
-
-            TipDialog td = new TipDialog();
-            td.InitializeComponent();
-            td.Show();
-
-            TabelaLokala tl = new TabelaLokala();
-            tl.InitializeComponent();
-            tl.Show();
+            TabelaLokala l = new TabelaLokala();
+            l.InitializeComponent();
+            l.Show();
 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
+
+            TabelaLokala l = new TabelaLokala();
+            l.InitializeComponent();
+            l.Show();
 
         }
     }

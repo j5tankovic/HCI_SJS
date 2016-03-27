@@ -31,6 +31,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
+
             <Grid.Resources>
                 <Style TargetType="TextBlock" x:Key="FamilyAndSize">
                     <Setter Property="FontFamily" Value="Arial"/>

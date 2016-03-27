@@ -52,9 +52,4 @@ namespace HCI_Project.Dijalozi
             Lokali.Add(l);
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-    }
 }
