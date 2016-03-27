@@ -22,5 +22,9 @@ namespace HCI_Project.Dijalozi
         {
             InitializeComponent();
         }
+
+
+
+       
     }
 }

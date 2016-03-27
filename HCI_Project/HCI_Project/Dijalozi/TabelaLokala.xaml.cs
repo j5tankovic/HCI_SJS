@@ -52,4 +52,12 @@ namespace HCI_Project.Dijalozi
             Lokali.Add(l);
         }
 
+        
+      
+
+       
+
+      
+    }
+
 }
