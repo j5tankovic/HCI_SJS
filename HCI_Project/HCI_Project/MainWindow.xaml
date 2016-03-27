@@ -1,8 +1,42 @@
 ﻿<Window x:Class="HCI_Project.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="463" Width="814">
     <Grid>
-        <TextBlock >Mayj the source (code) be with us! :) Jasna rules! :D TEST2..... Stefan was here.</TextBlock> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.Row="0" Background="#A2A1AC">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+               </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5"  Grid.ColumnSpan="3">Dodavanje novih podataka</TextBlock>
+                <Button Grid.Row="1" Grid.Column="0" FontFamily="Arial" FontSize="13" Margin="10 10 20 10" Padding="10 5 10 5" Click="Dodaj_Lokal">Dodaj lokal</Button>
+
+                <Button Grid.Row="1" Grid.Column="1" FontFamily="Arial" FontSize="13"  Margin="0 10 20 10" Padding="20 5 20 5" Click="Dodaj_Tip">Dodaj tip</Button>           
+                <Button Grid.Row="1" Grid.Column="2" FontFamily="Arial" FontSize="13" Margin="0 10 20 10" Padding="10 5 10 5" Click="Dodaj_Etiketa">Dodaj etiketu</Button>
+                <TextBlock Grid.Row="0" Grid.Column="3" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="3">Prikaz podataka</TextBlock>
+                <Button Grid.Row="1" Grid.Column="3" FontFamily="Arial" FontSize="13" Margin="30 10 20 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Prikaz tabele</Button>
+                <Button Grid.Row="1" Grid.Column="4"  FontFamily="Arial" FontSize="13" Margin="0 10 20 10" Padding="10 5 10 5">Prikaz mape</Button>
+
+        </Grid>
+        
+        
+       
     </Grid>
 </Window>

@@ -22,22 +22,43 @@ namespace HCI_Project
     {
         public MainWindow()
         {
-            //InitializeComponent();
-
-            TabelaLokala l = new TabelaLokala();
-            l.InitializeComponent();
-            l.Show();
 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-
-            TabelaLokala l = new TabelaLokala();
-            l.InitializeComponent();
-            l.Show();
-
         }
+
+        private void Dodaj_Lokal(object sender, RoutedEventArgs e)
+        {
+            LokalDialog lokal = new LokalDialog();
+            lokal.InitializeComponent();
+            lokal.Show();
+        }
+
+        private void Dodaj_Tip(object sender, RoutedEventArgs e)
+        {
+            TipDialog tip = new TipDialog();
+            tip.InitializeComponent();
+            tip.Show();
+        }
+
+        private void Dodaj_Etiketa(object sender, RoutedEventArgs e)
+        {
+            EtiketaDialog etiketa = new EtiketaDialog();
+            etiketa.InitializeComponent();
+            etiketa.Show();
+        }
+
+        private void Prikazi_Tabela(object sender, RoutedEventArgs e)
+        {
+            TabelaLokala tabela = new TabelaLokala();
+            tabela.InitializeComponent();
+            tabela.Show();
+        }
+
+
+
     }
 }
