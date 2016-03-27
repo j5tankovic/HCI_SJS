@@ -55,6 +55,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Dijalozi\EtiketaDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dijalozi\LokalDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dijalozi\TabelaLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dijalozi\TipDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +78,21 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Beans\Etiketa.cs" />
+    <Compile Include="Beans\Lokal.cs" />
+    <Compile Include="Beans\TipLokala.cs" />
+    <Compile Include="Dijalozi\EtiketaDialog.xaml.cs">
+      <DependentUpon>EtiketaDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dijalozi\LokalDialog.xaml.cs">
+      <DependentUpon>LokalDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dijalozi\TabelaLokala.xaml.cs">
+      <DependentUpon>TabelaLokala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dijalozi\TipDialog.xaml.cs">
+      <DependentUpon>TipDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -92,6 +123,7 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
