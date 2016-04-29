@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HCI_Project.Dijalozi;
+using HCI_Project.Beans;
+using System.Collections.ObjectModel;
 
 namespace HCI_Project
 {
@@ -20,14 +22,37 @@ namespace HCI_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<TipLokala> Tipovi
+        {
+            get;
+            set;
+        }
+
         public MainWindow()
         {
+            InitializeComponent();
+            this.DataContext = this;
+            Tipovi = new ObservableCollection<TipLokala>();
+            TipLokala s = new TipLokala() { Naziv = "Tip Lokala 1" };
+            s.Lokali.Add(new Lokal() { Naziv = "Lokal 1" });
+            s.Lokali.Add(new Lokal() { Naziv = "Lokal 2" });
+            Tipovi.Add(s);
+            s = new TipLokala() { Naziv = "Tip Lokala 2" };
+            s.Lokali.Add(new Lokal() { Naziv = "Lokal 3" });
+            s.Lokali.Add(new Lokal() { Naziv = "Lokal 4" });
+            Tipovi.Add(s);
 
+            Uri myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
+            JpegBitmapDecoder decoder2 = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            BitmapSource bitmapSource2 = decoder2.Frames[0];
+
+            // Draw the Image
+            myImage.Source = bitmapSource2;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+           
         }
 
         private void Dodaj_Lokal(object sender, RoutedEventArgs e)
@@ -58,6 +83,11 @@ namespace HCI_Project
             tabela.Show();
         }
 
+        private void OnSizeChanged(object sender, SizeChangedEventArgs args)
+        {
+            myImage.Width = theScrollViewer.ViewportWidth;
+            myImage.Height = theScrollViewer.ViewportHeight;
+        }
 
 
     }

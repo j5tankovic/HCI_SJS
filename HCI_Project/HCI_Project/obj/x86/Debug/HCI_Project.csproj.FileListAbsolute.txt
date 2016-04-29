@@ -17,3 +17,24 @@ D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\
 D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\EtiketaDialog.g.cs
 D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TipDialog.baml
 D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TipDialog.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.exe
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.pdb
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\HCI_Project.exe
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\HCI_Project.pdb
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\EtiketaDialog.baml
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\LokalDialog.baml
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaLokala.baml
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TipDialog.baml
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\MainWindow.baml
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\EtiketaDialog.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\LokalDialog.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaLokala.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TipDialog.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\MainWindow.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\App.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project_MarkupCompile.cache
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.g.resources
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.Properties.Resources.resources
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.csproj.GenerateResource.Cache
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project_MarkupCompile.lref

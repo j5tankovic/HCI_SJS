@@ -3,9 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace HCI_Project.Beans
 {
+
+    public class AddCommand : ICommand
+    {
+        private TipLokala tip;
+        public AddCommand(TipLokala s)
+        {
+            tip = s;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            tip.Lokali.Add(new Lokal() { Naziv = "Novi Lokal" });
+        }
+    }
+
     public class TipLokala : INotifyPropertyChanged
     {
         private string _oznaka;
@@ -62,6 +86,23 @@ namespace HCI_Project.Beans
             }
         }
 
+        private AddCommand _add;
+        public AddCommand Add
+        {
+            get
+            {
+                return _add;
+            }
+            set
+            {
+                if (_add != value)
+                {
+                    _add = value;
+                    OnPropertyChanged("Add");
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
         {
@@ -69,6 +110,18 @@ namespace HCI_Project.Beans
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        public ObservableCollection<Lokal> Lokali
+        {
+            get;
+            set;
+        }
+
+        public TipLokala()
+        {
+            Lokali = new ObservableCollection<Lokal>();
+            Add = new AddCommand(this);
         }
     }
 }
