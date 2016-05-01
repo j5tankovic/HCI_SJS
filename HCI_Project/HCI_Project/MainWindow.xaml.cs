@@ -70,6 +70,7 @@ namespace HCI_Project
         private void Dodaj_Lokal(object sender, RoutedEventArgs e)
         {
             LokalDialog lokal = new LokalDialog();
+            lokal.Closed += dialogLokalClosed;
             lokal.InitializeComponent();
             lokal.Show();
         }
@@ -77,6 +78,7 @@ namespace HCI_Project
         private void Dodaj_Tip(object sender, RoutedEventArgs e)
         {
             TipDialog tip = new TipDialog();
+            tip.Closed += dialogTipClosed;
             tip.InitializeComponent();
             tip.Show();
         }
@@ -112,6 +114,28 @@ namespace HCI_Project
             }
 
             return tipoviLokala;
+        }
+
+        private void dopuniTip(Lokal lokal)
+        {
+            (Tipovi.Single(x => x.Oznaka == lokal.Tip.Oznaka)).Lokali.Add(lokal);
+        }
+
+
+        private void dialogTipClosed(object sender, EventArgs e)
+        {
+            ((TipDialog)sender).Closed -= dialogTipClosed;
+            if (((TipDialog)sender).TipLokala != null)
+                 Tipovi.Add(((TipDialog)sender).TipLokala);
+
+        }
+
+        private void dialogLokalClosed(object sender, EventArgs e)
+        {
+            ((LokalDialog)sender).Closed -= dialogLokalClosed;
+            if (((LokalDialog)sender).Lokal != null)
+                 dopuniTip(((LokalDialog)sender).Lokal);
+
         }
 
 

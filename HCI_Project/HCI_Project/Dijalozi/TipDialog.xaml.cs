@@ -21,6 +21,12 @@ namespace HCI_Project.Dijalozi
     public partial class TipDialog : Window
     {
         private TipLokala tipLokala;
+
+        public TipLokala TipLokala
+        {
+            get { return tipLokala; }
+            set { tipLokala = value; }
+        }
         private RepoTipovi repoTipovi;
 
         public TipDialog()
@@ -42,7 +48,11 @@ namespace HCI_Project.Dijalozi
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs args)
         {
+            tipLokala = null;
             this.Close();
         }
+
+
+        
     }
 }

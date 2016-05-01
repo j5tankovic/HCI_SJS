@@ -23,6 +23,12 @@ namespace HCI_Project.Dijalozi
     public partial class LokalDialog : Window
     {
         private Lokal lokal;
+
+        public Lokal Lokal
+        {
+            get { return lokal; }
+            set { lokal = value; }
+        }
         private RepoLokali repoLokali;
         private RepoTipovi repoTipovi;
 
@@ -45,6 +51,7 @@ namespace HCI_Project.Dijalozi
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs args)
         {
+            lokal = null;
             this.Close();
         }
 
@@ -56,6 +63,8 @@ namespace HCI_Project.Dijalozi
 
             comboTipovi.SelectedIndex = 0;
         }
+
+        
 
 
       

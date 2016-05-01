@@ -77,3 +77,4 @@ C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\De
 C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.csproj.GenerateResource.Cache
 C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.exe
 C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.pdb
+C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.csprojResolveAssemblyReference.cache
