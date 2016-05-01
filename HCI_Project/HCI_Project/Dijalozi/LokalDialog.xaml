@@ -79,8 +79,8 @@
             <RadioButton GroupName="pusenje" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Pusenje, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal" Margin="10 0 10 5">
-            <RadioButton GroupName="rezervacije" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacija, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}">Da</RadioButton>
-            <RadioButton GroupName="rezervacije" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacija, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
+            <RadioButton GroupName="rezervacije" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}">Da</RadioButton>
+            <RadioButton GroupName="rezervacije" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
         </StackPanel>
         <ComboBox Grid.Column="1" Grid.Row="8" Margin="10 0 10 5" SelectedValue="{Binding Path=Cene}" Name="comboCene"></ComboBox>
         <TextBox Grid.Column="1" Grid.Row="9" Margin="10 0 10 5" Text="{Binding Path=Kapacitet}"></TextBox>
