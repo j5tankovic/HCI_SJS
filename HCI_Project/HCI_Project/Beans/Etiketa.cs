@@ -4,13 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Windows.Media;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 
 namespace HCI_Project.Beans
 {
+    
     public class Etiketa : INotifyPropertyChanged
     {
+        
         private string _oznaka;
+
+        
         private Color _boja;
+
+        
         private string _opis;
 
         public string Oznaka

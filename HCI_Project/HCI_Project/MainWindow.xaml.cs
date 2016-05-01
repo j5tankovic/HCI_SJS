@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using HCI_Project.Dijalozi;
 using HCI_Project.Beans;
 using System.Collections.ObjectModel;
+using HCI_Project.Repos;
 
 namespace HCI_Project
 {
@@ -28,11 +29,20 @@ namespace HCI_Project
             set;
         }
 
+        private RepoTipovi repoTipovi;
+        private RepoLokali repoLokali;
+        private RepoEtikete repoEtikete;
+
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
-            Tipovi = new ObservableCollection<TipLokala>();
+            repoTipovi = new RepoTipovi();
+            repoLokali = new RepoLokali();
+            repoEtikete = new RepoEtikete();
+            List<TipLokala> popunjeniTipovi = popuniLokalima();
+            Tipovi = new ObservableCollection<TipLokala>(popunjeniTipovi);
+            /*
             TipLokala s = new TipLokala() { Naziv = "Tip Lokala 1" };
             s.Lokali.Add(new Lokal() { Naziv = "Lokal 1" });
             s.Lokali.Add(new Lokal() { Naziv = "Lokal 2" });
@@ -41,6 +51,8 @@ namespace HCI_Project
             s.Lokali.Add(new Lokal() { Naziv = "Lokal 3" });
             s.Lokali.Add(new Lokal() { Naziv = "Lokal 4" });
             Tipovi.Add(s);
+             * */
+
 
             Uri myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
             JpegBitmapDecoder decoder2 = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
@@ -87,6 +99,19 @@ namespace HCI_Project
         {
             myImage.Width = theScrollViewer.ViewportWidth;
             myImage.Height = theScrollViewer.ViewportHeight;
+        }
+
+
+        private List<TipLokala> popuniLokalima()
+        {
+            List<TipLokala> tipoviLokala = repoTipovi.sviTipovi();
+            List<Lokal> lokali = repoLokali.sviLokali();
+            foreach(var lokal in lokali)
+            {
+                tipoviLokala.ForEach(x => { if (x.Oznaka == lokal.Tip.Oznaka) x.Lokali.Add(lokal); });
+            }
+
+            return tipoviLokala;
         }
 
 
