@@ -102,3 +102,26 @@ d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\
 d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaTipova.g.cs
 d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaEtiketa.baml
 d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaEtiketa.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Newtonsoft.Json.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.AvalonDock.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.DataGrid.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.Toolkit.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Newtonsoft.Json.xml
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.csprojResolveAssemblyReference.cache
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaEtiketa.baml
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaTipova.baml
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaEtiketa.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaTipova.g.cs
