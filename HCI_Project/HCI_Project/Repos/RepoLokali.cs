@@ -9,14 +9,16 @@ using Newtonsoft.Json;
 
 namespace HCI_Project.Repos
 {
-    class RepoLokali
+    public class RepoLokali
     {
-        private List<Lokal> lokali = new List<Lokal>();
+        public List<Lokal> lokali { get; set; }
+
         private readonly string datoteka;
 
 
         public RepoLokali()
         {
+            lokali = new List<Lokal>();
             datoteka = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "lokali.txt");
             ucitaj();
         }
@@ -50,6 +52,7 @@ namespace HCI_Project.Repos
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(writer, lokali);
+                writer.Close();
             }
         }
 
@@ -61,7 +64,7 @@ namespace HCI_Project.Repos
             Lokal temp = lokali.Find(tip => tip.Oznaka == Lokal.Oznaka);
             if (temp == null)
                 lokali.Add(Lokal);
-            memorisi();
+            //memorisi();
         }
 
 
@@ -88,6 +91,19 @@ namespace HCI_Project.Repos
         public List<Lokal> sviLokali()
         {
             return lokali;
+        }
+
+        public void izbaci(Lokal lokal)
+        {
+            for (int i = 0; i < lokali.Count; i++)
+            {
+                Lokal l = lokali[i];
+                if (l.Oznaka.Equals(lokal.Oznaka))
+                {
+                    lokali.RemoveAt(i);
+                    return;
+                }
+            }
         }
 
 

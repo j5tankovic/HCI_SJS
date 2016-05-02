@@ -5,6 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Newtonsoft.Json;
 
 namespace HCI_Project.Beans
 {
@@ -30,7 +31,7 @@ namespace HCI_Project.Beans
         }
     }
 
-    public class TipLokala : INotifyPropertyChanged
+    public class TipLokala : INotifyPropertyChanged, IEquatable<TipLokala>
     {
         private string _oznaka;
         private string _naziv;
@@ -112,6 +113,7 @@ namespace HCI_Project.Beans
             }
         }
 
+        [JsonIgnore]
         public ObservableCollection<Lokal> Lokali
         {
             get;
@@ -122,6 +124,25 @@ namespace HCI_Project.Beans
         {
             Lokali = new ObservableCollection<Lokal>();
             Add = new AddCommand(this);
+        }
+
+        public bool Equals(TipLokala obj)
+        {
+            if (obj.Oznaka.Equals(this.Oznaka))
+                return true;
+            return false;
+        }
+
+        public void izbaciLokal(Lokal l)
+        {
+            foreach (Lokal lok in Lokali)
+            {
+                if (lok.Oznaka.Equals(l.Oznaka))
+                {
+                    Lokali.Remove(lok);
+                    break;
+                }
+            }
         }
     }
 }

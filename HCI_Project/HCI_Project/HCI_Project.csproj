@@ -84,7 +84,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\EnumConverter.cs" />
     <Compile Include="Converter\RadioButtonCheckedConverter.cs" />
+    <Compile Include="Dijalozi\TabelaEtiketa.xaml.cs">
+      <DependentUpon>TabelaEtiketa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dijalozi\TabelaTipova.xaml.cs">
+      <DependentUpon>TabelaTipova.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Repos\RepoEtikete.cs" />
     <Compile Include="Repos\RepoLokali.cs" />
     <Compile Include="Repos\RepoTipovi.cs" />
@@ -96,7 +103,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dijalozi\TabelaEtiketa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dijalozi\TabelaLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dijalozi\TabelaTipova.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

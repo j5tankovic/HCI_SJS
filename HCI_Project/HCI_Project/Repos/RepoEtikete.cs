@@ -9,14 +9,15 @@ using Newtonsoft.Json;
 
 namespace HCI_Project.Repos
 {
-    class RepoEtikete
+    public class RepoEtikete
     {
-        private List<Etiketa> etikete = new List<Etiketa>();
+        public List<Etiketa> etikete { get; set; }
         private readonly string datoteka;
 
 
         public RepoEtikete()
         {
+            etikete = new List<Etiketa>();
             datoteka = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "etikete.txt");
             ucitaj();
         }
@@ -62,6 +63,7 @@ namespace HCI_Project.Repos
             if (temp == null)
                 etikete.Add(Etiketa);
             memorisi();
+            
         }
 
 
@@ -88,6 +90,19 @@ namespace HCI_Project.Repos
         public List<Etiketa> sveEtikete()
         {
             return etikete;
+        }
+
+        public void izbaci(Etiketa etiketa)
+        {
+            for (int i = 0; i < etikete.Count; i++)
+            {
+                Etiketa l = etikete[i];
+                if (l.Oznaka.Equals(etiketa.Oznaka))
+                {
+                    etikete.RemoveAt(i);
+                    return;
+                }
+            }
         }
     }
 }

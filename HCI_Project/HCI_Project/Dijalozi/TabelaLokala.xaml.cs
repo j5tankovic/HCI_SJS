@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 using System.Collections.ObjectModel;
 using HCI_Project.Beans;
 
@@ -20,43 +21,57 @@ namespace HCI_Project.Dijalozi
     /// </summary>
     public partial class TabelaLokala : Window
     {
-        public ObservableCollection<Lokal> Lokali
+        private MainWindow parent;
+
+        public ObservableCollection<Lokal> lokali
         {
             get;
             set;
         }
-        public TabelaLokala()
+        
+        public TabelaLokala(MainWindow p)
         {
+            this.parent = p;
+            lokali = new ObservableCollection<Lokal>();
+            parent.repoLokali.lokali.ToList().ForEach(lokali.Add);
             InitializeComponent();
             this.DataContext = this;
-            Lokali = new ObservableCollection<Lokal>();
-            Lokal l = new Lokal();
-            l.Oznaka = "a11";
-            l.Naziv = "Kafana";
-            l.Hendikep = true;
-            l.Pusenje = false;
-            l.Rezervacije = true;
-            l.Opis = "Opisss";
-            TipLokala t = new TipLokala { Naziv = "tip 1", Opis = "bla bla", Oznaka = "ppo32" };
-            l.Tip = t;
-            l.Alkohol = SluzenjeAlkohola.SLUZI_DO_23;
-            l.Cene = KategorijaCene.VISOKA;
-            l.Datum = "10.2.2014.";
-            l.Kapacitet = 100;
-            List<Etiketa> et = new List<Etiketa>();
-            Etiketa e1 = new Etiketa { Opis = "ovo je lepa boja", Oznaka = "b1", Boja = Colors.Blue };
-            Etiketa e2 = new Etiketa { Opis = "ovo je nije lepa boja", Oznaka = "b2", Boja = Colors.DarkKhaki };
-            et.Add(e1);
-            et.Add(e2);
-            l.Etikete = et;
-            Lokali.Add(l);
+            initializeCombos();
         }
 
-        
-      
+        private void initializeCombos()
+        {
+            comboAlkohol.ItemsSource = new string[] { "NE SLUZI", "SLUZI DO 23", "DO KASNO NOCU" };
+            comboCene.ItemsSource = new string[] {"IZUZETNO VISOKA", "VISOKA", "SREDNJA", "NISKA"};
+            comboTipovi.ItemsSource = parent.repoTipovi.sviTipovi();
 
-       
+            
+        }
 
+        private void Delete(object sender, RoutedEventArgs args)
+        {
+            Lokal lokal = (Lokal)dgrMain.SelectedItem;
+            if (lokal == null)
+                return;
+            izbaci(lokal);
+            parent.repoLokali.izbaci(lokal);
+            TipLokala tip = parent.nadjiTipLokala(lokal);
+            if (tip != null)
+                tip.izbaciLokal(lokal);
+        }
+
+        private void izbaci(Lokal lokal)
+        {
+            for (int i = 0; i < lokali.Count; i++)
+            {
+                Lokal l = lokali[i];
+                if (l.Oznaka.Equals(lokal.Oznaka))
+                {
+                    lokali.RemoveAt(i);
+                    return;
+                }
+            }
+        }
       
     }
 

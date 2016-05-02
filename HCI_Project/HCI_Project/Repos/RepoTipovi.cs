@@ -9,14 +9,15 @@ using Newtonsoft.Json;
 
 namespace HCI_Project.Repos
 {
-    class RepoTipovi
+    public class RepoTipovi
     {
-        private List<TipLokala> tipovi = new List<TipLokala>();
+        public List<TipLokala> tipovi { get; set; }
         private readonly string datoteka;
 
 
         public RepoTipovi()
         {
+            tipovi = new List<TipLokala>();
             datoteka = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tipovi.txt");
             ucitaj();
         }
@@ -62,6 +63,7 @@ namespace HCI_Project.Repos
             if (temp == null)
                 tipovi.Add(tipLokala);
             memorisi();
+            
         }
 
 
@@ -88,6 +90,29 @@ namespace HCI_Project.Repos
         public List<TipLokala> sviTipovi()
         {
             return tipovi;
+        }
+
+        public TipLokala nadji(TipLokala t)
+        {
+            foreach (TipLokala tip in tipovi)
+            {
+                if (tip.Oznaka.Equals(t.Oznaka))
+                    return tip;
+            }
+            return null;
+        }
+
+        public void izbaci(TipLokala tip)
+        {
+            for (int i = 0; i < tipovi.Count; i++)
+            {
+                TipLokala l = tipovi[i];
+                if (l.Oznaka.Equals(tip.Oznaka))
+                {
+                    tipovi.RemoveAt(i);
+                    return;
+                }
+            }
         }
     }
 }

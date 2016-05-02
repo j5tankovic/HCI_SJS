@@ -23,35 +23,39 @@ namespace HCI_Project.Dijalozi
     public partial class LokalDialog : Window
     {
         private Lokal lokal;
+        private Boolean ok = false;
 
         public Lokal Lokal
         {
             get { return lokal; }
             set { lokal = value; }
         }
-        private RepoLokali repoLokali;
-        private RepoTipovi repoTipovi;
 
-        public LokalDialog()
+        private MainWindow parent;
+
+        public LokalDialog(MainWindow p)
         {
+            this.parent = p;
             InitializeComponent();
             lokal = new Lokal();
             this.DataContext = lokal;
-            repoLokali = new RepoLokali();
-            repoTipovi = new RepoTipovi();
             initializeCombos();
         }
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs args)
         {
-            repoLokali.dodaj(lokal);
+            parent.repoLokali.dodaj(lokal);
+            TipLokala tip = parent.repoTipovi[lokal.Tip.Oznaka];
+            //if (tip != null)
+                //tip.Lokali.Add(lokal);
             MessageBox.Show("Uspešno ste dodali novi lokal", "Dodavanje lokala");
+            ok = true;
             this.Close();
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs args)
         {
-            lokal = null;
+            ok = false;
             this.Close();
         }
 
@@ -59,9 +63,15 @@ namespace HCI_Project.Dijalozi
         {
             comboAlkohol.ItemsSource = Enum.GetNames(typeof(SluzenjeAlkohola));
             comboCene.ItemsSource = Enum.GetNames(typeof(KategorijaCene));
-            comboTipovi.ItemsSource = repoTipovi.sviTipovi();
+            comboTipovi.ItemsSource = parent.repoTipovi.sviTipovi();
 
             comboTipovi.SelectedIndex = 0;
+        }
+
+        void LokalDialog_Closing(object sender, CancelEventArgs e)
+        {
+            if (!ok)
+                lokal = null;
         }
 
         

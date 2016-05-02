@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -29,9 +30,9 @@ namespace HCI_Project
             set;
         }
 
-        private RepoTipovi repoTipovi;
-        private RepoLokali repoLokali;
-        private RepoEtikete repoEtikete;
+        public RepoTipovi repoTipovi { get; set; }
+        public RepoLokali repoLokali { get; set; }
+        public RepoEtikete repoEtikete { get; set; }
 
         public MainWindow()
         {
@@ -69,7 +70,7 @@ namespace HCI_Project
 
         private void Dodaj_Lokal(object sender, RoutedEventArgs e)
         {
-            LokalDialog lokal = new LokalDialog();
+            LokalDialog lokal = new LokalDialog(this);
             lokal.Closed += dialogLokalClosed;
             lokal.InitializeComponent();
             lokal.Show();
@@ -77,7 +78,7 @@ namespace HCI_Project
 
         private void Dodaj_Tip(object sender, RoutedEventArgs e)
         {
-            TipDialog tip = new TipDialog();
+            TipDialog tip = new TipDialog(this);
             tip.Closed += dialogTipClosed;
             tip.InitializeComponent();
             tip.Show();
@@ -85,14 +86,29 @@ namespace HCI_Project
 
         private void Dodaj_Etiketa(object sender, RoutedEventArgs e)
         {
-            EtiketaDialog etiketa = new EtiketaDialog();
+            EtiketaDialog etiketa = new EtiketaDialog(this);
             etiketa.InitializeComponent();
             etiketa.Show();
         }
 
         private void Prikazi_Tabela(object sender, RoutedEventArgs e)
         {
-            TabelaLokala tabela = new TabelaLokala();
+            TabelaLokala tabela = new TabelaLokala(this);
+            tabela.InitializeComponent();
+            tabela.Show();
+        }
+
+        private void Prikazi_Tabelu_Tipova(object sender, RoutedEventArgs e)
+        {
+            TabelaTipova tabela = new TabelaTipova(this);
+            tabela.Closed += tabelaTipovaClosed;
+            tabela.InitializeComponent();
+            tabela.Show();
+        }
+
+        private void Prikazi_Tabelu_Etiketa(object sender, RoutedEventArgs e)
+        {
+            TabelaEtiketa tabela = new TabelaEtiketa(this);
             tabela.InitializeComponent();
             tabela.Show();
         }
@@ -130,6 +146,20 @@ namespace HCI_Project
 
         }
 
+        private void tabelaTipovaClosed(object sender, EventArgs e)
+        {
+            ((TabelaTipova)sender).Closed -= tabelaTipovaClosed;
+            var itemsSource = ((TabelaTipova)sender).dgrMain.ItemsSource;
+            List<TipLokala> tt = new List<TipLokala>();
+            foreach (var i in itemsSource)
+                tt.Add((TipLokala)i);
+            foreach (TipLokala t in Tipovi)
+            {
+                if (!tt.Contains(t))
+                    izbaciTip(t);
+            }
+        }
+
         private void dialogLokalClosed(object sender, EventArgs e)
         {
             ((LokalDialog)sender).Closed -= dialogLokalClosed;
@@ -138,6 +168,35 @@ namespace HCI_Project
 
         }
 
+        void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            repoEtikete.memorisi();
+            repoLokali.memorisi();
+            repoTipovi.memorisi();
+        }
+
+        private void izbaciTip(TipLokala t)
+        {
+            foreach (TipLokala tip in Tipovi)
+            {
+                if (tip.Oznaka.Equals(t.Oznaka))
+                {
+                    Tipovi.Remove(tip);
+                    repoTipovi.izbaci(tip);
+                    break;
+                }
+            }
+        }
+
+        public TipLokala nadjiTipLokala(Lokal l)
+        {
+            foreach (TipLokala tip in Tipovi)
+            {
+                if (tip.Oznaka.Equals(l.Tip.Oznaka))
+                    return tip;
+            }
+            return null;
+        }
 
     }
 }

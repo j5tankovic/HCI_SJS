@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -21,35 +22,43 @@ namespace HCI_Project.Dijalozi
     public partial class TipDialog : Window
     {
         private TipLokala tipLokala;
+        private Boolean ok = false;
 
         public TipLokala TipLokala
         {
             get { return tipLokala; }
             set { tipLokala = value; }
         }
-        private RepoTipovi repoTipovi;
+        private MainWindow parent;
 
-        public TipDialog()
+        public TipDialog(MainWindow p)
         {
+            this.parent = p;
             InitializeComponent();
             tipLokala = new TipLokala();
             this.DataContext = tipLokala;
-            repoTipovi = new RepoTipovi();
         }
 
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs args)
         {
-            
-            repoTipovi.dodaj(tipLokala);
+
+            parent.repoTipovi.dodaj(tipLokala);
             MessageBox.Show("Uspešno ste dodali novi tip lokala", "Dodavanje tipa lokala");
+            ok = true;
             this.Close();
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs args)
         {
-            tipLokala = null;
+            ok = false;
             this.Close();
+        }
+
+        void TipDialog_Closing(object sender, CancelEventArgs e)
+        {
+            if (!ok)
+                tipLokala = null;
         }
 
 

@@ -1,22 +1,3 @@
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\HCI_Project.exe
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\HCI_Project.pdb
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\LokalDialog.baml
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaLokala.baml
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\MainWindow.baml
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\LokalDialog.g.cs
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaLokala.g.cs
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\MainWindow.g.cs
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\App.g.cs
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project_MarkupCompile.cache
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.g.resources
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.Properties.Resources.resources
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.csproj.GenerateResource.Cache
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.exe
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.pdb
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\EtiketaDialog.baml
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\EtiketaDialog.g.cs
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TipDialog.baml
-D:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TipDialog.g.cs
 F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.exe
 F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.pdb
 F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\HCI_Project.exe
@@ -78,3 +59,46 @@ C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\De
 C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.exe
 C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.pdb
 C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.csprojResolveAssemblyReference.cache
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\HCI_Project.exe
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\HCI_Project.pdb
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Newtonsoft.Json.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.AvalonDock.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.DataGrid.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Xceed.Wpf.Toolkit.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\Newtonsoft.Json.xml
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\EtiketaDialog.baml
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaLokala.baml
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TipDialog.baml
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\EtiketaDialog.g.cs
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\LokalDialog.g.cs
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaLokala.g.cs
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TipDialog.g.cs
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\MainWindow.g.cs
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\App.g.cs
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project_MarkupCompile.cache
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project_MarkupCompile.lref
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\LokalDialog.baml
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\MainWindow.baml
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.g.resources
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.Properties.Resources.resources
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.csproj.GenerateResource.Cache
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.exe
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.pdb
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaTipova.baml
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaTipova.g.cs
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaEtiketa.baml
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\TabelaEtiketa.g.cs

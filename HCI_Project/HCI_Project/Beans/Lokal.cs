@@ -16,7 +16,7 @@ namespace HCI_Project.Beans
         NISKA, SREDNJA, VISOKA, IZUZETNO_VISOKA
     }
 
-    public class Lokal : INotifyPropertyChanged
+    public class Lokal : INotifyPropertyChanged, IEquatable<Lokal>
     {
         private string _oznaka;
         private string _naziv;
@@ -232,6 +232,11 @@ namespace HCI_Project.Beans
             }
         }
 
-
+        public bool Equals(Lokal obj)
+        {
+            if (obj.Oznaka.Equals(this.Oznaka))
+                return true;
+            return false;
+        }
     }
 }

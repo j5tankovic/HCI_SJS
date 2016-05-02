@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\
 HCI_Project
 none
 false
 DEBUG;TRACE
-C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_Project\HCI_Project\App.xaml
-5-821264771
+d:\Stefan\School\3. godina\HCI\Projekat\HCI_SJS\HCI_Project\HCI_Project\App.xaml
+7-2046109895
 
-17785054528
-20-929501184
-Dijalozi\EtiketaDialog.xaml;Dijalozi\LokalDialog.xaml;Dijalozi\TabelaLokala.xaml;Dijalozi\TipDialog.xaml;MainWindow.xaml;
+201627449705
+20-304406819
+Dijalozi\EtiketaDialog.xaml;Dijalozi\LokalDialog.xaml;Dijalozi\TabelaEtiketa.xaml;Dijalozi\TabelaLokala.xaml;Dijalozi\TabelaTipova.xaml;Dijalozi\TipDialog.xaml;MainWindow.xaml;
 
-True
+False
 

@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 namespace HCI_Project.Beans
 {
     
-    public class Etiketa : INotifyPropertyChanged
+    public class Etiketa : INotifyPropertyChanged,  IEquatable<Etiketa>
     {
         
         private string _oznaka;
@@ -75,6 +75,13 @@ namespace HCI_Project.Beans
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        public bool Equals(Etiketa obj)
+        {
+            if (obj.Oznaka.Equals(this.Oznaka))
+                return true;
+            return false;
         }
     }
 }

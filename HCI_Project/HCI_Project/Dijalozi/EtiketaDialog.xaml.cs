@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -21,31 +22,40 @@ namespace HCI_Project.Dijalozi
     public partial class EtiketaDialog : Window
     {
         private Etiketa etiketa;
-        private RepoEtikete repoEtiketa;
+        private MainWindow parent;
+        private Boolean ok = false;
 
-        public EtiketaDialog()
+        public EtiketaDialog(MainWindow p)
         {
+            this.parent = p;
             InitializeComponent();
             etiketa = new Etiketa();
-            repoEtiketa = new RepoEtikete();
             this.DataContext = etiketa;
         }
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs e)
         {
-            repoEtiketa.dodaj(etiketa);
+            parent.repoEtikete.dodaj(etiketa);
             MessageBox.Show("Uspešno ste dodali novu etiketu za lokal","Dodavanje etikete");
+            ok = true;
             this.Close();
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs e)
         {
+            ok = false;
             this.Close();
         }
 
         private void colorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
             etiketa.Boja = ColorPicker.SelectedColor.Value;
+        }
+
+        void EtiketaDialog_Closing(object sender, CancelEventArgs e)
+        {
+            if (!ok)
+                etiketa = null;
         }
     }
 }
