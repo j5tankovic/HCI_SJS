@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 
 namespace HCI_Project.Dijalozi
 {
@@ -21,19 +21,11 @@ namespace HCI_Project.Dijalozi
     /// </summary>
     public partial class TabelaLokala : Window
     {
-        private MainWindow parent;
-
-        public ObservableCollection<Lokal> lokali
-        {
-            get;
-            set;
-        }
+        public MainWindow parent { get; set; }
         
         public TabelaLokala(MainWindow p)
         {
             this.parent = p;
-            lokali = new ObservableCollection<Lokal>();
-            parent.repoLokali.lokali.ToList().ForEach(lokali.Add);
             InitializeComponent();
             this.DataContext = this;
             initializeCombos();
@@ -53,24 +45,10 @@ namespace HCI_Project.Dijalozi
             Lokal lokal = (Lokal)dgrMain.SelectedItem;
             if (lokal == null)
                 return;
-            izbaci(lokal);
             parent.repoLokali.izbaci(lokal);
             TipLokala tip = parent.nadjiTipLokala(lokal);
             if (tip != null)
                 tip.izbaciLokal(lokal);
-        }
-
-        private void izbaci(Lokal lokal)
-        {
-            for (int i = 0; i < lokali.Count; i++)
-            {
-                Lokal l = lokali[i];
-                if (l.Oznaka.Equals(lokal.Oznaka))
-                {
-                    lokali.RemoveAt(i);
-                    return;
-                }
-            }
         }
       
     }

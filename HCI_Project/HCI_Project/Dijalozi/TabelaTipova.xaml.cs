@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 
 namespace HCI_Project.Dijalozi
 {
@@ -22,19 +22,11 @@ namespace HCI_Project.Dijalozi
     public partial class TabelaTipova : Window
     {
 
-        private MainWindow parent;
-
-        public ObservableCollection<TipLokala> tipovi
-        {
-            get;
-            set;
-        }
+        public MainWindow parent { get; set; }
 
         public TabelaTipova(MainWindow p)
         {
             this.parent = p;
-            tipovi = new ObservableCollection<TipLokala>();
-            parent.repoTipovi.tipovi.ToList().ForEach(tipovi.Add);
             InitializeComponent();
             this.DataContext = this;
         }
@@ -44,21 +36,7 @@ namespace HCI_Project.Dijalozi
             TipLokala tip = (TipLokala)dgrMain.SelectedItem;
             if (tip == null)
                 return;
-            izbaci(tip);
             parent.repoTipovi.izbaci(tip);
-        }
-
-        private void izbaci(TipLokala tip)
-        {
-            for (int i = 0; i < tipovi.Count; i++)
-            {
-                TipLokala l = tipovi[i];
-                if (l.Oznaka.Equals(tip.Oznaka))
-                {
-                    tipovi.RemoveAt(i);
-                    return;
-                }
-            }
         }
     }
 }

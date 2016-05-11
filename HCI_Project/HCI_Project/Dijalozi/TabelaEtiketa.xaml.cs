@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 
 namespace HCI_Project.Dijalozi
 {
@@ -22,19 +22,11 @@ namespace HCI_Project.Dijalozi
     public partial class TabelaEtiketa : Window
     {
 
-        private MainWindow parent;
-
-        public ObservableCollection<Etiketa> etikete
-        {
-            get;
-            set;
-        }
+        public MainWindow parent { get; set; }
 
         public TabelaEtiketa(MainWindow p)
         {
             this.parent = p;
-            etikete = new ObservableCollection<Etiketa>();
-            parent.repoEtikete.etikete.ToList().ForEach(etikete.Add);
             InitializeComponent();
             this.DataContext = this;
         }
@@ -49,21 +41,7 @@ namespace HCI_Project.Dijalozi
             Etiketa etiketa = (Etiketa)dgrMain.SelectedItem;
             if (etiketa == null)
                 return;
-            izbaci(etiketa);
             parent.repoEtikete.izbaci(etiketa);
-        }
-
-        private void izbaci(Etiketa etiketa)
-        {
-            for (int i = 0; i < etikete.Count; i++)
-            {
-                Etiketa l = etikete[i];
-                if (l.Oznaka.Equals(etiketa.Oznaka))
-                {
-                    etikete.RemoveAt(i);
-                    return;
-                }
-            }
         }
     }
 }

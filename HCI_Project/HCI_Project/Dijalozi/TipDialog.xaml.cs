@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 using HCI_Project.Repos;
 
 namespace HCI_Project.Dijalozi

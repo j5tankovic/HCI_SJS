@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace HCI_Project.Repos
 {
     public class RepoEtikete
     {
-        public List<Etiketa> etikete { get; set; }
+        public ObservableCollection<Etiketa> etikete
+        {
+            get;
+            set;
+        }
         private readonly string datoteka;
 
 
         public RepoEtikete()
         {
-            etikete = new List<Etiketa>();
+            etikete = new ObservableCollection<Etiketa>();
             datoteka = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "etikete.txt");
             ucitaj();
         }
@@ -33,12 +39,12 @@ namespace HCI_Project.Repos
                 using (StreamReader reader = File.OpenText(datoteka))
                 {
                     JsonSerializer serializer = new JsonSerializer();
-                    etikete = (List<Etiketa>)serializer.Deserialize(reader, typeof(List<Etiketa>));
+                    etikete = (ObservableCollection<Etiketa>)serializer.Deserialize(reader, typeof(ObservableCollection<Etiketa>));
                 }
             }
             else
             {
-                etikete = new List<Etiketa>();
+                etikete = new ObservableCollection<Etiketa>();
             }
         }
 
@@ -57,19 +63,30 @@ namespace HCI_Project.Repos
 
         //Metode za dodavanje i brisanje
 
-        public void dodaj(Etiketa Etiketa)
+        public bool dodaj(Etiketa Etiketa)
         {
-            Etiketa temp = etikete.Find(tip => tip.Oznaka == Etiketa.Oznaka);
-            if (temp == null)
+            try
+            {
+                Etiketa temp = etikete.Single(tip => tip.Oznaka == Etiketa.Oznaka);
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
                 etikete.Add(Etiketa);
-            memorisi();
+                memorisi();
+                return true;
+            }
             
         }
 
 
         public void obrisi(String oznaka)
         {
-            etikete.RemoveAll(tip => tip.Oznaka==oznaka);
+            foreach (Etiketa e in etikete)
+            {
+                if (e.Oznaka.Equals(oznaka))
+                    etikete.Remove(e);
+            }
             memorisi();
         }
 
@@ -78,16 +95,24 @@ namespace HCI_Project.Repos
         {
             get
             {
-                return etikete.Find(tip => tip.Oznaka == oznaka);
+                try
+                {
+                    return etikete.Single(tip => tip.Oznaka == oznaka);
+                }
+                catch (InvalidOperationException) { return null; }
             }
             set
             {
-                Etiketa temp = etikete.Find(tip => tip.Oznaka == oznaka);
-                temp = value;
+                try
+                {
+                    Etiketa temp = etikete.Single(tip => tip.Oznaka == oznaka);
+                    temp = value;
+                }
+                catch (InvalidOperationException) { MessageBox.Show("Nije uspeo set!"); }
             }
         }
 
-        public List<Etiketa> sveEtikete()
+        public ObservableCollection<Etiketa> sveEtikete()
         {
             return etikete;
         }

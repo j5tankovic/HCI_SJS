@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HCI_Project.Dijalozi;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 using System.Collections.ObjectModel;
 using HCI_Project.Repos;
 
@@ -41,7 +41,7 @@ namespace HCI_Project
             repoTipovi = new RepoTipovi();
             repoLokali = new RepoLokali();
             repoEtikete = new RepoEtikete();
-            List<TipLokala> popunjeniTipovi = popuniLokalima();
+            ObservableCollection<TipLokala> popunjeniTipovi = popuniLokalima();
             Tipovi = new ObservableCollection<TipLokala>(popunjeniTipovi);
             /*
             TipLokala s = new TipLokala() { Naziv = "Tip Lokala 1" };
@@ -120,13 +120,17 @@ namespace HCI_Project
         }
 
 
-        private List<TipLokala> popuniLokalima()
+        private ObservableCollection<TipLokala> popuniLokalima()
         {
-            List<TipLokala> tipoviLokala = repoTipovi.sviTipovi();
-            List<Lokal> lokali = repoLokali.sviLokali();
+            ObservableCollection<TipLokala> tipoviLokala = repoTipovi.sviTipovi();
+            ObservableCollection<Lokal> lokali = repoLokali.sviLokali();
             foreach(var lokal in lokali)
             {
-                tipoviLokala.ForEach(x => { if (x.Oznaka == lokal.Tip.Oznaka) x.Lokali.Add(lokal); });
+                foreach (TipLokala t in tipoviLokala)
+                {
+                    if (t.Oznaka.Equals(lokal.Tip.Oznaka))
+                        t.Lokali.Add(lokal);
+                }
             }
 
             return tipoviLokala;

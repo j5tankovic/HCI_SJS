@@ -4,20 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace HCI_Project.Repos
 {
     public class RepoTipovi
     {
-        public List<TipLokala> tipovi { get; set; }
+        public ObservableCollection<TipLokala> tipovi { get; set; }
         private readonly string datoteka;
 
 
         public RepoTipovi()
         {
-            tipovi = new List<TipLokala>();
+            tipovi = new ObservableCollection<TipLokala>();
             datoteka = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tipovi.txt");
             ucitaj();
         }
@@ -33,12 +35,12 @@ namespace HCI_Project.Repos
                 using (StreamReader reader = File.OpenText(datoteka))
                 {
                     JsonSerializer serializer = new JsonSerializer();
-                    tipovi = (List<TipLokala>)serializer.Deserialize(reader, typeof(List<TipLokala>));
+                    tipovi = (ObservableCollection<TipLokala>)serializer.Deserialize(reader, typeof(ObservableCollection<TipLokala>));
                 }
             }
             else
             {
-                tipovi = new List<TipLokala>();
+                tipovi = new ObservableCollection<TipLokala>();
             }
         }
 
@@ -57,19 +59,30 @@ namespace HCI_Project.Repos
 
         //Metode za dodavanje i brisanje
 
-        public void dodaj(TipLokala tipLokala)
+        public bool dodaj(TipLokala tipLokala)
         {
-            TipLokala temp = tipovi.Find(tip => tip.Oznaka == tipLokala.Oznaka);
-            if (temp == null)
+            try
+            {
+                TipLokala temp = tipovi.Single(tip => tip.Oznaka == tipLokala.Oznaka);
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
                 tipovi.Add(tipLokala);
-            memorisi();
+                memorisi();
+                return true;
+            }
             
         }
 
 
         public void obrisi(String oznaka)
         {
-            tipovi.RemoveAll(tip => tip.Oznaka==oznaka);
+            foreach (TipLokala t in tipovi)
+            {
+                if (t.Oznaka.Equals(oznaka))
+                    tipovi.Remove(t);
+            }
             memorisi();
         }
 
@@ -78,16 +91,24 @@ namespace HCI_Project.Repos
         {
             get
             {
-                return tipovi.Find(tip => tip.Oznaka == oznaka);
+                try
+                {
+                    return tipovi.Single(tip => tip.Oznaka == oznaka);
+                }
+                catch (InvalidOperationException) { return null; }
             }
             set
             {
-                TipLokala temp = tipovi.Find(tip => tip.Oznaka == oznaka);
-                temp = value;
+                try
+                {
+                    TipLokala temp = tipovi.Single(tip => tip.Oznaka == oznaka);
+                    temp = value;
+                }
+                catch (InvalidOperationException) { MessageBox.Show("Nije uspeo set!"); }
             }
         }
 
-        public List<TipLokala> sviTipovi()
+        public ObservableCollection<TipLokala> sviTipovi()
         {
             return tipovi;
         }

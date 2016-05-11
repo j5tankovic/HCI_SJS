@@ -6,7 +6,7 @@ using System.Windows.Media;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace HCI_Project.Beans
+namespace HCI_Project.NotBeans
 {
     
     public class Etiketa : INotifyPropertyChanged,  IEquatable<Etiketa>

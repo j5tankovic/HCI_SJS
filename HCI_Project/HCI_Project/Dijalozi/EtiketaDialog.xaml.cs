@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 using HCI_Project.Repos;
 
 namespace HCI_Project.Dijalozi
@@ -35,10 +35,16 @@ namespace HCI_Project.Dijalozi
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs e)
         {
-            parent.repoEtikete.dodaj(etiketa);
-            MessageBox.Show("Uspešno ste dodali novu etiketu za lokal","Dodavanje etikete");
-            ok = true;
-            this.Close();
+            ok = parent.repoEtikete.dodaj(etiketa);
+            if (ok)
+            {
+                MessageBox.Show("Uspešno ste dodali novu etiketu za lokal", "Dodavanje etikete");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Vec postoji etiketa sa tom oznakom! Molimo izaberite drugu.");
+            }
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs e)

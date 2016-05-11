@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 
-namespace HCI_Project.Beans
+namespace HCI_Project.NotBeans
 {
     public enum SluzenjeAlkohola
     {

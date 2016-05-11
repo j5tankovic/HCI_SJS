@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Data;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 
 namespace HCI_Project.Converter
 {

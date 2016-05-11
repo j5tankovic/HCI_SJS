@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Newtonsoft.Json;
 
-namespace HCI_Project.Beans
+namespace HCI_Project.NotBeans
 {
 
     public class AddCommand : ICommand

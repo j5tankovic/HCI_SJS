@@ -27,7 +27,7 @@
 
         
 
-        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=lokali}" IsReadOnly="True"/>
+        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" IsReadOnly="True"/>
         <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>

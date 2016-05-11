@@ -2,23 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace HCI_Project.Repos
 {
     public class RepoLokali
     {
-        public List<Lokal> lokali { get; set; }
+        public ObservableCollection<Lokal> lokali { get; set; }
 
         private readonly string datoteka;
 
 
         public RepoLokali()
         {
-            lokali = new List<Lokal>();
+            lokali = new ObservableCollection<Lokal>();
             datoteka = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "lokali.txt");
             ucitaj();
         }
@@ -34,12 +36,12 @@ namespace HCI_Project.Repos
                 using (StreamReader reader = File.OpenText(datoteka))
                 {
                     JsonSerializer serializer = new JsonSerializer();
-                    lokali = (List<Lokal>)serializer.Deserialize(reader, typeof(List<Lokal>));
+                    lokali = (ObservableCollection<Lokal>)serializer.Deserialize(reader, typeof(ObservableCollection<Lokal>));
                 }
             }
             else
             {
-                lokali = new List<Lokal>();
+                lokali = new ObservableCollection<Lokal>();
             }
         }
 
@@ -59,18 +61,29 @@ namespace HCI_Project.Repos
 
         //Metode za dodavanje i brisanje
 
-        public void dodaj(Lokal Lokal)
+        public bool dodaj(Lokal Lokal)
         {
-            Lokal temp = lokali.Find(tip => tip.Oznaka == Lokal.Oznaka);
-            if (temp == null)
+            try
+            {
+                Lokal temp = lokali.Single(tip => tip.Oznaka == Lokal.Oznaka);
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
                 lokali.Add(Lokal);
-            //memorisi();
+                memorisi();
+                return true;
+            }
         }
 
 
         public void obrisi(String oznaka)
         {
-            lokali.RemoveAll(tip => tip.Oznaka==oznaka);
+            foreach (Lokal l in lokali)
+            {
+                if (l.Oznaka.Equals(oznaka))
+                    lokali.Remove(l);
+            }
             memorisi();
         }
 
@@ -79,16 +92,24 @@ namespace HCI_Project.Repos
         {
             get
             {
-                return lokali.Find(tip => tip.Oznaka == oznaka);
+                try
+                {
+                    return lokali.Single(tip => tip.Oznaka == oznaka);
+                }
+                catch (InvalidOperationException) { return null; }
             }
             set
             {
-                Lokal temp = lokali.Find(tip => tip.Oznaka == oznaka);
-                temp = value;
+                try
+                {
+                    Lokal temp = lokali.Single(tip => tip.Oznaka == oznaka);
+                    temp = value;
+                }
+                catch (InvalidOperationException) { MessageBox.Show("Nije uspeo set!"); }
             }
         }
 
-        public List<Lokal> sviLokali()
+        public ObservableCollection<Lokal> sviLokali()
         {
             return lokali;
         }

@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-using HCI_Project.Beans;
+using HCI_Project.NotBeans;
 using HCI_Project.Repos;
 
 namespace HCI_Project.Dijalozi

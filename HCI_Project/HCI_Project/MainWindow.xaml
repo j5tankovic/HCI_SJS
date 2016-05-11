@@ -1,7 +1,7 @@
 ﻿<Window x:Class="HCI_Project.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:HCI_Project.Beans"
+        xmlns:local="clr-namespace:HCI_Project.NotBeans"
         Title="MainWindow" Height="680" Width="1024"
         Closing="MainWindow_Closing">
     <Window.Resources>

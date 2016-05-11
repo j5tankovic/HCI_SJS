@@ -16,7 +16,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=etikete}" IsReadOnly="True"/>
+            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True"/>
             <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
