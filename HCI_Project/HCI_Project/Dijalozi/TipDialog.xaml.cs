@@ -6,6 +6,7 @@ using System.Windows;
 using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Forms;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -21,7 +22,7 @@ namespace HCI_Project.Dijalozi
     /// </summary>
     public partial class TipDialog : Window
     {
-        private TipLokala tipLokala;
+        public TipLokala tipLokala { get; set; }
         private Boolean ok = false;
 
         public TipLokala TipLokala
@@ -43,10 +44,14 @@ namespace HCI_Project.Dijalozi
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs args)
         {
 
-            parent.repoTipovi.dodaj(tipLokala);
-            MessageBox.Show("Uspešno ste dodali novi tip lokala", "Dodavanje tipa lokala");
-            ok = true;
-            this.Close();
+            ok = parent.repoTipovi.dodaj(tipLokala);
+            if (ok)
+            {
+                System.Windows.MessageBox.Show("Uspešno ste dodali novi tip lokala", "Dodavanje tipa lokala");
+                this.Close();
+            }
+            else
+                System.Windows.MessageBox.Show("Vec postoji tip sa tom oznakom! Molimo izaberite drugu.");
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs args)
@@ -61,7 +66,21 @@ namespace HCI_Project.Dijalozi
                 tipLokala = null;
         }
 
-
+        private void izaberiFajlClicked(object sender, RoutedEventArgs args)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.RestoreDirectory = true;
+            dialog.Filter = "Image Files (*.bmp, *.jpg)|*.bmp;*.jpg";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                String filename = dialog.FileName;
+                if (filename != null && !filename.Equals(""))
+                {
+                    
+                    tipLokala.Slika = filename;
+                }
+            }
+        }
         
     }
 }

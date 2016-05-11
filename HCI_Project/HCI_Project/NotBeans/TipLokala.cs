@@ -36,6 +36,7 @@ namespace HCI_Project.NotBeans
         private string _oznaka;
         private string _naziv;
         private string _opis;
+        private string _slika;
 
         public string Oznaka
         {
@@ -83,6 +84,22 @@ namespace HCI_Project.NotBeans
                 {
                     _opis = value;
                     OnPropertyChanged("Opis");
+                }
+            }
+        }
+
+        public string Slika
+        {
+            get
+            {
+                return _slika;
+            }
+            set
+            {
+                if (value != _slika)
+                {
+                    _slika = value;
+                    OnPropertyChanged("Slika");
                 }
             }
         }

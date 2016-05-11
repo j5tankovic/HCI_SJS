@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -44,13 +45,17 @@ namespace HCI_Project.Dijalozi
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs args)
         {
-            parent.repoLokali.dodaj(lokal);
-            TipLokala tip = parent.repoTipovi[lokal.Tip.Oznaka];
-            //if (tip != null)
+            ok = parent.repoLokali.dodaj(lokal);
+            if (ok)
+            {
+                TipLokala tip = parent.repoTipovi[lokal.Tip.Oznaka];
+                //if (tip != null)
                 //tip.Lokali.Add(lokal);
-            MessageBox.Show("Uspešno ste dodali novi lokal", "Dodavanje lokala");
-            ok = true;
-            this.Close();
+                System.Windows.MessageBox.Show("Uspešno ste dodali novi lokal", "Dodavanje lokala");
+                this.Close();
+            }
+            else
+                System.Windows.MessageBox.Show("Vec postoji lokal sa tom oznakom! Molimo izaberite drugu.");
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs args)
@@ -72,6 +77,20 @@ namespace HCI_Project.Dijalozi
         {
             if (!ok)
                 lokal = null;
+        }
+
+        private void izaberiFajlClicked(object sender, RoutedEventArgs args)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.RestoreDirectory = true;
+            dialog.Filter = "Image Files (*.bmp, *.jpg)|*.bmp;*.jpg";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                String filename = dialog.FileName;
+                if (filename != null && !filename.Equals(""))
+                    lokal.Slika = filename;
+            }
+
         }
 
         

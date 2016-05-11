@@ -30,6 +30,7 @@ namespace HCI_Project.NotBeans
         private int _kapacitet;
         private string _datum;
         private List<Etiketa> _etikete;
+        private string _slika;
 
         public string Oznaka
         {
@@ -220,6 +221,20 @@ namespace HCI_Project.NotBeans
                     _etikete = value;
                     OnPropertyChanged("Etikete");
                 }
+            }
+        }
+
+        public String Slika
+        {
+            get
+            {
+                return _slika;
+            }
+            set
+            {
+                if (value != _slika)
+                    _slika = value;
+                OnPropertyChanged("Slika");
             }
         }
 
