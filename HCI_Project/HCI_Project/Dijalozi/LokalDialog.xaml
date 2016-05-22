@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:HCI_Project.Converter"
-        Title="Unos novog lokala" Height="550" Width="453"
+        Title="Unos novog lokala" Height="663" Width="790"
         Closing="LokalDialog_Closing">
     <Window.Resources>
         <sys:String x:Key="strOznaka">Oznaka lokala: </sys:String>
@@ -18,6 +18,7 @@
         <sys:String x:Key="strKapacitet">Kapacitet: </sys:String>
         <sys:String x:Key="strDatum">Datum otvaranja: </sys:String>
         <sys:String x:Key="strIkonica">Ikonica: </sys:String>
+        <sys:String x:Key="strEtikete">Etikete:</sys:String>
         <sys:Boolean x:Key="True">True</sys:Boolean>
         <sys:Boolean x:Key="False">False</sys:Boolean>
         <local:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
@@ -26,7 +27,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -34,6 +35,8 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -41,7 +44,6 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
@@ -52,6 +54,8 @@
                 <Setter Property="Margin" Value="10 3 0 0"/>
             </Style>
         </Grid.Resources>
+        
+        
         
         
         <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource FamilyAndSize}" Text="{StaticResource ResourceKey=strOznaka}"></TextBlock>
@@ -66,7 +70,8 @@
         <TextBlock Grid.Column="0" Grid.Row="9" Style="{StaticResource FamilyAndSize}" Text="{StaticResource ResourceKey=strKapacitet}"></TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="10" Style="{StaticResource FamilyAndSize}" Text="{StaticResource ResourceKey=strDatum}"></TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="11" Style="{StaticResource FamilyAndSize}" Text="{StaticResource ResourceKey=strIkonica}"></TextBlock>
-
+        <TextBlock Grid.Column="0" Grid.Row="12" Style="{StaticResource FamilyAndSize}" Text="{StaticResource ResourceKey=strEtikete}"></TextBlock>
+        
         <TextBox Grid.Column="1" Grid.Row="0" Margin="10 0 10 5" Text="{Binding Path=Oznaka}"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="1" Margin="10 0 10 5" Text="{Binding Path=Naziv}"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="2" Margin="10 0 10 5" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding Path=Opis}"></TextBox>
@@ -87,10 +92,26 @@
         <ComboBox Grid.Column="1" Grid.Row="8" Margin="10 0 10 5" SelectedValue="{Binding Path=Cene}" Name="comboCene"></ComboBox>
         <TextBox Grid.Column="1" Grid.Row="9" Margin="10 0 10 5" Text="{Binding Path=Kapacitet}"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="10" Margin="10 0 10 5" Text="{Binding Path=Datum}"></TextBox>
-        <Button Grid.Column="1" Grid.Row="11" Width="Auto" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" Click="izaberiFajlClicked">Izaberi ikonicu</Button>
-        <TextBox Grid.Column="2" Grid.Row="11" FontFamily="Arial" Text="{Binding Path=Slika}"></TextBox>
-        
-        <StackPanel Grid.Column="1" Grid.Row="14" Orientation="Horizontal" Margin="10 0 10 5" HorizontalAlignment="Right">
+        <Grid Grid.Row="11" Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="473*" />
+                <ColumnDefinition Width="111*" />
+            </Grid.ColumnDefinitions>
+            <Border Background="WhiteSmoke" Grid.Column="1" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
+                <Image Name="Ikonica" Source="{Binding ImgSrc}"/>
+            </Border>
+            <Button Grid.Column="0" Width="91" HorizontalAlignment="Right" Margin="0,37,0,5" FontFamily="Arial" FontSize="13" Click="izaberiFajlClicked">Izaberi ikonicu</Button>
+        </Grid>
+
+        <Grid Grid.Row="12" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="473*" />
+                <ColumnDefinition Width="111*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Width="91" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">Taguj lokal</Button>
+        </Grid>
+
+        <StackPanel Grid.Column="1" Grid.Row="15" Orientation="Horizontal" Margin="10 0 10 5" HorizontalAlignment="Right">
             <Button Margin="0 0 5 0" FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonPotvrdiClicked" IsDefault="True">Potvrdi</Button>
             <Button FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonOdustaniClicked" IsCancel="True">Odustani</Button>           
         </StackPanel>

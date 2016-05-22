@@ -68,6 +68,7 @@ namespace HCI_Project.Dijalozi
 
         private void izaberiFajlClicked(object sender, RoutedEventArgs args)
         {
+            /*
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.RestoreDirectory = true;
             dialog.Filter = "Image Files (*.bmp, *.jpg)|*.bmp;*.jpg";
@@ -79,6 +80,19 @@ namespace HCI_Project.Dijalozi
                     
                     tipLokala.Slika = filename;
                 }
+            }
+             * */
+
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Izaberite ikonicu";
+            fileDialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+                                "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                                "Portable Network Graphic (*.png)|*.png";
+            if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Ikonica.Source = new BitmapImage(new Uri(fileDialog.FileName));
+                tipLokala.Slika = fileDialog.FileName;
+
             }
         }
         

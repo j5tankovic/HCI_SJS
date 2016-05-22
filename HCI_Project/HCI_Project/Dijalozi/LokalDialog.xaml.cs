@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -15,6 +14,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using HCI_Project.NotBeans;
 using HCI_Project.Repos;
+using System.Windows.Forms;
 
 namespace HCI_Project.Dijalozi
 {
@@ -81,6 +81,7 @@ namespace HCI_Project.Dijalozi
 
         private void izaberiFajlClicked(object sender, RoutedEventArgs args)
         {
+            /*
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.RestoreDirectory = true;
             dialog.Filter = "Image Files (*.bmp, *.jpg)|*.bmp;*.jpg";
@@ -90,13 +91,28 @@ namespace HCI_Project.Dijalozi
                 if (filename != null && !filename.Equals(""))
                     lokal.Slika = filename;
             }
+             * */
+
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Izaberite ikonicu";
+            fileDialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+                                "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                                "Portable Network Graphic (*.png)|*.png";
+            if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Ikonica.Source = new BitmapImage(new Uri(fileDialog.FileName));
+                lokal.Slika = fileDialog.FileName;
+
+            }
 
         }
 
-        
+        private void izberiEtikete(object sender, RoutedEventArgs args)
+        {
+            Etikete etikete = new Etikete(this);
+            etikete.Show();
 
-
-      
+        }
 
 
     }

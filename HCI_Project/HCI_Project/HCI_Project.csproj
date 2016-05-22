@@ -87,6 +87,9 @@
     </ApplicationDefinition>
     <Compile Include="Converter\EnumConverter.cs" />
     <Compile Include="Converter\RadioButtonCheckedConverter.cs" />
+    <Compile Include="Dijalozi\Etikete.xaml.cs">
+      <DependentUpon>Etikete.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dijalozi\TabelaEtiketa.xaml.cs">
       <DependentUpon>TabelaEtiketa.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,10 @@
     <Compile Include="Repos\RepoLokali.cs" />
     <Compile Include="Repos\RepoTipovi.cs" />
     <Page Include="Dijalozi\EtiketaDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dijalozi\Etikete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,6 +204,12 @@
     <Resource Include="Resources\tipovi.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

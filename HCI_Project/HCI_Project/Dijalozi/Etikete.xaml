@@ -1,0 +1,94 @@
+﻿<Window x:Class="HCI_Project.Dijalozi.Etikete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tagovanje lokala" Height="300" Width="536"
+        Loaded="WindowLoaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Margin="0 5 0 5" Opacity="0.5"  Grid.ColumnSpan="3">Postojece etikete</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" Margin="0 5 0 5" Opacity="0.5"  Grid.ColumnSpan="3">Trenutni tagovi</TextBlock>
+
+        <ListBox Name="sveEtikete" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Grid.Column="0">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{Binding Boja}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <TextBlock Grid.Column="1" Text="{Binding Oznaka}"/>
+                        <Button Name="btnDodaj" Grid.Column="2" Click="dodajEtiketu" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <Button.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding ="{Binding ElementName=sveEtikete, Path=SelectedIndex}" Value="-1">
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <StackPanel>
+                                <Image Source="/HCI_Project;component/Resources/add.png"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListBox Name="dodateEtikete" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Grid.Column="0">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{Binding Boja}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <TextBlock Grid.Column="1" Text="{Binding Oznaka}"/>
+                        <Button Name="btnUkloni"  Grid.Column="2" Click="ukloniEtiketu" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" >
+                            <Button.Style>
+                                <Style>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding ="{Binding ElementName=dodateEtikete, Path=SelectedIndex}" Value="-1">
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <StackPanel>
+                                <Image Source="/HCI_Project;component/Resources/remove.png"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="5 0 10 5" HorizontalAlignment="Right">
+            <Button Margin="0 0 5 0" FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonPotvrdiClicked">Potvrdi</Button>
+            <Button FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonOdustaniClicked" >Odustani</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
