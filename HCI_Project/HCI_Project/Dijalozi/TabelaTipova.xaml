@@ -11,16 +11,51 @@
         <Grid DockPanel.Dock="Bottom">
             <Grid.RowDefinitions>
                 <RowDefinition />
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoTipovi.tipovi}" IsReadOnly="True"/>
+            
+            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoTipovi.tipovi}" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
+                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
+                    <DataGridTextColumn Header="Ikonica" Binding="{Binding Slika}" Width="3*"/>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <DockPanel Background="Honeydew">
+                            <Image DockPanel.Dock="Left" Height="80"  Source="{Binding Path=Slika}"/>
+                            <Grid Margin="5,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Lokali:"  Grid.Column="0" Grid.Row="1" FontWeight="Black" Margin="5,5"/>
+                                <ListBox ItemsSource="{Binding Path=Lokali}"  Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Stretch">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Naziv}">
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </DockPanel>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+
             <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -42,6 +77,16 @@
                 <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5"></TextBox>
                 <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Naziv}" Margin="5 5 10 5"></TextBox>
                 <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
+                <Grid Grid.Row="3" Grid.Column="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Background="WhiteSmoke" Grid.Column="1" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
+                        <Image Source="{Binding Path=Slika}" />
+                    </Border>
+                    <Button Width="108" HorizontalAlignment="Right" Margin="0,111,0,5" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
+                </Grid>
             </Grid>
         </Grid>
     </DockPanel>
