@@ -170,3 +170,6 @@ C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_SJS\HCI_Project\HCI_Project\ob
 C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.exe
 C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.pdb
 C:\Users\user\Desktop\GitHub_Projects\HCI_SJS\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.csprojResolveAssemblyReference.cache
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\Etikete.baml
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\Dijalozi\Etikete.g.cs
+F:\FAX\III godina\VI\Interakcija čovek računar\Projekat\HCI_SJS\HCI_Project\HCI_Project\obj\x86\Debug\HCI_Project.csprojResolveAssemblyReference.cache

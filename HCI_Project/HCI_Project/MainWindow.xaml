@@ -60,7 +60,7 @@
                 <ColumnDefinition  Width="1*"/>
                 <ColumnDefinition  Width="4*"/>
             </Grid.ColumnDefinitions>
-            <TreeView Grid.Column="0" Grid.Row="0" Name="trvLokali" ItemsSource="{Binding Path=repoTipovi.tipovi}">
+            <TreeView Grid.Column="0" Grid.Row="0" Name="trvLokali" ItemsSource="{Binding Path=repoTipovi.tipovi}" PreviewMouseLeftButtonDown="treeView1_PreviewMouseLeftButtonDown" MouseMove="treeView1_PreviewMouseMove">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type local:TipLokala}" ItemsSource="{Binding Lokali}">
                         <StackPanel Orientation="Horizontal">
@@ -79,7 +79,7 @@
                             </StackPanel.ContextMenu>
                         </StackPanel>
                     </HierarchicalDataTemplate>
-                    <DataTemplate DataType="{x:Type local:Lokal}">
+                    <DataTemplate DataType="{x:Type local:Lokal}" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="0,0,5,0">
                                 <Image.Style>
@@ -105,7 +105,16 @@
                     x:Name="theScrollViewer"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                    <Image  x:Name="myImage" Stretch="None"/>
+                    <Canvas Name="mapa" AllowDrop="True"  MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                        <Canvas.Background>
+                            <VisualBrush  >
+                                <VisualBrush.Visual>
+                                    <Image  x:Name="myImage" Stretch="None"/>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Canvas.Background>
+                    </Canvas>
+                    
                 </ScrollViewer>
                 <ScrollViewer Grid.Column="0" Grid.Row="1"
                     HorizontalScrollBarVisibility="Disabled"
