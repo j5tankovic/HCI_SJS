@@ -22,6 +22,15 @@ namespace HCI_Project.Dijalozi
     public partial class TabelaLokala : Window
     {
         public MainWindow parent { get; set; }
+
+        ObservableCollection<Lokal> sviLokali = new ObservableCollection<Lokal>();
+
+        public ObservableCollection<Lokal> SviLokali
+        {
+            get { return sviLokali; }
+            set { sviLokali = value; }
+        }
+
         
         public TabelaLokala(MainWindow p)
         {
@@ -29,6 +38,8 @@ namespace HCI_Project.Dijalozi
             InitializeComponent();
             this.DataContext = this;
             initializeCombos();
+            this.sviLokali = this.parent.repoLokali.sviLokali();
+            dgrMain.ItemsSource = this.sviLokali;
         }
 
         private void initializeCombos()
@@ -50,6 +61,9 @@ namespace HCI_Project.Dijalozi
             if (tip != null)
                 tip.izbaciLokal(lokal);
         }
+
+
+
       
     }
 

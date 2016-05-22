@@ -3,12 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:HCI_Project.Converter"
+        xmlns:library="clr-namespace:HCI_Project.Library"
         Title="TabelaLokala" Height="594" Width="737">
     <Window.Resources>
         <sys:Boolean x:Key="True">True</sys:Boolean>
         <sys:Boolean x:Key="False">False</sys:Boolean>
         <local:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
         <local:EnumConverter x:Key="EnumConverter" />
+        <library:CustomImagePathConverter x:Key="CustomImagePathConverter" />
     </Window.Resources>
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
@@ -25,10 +27,81 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        
 
-        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" IsReadOnly="True"/>
-        <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
+
+            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Oznaka" Binding="{Binding Naziv}"/>
+                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}"/>
+                    <DataGridTemplateColumn Header="Tip">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path= Tip.Naziv}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Sluzenje alkohola">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Alkohol, Converter={StaticResource EnumConverter}}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridCheckBoxColumn Header="Hendikep" Binding="{Binding Path= Hendikep}"></DataGridCheckBoxColumn>
+                    <DataGridCheckBoxColumn Header="Rezervacije" Binding="{Binding Path= Rezervacije}"></DataGridCheckBoxColumn>
+                    <DataGridCheckBoxColumn Header="Pusenje" Binding="{Binding Path= Pusenje}"></DataGridCheckBoxColumn>
+                    <DataGridTemplateColumn Header="Kategorije cena">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Cene, Converter={StaticResource EnumConverter}}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Datum otvaranja" Binding="{Binding Datum}"/>
+                    <DataGridTextColumn Header="Slika" Binding="{Binding Slika}"/>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <DockPanel Background="Honeydew">
+                        <Image DockPanel.Dock="Left" Height="80">
+                        <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="{Binding Converter= {StaticResource CustomImagePathConverter}, Mode=OneTime}"/>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                            <Grid Margin="5,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Opis:" Grid.Column="0" Grid.Row="0" FontWeight="Black" Margin="5,5" />
+                                <TextBlock Text="Tip lokala:"  Grid.Column="0" Grid.Row="1" FontWeight="Black" Margin="5,5"/>
+                                <TextBlock Text="Etikete:"  Grid.Column="0" Grid.Row="2" FontWeight="Black" Margin="5,5"/>
+                                <TextBlock Text="{Binding Opis}" Grid.Column="1" Grid.Row="0" Margin="5,5"/>
+                                <TextBlock Text="{Binding Tip,Path=Naziv}" Grid.Column="1" Grid.Row="1" Margin="5,5"/>
+                                <ListBox ItemsSource="{Binding Etikete}"  Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Stretch">
+                                 <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Oznaka}">
+                                                <TextBlock.Foreground>
+                                                    <SolidColorBrush Color="{Binding Boja}"/>
+                                                </TextBlock.Foreground>
+                                            </TextBlock> 
+                                        </DataTemplate>
+                                 </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </DockPanel>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+            <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
