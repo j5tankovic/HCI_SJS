@@ -4,7 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:library="clr-namespace:HCI_Project.Library"
-        Title="TabelaLokala" Height="594" Width="737">
+        Title="TabelaLokala" Height="637" Width="737" Loaded="Window_Loaded">
     <Window.Resources>
         <sys:Boolean x:Key="True">True</sys:Boolean>
         <sys:Boolean x:Key="False">False</sys:Boolean>
@@ -31,46 +31,40 @@
 
             <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" IsReadOnly="True" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Oznaka" Binding="{Binding Naziv}"/>
-                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}"/>
-                    <DataGridTemplateColumn Header="Tip">
+                    <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
+                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
+                    <DataGridTemplateColumn Header="Tip" Width="3*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Path= Tip.Naziv}"></TextBlock>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Sluzenje alkohola">
+                    <DataGridTemplateColumn Header="Sluzenje alkohola" Width="3*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Alkohol, Converter={StaticResource EnumConverter}}"></TextBlock>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridCheckBoxColumn Header="Hendikep" Binding="{Binding Path= Hendikep}"></DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Rezervacije" Binding="{Binding Path= Rezervacije}"></DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Pusenje" Binding="{Binding Path= Pusenje}"></DataGridCheckBoxColumn>
-                    <DataGridTemplateColumn Header="Kategorije cena">
+                    <DataGridCheckBoxColumn Header="Hendikep" Binding="{Binding Path= Hendikep}" Width="3*"></DataGridCheckBoxColumn>
+                    <DataGridCheckBoxColumn Header="Rezervacije" Binding="{Binding Path= Rezervacije}" Width="3*"></DataGridCheckBoxColumn>
+                    <DataGridCheckBoxColumn Header="Pusenje" Binding="{Binding Path= Pusenje}" Width="3*"></DataGridCheckBoxColumn>
+                    <DataGridTemplateColumn Header="Kategorije cena" Width="3*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Cene, Converter={StaticResource EnumConverter}}"></TextBlock>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Datum otvaranja" Binding="{Binding Datum}"/>
-                    <DataGridTextColumn Header="Slika" Binding="{Binding Slika}"/>
+                    <DataGridTextColumn Header="Datum otvaranja" Binding="{Binding Datum}" Width="3*"/>
+                    <DataGridTextColumn Header="Slika" Binding="{Binding Slika}" Width="3*"/>
                 </DataGrid.Columns>
                 <DataGrid.RowDetailsTemplate>
                     <DataTemplate>
                         <DockPanel Background="Honeydew">
-                        <Image DockPanel.Dock="Left" Height="80">
-                        <Image.Style>
-                                <Style TargetType="Image">
-                                    <Setter Property="Source" Value="{Binding Converter= {StaticResource CustomImagePathConverter}, Mode=OneTime}"/>
-                                </Style>
-                            </Image.Style>
-                        </Image>
-                            <Grid Margin="5,5">
+                            <Image DockPanel.Dock="Left" Height="80"  Source="{Binding Path=Slika}"/>  
+                                <Grid Margin="5,5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
@@ -84,7 +78,7 @@
                                 <TextBlock Text="Tip lokala:"  Grid.Column="0" Grid.Row="1" FontWeight="Black" Margin="5,5"/>
                                 <TextBlock Text="Etikete:"  Grid.Column="0" Grid.Row="2" FontWeight="Black" Margin="5,5"/>
                                 <TextBlock Text="{Binding Opis}" Grid.Column="1" Grid.Row="0" Margin="5,5"/>
-                                <TextBlock Text="{Binding Tip,Path=Naziv}" Grid.Column="1" Grid.Row="1" Margin="5,5"/>
+                                <TextBlock Text="{Binding Path= Tip.Naziv}" Grid.Column="1" Grid.Row="1" Margin="5,5"/>
                                 <ListBox ItemsSource="{Binding Etikete}"  Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Stretch">
                                  <ListBox.ItemTemplate>
                                         <DataTemplate>
@@ -101,7 +95,7 @@
                     </DataTemplate>
                 </DataGrid.RowDetailsTemplate>
             </DataGrid>
-            <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
+            <Grid Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="382" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -114,8 +108,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+                </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
@@ -164,8 +159,17 @@
             <ComboBox Name="comboCene" Grid.Column="1" Grid.Row="8" Margin="5 5 10 5" SelectedValue="{Binding Path=Cene, Converter={StaticResource EnumConverter}}"></ComboBox>
             <TextBox Grid.Column="1" Grid.Row="9" Margin="5 5 10 5" Text="{Binding Path=Kapacitet}"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="10" Margin="5 5 10 5" Text="{Binding Path=Datum}"></TextBox>
-            <Button Grid.Column="1" Grid.Row="11" Width="Auto" Margin="5 5 10 5" FontFamily="Arial" FontSize="13">Izaberi ikonicu</Button>
-        </Grid>
+                <Grid Grid.Row="11" Grid.Column="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="473*" />
+                        <ColumnDefinition Width="111*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Background="WhiteSmoke" Grid.Column="1" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
+                        <Image Source="{Binding Path=Slika, Mode=OneTime}" />
+                    </Border>
+                    <Button Width="111" HorizontalAlignment="Right" Margin="0,37,0,5" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
+                </Grid>
+            </Grid>
     </Grid>
     </DockPanel>
 </Window>

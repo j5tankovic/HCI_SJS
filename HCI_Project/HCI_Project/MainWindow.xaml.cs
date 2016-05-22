@@ -73,7 +73,7 @@ namespace HCI_Project
         private void Dodaj_Tip(object sender, RoutedEventArgs e)
         {
             TipDialog tip = new TipDialog(this);
-            tip.Closed += dialogTipClosed;
+            //tip.Closed += dialogTipClosed;
             tip.InitializeComponent();
             tip.Show();
         }

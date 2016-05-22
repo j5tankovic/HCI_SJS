@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using HCI_Project.NotBeans;
+using System.Windows.Forms;
 
 namespace HCI_Project.Dijalozi
 {
@@ -22,24 +23,14 @@ namespace HCI_Project.Dijalozi
     public partial class TabelaLokala : Window
     {
         public MainWindow parent { get; set; }
-
-        ObservableCollection<Lokal> sviLokali = new ObservableCollection<Lokal>();
-
-        public ObservableCollection<Lokal> SviLokali
-        {
-            get { return sviLokali; }
-            set { sviLokali = value; }
-        }
-
-        
+  
         public TabelaLokala(MainWindow p)
         {
             this.parent = p;
             InitializeComponent();
             this.DataContext = this;
             initializeCombos();
-            this.sviLokali = this.parent.repoLokali.sviLokali();
-            dgrMain.ItemsSource = this.sviLokali;
+            dgrMain.ItemsSource = this.parent.repoLokali.sviLokali();
         }
 
         private void initializeCombos()
@@ -63,6 +54,28 @@ namespace HCI_Project.Dijalozi
         }
 
 
+        public void promeniIkonicu(object sender, RoutedEventArgs args)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Izaberite ikonicu";
+            fileDialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+                                "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                                "Portable Network Graphic (*.png)|*.png";
+            if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Lokal l = this.dgrMain.SelectedItem as Lokal;
+                if (l != null)
+                {
+                    l.Slika = fileDialog.FileName;
+                }
+
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
 
       
     }
