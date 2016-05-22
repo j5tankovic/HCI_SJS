@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.ComponentModel;
+
 
 namespace HCI_Project.NotBeans
 {
@@ -31,6 +33,8 @@ namespace HCI_Project.NotBeans
         private string _datum;
         private List<Etiketa> _etikete;
         private string _slika;
+        private double _pozicijaX = -1;
+        private double _pozicijaY = -1;
 
         public string Oznaka
         {
@@ -235,6 +239,34 @@ namespace HCI_Project.NotBeans
                 if (value != _slika)
                     _slika = value;
                 OnPropertyChanged("Slika");
+            }
+        }
+
+        public double PozicijaX
+        {
+            get
+            {
+                return _pozicijaX;
+            }
+            set
+            {
+                if (value != _pozicijaX)
+                    _pozicijaX = value;
+                OnPropertyChanged("PozicijaX");
+            }
+        }
+
+        public double PozicijaY
+        {
+            get
+            {
+                return _pozicijaY;
+            }
+            set
+            {
+                if (value != _pozicijaY)
+                    _pozicijaY = value;
+                OnPropertyChanged("PozicijaY");
             }
         }
 

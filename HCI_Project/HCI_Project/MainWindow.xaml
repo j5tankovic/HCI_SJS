@@ -93,7 +93,7 @@
                     x:Name="theScrollViewer"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                    <Canvas Name="mapa" AllowDrop="True"  MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                    <Canvas Name="mapa" AllowDrop="True" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
                         <Canvas.Background>
                             <VisualBrush  >
                                 <VisualBrush.Visual>
@@ -130,7 +130,7 @@
                                     <TextBlock Grid.Column="0" Grid.Row="3">Kapacitet:</TextBlock>
                                     <TextBlock Grid.Column="0" Grid.Row="4">Datum otvaranja:</TextBlock>
 
-                                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}"></TextBox>
+                                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True"></TextBox>
                                     <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Naziv}"></TextBox>
                                     <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}"></TextBox>
                                     <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Path=Kapacitet}"></TextBox>
@@ -154,7 +154,7 @@
                                     <TextBlock Grid.Column="0" Grid.Row="1">Naziv:</TextBlock>
                                     <TextBlock Grid.Column="0" Grid.Row="2">Opis:</TextBlock>
 
-                                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}"></TextBox>
+                                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True"></TextBox>
                                     <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Naziv}"></TextBox>
                                     <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}"></TextBox>
                                     <Button Grid.Column="1" Grid.Row="3" FontFamily="Arial" FontSize="13" Width="150" Margin="0 5 0 0" HorizontalAlignment="Center" Click="Prikazi_Tabelu_Tipova">Prikazi u tabeli</Button>

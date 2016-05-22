@@ -35,10 +35,14 @@ namespace HCI_Project.Dijalozi
 
         private void Delete(object sender, RoutedEventArgs args)
         {
-            TipLokala tip = (TipLokala)dgrMain.SelectedItem;
-            if (tip == null)
-                return;
-            parent.repoTipovi.izbaci(tip);
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                TipLokala tip = (TipLokala)dgrMain.SelectedItem;
+                if (tip == null)
+                    return;
+                parent.repoTipovi.izbaci(tip);
+            }
         }
 
         public void promeniIkonicu(object sender, RoutedEventArgs args)

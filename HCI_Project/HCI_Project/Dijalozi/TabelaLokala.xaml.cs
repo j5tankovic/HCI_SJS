@@ -44,13 +44,18 @@ namespace HCI_Project.Dijalozi
 
         private void Delete(object sender, RoutedEventArgs args)
         {
-            Lokal lokal = (Lokal)dgrMain.SelectedItem;
-            if (lokal == null)
-                return;
-            parent.repoLokali.izbaci(lokal);
-            TipLokala tip = parent.nadjiTipLokala(lokal);
-            if (tip != null)
-                tip.izbaciLokal(lokal);
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                Lokal lokal = (Lokal)dgrMain.SelectedItem;
+                if (lokal == null)
+                    return;
+                parent.removeLokalFromMap(lokal);
+                parent.repoLokali.izbaci(lokal);
+                TipLokala tip = parent.nadjiTipLokala(lokal);
+                if (tip != null)
+                    tip.izbaciLokal(lokal);
+            }
         }
 
 

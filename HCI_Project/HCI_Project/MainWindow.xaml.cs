@@ -30,6 +30,7 @@ namespace HCI_Project
 
         Image drag_image = null;
         Point _DragStart = new Point();
+        Point _CanvasDragStart = new Point();
 
         public MainWindow()
         {
@@ -39,6 +40,7 @@ namespace HCI_Project
             repoLokali = new RepoLokali();
             repoEtikete = new RepoEtikete();
             popuniLokalima();
+            initializeMap();
             //ObservableCollection<TipLokala> popunjeniTipovi = popuniLokalima();
             /*
             TipLokala s = new TipLokala() { Naziv = "Tip Lokala 1" };
@@ -276,25 +278,23 @@ namespace HCI_Project
 
         private void Canvas_StartDrag(object sender, MouseButtonEventArgs e)
         {
-            if (e.OriginalSource is Image)
-            {
-                mapa.CaptureMouse();
-
-
-                drag_image = e.OriginalSource as Image;
-                DragDrop.DoDragDrop(this, drag_image, DragDropEffects.Move);
-
-            }
+            _CanvasDragStart = e.GetPosition(null);
+            
         }
 
         private void Canvas_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("myFormat"))
             {
-                Console.WriteLine("AAAAAAAA");
                 Lokal lokal = e.Data.GetData("myFormat") as Lokal;
-
-                Uri myUri = new Uri(lokal.Slika, UriKind.RelativeOrAbsolute);
+                if (MapaVecImaLokal(lokal))
+                    return;
+                string slika;
+                if (lokal.Slika != null)
+                    slika = lokal.Slika;
+                else
+                    slika = lokal.Tip.Slika;
+                Uri myUri = new Uri(slika, UriKind.RelativeOrAbsolute);
                 JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
                 BitmapSource bitmapSource = decoder.Frames[0];
 
@@ -302,32 +302,181 @@ namespace HCI_Project
                 drag_image.Source = bitmapSource;
                 drag_image.Height = 32;
                 drag_image.Width = 32;
+                drag_image.DataContext = lokal;
+                drag_image.MouseDown += imageDoubleClickHandler;
                 // Initialize the drag & drop operation
+                ContextMenu ctx = new ContextMenu();
+                MenuItem m1 = new MenuItem();
+                m1.DataContext = lokal;
+                m1.Header = "Ukloni";
+                m1.Click += UkloniLokalIzMape;
+                ctx.Items.Add(m1);
+                drag_image.ContextMenu = ctx;
+
                 mapa.Children.Add(drag_image);
                 Point point = new Point();
                 point = e.GetPosition(mapa);
                 Canvas.SetLeft(drag_image, point.X);
                 Canvas.SetTop(drag_image, point.Y);
 
+                lokal.PozicijaX = point.X;
+                lokal.PozicijaY = point.Y;
+
                 drag_image = null;
+                
             }
-            else {
+            else if (e.Data.GetDataPresent("canvasDND"))
+            {
                 Point point = new Point();
                 point = e.GetPosition(mapa);
                 Canvas.SetLeft(drag_image, point.X);
                 Canvas.SetTop(drag_image, point.Y);
+
+                Lokal lokal = (Lokal) drag_image.DataContext;
+
+                lokal.PozicijaX = point.X;
+                lokal.PozicijaY = point.Y;
 
                 drag_image = null;
             }
             
         }
 
+        private void imageDoubleClickHandler(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
+            {
+                Image img = (Image)sender;
+                Lokal l = (Lokal)img.DataContext;
+                IzmenaLokala dialog = new IzmenaLokala(this, l);
+                dialog.InitializeComponent();
+                dialog.Show();
+            }
+        }
+
         private void Canvas_DragEnter(object sender, DragEventArgs e)
         {
-            if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
+            if (!e.Data.GetDataPresent("myFormat") && !e.Data.GetDataPresent("canvasDND"))
             {
+                
                 e.Effects = DragDropEffects.None;
             }
         }
+
+        private void Canvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+            Point mousePos = e.GetPosition(null);
+            Vector diff = _CanvasDragStart - mousePos;
+            
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+             Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance &&
+             Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance)
+            {
+                
+                if (e.OriginalSource is Image)
+                {
+                    Image img = (Image)e.OriginalSource;
+                    
+                    if (img != null)
+                    {
+                        
+                        Lokal lokal = (Lokal)img.DataContext;
+                        if (lokal != null)
+                        {
+                            
+                            drag_image = img;
+                            DataObject dragData = new DataObject("canvasDND", lokal);
+                            DragDrop.DoDragDrop(img, dragData, DragDropEffects.Move);
+                        }
+                    }
+                }
+            }
+        }
+
+        private bool MapaVecImaLokal(Lokal lokal)
+        {
+            foreach (UIElement e in mapa.Children)
+            {
+                Image img = (Image)e;
+                if (img.DataContext != null)
+                {
+                    Lokal l = (Lokal)img.DataContext;
+                    if (l.Oznaka.Equals(lokal.Oznaka))
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public void removeLokalFromMap(Lokal lokal)
+        {
+            foreach (UIElement e in mapa.Children)
+            {
+                Image img = (Image)e;
+                if (img.DataContext != null)
+                {
+                    Lokal l = (Lokal)img.DataContext;
+                    if (l.Oznaka.Equals(lokal.Oznaka))
+                    {
+                        mapa.Children.Remove(e);
+                        lokal.PozicijaX = -1;
+                        lokal.PozicijaY = -1;
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void UkloniLokalIzMape(object sender, RoutedEventArgs args)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                MenuItem m = (MenuItem)sender;
+                removeLokalFromMap((Lokal)m.DataContext);
+            }
+        }
+
+        private void initializeMap()
+        {
+            foreach (Lokal lokal in repoLokali.lokali)
+            {
+                if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1)
+                {
+                    string slika;
+                    if (lokal.Slika != null)
+                        slika = lokal.Slika;
+                    else
+                        slika = lokal.Tip.Slika;
+                    Uri myUri = new Uri(slika, UriKind.RelativeOrAbsolute);
+                    JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+                    BitmapSource bitmapSource = decoder.Frames[0];
+
+                    Image img = new Image();
+                    img.Source = bitmapSource;
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni";
+                    m1.Click += UkloniLokalIzMape;
+                    ctx.Items.Add(m1);
+                    img.ContextMenu = ctx;
+
+                    mapa.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
+
+                    
+                }
+            }
+        }
+
     }
 }
