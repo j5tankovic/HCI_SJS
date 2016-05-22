@@ -9,7 +9,6 @@ using Newtonsoft.Json;
 
 namespace HCI_Project.NotBeans
 {
-
     public class AddCommand : ICommand
     {
         private TipLokala tip;
@@ -104,7 +103,9 @@ namespace HCI_Project.NotBeans
             }
         }
 
+        [JsonIgnore]
         private AddCommand _add;
+        [JsonIgnore]
         public AddCommand Add
         {
             get

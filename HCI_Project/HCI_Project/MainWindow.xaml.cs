@@ -24,12 +24,6 @@ namespace HCI_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<TipLokala> Tipovi
-        {
-            get;
-            set;
-        }
-
         public RepoTipovi repoTipovi { get; set; }
         public RepoLokali repoLokali { get; set; }
         public RepoEtikete repoEtikete { get; set; }
@@ -41,8 +35,8 @@ namespace HCI_Project
             repoTipovi = new RepoTipovi();
             repoLokali = new RepoLokali();
             repoEtikete = new RepoEtikete();
-            ObservableCollection<TipLokala> popunjeniTipovi = popuniLokalima();
-            Tipovi = new ObservableCollection<TipLokala>(popunjeniTipovi);
+            popuniLokalima();
+            //ObservableCollection<TipLokala> popunjeniTipovi = popuniLokalima();
             /*
             TipLokala s = new TipLokala() { Naziv = "Tip Lokala 1" };
             s.Lokali.Add(new Lokal() { Naziv = "Lokal 1" });
@@ -138,7 +132,11 @@ namespace HCI_Project
 
         private void dopuniTip(Lokal lokal)
         {
-            (Tipovi.Single(x => x.Oznaka == lokal.Tip.Oznaka)).Lokali.Add(lokal);
+            try
+            {
+                (repoTipovi.tipovi.Single(x => x.Oznaka == lokal.Tip.Oznaka)).Lokali.Add(lokal);
+            }
+            catch (InvalidOperationException) { MessageBox.Show("Neuspelo, aaa!"); }
         }
 
 
@@ -146,22 +144,29 @@ namespace HCI_Project
         {
             ((TipDialog)sender).Closed -= dialogTipClosed;
             if (((TipDialog)sender).TipLokala != null)
-                 Tipovi.Add(((TipDialog)sender).TipLokala);
+                 repoTipovi.dodaj(((TipDialog)sender).TipLokala);
 
         }
 
         private void tabelaTipovaClosed(object sender, EventArgs e)
         {
             ((TabelaTipova)sender).Closed -= tabelaTipovaClosed;
+            /*
             var itemsSource = ((TabelaTipova)sender).dgrMain.ItemsSource;
             List<TipLokala> tt = new List<TipLokala>();
             foreach (var i in itemsSource)
                 tt.Add((TipLokala)i);
-            foreach (TipLokala t in Tipovi)
+            //repoTipovi.tipovi.RemoveAll(item => !tt.Contains(item));
+            //repoTipovi.tipovi =  repoTipovi.tipovi.Intersect(tt).ToList();
+            repoTipovi.tipovi.Clear();
+            foreach (TipLokala t in tt)
+                repoTipovi.dodaj(t);
+            foreach (TipLokala t in repoTipovi.tipovi)
             {
                 if (!tt.Contains(t))
                     izbaciTip(t);
             }
+            */
         }
 
         private void dialogLokalClosed(object sender, EventArgs e)
@@ -181,11 +186,10 @@ namespace HCI_Project
 
         private void izbaciTip(TipLokala t)
         {
-            foreach (TipLokala tip in Tipovi)
+            foreach (TipLokala tip in repoTipovi.tipovi)
             {
                 if (tip.Oznaka.Equals(t.Oznaka))
                 {
-                    Tipovi.Remove(tip);
                     repoTipovi.izbaci(tip);
                     break;
                 }
@@ -194,7 +198,7 @@ namespace HCI_Project
 
         public TipLokala nadjiTipLokala(Lokal l)
         {
-            foreach (TipLokala tip in Tipovi)
+            foreach (TipLokala tip in repoTipovi.tipovi)
             {
                 if (tip.Oznaka.Equals(l.Tip.Oznaka))
                     return tip;
