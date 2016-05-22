@@ -90,6 +90,9 @@
     <Compile Include="Dijalozi\Etikete.xaml.cs">
       <DependentUpon>Etikete.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dijalozi\IzmenaLokala.xaml.cs">
+      <DependentUpon>IzmenaLokala.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dijalozi\TabelaEtiketa.xaml.cs">
       <DependentUpon>TabelaEtiketa.xaml</DependentUpon>
     </Compile>
@@ -108,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dijalozi\Etikete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dijalozi\IzmenaLokala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
