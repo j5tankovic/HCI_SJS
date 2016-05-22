@@ -165,7 +165,7 @@
                         <ColumnDefinition Width="111*" />
                     </Grid.ColumnDefinitions>
                     <Border Background="WhiteSmoke" Grid.Column="1" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
-                        <Image Source="{Binding Path=Slika, Mode=OneTime}" />
+                        <Image Source="{Binding Path=Slika}" />
                     </Border>
                     <Button Width="111" HorizontalAlignment="Right" Margin="0,37,0,5" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
                 </Grid>
