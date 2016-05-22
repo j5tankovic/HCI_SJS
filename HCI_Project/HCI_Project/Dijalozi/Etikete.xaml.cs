@@ -22,8 +22,6 @@ namespace HCI_Project.Dijalozi
     /// </summary>
     public partial class Etikete : Window
     {
-        RepoEtikete repoEtikete = new RepoEtikete();
-
         Boolean ok = false;
 
         Window parent;
@@ -51,7 +49,7 @@ namespace HCI_Project.Dijalozi
 
         
  
-         public Etikete(Window parent)
+         public Etikete(Window parent,RepoEtikete repoEtikete)
         {
             InitializeComponent();
             this.parent = parent;

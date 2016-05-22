@@ -29,11 +29,14 @@ namespace HCI_Project.Dijalozi
             this.parent = p;
             InitializeComponent();
             this.DataContext = this;
+            this.dgrMain.ItemsSource = this.parent.repoEtikete.sveEtikete();
         }
 
         private void colorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
-            ((Etiketa)dgrMain.SelectedItem).Boja = ColorPicker.SelectedColor.Value;
+            Etiketa etiketa = ((Etiketa)dgrMain.SelectedItem);
+            etiketa.Boja = ColorPicker.SelectedColor.Value;
+            azurirajLokale(etiketa);
         }
 
         private void Delete(object sender, RoutedEventArgs args)
@@ -45,6 +48,20 @@ namespace HCI_Project.Dijalozi
                 if (etiketa == null)
                     return;
                 parent.repoEtikete.izbaci(etiketa);
+            }
+        }
+
+        public void azurirajLokale(Etiketa etiketa)
+        {
+            foreach (Lokal l in this.parent.repoLokali.sviLokali())
+            {
+                foreach (Etiketa e in l.Etikete)
+                {
+                    if (etiketa.Oznaka.Equals(e.Oznaka))
+                    {
+                        e.Boja = etiketa.Boja;
+                    }
+                }
             }
         }
     }
