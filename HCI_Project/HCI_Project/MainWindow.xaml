@@ -60,7 +60,7 @@
                 <ColumnDefinition  Width="1*"/>
                 <ColumnDefinition  Width="4*"/>
             </Grid.ColumnDefinitions>
-            <TreeView Grid.Column="0" Grid.Row="0" Name="trvLokali" ItemsSource="{Binding Tipovi}">
+            <TreeView Grid.Column="0" Grid.Row="0" Name="trvLokali" ItemsSource="{Binding Path=repoTipovi.tipovi}">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type local:TipLokala}" ItemsSource="{Binding Lokali}">
                         <StackPanel Orientation="Horizontal">
