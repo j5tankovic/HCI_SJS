@@ -4,7 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:library="clr-namespace:HCI_Project.Library"
-        Title="TabelaLokala" Height="637" Width="737" Loaded="Window_Loaded">
+        Title="TabelaLokala" Height="737" Width="737" Loaded="Window_Loaded">
     <Window.Resources>
         <sys:Boolean x:Key="True">True</sys:Boolean>
         <sys:Boolean x:Key="False">False</sys:Boolean>
@@ -26,9 +26,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
-
-
             <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" IsReadOnly="True" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
@@ -95,7 +92,8 @@
                     </DataTemplate>
                 </DataGrid.RowDetailsTemplate>
             </DataGrid>
-            <Grid Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" Height="382" VerticalAlignment="Top">
+
+            <Grid Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -108,8 +106,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="2*"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition/>
                 </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -137,9 +135,10 @@
             <TextBlock Grid.Column="0" Grid.Row="8" Style="{StaticResource FamilyAndSize}">Cene:</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="9" Style="{StaticResource FamilyAndSize}">Kapacitet:</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="10" Style="{StaticResource FamilyAndSize}">Datum otvaranja:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="11" Style="{StaticResource FamilyAndSize}">Ikonica:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="11" Style="{StaticResource FamilyAndSize}">Ikonica:</TextBlock>   
+            <TextBlock Grid.Column="0" Grid.Row="12" Style="{StaticResource FamilyAndSize}">Etikete:</TextBlock>
 
-            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Naziv}" Margin="5 5 10 5"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
             <ComboBox Name="comboTipovi" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding Path=Tip}" SelectedValue="{Binding Path=Tip.Oznaka}" DisplayMemberPath="Naziv" SelectedValuePath="Oznaka"  Margin="5 5 10 5"></ComboBox>
@@ -167,7 +166,10 @@
                     <Border Background="WhiteSmoke" Grid.Column="1" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
                         <Image Source="{Binding Path=Slika}" />
                     </Border>
-                    <Button Width="111" HorizontalAlignment="Right" Margin="0,37,0,5" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
+                    <Button Width="91" HorizontalAlignment="Right" Margin="0,37,0,5" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
+                </Grid>
+                <Grid Grid.Row="12" Grid.Column="1">
+                    <Button Grid.Column="1" Width="91" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">Taguj lokal</Button>
                 </Grid>
             </Grid>
     </Grid>

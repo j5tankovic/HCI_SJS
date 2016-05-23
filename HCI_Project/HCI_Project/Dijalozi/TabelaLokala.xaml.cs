@@ -61,20 +61,34 @@ namespace HCI_Project.Dijalozi
 
         public void promeniIkonicu(object sender, RoutedEventArgs args)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Title = "Izaberite ikonicu";
-            fileDialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-                                "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                                "Portable Network Graphic (*.png)|*.png";
-            if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (dgrMain.SelectedItem != null)
             {
-                Lokal l = this.dgrMain.SelectedItem as Lokal;
-                if (l != null)
+                OpenFileDialog fileDialog = new OpenFileDialog();
+                fileDialog.Title = "Izaberite ikonicu";
+                fileDialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+                                    "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                                    "Portable Network Graphic (*.png)|*.png";
+                if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    l.Slika = fileDialog.FileName;
-                }
+                    Lokal l = this.dgrMain.SelectedItem as Lokal;
+                    if (l != null)
+                    {
+                        l.Slika = fileDialog.FileName;
+                    }
 
+                }
             }
+        }
+
+        private void izberiEtikete(object sender, RoutedEventArgs args)
+        {
+            if (dgrMain.SelectedItem != null)
+            {
+                this.DataContext = (Lokal)dgrMain.SelectedItem;
+                Etikete etikete = new Etikete(this, this.parent.repoEtikete);
+                etikete.Show();
+            }
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

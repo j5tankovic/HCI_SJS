@@ -227,8 +227,10 @@ namespace HCI_Project
             {
                 TreeView treeView = sender as TreeView;
                 TreeViewItem treeViewItem = FindAncestor<TreeViewItem>((DependencyObject)e.OriginalSource);
+                
                 if (treeViewItem != null)
                 {
+                        
                     //Find its parent
                     ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
                     //Get the bound object.
@@ -295,7 +297,15 @@ namespace HCI_Project
                 else
                     slika = lokal.Tip.Slika;
                 Uri myUri = new Uri(slika, UriKind.RelativeOrAbsolute);
-                JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+                BitmapDecoder decoder;
+                if (slika.EndsWith(".png"))
+                {
+                    decoder = new PngBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+                }
+                else
+                {
+                    decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+                }
                 BitmapSource bitmapSource = decoder.Frames[0];
 
                 drag_image = new Image();
@@ -451,7 +461,15 @@ namespace HCI_Project
                     else
                         slika = lokal.Tip.Slika;
                     Uri myUri = new Uri(slika, UriKind.RelativeOrAbsolute);
-                    JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+                    BitmapDecoder decoder;
+                    if (slika.EndsWith(".png"))
+                    {
+                        decoder = new PngBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+                    }
+                    else {
+                        decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+                    }
+                    
                     BitmapSource bitmapSource = decoder.Frames[0];
 
                     Image img = new Image();
