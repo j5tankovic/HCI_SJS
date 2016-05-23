@@ -407,6 +407,17 @@ namespace HCI_Project
             }
         }
 
+        private void Canvas_DragOver(object sender, DragEventArgs e)
+        {
+            if (drag_image != null)
+            {
+                Point point = new Point();
+                point = e.GetPosition(mapa);
+                Canvas.SetLeft(drag_image, point.X);
+                Canvas.SetTop(drag_image, point.Y);
+            }
+        }
+
         private bool MapaVecImaLokal(Lokal lokal)
         {
             foreach (UIElement e in mapa.Children)

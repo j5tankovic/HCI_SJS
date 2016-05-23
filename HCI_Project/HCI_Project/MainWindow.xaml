@@ -93,7 +93,7 @@
                     x:Name="theScrollViewer"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                    <Canvas Name="mapa" AllowDrop="True" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                    <Canvas Name="mapa" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
                         <Canvas.Background>
                             <VisualBrush  >
                                 <VisualBrush.Visual>
