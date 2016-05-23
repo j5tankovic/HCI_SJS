@@ -237,10 +237,12 @@ namespace HCI_Project
                     object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
                     if (item != null)
                     {
-                        if (item.GetType() == typeof(Lokal)) {
+                        if (item.GetType()==typeof(Lokal))
+                        {
                             DataObject dragData = new DataObject("myFormat", (Lokal)item);
                             DragDrop.DoDragDrop(treeViewItem, dragData, DragDropEffects.Move);
                         }
+
                     }
                 }
             }
@@ -360,7 +362,7 @@ namespace HCI_Project
                 Lokal l = (Lokal)img.DataContext;
                 IzmenaLokala dialog = new IzmenaLokala(this, l);
                 dialog.InitializeComponent();
-                dialog.Show();
+                dialog.ShowDialog();
             }
         }
 
@@ -381,8 +383,8 @@ namespace HCI_Project
             
 
             if (e.LeftButton == MouseButtonState.Pressed &&
-             Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance &&
-             Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance)
+             (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+             Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
             {
                 
                 if (e.OriginalSource is Image)

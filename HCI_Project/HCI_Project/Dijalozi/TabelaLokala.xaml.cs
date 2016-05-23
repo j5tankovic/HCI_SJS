@@ -86,7 +86,7 @@ namespace HCI_Project.Dijalozi
             {
                 this.DataContext = (Lokal)dgrMain.SelectedItem;
                 Etikete etikete = new Etikete(this, this.parent.repoEtikete);
-                etikete.Show();
+                etikete.ShowDialog();
             }
 
         }
