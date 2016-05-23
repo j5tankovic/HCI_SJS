@@ -418,6 +418,7 @@ namespace HCI_Project
             }
         }
 
+
         private bool MapaVecImaLokal(Lokal lokal)
         {
             foreach (UIElement e in mapa.Children)
