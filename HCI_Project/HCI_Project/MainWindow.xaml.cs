@@ -213,6 +213,8 @@ namespace HCI_Project
             return null;
         }
 
+        #region Drag & Drop
+
         private void treeView1_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _DragStart = e.GetPosition(null);
@@ -326,9 +328,14 @@ namespace HCI_Project
                 ContextMenu ctx = new ContextMenu();
                 MenuItem m1 = new MenuItem();
                 m1.DataContext = lokal;
-                m1.Header = "Ukloni";
+                m1.Header = "Ukloni lokal sa mape";
                 m1.Click += UkloniLokalIzMape;
+                MenuItem m2 = new MenuItem();
+                m2.DataContext = lokal;
+                m2.Header = "Prikazi lokal";
+                m2.Click += PrikaziLokal;
                 ctx.Items.Add(m1);
+                ctx.Items.Add(m2);
                 drag_image.ContextMenu = ctx;
 
                 mapa.Children.Add(drag_image);
@@ -358,18 +365,6 @@ namespace HCI_Project
                 drag_image = null;
             }
             
-        }
-
-        private void imageDoubleClickHandler(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
-            {
-                Image img = (Image)sender;
-                Lokal l = (Lokal)img.DataContext;
-                IzmenaLokala dialog = new IzmenaLokala(this, l);
-                dialog.InitializeComponent();
-                dialog.ShowDialog();
-            }
         }
 
         private void Canvas_DragEnter(object sender, DragEventArgs e)
@@ -424,6 +419,20 @@ namespace HCI_Project
             }
         }
 
+        #endregion
+
+        private void imageDoubleClickHandler(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
+            {
+                Image img = (Image)sender;
+                Lokal l = (Lokal)img.DataContext;
+                IzmenaLokala dialog = new IzmenaLokala(this, l);
+                dialog.InitializeComponent();
+                dialog.ShowDialog();
+            }
+        }
+
 
         private bool MapaVecImaLokal(Lokal lokal)
         {
@@ -469,6 +478,16 @@ namespace HCI_Project
             }
         }
 
+        private void PrikaziLokal(object sender, RoutedEventArgs args)
+        {
+            MenuItem m = (MenuItem)sender;
+            Lokal l = (Lokal)m.DataContext;
+            IzmenaLokala dialog = new IzmenaLokala(this, l);
+            dialog.InitializeComponent();
+            dialog.ShowDialog();
+        }
+
+
         private void initializeMap()
         {
             foreach (Lokal lokal in repoLokali.lokali)
@@ -502,9 +521,14 @@ namespace HCI_Project
                     ContextMenu ctx = new ContextMenu();
                     MenuItem m1 = new MenuItem();
                     m1.DataContext = lokal;
-                    m1.Header = "Ukloni";
+                    m1.Header = "Ukloni lokal sa mape";
                     m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
                     ctx.Items.Add(m1);
+                    ctx.Items.Add(m2);
                     img.ContextMenu = ctx;
 
                     mapa.Children.Add(img);
