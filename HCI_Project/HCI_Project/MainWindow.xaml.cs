@@ -29,6 +29,8 @@ namespace HCI_Project
         public RepoEtikete repoEtikete { get; set; }
 
         Image drag_image = null;
+        TreeView treeView = null;
+        TreeViewItem treeViewItem = null;
         Point _DragStart = new Point();
         Point _CanvasDragStart = new Point();
 
@@ -214,6 +216,9 @@ namespace HCI_Project
         private void treeView1_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _DragStart = e.GetPosition(null);
+            treeView = sender as TreeView;
+            treeViewItem = FindAncestor<TreeViewItem>((DependencyObject)e.OriginalSource);
+
         }
 
         private void treeView1_PreviewMouseMove(object sender, MouseEventArgs e)
@@ -225,15 +230,16 @@ namespace HCI_Project
              Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance &&
              Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance)
             {
-                TreeView treeView = sender as TreeView;
-                TreeViewItem treeViewItem = FindAncestor<TreeViewItem>((DependencyObject)e.OriginalSource);
                 
                 if (treeViewItem != null)
                 {
+
+                    object help = treeView.ItemContainerGenerator.ItemFromContainer(treeViewItem);
                         
                     //Find its parent
                     ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
                     //Get the bound object.
+
                     object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
                     if (item != null)
                     {
