@@ -74,7 +74,7 @@ namespace HCI_Project
             LokalDialog lokal = new LokalDialog(this);
             lokal.Closed += dialogLokalClosed;
             lokal.InitializeComponent();
-            lokal.Show();
+            lokal.ShowDialog();
         }
 
         private void Dodaj_Tip(object sender, RoutedEventArgs e)

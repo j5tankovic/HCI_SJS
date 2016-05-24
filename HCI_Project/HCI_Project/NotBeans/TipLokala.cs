@@ -9,27 +9,6 @@ using Newtonsoft.Json;
 
 namespace HCI_Project.NotBeans
 {
-    public class AddCommand : ICommand
-    {
-        private TipLokala tip;
-        public AddCommand(TipLokala s)
-        {
-            tip = s;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
-
-        public event EventHandler CanExecuteChanged;
-
-        public void Execute(object parameter)
-        {
-            tip.Lokali.Add(new Lokal() { Naziv = "Novi Lokal" });
-        }
-    }
-
     public class TipLokala : INotifyPropertyChanged, IEquatable<TipLokala>
     {
         private string _oznaka;
@@ -103,25 +82,6 @@ namespace HCI_Project.NotBeans
             }
         }
 
-        [JsonIgnore]
-        private AddCommand _add;
-        [JsonIgnore]
-        public AddCommand Add
-        {
-            get
-            {
-                return _add;
-            }
-            set
-            {
-                if (_add != value)
-                {
-                    _add = value;
-                    OnPropertyChanged("Add");
-                }
-            }
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
         {
@@ -141,7 +101,6 @@ namespace HCI_Project.NotBeans
         public TipLokala()
         {
             Lokali = new ObservableCollection<Lokal>();
-            Add = new AddCommand(this);
         }
 
         public bool Equals(TipLokala obj)
