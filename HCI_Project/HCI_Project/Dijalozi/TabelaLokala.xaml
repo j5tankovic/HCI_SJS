@@ -10,7 +10,7 @@
         <sys:Boolean x:Key="False">False</sys:Boolean>
         <local:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
         <local:EnumConverter x:Key="EnumConverter" />
-        <library:CustomImagePathConverter x:Key="CustomImagePathConverter" />
+        <library:CustomLokalConverter x:Key="CustomImagePathConverter" />
     </Window.Resources>
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">

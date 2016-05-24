@@ -7,7 +7,7 @@
         Closing="MainWindow_Closing">
         
     <Window.Resources>
-        <loc:CustomImagePathConverter x:Key="CustomImagePathConverter" />
+        <loc:CustomLokalConverter x:Key="CustomLokalConverter" />
         <BitmapImage x:Key="FolderOpen" UriSource="/HCI_Project;component/Resources/foldero.png"/>
         <BitmapImage x:Key="FolderClosed" UriSource="/HCI_Project;component/Resources/folder.png"/>
         <Style x:Key="SmallIcon" TargetType="Image">
@@ -68,7 +68,8 @@
                             <TextBlock Text="{Binding Naziv}"/>
                             <StackPanel.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Dodaj lokal" Click="Dodaj_Lokal"></MenuItem>
+                                    <MenuItem Header="Dodaj tip" Click="Dodaj_Tip"></MenuItem>
+                                    <MenuItem Header="Prikazi tip" Click="PrikaziTip" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
                                 </ContextMenu>
                             </StackPanel.ContextMenu>
                         </StackPanel>
@@ -80,6 +81,7 @@
                             <StackPanel.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Dodaj lokal" Click="Dodaj_Lokal"></MenuItem>
+                                    <MenuItem Header="Prikazi lokal" Click="PrikaziLokal" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
                                 </ContextMenu>
                             </StackPanel.ContextMenu>
                         </StackPanel>

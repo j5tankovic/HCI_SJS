@@ -99,7 +99,7 @@
     <Compile Include="Dijalozi\TabelaTipova.xaml.cs">
       <DependentUpon>TabelaTipova.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Library\CustomImagePathConverter.cs" />
+    <Compile Include="Library\CustomLokalConverter.cs" />
     <Compile Include="NotBeans\Etiketa.cs" />
     <Compile Include="NotBeans\Lokal.cs" />
     <Compile Include="NotBeans\TipLokala.cs" />

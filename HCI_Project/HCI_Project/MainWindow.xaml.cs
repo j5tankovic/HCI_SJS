@@ -487,6 +487,15 @@ namespace HCI_Project
             dialog.ShowDialog();
         }
 
+        private void PrikaziTip(object sender, RoutedEventArgs args)
+        {
+            /*MenuItem m = (MenuItem)sender;
+            TipLokala l = (TipLokala)m.DataContext;
+            IzmenaTipa dialog = new IzmenaTipa(this, l);
+            dialog.InitializeComponent();
+            dialog.ShowDialog();*/
+        }
+
 
         private void initializeMap()
         {

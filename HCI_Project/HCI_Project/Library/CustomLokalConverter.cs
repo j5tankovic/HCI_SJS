@@ -7,22 +7,27 @@ using HCI_Project.NotBeans;
 
 namespace HCI_Project.Library
 {
-    public class CustomImagePathConverter : IValueConverter
+    public class CustomLokalConverter : IValueConverter
     {
 
         #region IValueConverter Members
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (value.GetType() == typeof(TipLokala))
+            if (value != null)
             {
-                TipLokala tip = (TipLokala)value;
-                return tip.Slika;
-            }
-            else {
-                Lokal lokal = (Lokal)value;
-                return lokal.Slika;
-            }
+                if (value.GetType() == typeof(TipLokala))
+                {
+                    TipLokala tip = (TipLokala)value;
+                    return tip;
+                }
+                else
+                {
+                    Lokal lokal = (Lokal)value;
+                    return lokal;
+                }
+            } return "";
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
