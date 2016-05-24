@@ -301,25 +301,12 @@ namespace HCI_Project
                 Lokal lokal = e.Data.GetData("myFormat") as Lokal;
                 if (MapaVecImaLokal(lokal))
                     return;
-                string slika;
-                if (lokal.Slika != null)
-                    slika = lokal.Slika;
-                else
-                    slika = lokal.Tip.Slika;
-                Uri myUri = new Uri(slika, UriKind.RelativeOrAbsolute);
-                BitmapDecoder decoder;
-                if (slika.EndsWith(".png"))
-                {
-                    decoder = new PngBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
-                }
-                else
-                {
-                    decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
-                }
-                BitmapSource bitmapSource = decoder.Frames[0];
-
+  
                 drag_image = new Image();
-                drag_image.Source = bitmapSource;
+                Binding bind = new Binding("Slika");
+                bind.Source = lokal;
+                bind.Mode = BindingMode.OneWay;
+                drag_image.SetBinding(Image.SourceProperty, bind);
                 drag_image.Height = 32;
                 drag_image.Width = 32;
                 drag_image.DataContext = lokal;
@@ -503,25 +490,12 @@ namespace HCI_Project
             {
                 if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1)
                 {
-                    string slika;
-                    if (lokal.Slika != null)
-                        slika = lokal.Slika;
-                    else
-                        slika = lokal.Tip.Slika;
-                    Uri myUri = new Uri(slika, UriKind.RelativeOrAbsolute);
-                    BitmapDecoder decoder;
-                    if (slika.EndsWith(".png"))
-                    {
-                        decoder = new PngBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
-                    }
-                    else {
-                        decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
-                    }
-                    
-                    BitmapSource bitmapSource = decoder.Frames[0];
 
                     Image img = new Image();
-                    img.Source = bitmapSource;
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
                     img.Height = 32;
                     img.Width = 32;
                     img.DataContext = lokal;
