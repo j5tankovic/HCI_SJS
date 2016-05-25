@@ -523,5 +523,30 @@ namespace HCI_Project
             }
         }
 
+
+        private void Promeni_Mapu(object sender, RoutedEventArgs e)
+        {
+            var myValue = ((Button)sender).Tag;
+            Uri myUri;
+            
+            if ((string)myValue == "1") {
+                myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
+            }
+            else if ((string)myValue == "2")
+            {
+                myUri = new Uri("../../map2.jpg", UriKind.RelativeOrAbsolute);
+            }
+            else if ((string)myValue == "3")
+            {
+                myUri = new Uri("../../map3.jpg", UriKind.RelativeOrAbsolute);
+            }
+            else {
+                myUri = new Uri("../../map4.jpg", UriKind.RelativeOrAbsolute);
+            }
+            JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            BitmapSource bitmapSource = decoder.Frames[0];
+            myImage.Source = bitmapSource;
+        }
+
     }
 }

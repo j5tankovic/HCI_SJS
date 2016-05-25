@@ -35,6 +35,20 @@ namespace HCI_Project.NotBeans
         private string _slika;
         private double _pozicijaX = -1;
         private double _pozicijaY = -1;
+        private string _mapa;
+
+        public string Mapa
+        {
+            get { return _mapa; }
+            set
+            {
+                if (value != _mapa)
+                {
+                    _mapa = value;
+                    OnPropertyChanged("Mapa");
+                }
+            }
+        }
 
         public string Oznaka
         {
