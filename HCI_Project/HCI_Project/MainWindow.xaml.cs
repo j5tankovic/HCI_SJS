@@ -28,6 +28,8 @@ namespace HCI_Project
         public RepoLokali repoLokali { get; set; }
         public RepoEtikete repoEtikete { get; set; }
 
+        string active_map = "1";
+
         Image drag_image = null;
         TreeView treeView = null;
         TreeViewItem treeViewItem = null;
@@ -333,6 +335,7 @@ namespace HCI_Project
 
                 lokal.PozicijaX = point.X;
                 lokal.PozicijaY = point.Y;
+                lokal.Mapa = active_map;
 
                 drag_image = null;
                 
@@ -488,7 +491,7 @@ namespace HCI_Project
         {
             foreach (Lokal lokal in repoLokali.lokali)
             {
-                if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1)
+                if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == active_map)
                 {
 
                     Image img = new Image();
@@ -528,24 +531,34 @@ namespace HCI_Project
         {
             var myValue = ((Button)sender).Tag;
             Uri myUri;
+
+            for (int i = mapa.Children.Count - 1; i >= 0; i--)
+            {
+                mapa.Children.RemoveAt(i);
+            }
             
             if ((string)myValue == "1") {
                 myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
+                active_map = "1";
             }
             else if ((string)myValue == "2")
             {
                 myUri = new Uri("../../map2.jpg", UriKind.RelativeOrAbsolute);
+                active_map = "2";
             }
             else if ((string)myValue == "3")
             {
                 myUri = new Uri("../../map3.jpg", UriKind.RelativeOrAbsolute);
+                active_map = "3";
             }
             else {
                 myUri = new Uri("../../map4.jpg", UriKind.RelativeOrAbsolute);
+                active_map = "4";
             }
             JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
             BitmapSource bitmapSource = decoder.Frames[0];
             myImage.Source = bitmapSource;
+            initializeMap();
         }
 
     }
