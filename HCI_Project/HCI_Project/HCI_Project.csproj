@@ -87,6 +87,9 @@
     </ApplicationDefinition>
     <Compile Include="Converter\EnumConverter.cs" />
     <Compile Include="Converter\RadioButtonCheckedConverter.cs" />
+    <Compile Include="Dijalozi\BrisanjeTipa.xaml.cs">
+      <DependentUpon>BrisanjeTipa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dijalozi\Etikete.xaml.cs">
       <DependentUpon>Etikete.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,10 @@
     <Compile Include="Repos\RepoEtikete.cs" />
     <Compile Include="Repos\RepoLokali.cs" />
     <Compile Include="Repos\RepoTipovi.cs" />
+    <Page Include="Dijalozi\BrisanjeTipa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dijalozi\EtiketaDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,7 +144,7 @@
     <Page Include="Dijalozi\TipDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+    </Page> 
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
