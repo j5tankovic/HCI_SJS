@@ -123,6 +123,16 @@ namespace HCI_Project.Repos
             return null;
         }
 
+        public TipLokala nadjiPoOznaci(string oznaka)
+        {
+            foreach (TipLokala tip in tipovi)
+            {
+                if (tip.Oznaka.Equals(oznaka))
+                    return tip;
+            }
+            return null;
+        }
+
         public void izbaci(TipLokala tip)
         {
             for (int i = 0; i < tipovi.Count; i++)
@@ -133,6 +143,15 @@ namespace HCI_Project.Repos
                     tipovi.RemoveAt(i);
                     return;
                 }
+            }
+        }
+
+        public void zameniTip(Collection<Lokal> lista, TipLokala noviTip)
+        {
+            foreach (Lokal l in lista)
+            {
+                l.Tip = noviTip;
+                noviTip.ubaciLokal(l);
             }
         }
     }

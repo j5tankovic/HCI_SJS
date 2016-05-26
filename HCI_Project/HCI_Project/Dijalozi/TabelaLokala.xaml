@@ -110,8 +110,8 @@
                 <RowDefinition/>
                 </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
+                <ColumnDefinition Width="117" />
+                <ColumnDefinition Width="598*" />
             </Grid.ColumnDefinitions>
 
 
@@ -141,8 +141,9 @@
                 <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Naziv}" Margin="5 5 10 5"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
-            <ComboBox Name="comboTipovi" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding Path=Tip}" SelectedValue="{Binding Path=Tip.Oznaka}" DisplayMemberPath="Naziv" SelectedValuePath="Oznaka"  Margin="5 5 10 5"></ComboBox>
-            <ComboBox Name="comboAlkohol" Grid.Column="1" Grid.Row="4" SelectedValue="{Binding Path=Alkohol, Converter={StaticResource EnumConverter}}" Margin="5 5 10 5"></ComboBox>
+                <TextBox Name="OznakaTipa" Grid.Column="1" Grid.Row="3" Text="{Binding Path=Tip.Oznaka}" TextChanged="oznakaTipa_TextChanged" Margin="5,5,483,5"></TextBox>
+            <Button Name="nadjiTip" Grid.Column="1" Grid.Row="3" Click="otvoriTabeluTipova" Margin="349,0,176,0">Nadji...</Button>
+                <ComboBox Name="comboAlkohol" Grid.Column="1" Grid.Row="4" SelectedValue="{Binding Path=Alkohol, Converter={StaticResource EnumConverter}}" Margin="5 5 10 5"></ComboBox>
             <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal" Margin="5 5 10 5">
                 <RadioButton GroupName="hendikep" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Hendikep, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}">Da</RadioButton>
                 <RadioButton GroupName="hendikep" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Hendikep, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
@@ -171,7 +172,9 @@
                 <Grid Grid.Row="12" Grid.Column="1">
                     <Button Grid.Column="1" Width="91" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">Taguj lokal</Button>
                 </Grid>
+                <TextBlock Name="NazivOznakeLabel" Style="{StaticResource FamilyAndSize}" Margin="121,8,398,2" Grid.Column="1" Grid.Row="3">Naziv tipa:</TextBlock>
+                <TextBox Name="NazivTipa" Text="{Binding Path=Tip.Naziv}" Margin="206,5,255,5" Grid.Column="1" Grid.Row="3" Height="22"></TextBox>
             </Grid>
-    </Grid>
+        </Grid>
     </DockPanel>
 </Window>

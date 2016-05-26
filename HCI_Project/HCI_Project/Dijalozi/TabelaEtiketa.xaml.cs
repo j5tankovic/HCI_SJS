@@ -35,6 +35,8 @@ namespace HCI_Project.Dijalozi
         private void colorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
             Etiketa etiketa = ((Etiketa)dgrMain.SelectedItem);
+            if (etiketa == null)
+                return;
             etiketa.Boja = ColorPicker.SelectedColor.Value;
             azurirajLokale(etiketa);
         }

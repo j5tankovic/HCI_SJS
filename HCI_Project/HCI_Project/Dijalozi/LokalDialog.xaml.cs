@@ -24,7 +24,8 @@ namespace HCI_Project.Dijalozi
     public partial class LokalDialog : Window
     {
         private Lokal lokal;
-        private Boolean ok = false;
+        private bool ok = false;
+        private bool kreiranje;
 
         public Lokal Lokal
         {
@@ -34,17 +35,22 @@ namespace HCI_Project.Dijalozi
 
         private MainWindow parent;
 
-        public LokalDialog(MainWindow p)
+        public LokalDialog(MainWindow p, Lokal l)
         {
+            this.kreiranje = l == null ? true : false;
+            this.lokal = l == null ? new Lokal() : l;
             this.parent = p;
             InitializeComponent();
-            lokal = new Lokal();
+            if (l != null)
+                oznakaTipa.Text = l.Tip.Oznaka;
             this.DataContext = lokal;
             initializeCombos();
         }
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs args)
         {
+            if (!kreiranje)
+                this.Close();
             ok = parent.repoLokali.dodaj(lokal);
             if (ok)
             {
@@ -68,9 +74,6 @@ namespace HCI_Project.Dijalozi
         {
             comboAlkohol.ItemsSource = Enum.GetNames(typeof(SluzenjeAlkohola));
             comboCene.ItemsSource = Enum.GetNames(typeof(KategorijaCene));
-            comboTipovi.ItemsSource = parent.repoTipovi.sviTipovi();
-
-            comboTipovi.SelectedIndex = 0;
         }
 
         void LokalDialog_Closing(object sender, CancelEventArgs e)
@@ -112,6 +115,26 @@ namespace HCI_Project.Dijalozi
             Etikete etikete = new Etikete(this,this.parent.repoEtikete);
             etikete.Show();
 
+        }
+
+        private void OtvoriTabeluTipova(object sender, RoutedEventArgs args)
+        {
+            TabelaTipova tabela = new TabelaTipova(this.parent);
+            tabela.ShowDialog();
+            TipLokala tip = tabela.IzabraniTip;
+            if (tip != null)
+            {
+                lokal.Tip = tip;
+                oznakaTipa.Text = tip.Oznaka;
+            }            
+        }
+
+        private void oznakaTipa_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            System.Windows.Controls.TextBox box = (System.Windows.Controls.TextBox)sender;
+            TipLokala tip= parent.repoTipovi.nadjiPoOznaci(box.Text);
+            lokal.Tip = tip;
+            
         }
 
 

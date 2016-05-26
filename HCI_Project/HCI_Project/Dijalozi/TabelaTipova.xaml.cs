@@ -25,6 +25,15 @@ namespace HCI_Project.Dijalozi
 
         public MainWindow parent { get; set; }
 
+        private TipLokala _izabraniTip;
+        public TipLokala IzabraniTip
+        {
+            get
+            {
+                return _izabraniTip;
+            }
+        }
+
         public TabelaTipova(MainWindow p)
         {
             this.parent = p;
@@ -35,6 +44,7 @@ namespace HCI_Project.Dijalozi
 
         private void Delete(object sender, RoutedEventArgs args)
         {
+            /*
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
@@ -42,7 +52,12 @@ namespace HCI_Project.Dijalozi
                 if (tip == null)
                     return;
                 parent.repoTipovi.izbaci(tip);
-            }
+            }*/
+            TipLokala tip = (TipLokala)dgrMain.SelectedItem;
+            if (tip == null)
+                return;
+            BrisanjeTipa dialog = new BrisanjeTipa(parent, tip);
+            dialog.ShowDialog();
         }
 
         public void promeniIkonicu(object sender, RoutedEventArgs args)
@@ -59,6 +74,15 @@ namespace HCI_Project.Dijalozi
                     tl.Slika = fileDialog.FileName;
 
             }
+        }
+
+        private void Clicked_OK(object sender, RoutedEventArgs args)
+        {
+            if (dgrMain.SelectedItem != null)
+                _izabraniTip = (TipLokala)dgrMain.SelectedItem;
+            else
+                _izabraniTip = null;
+            this.Close();
         }
     }
 }

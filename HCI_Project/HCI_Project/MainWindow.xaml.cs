@@ -73,7 +73,7 @@ namespace HCI_Project
 
         private void Dodaj_Lokal(object sender, RoutedEventArgs e)
         {
-            LokalDialog lokal = new LokalDialog(this);
+            LokalDialog lokal = new LokalDialog(this, null);
             lokal.Closed += dialogLokalClosed;
             lokal.InitializeComponent();
             lokal.ShowDialog();
@@ -139,11 +139,12 @@ namespace HCI_Project
             return tipoviLokala;
         }
 
-        private void dopuniTip(Lokal lokal)
+        public void dopuniTip(Lokal lokal)
         {
             try
             {
-                (repoTipovi.tipovi.Single(x => x.Oznaka == lokal.Tip.Oznaka)).Lokali.Add(lokal);
+
+                (repoTipovi.tipovi.Single(x => x.Oznaka == lokal.Tip.Oznaka)).ubaciLokal(lokal);
             }
             catch (InvalidOperationException) { MessageBox.Show("Neuspelo, aaa!"); }
         }
@@ -417,7 +418,7 @@ namespace HCI_Project
             {
                 Image img = (Image)sender;
                 Lokal l = (Lokal)img.DataContext;
-                IzmenaLokala dialog = new IzmenaLokala(this, l);
+                LokalDialog dialog = new LokalDialog(this, l);
                 dialog.InitializeComponent();
                 dialog.ShowDialog();
             }
@@ -472,7 +473,7 @@ namespace HCI_Project
         {
             MenuItem m = (MenuItem)sender;
             Lokal l = (Lokal)m.DataContext;
-            IzmenaLokala dialog = new IzmenaLokala(this, l);
+            LokalDialog dialog = new LokalDialog(this, l);
             dialog.InitializeComponent();
             dialog.ShowDialog();
         }

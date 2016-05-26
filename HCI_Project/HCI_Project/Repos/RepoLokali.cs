@@ -127,6 +127,12 @@ namespace HCI_Project.Repos
             }
         }
 
+        public void izbaciSve(Collection<Lokal> lista)
+        {
+            foreach (Lokal l in lista)
+                izbaci(l);
+        }
+
 
     }
 

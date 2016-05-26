@@ -37,7 +37,6 @@ namespace HCI_Project.Dijalozi
         {
             comboAlkohol.ItemsSource = new string[] { "NE SLUZI", "SLUZI DO 23", "DO KASNO NOCU" };
             comboCene.ItemsSource = new string[] {"IZUZETNO VISOKA", "VISOKA", "SREDNJA", "NISKA"};
-            comboTipovi.ItemsSource = parent.repoTipovi.sviTipovi();
 
             
         }
@@ -93,6 +92,33 @@ namespace HCI_Project.Dijalozi
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void otvoriTabeluTipova(object sender, RoutedEventArgs args)
+        {
+            TabelaTipova tabela = new TabelaTipova(this.parent);
+            tabela.ShowDialog();
+            TipLokala tip = tabela.IzabraniTip;
+            if (tip != null)
+            {
+                Lokal lokal = (Lokal)dgrMain.SelectedItem;
+                if (lokal == null)
+                    return;
+                NazivTipa.Text = tip.Naziv;
+                OznakaTipa.Text = tip.Oznaka;
+                lokal.Tip = tip;
+            }            
+        }
+
+        private void oznakaTipa_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            System.Windows.Controls.TextBox box = (System.Windows.Controls.TextBox)sender;
+            TipLokala tip = parent.repoTipovi.nadjiPoOznaci(box.Text);
+            Lokal lokal = (Lokal)dgrMain.SelectedItem;
+            if (lokal == null)
+                return;
+            lokal.Tip = tip;
 
         }
 

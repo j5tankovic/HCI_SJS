@@ -121,5 +121,15 @@ namespace HCI_Project.NotBeans
                 }
             }
         }
+
+        public void ubaciLokal(Lokal l)
+        {
+            foreach (Lokal lokal in Lokali)
+            {
+                if (lokal.Equals(l))
+                    return;
+            }
+            Lokali.Add(l);
+        }
     }
 }

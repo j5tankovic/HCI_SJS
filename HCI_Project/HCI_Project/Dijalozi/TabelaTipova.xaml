@@ -57,6 +57,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="2*" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -87,6 +88,7 @@
                     </Border>
                     <Button Width="108" HorizontalAlignment="Right" Margin="0,111,0,5" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
                 </Grid>
+                <Button Click="Clicked_OK" Grid.Column="0" Grid.Row="5">OK</Button>
             </Grid>
         </Grid>
     </DockPanel>
