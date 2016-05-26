@@ -50,8 +50,10 @@ namespace HCI_Project.Dijalozi
         private void oznakaTextChanged(object sender, TextChangedEventArgs args)
         {
             System.Windows.Controls.TextBox box = (System.Windows.Controls.TextBox)sender;
-            TipLokala tip = parent.repoTipovi.nadjiPoOznaci(box.Text);
-            noviTip = tip;
+            TipLokala tip1 = parent.repoTipovi.nadjiPoOznaci(box.Text);
+            if (tip1.Equals(tip))
+                return;
+            noviTip = tip1;
             this.DataContext = noviTip;
         }
 
@@ -59,12 +61,12 @@ namespace HCI_Project.Dijalozi
         {
             TabelaTipova tabela = new TabelaTipova(this.parent);
             tabela.ShowDialog();
-            TipLokala tip = tabela.IzabraniTip;
-            if (tip != null)
+            TipLokala tip1 = tabela.IzabraniTip;
+            if (tip1 != null && tip1.Equals(tip))
             {
-                noviTip = tip;
+                noviTip = tip1;
                 this.DataContext = noviTip;
-                OznakaTipa.Text = tip.Oznaka;
+                OznakaTipa.Text = tip1.Oznaka;
             }     
         }
 

@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:HCI_Project.Converter"
-        Title="Unos novog lokala" Height="663" Width="717"
+        xmlns:val="clr-namespace:HCI_Project.Validacija"
+        Title="Unos novog lokala" Height="663" Width="1000"
         Closing="LokalDialog_Closing">
     <Window.Resources>
         <sys:String x:Key="strOznaka">Oznaka lokala: </sys:String>
@@ -47,6 +48,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.Resources>
@@ -76,11 +78,59 @@
         <TextBlock Grid.Column="0" Grid.Row="13" Style="{StaticResource FamilyAndSize}" Text="{StaticResource ResourceKey=strIkonica}"></TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="14" Style="{StaticResource FamilyAndSize}" Text="{StaticResource ResourceKey=strEtikete}"></TextBlock>
         
-        <TextBox Grid.Column="1" Grid.Row="0" Margin="10 0 10 5" Text="{Binding Path=Oznaka}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="10 0 10 5" Text="{Binding Path=Naziv}"></TextBox>
+        <TextBox Name="oznakaLokala" Grid.Column="1" Grid.Row="0" Margin="10 0 10 5">
+            <TextBox.Text>
+                <Binding Path="Oznaka" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:OznakaValidationRule ValidationStep="RawProposedValue" parent="{StaticResource parent}" vrsta="LOKAL"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="10 0 10 5">
+            <TextBox.Text>
+                <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:StringValidationRule ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
         <TextBox Grid.Column="1" Grid.Row="2" Margin="10 0 10 5" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding Path=Opis}"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="3" Name="oznakaTipa" Margin="98,0,158,1" TextChanged="oznakaTipa_TextChanged" Text=""></TextBox>
-        <Button Grid.Column="1" Click="OtvoriTabeluTipova" Margin="434,3,1,1" Grid.Row="3">Nadji</Button>
+        <Button Grid.Column="1" Click="OtvoriTabeluTipova" Margin="434,3,1,1" Grid.Row="3">Nadji...</Button>
         
         <TextBox Name="nazivTipa" Grid.Column="1" Grid.Row="4" Text="{Binding Path=Tip.Naziv}" IsReadOnly="True" Margin="98,18,158,13"></TextBox>
         <Border Background="WhiteSmoke" Grid.Row="4" Grid.Column="1" BorderThickness="1" BorderBrush="Black" Width="99" HorizontalAlignment="Right"></Border>
@@ -98,8 +148,32 @@
             <RadioButton GroupName="rezervacije" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
         </StackPanel>
         <ComboBox Grid.Column="1" Grid.Row="10" Margin="10 0 10 5" SelectedValue="{Binding Path=Cene}" Name="comboCene"></ComboBox>
-        <TextBox Grid.Column="1" Grid.Row="11" Margin="10 0 10 5" Text="{Binding Path=Kapacitet}"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="12" Margin="10 0 10 5" Text="{Binding Path=Datum}"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="11" Margin="10 0 10 5">
+            <TextBox.Text>
+                <Binding Path="Kapacitet" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:IntegerValidationRule ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <DatePicker Grid.Column="1" Grid.Row="12" Margin="10 0 10 5" SelectedDate="{Binding Path=Datum}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" DisplayDateStart="1/01/1970" DisplayDateEnd="5/31/2016"/>
         <Grid Grid.Row="13" Grid.Column="1" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="191*" />

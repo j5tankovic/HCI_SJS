@@ -30,7 +30,7 @@ namespace HCI_Project.NotBeans
         private Boolean _rezervacije;
         private KategorijaCene _cene;
         private int _kapacitet;
-        private string _datum;
+        private DateTime _datum;
         private List<Etiketa> _etikete;
         private string _slika;
         private double _pozicijaX = -1;
@@ -210,7 +210,7 @@ namespace HCI_Project.NotBeans
             }
         }
         
-        public string Datum
+        public DateTime Datum
         {
             get
             {

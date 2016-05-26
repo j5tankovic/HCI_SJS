@@ -154,5 +154,15 @@ namespace HCI_Project.Repos
                 noviTip.ubaciLokal(l);
             }
         }
+
+        public bool postojiOznaka(string o)
+        {
+            foreach (TipLokala t in tipovi)
+            {
+                if (t.Oznaka.Equals(o))
+                    return true;
+            }
+            return false;
+        }
     }
 }

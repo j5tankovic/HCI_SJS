@@ -33,16 +33,22 @@ namespace HCI_Project.Dijalozi
             set { lokal = value; }
         }
 
-        private MainWindow parent;
+        public MainWindow parent { get; set; }
 
         public LokalDialog(MainWindow p, Lokal l)
         {
             this.kreiranje = l == null ? true : false;
             this.lokal = l == null ? new Lokal() : l;
             this.parent = p;
+            this.Resources.Add("parent", parent);
             InitializeComponent();
             if (l != null)
+            {
+                //oznakaLokala.IsReadOnly = true;
                 oznakaTipa.Text = l.Tip.Oznaka;
+            }
+            else
+                lokal.Datum = new DateTime(2016, 1, 1);
             this.DataContext = lokal;
             initializeCombos();
         }

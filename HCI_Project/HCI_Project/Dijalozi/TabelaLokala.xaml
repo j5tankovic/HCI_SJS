@@ -54,7 +54,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Datum otvaranja" Binding="{Binding Datum}" Width="3*"/>
+                    <DataGridTextColumn Header="Datum otvaranja" Binding="{Binding Datum, StringFormat=\{0:dd.MM.yyyy\}}" Width="3*"/>
                     <DataGridTextColumn Header="Slika" Binding="{Binding Slika}" Width="3*"/>
                 </DataGrid.Columns>
                 <DataGrid.RowDetailsTemplate>
@@ -138,7 +138,7 @@
             <TextBlock Grid.Column="0" Grid.Row="11" Style="{StaticResource FamilyAndSize}">Ikonica:</TextBlock>   
             <TextBlock Grid.Column="0" Grid.Row="12" Style="{StaticResource FamilyAndSize}">Etikete:</TextBlock>
 
-                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5" IsReadOnly="True" ></TextBox>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Naziv}" Margin="5 5 10 5"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
                 <TextBox Name="OznakaTipa" Grid.Column="1" Grid.Row="3" Text="{Binding Path=Tip.Oznaka}" TextChanged="oznakaTipa_TextChanged" Margin="5,5,483,5"></TextBox>
@@ -158,7 +158,7 @@
             </StackPanel>
             <ComboBox Name="comboCene" Grid.Column="1" Grid.Row="8" Margin="5 5 10 5" SelectedValue="{Binding Path=Cene, Converter={StaticResource EnumConverter}}"></ComboBox>
             <TextBox Grid.Column="1" Grid.Row="9" Margin="5 5 10 5" Text="{Binding Path=Kapacitet}"></TextBox>
-            <TextBox Grid.Column="1" Grid.Row="10" Margin="5 5 10 5" Text="{Binding Path=Datum}"></TextBox>
+                <DatePicker Grid.Column="1" Grid.Row="10" Margin="5 5 10 5" SelectedDate="{Binding Path=Datum}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" DisplayDateStart="1/01/1970" DisplayDateEnd="5/31/2016"/>
                 <Grid Grid.Row="11" Grid.Column="1" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="473*" />

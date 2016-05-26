@@ -133,6 +133,17 @@ namespace HCI_Project.Repos
                 izbaci(l);
         }
 
+        public bool postojiOznaka(string o)
+        {
+            foreach (Lokal l in lokali)
+            {
+                if (l.Oznaka.Equals(o))
+                    return true;
+            }
+            return false;
+        }
+        
+
 
     }
 

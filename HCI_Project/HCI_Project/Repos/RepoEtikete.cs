@@ -129,5 +129,15 @@ namespace HCI_Project.Repos
                 }
             }
         }
+
+        public bool postojiOznaka(string o)
+        {
+            foreach (Etiketa e in etikete)
+            {
+                if (e.Oznaka.Equals(o))
+                    return true;
+            }
+            return false;
+        }
     }
 }
