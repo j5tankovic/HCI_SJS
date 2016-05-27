@@ -87,6 +87,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\EnumConverter.cs" />
     <Compile Include="Converter\RadioButtonCheckedConverter.cs" />
+    <Compile Include="Converter\TipConverter.cs" />
     <Compile Include="Dijalozi\BrisanjeTipa.xaml.cs">
       <DependentUpon>BrisanjeTipa.xaml</DependentUpon>
     </Compile>
@@ -107,6 +108,7 @@
     <Compile Include="Repos\RepoLokali.cs" />
     <Compile Include="Repos\RepoTipovi.cs" />
     <Compile Include="Validacija\IntegerValidationRule.cs" />
+    <Compile Include="Validacija\OznakaTipaValidationRule.cs" />
     <Compile Include="Validacija\OznakaValidationRule.cs" />
     <Compile Include="Validacija\StringValidationRule.cs" />
     <Page Include="Dijalozi\BrisanjeTipa.xaml">

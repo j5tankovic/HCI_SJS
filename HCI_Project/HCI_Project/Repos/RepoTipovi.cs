@@ -155,11 +155,11 @@ namespace HCI_Project.Repos
             }
         }
 
-        public bool postojiOznaka(string o)
+        public bool postojiOznaka(string o, TipLokala ti)
         {
             foreach (TipLokala t in tipovi)
             {
-                if (t.Oznaka.Equals(o))
+                if (t.Oznaka.Equals(o) && !t.Equals(ti))
                     return true;
             }
             return false;
