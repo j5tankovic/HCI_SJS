@@ -57,6 +57,8 @@ namespace HCI_Project
             Tipovi.Add(s);
              * */
 
+            theScrollViewer2.Visibility = Visibility.Hidden;
+
 
             Uri myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
             JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
@@ -64,6 +66,24 @@ namespace HCI_Project
 
             // Draw the Image
             myImage.Source = bitmapSource;
+            myImage14.Source = bitmapSource;
+
+            Uri myUri2 = new Uri("../../map2.jpg", UriKind.RelativeOrAbsolute);
+            JpegBitmapDecoder decoder2 = new JpegBitmapDecoder(myUri2, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            BitmapSource bitmapSource2 = decoder2.Frames[0];
+            myImage24.Source = bitmapSource2;
+
+            Uri myUri3 = new Uri("../../map3.jpg", UriKind.RelativeOrAbsolute);
+            JpegBitmapDecoder decoder3 = new JpegBitmapDecoder(myUri3, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            BitmapSource bitmapSource3 = decoder3.Frames[0];
+            myImage34.Source = bitmapSource3;
+
+            Uri myUri4 = new Uri("../../map4.jpg", UriKind.RelativeOrAbsolute);
+            JpegBitmapDecoder decoder4 = new JpegBitmapDecoder(myUri4, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            BitmapSource bitmapSource4 = decoder4.Frames[0];
+            myImage44.Source = bitmapSource4;
+
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -541,20 +561,36 @@ namespace HCI_Project
             if ((string)myValue == "1") {
                 myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "1";
+                theScrollViewer.Visibility = Visibility.Visible;
+                theScrollViewer2.Visibility = Visibility.Hidden;
             }
             else if ((string)myValue == "2")
             {
                 myUri = new Uri("../../map2.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "2";
+                theScrollViewer.Visibility = Visibility.Visible;
+                theScrollViewer2.Visibility = Visibility.Hidden;
             }
             else if ((string)myValue == "3")
             {
                 myUri = new Uri("../../map3.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "3";
+                theScrollViewer.Visibility = Visibility.Visible;
+                theScrollViewer2.Visibility = Visibility.Hidden;
+            }
+            else if ((string)myValue == "4")
+            {
+                myUri = new Uri("../../map4.jpg", UriKind.RelativeOrAbsolute);
+                active_map = "3";
+                theScrollViewer.Visibility = Visibility.Visible;
+                theScrollViewer2.Visibility = Visibility.Hidden;
             }
             else {
-                myUri = new Uri("../../map4.jpg", UriKind.RelativeOrAbsolute);
-                active_map = "4";
+                myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
+                active_map = "1";
+                theScrollViewer.Visibility = Visibility.Hidden;
+                theScrollViewer2.Visibility = Visibility.Visible;
+
             }
             JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
             BitmapSource bitmapSource = decoder.Frames[0];
