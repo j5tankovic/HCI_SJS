@@ -57,6 +57,8 @@ namespace HCI_Project
             Tipovi.Add(s);
              * */
 
+            theScrollViewer2.Visibility = Visibility.Hidden;
+
 
             Uri myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
             JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
@@ -64,6 +66,22 @@ namespace HCI_Project
 
             // Draw the Image
             myImage.Source = bitmapSource;
+            myImage14.Source = bitmapSource;
+
+            Uri myUri2 = new Uri("../../map2.jpg", UriKind.RelativeOrAbsolute);
+            JpegBitmapDecoder decoder2 = new JpegBitmapDecoder(myUri2, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            BitmapSource bitmapSource2 = decoder2.Frames[0];
+            myImage24.Source = bitmapSource2;
+
+            Uri myUri3 = new Uri("../../map3.jpg", UriKind.RelativeOrAbsolute);
+            JpegBitmapDecoder decoder3 = new JpegBitmapDecoder(myUri3, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            BitmapSource bitmapSource3 = decoder3.Frames[0];
+            myImage34.Source = bitmapSource3;
+
+            Uri myUri4 = new Uri("../../map4.jpg", UriKind.RelativeOrAbsolute);
+            JpegBitmapDecoder decoder4 = new JpegBitmapDecoder(myUri4, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            BitmapSource bitmapSource4 = decoder4.Frames[0];
+            myImage44.Source = bitmapSource4;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -494,7 +512,6 @@ namespace HCI_Project
             {
                 if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == active_map)
                 {
-
                     Image img = new Image();
                     Binding bind = new Binding("Slika");
                     bind.Source = lokal;
@@ -521,8 +538,129 @@ namespace HCI_Project
                     mapa.Children.Add(img);
                     Canvas.SetLeft(img, lokal.PozicijaX);
                     Canvas.SetTop(img, lokal.PozicijaY);
+                }
+            }
 
-                    
+            foreach (Lokal lokal in repoLokali.lokali)
+            {
+                if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == "1")
+                {
+                    Image img = new Image();
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni lokal sa mape";
+                    m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
+                    ctx.Items.Add(m1);
+                    ctx.Items.Add(m2);
+                    img.ContextMenu = ctx;
+
+                    mapa14.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
+                }
+
+                else if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == "2")
+                {
+                    Image img = new Image();
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni lokal sa mape";
+                    m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
+                    ctx.Items.Add(m1);
+                    ctx.Items.Add(m2);
+                    img.ContextMenu = ctx;
+
+                    mapa24.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
+                }
+
+                else if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == "3")
+                {
+                    Image img = new Image();
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni lokal sa mape";
+                    m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
+                    ctx.Items.Add(m1);
+                    ctx.Items.Add(m2);
+                    img.ContextMenu = ctx;
+
+                    mapa34.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
+                }
+
+                else  if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == "4")
+                {
+                    Image img = new Image();
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni lokal sa mape";
+                    m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
+                    ctx.Items.Add(m1);
+                    ctx.Items.Add(m2);
+                    img.ContextMenu = ctx;
+
+                    mapa44.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
                 }
             }
         }
@@ -537,24 +675,60 @@ namespace HCI_Project
             {
                 mapa.Children.RemoveAt(i);
             }
-            
+
+            for (int i = mapa14.Children.Count - 1; i >= 0; i--)
+            {
+                mapa14.Children.RemoveAt(i);
+            }
+
+            for (int i = mapa24.Children.Count - 1; i >= 0; i--)
+            {
+                mapa24.Children.RemoveAt(i);
+            }
+
+            for (int i = mapa34.Children.Count - 1; i >= 0; i--)
+            {
+                mapa34.Children.RemoveAt(i);
+            }
+
+            for (int i = mapa44.Children.Count - 1; i >= 0; i--)
+            {
+                mapa44.Children.RemoveAt(i);
+            }
+
             if ((string)myValue == "1") {
                 myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "1";
+                theScrollViewer.Visibility = Visibility.Visible;
+                theScrollViewer2.Visibility = Visibility.Hidden;
             }
             else if ((string)myValue == "2")
             {
                 myUri = new Uri("../../map2.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "2";
+                theScrollViewer.Visibility = Visibility.Visible;
+                theScrollViewer2.Visibility = Visibility.Hidden;
             }
             else if ((string)myValue == "3")
             {
                 myUri = new Uri("../../map3.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "3";
+                theScrollViewer.Visibility = Visibility.Visible;
+                theScrollViewer2.Visibility = Visibility.Hidden;
+            }
+            else if ((string)myValue == "4")
+            {
+                myUri = new Uri("../../map4.jpg", UriKind.RelativeOrAbsolute);
+                active_map = "3";
+                theScrollViewer.Visibility = Visibility.Visible;
+                theScrollViewer2.Visibility = Visibility.Hidden;
             }
             else {
-                myUri = new Uri("../../map4.jpg", UriKind.RelativeOrAbsolute);
-                active_map = "4";
+                myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
+                active_map = "1";
+                theScrollViewer.Visibility = Visibility.Hidden;
+                theScrollViewer2.Visibility = Visibility.Visible;
+
             }
             JpegBitmapDecoder decoder = new JpegBitmapDecoder(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
             BitmapSource bitmapSource = decoder.Frames[0];

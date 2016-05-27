@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:HCI_Project.NotBeans"
         xmlns:loc="clr-namespace:HCI_Project.Library"
-        Title="MainWindow" Height="680" Width="1280"
+        Title="MainWindow" Height="680" Width="1300"
         Closing="MainWindow_Closing">
         
     <Window.Resources>
@@ -40,22 +40,24 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5"  Grid.ColumnSpan="3">Dodavanje novih podataka</TextBlock>
-                <Button Grid.Row="1" Grid.Column="0" FontFamily="Arial" FontSize="13" Margin="10 10 20 10" Padding="10 5 10 5" Click="Dodaj_Lokal">Dodaj lokal</Button>
-                <Button Grid.Row="1" Grid.Column="1" FontFamily="Arial" FontSize="13"  Margin="0 10 20 10" Padding="20 5 20 5" Click="Dodaj_Tip">Dodaj tip</Button>
-                <Button Grid.Row="1" Grid.Column="2" FontFamily="Arial" FontSize="13" Margin="0 10 20 10" Padding="10 5 10 5" Click="Dodaj_Etiketa">Dodaj etiketu</Button>
+                <Button Grid.Row="1" Grid.Column="0" FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Dodaj_Lokal">Dodaj lokal</Button>
+                <Button Grid.Row="1" Grid.Column="1" FontFamily="Arial" FontSize="13"  Margin="0 10 10 10" Padding="20 5 20 5" Click="Dodaj_Tip">Dodaj tip</Button>
+                <Button Grid.Row="1" Grid.Column="2" FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Dodaj_Etiketa">Dodaj etiketu</Button>
                 
                 <TextBlock Grid.Row="0" Grid.Column="3" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="3">Prikaz podataka</TextBlock>
-                <Button Grid.Row="1" Grid.Column="3" FontFamily="Arial" FontSize="13" Margin="10 10 20 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Tabela lokala</Button>
-                <Button Grid.Row="1" Grid.Column="4" FontFamily="Arial" FontSize="13" Margin="0 10 20 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Tipova">Tabela tipova</Button>
-                <Button Grid.Row="1" Grid.Column="5" FontFamily="Arial" FontSize="13" Margin="0 10 20 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Etiketa">Tabela etiketa</Button>
+                <Button Grid.Row="1" Grid.Column="3" FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Tabela lokala</Button>
+                <Button Grid.Row="1" Grid.Column="4" FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Tipova">Tabela tipova</Button>
+                <Button Grid.Row="1" Grid.Column="5" FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Etiketa">Tabela etiketa</Button>
                 
-                <TextBlock Grid.Row="0" Grid.Column="6" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="4">Mape</TextBlock>
-                <Button Width="80" Grid.Row="1" Grid.Column="6"  FontFamily="Arial" FontSize="13" Margin="10 10 20 10" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="1">Zrenjanin</Button>
-                <Button Width="80" Grid.Row="1" Grid.Column="7"  FontFamily="Arial" FontSize="13" Margin="10 10 20 10" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="2">Krusevac</Button>
-                <Button Width="80" Grid.Row="1" Grid.Column="8"  FontFamily="Arial" FontSize="13" Margin="10 10 20 10" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="3">Vrsac</Button>
-                <Button Width="80" Grid.Row="1" Grid.Column="9"  FontFamily="Arial" FontSize="13" Margin="10 10 20 10" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="4">Novi Sad</Button>
+                <TextBlock Grid.Row="0" Grid.Column="6" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="5">Mape</TextBlock>
+                <Button Height="28" Width="80" Grid.Row="1" Grid.Column="6"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="1">Zrenjanin</Button>
+                <Button Height="28" Width="80" Grid.Row="1" Grid.Column="7"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="2">Krusevac</Button>
+                <Button Height="28" Width="80" Grid.Row="1" Grid.Column="8"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="3">Vrsac</Button>
+                <Button Height="28" Width="80" Grid.Row="1" Grid.Column="9"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="4">Novi Sad</Button>
+                <Button Height="28" Width="91" Grid.Row="1" Grid.Column="10"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="5">Sve 4 mape</Button>
             </Grid>
         </Grid>
         <Grid DockPanel.Dock="Bottom">
@@ -114,9 +116,75 @@
                                 </VisualBrush.Visual>
                             </VisualBrush>
                         </Canvas.Background>
-                    </Canvas>
-                    
+                    </Canvas>           
                 </ScrollViewer>
+                <Grid Grid.Column="0" Grid.Row="0"
+                    x:Name="theScrollViewer2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollViewer Grid.Column="0" Grid.Row="0"
+                    x:Name="theScrollViewer14"
+                    HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto">
+                        <Canvas Name="mapa14" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                            <Canvas.Background>
+                                <VisualBrush  >
+                                    <VisualBrush.Visual>
+                                        <Image  x:Name="myImage14" Stretch="None"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Canvas.Background>
+                        </Canvas>
+                    </ScrollViewer>
+                    <ScrollViewer Grid.Column="1" Grid.Row="0"
+                    x:Name="theScrollViewer24"
+                    HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto">
+                        <Canvas Name="mapa24" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                            <Canvas.Background>
+                                <VisualBrush  >
+                                    <VisualBrush.Visual>
+                                        <Image  x:Name="myImage24" Stretch="None"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Canvas.Background>
+                        </Canvas>
+                    </ScrollViewer>
+                    <ScrollViewer Grid.Column="0" Grid.Row="1"
+                    x:Name="theScrollViewer34"
+                    HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto">
+                        <Canvas Name="mapa34" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                            <Canvas.Background>
+                                <VisualBrush  >
+                                    <VisualBrush.Visual>
+                                        <Image  x:Name="myImage34" Stretch="None"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Canvas.Background>
+                        </Canvas>
+                    </ScrollViewer>
+                    <ScrollViewer Grid.Column="1" Grid.Row="1"
+                    x:Name="theScrollViewer44"
+                    HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto">
+                        <Canvas Name="mapa44" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                            <Canvas.Background>
+                                <VisualBrush  >
+                                    <VisualBrush.Visual>
+                                        <Image  x:Name="myImage44" Stretch="None"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Canvas.Background>
+                        </Canvas>
+                    </ScrollViewer>
+                </Grid>
                 <ScrollViewer Grid.Column="0" Grid.Row="1"
                     HorizontalScrollBarVisibility="Disabled"
                     VerticalScrollBarVisibility="Auto">
