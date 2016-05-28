@@ -159,7 +159,7 @@ namespace HCI_Project.Repos
         {
             foreach (TipLokala t in tipovi)
             {
-                if (t.Oznaka.Equals(o) && !t.Equals(ti))
+                if (t.Oznaka.Equals(o) && (ti.Oznaka == null || !t.Equals(ti)))
                     return true;
             }
             return false;

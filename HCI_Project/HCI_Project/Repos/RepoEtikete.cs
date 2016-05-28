@@ -134,7 +134,7 @@ namespace HCI_Project.Repos
         {
             foreach (Etiketa e in etikete)
             {
-                if (e.Oznaka.Equals(o) && !e.Equals(et))
+                if (e.Oznaka.Equals(o) && (e.Oznaka == null || !e.Equals(et)))
                     return true;
             }
             return false;

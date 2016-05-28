@@ -137,7 +137,7 @@ namespace HCI_Project.Repos
         {
             foreach (Lokal l in lokali)
             {
-                if (l.Oznaka.Equals(o) && !l.Equals(lo))
+                if (l.Oznaka.Equals(o) && (lo.Oznaka == null || !l.Equals(lo)))
                     return true;
             }
             return false;
