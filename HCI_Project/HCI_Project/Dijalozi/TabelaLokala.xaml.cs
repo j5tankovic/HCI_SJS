@@ -118,8 +118,11 @@ namespace HCI_Project.Dijalozi
             Lokal lokal = (Lokal)dgrMain.SelectedItem;
             if (lokal == null)
                 return;
+            TipLokala stariTip = lokal.Tip;
             lokal.Tip = tip;
-
+            stariTip.izbaciLokal(lokal);
+            if (tip != null)
+                lokal.Tip.ubaciLokal(lokal);
         }
 
       

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.ComponentModel;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 
 namespace HCI_Project.NotBeans
@@ -25,9 +27,9 @@ namespace HCI_Project.NotBeans
         private string _opis;
         private TipLokala _tip;
         private SluzenjeAlkohola _alhohol;
-        private Boolean _hendikep;
-        private Boolean _pusenje;
-        private Boolean _rezervacije;
+        private bool _hendikep;
+        private bool _pusenje;
+        private bool _rezervacije;
         private KategorijaCene _cene;
         private int _kapacitet;
         private DateTime _datum;
@@ -36,6 +38,57 @@ namespace HCI_Project.NotBeans
         private double _pozicijaX = -1;
         private double _pozicijaY = -1;
         private string _mapa;
+
+        public Lokal()
+        {
+            this._etikete = new List<Etiketa>();
+        }
+
+        public void setValuesAs(Lokal l)
+        {
+            this._oznaka = l._oznaka;
+            this._naziv = l._naziv;
+            this._opis = l._opis;
+            this._tip = l._tip;
+            this._alhohol = l._alhohol;
+            this._hendikep = l._hendikep;
+            this._pusenje = l._pusenje;
+            this._rezervacije = l._rezervacije;
+            this._cene = l._cene;
+            this._kapacitet = l._kapacitet;
+            this._etikete = l._etikete;
+            this._slika = l._slika;
+            this._pozicijaX = l._pozicijaX;
+            this._pozicijaY = l._pozicijaY;
+            this._mapa = l._mapa;
+            this._datum = l._datum;
+        }
+
+        public static Lokal getCopyLokal(Lokal l)
+        {
+            if (l == null)
+                return null;
+            Lokal novi = new Lokal();
+            novi._oznaka = l._oznaka;
+            novi._alhohol = l._alhohol;
+            novi._cene = l._cene;
+            novi._datum = l._datum;
+            novi._etikete = new List<Etiketa>();
+            foreach (Etiketa e in l._etikete)
+                novi._etikete.Add(e);
+            novi._hendikep = l._hendikep;
+            novi._kapacitet = l._kapacitet;
+            novi._mapa = l._mapa;
+            novi._naziv = l._naziv;
+            novi._opis = l._opis;
+            novi._pozicijaX = l._pozicijaX;
+            novi._pozicijaY = l._pozicijaY;
+            novi._pusenje = l._pusenje;
+            novi._rezervacije = l._rezervacije;
+            novi._slika = l._slika;
+            novi._tip = l._tip;
+            return novi;
+        }
 
         public string Mapa
         {
@@ -130,7 +183,7 @@ namespace HCI_Project.NotBeans
             }
         }
         
-        public Boolean Hendikep
+        public bool Hendikep
         {
             get
             {
@@ -146,7 +199,7 @@ namespace HCI_Project.NotBeans
             }
         }
         
-        public Boolean Pusenje
+        public bool Pusenje
         {
             get
             {
@@ -162,7 +215,7 @@ namespace HCI_Project.NotBeans
             }
         }
         
-        public Boolean Rezervacije
+        public bool Rezervacije
         {
             get
             {

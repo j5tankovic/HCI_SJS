@@ -130,11 +130,11 @@ namespace HCI_Project.Repos
             }
         }
 
-        public bool postojiOznaka(string o)
+        public bool postojiOznaka(string o, Etiketa et)
         {
             foreach (Etiketa e in etikete)
             {
-                if (e.Oznaka.Equals(o))
+                if (e.Oznaka.Equals(o) && !e.Equals(et))
                     return true;
             }
             return false;
