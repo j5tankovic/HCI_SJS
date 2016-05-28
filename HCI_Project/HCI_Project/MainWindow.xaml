@@ -132,7 +132,7 @@
                     x:Name="theScrollViewer14"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                        <Canvas Name="mapa14" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                        <Canvas Name="mapa14" AllowDrop="True" DragOver="Canvas_DragOver14" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop14" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
                             <Canvas.Background>
                                 <VisualBrush  >
                                     <VisualBrush.Visual>
@@ -146,7 +146,7 @@
                     x:Name="theScrollViewer24"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                        <Canvas Name="mapa24" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                        <Canvas Name="mapa24" AllowDrop="True" DragOver="Canvas_DragOver24" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop24" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
                             <Canvas.Background>
                                 <VisualBrush  >
                                     <VisualBrush.Visual>
@@ -160,7 +160,7 @@
                     x:Name="theScrollViewer34"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                        <Canvas Name="mapa34" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                        <Canvas Name="mapa34" AllowDrop="True" DragOver="Canvas_DragOver34" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop34" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
                             <Canvas.Background>
                                 <VisualBrush  >
                                     <VisualBrush.Visual>
@@ -174,7 +174,7 @@
                     x:Name="theScrollViewer44"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                        <Canvas Name="mapa44" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                        <Canvas Name="mapa44" AllowDrop="True" DragOver="Canvas_DragOver44" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop44" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
                             <Canvas.Background>
                                 <VisualBrush  >
                                     <VisualBrush.Visual>
