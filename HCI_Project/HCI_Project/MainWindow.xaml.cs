@@ -99,7 +99,7 @@ namespace HCI_Project
 
         private void Dodaj_Tip(object sender, RoutedEventArgs e)
         {
-            TipDialog tip = new TipDialog(this);
+            TipDialog tip = new TipDialog(this, null);
             //tip.Closed += dialogTipClosed;
             tip.InitializeComponent();
             tip.Show();
@@ -143,18 +143,15 @@ namespace HCI_Project
 
         private ObservableCollection<TipLokala> popuniLokalima()
         {
-            ObservableCollection<TipLokala> tipoviLokala = repoTipovi.sviTipovi();
-            ObservableCollection<Lokal> lokali = repoLokali.sviLokali();
-            foreach(var lokal in lokali)
+            foreach (Lokal lokal in repoLokali.sviLokali())
             {
-                foreach (TipLokala t in tipoviLokala)
+                foreach (TipLokala t in repoTipovi.sviTipovi())
                 {
                     if (t.Oznaka.Equals(lokal.Tip.Oznaka))
-                        t.Lokali.Add(lokal);
+                        t.ubaciLokal(lokal);
                 }
             }
-
-            return tipoviLokala;
+            return repoTipovi.sviTipovi();
         }
 
         public void dopuniTip(Lokal lokal)
@@ -989,11 +986,11 @@ namespace HCI_Project
 
         private void PrikaziTip(object sender, RoutedEventArgs args)
         {
-            /*MenuItem m = (MenuItem)sender;
+            MenuItem m = (MenuItem)sender;
             TipLokala l = (TipLokala)m.DataContext;
-            IzmenaTipa dialog = new IzmenaTipa(this, l);
+            TipDialog dialog = new TipDialog(this, l);
             dialog.InitializeComponent();
-            dialog.ShowDialog();*/
+            dialog.ShowDialog();
         }
 
 

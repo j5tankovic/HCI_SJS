@@ -67,6 +67,7 @@ namespace HCI_Project.Dijalozi
                 return;
             if (!kreiranje)
             {
+                this.lokal_za_izmenu.izmeniTipPotpuno(this.lokal.Tip);
                 this.lokal_za_izmenu.setValuesAs(this.lokal);
                 this.Close();
                 return;
@@ -153,7 +154,7 @@ namespace HCI_Project.Dijalozi
         private void oznakaTipa_TextChanged(object sender, TextChangedEventArgs e)
         {
             System.Windows.Controls.TextBox box = (System.Windows.Controls.TextBox)sender;
-            TipLokala tip= parent.repoTipovi.nadjiPoOznaci(box.Text);
+            TipLokala tip = parent.repoTipovi.nadjiPoOznaci(box.Text);
             lokal.Tip = tip;
             oznakaTipa.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
         }

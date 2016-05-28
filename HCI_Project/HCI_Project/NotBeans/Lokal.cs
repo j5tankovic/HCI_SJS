@@ -46,22 +46,22 @@ namespace HCI_Project.NotBeans
 
         public void setValuesAs(Lokal l)
         {
-            this._oznaka = l._oznaka;
-            this._naziv = l._naziv;
-            this._opis = l._opis;
-            this._tip = l._tip;
-            this._alhohol = l._alhohol;
-            this._hendikep = l._hendikep;
-            this._pusenje = l._pusenje;
-            this._rezervacije = l._rezervacije;
-            this._cene = l._cene;
-            this._kapacitet = l._kapacitet;
-            this._etikete = l._etikete;
-            this._slika = l._slika;
-            this._pozicijaX = l._pozicijaX;
-            this._pozicijaY = l._pozicijaY;
-            this._mapa = l._mapa;
-            this._datum = l._datum;
+            this.Oznaka = l._oznaka;
+            this.Naziv = l._naziv;
+            this.Opis = l._opis;
+            this.Tip = l._tip;
+            this.Alkohol = l._alhohol;
+            this.Hendikep = l._hendikep;
+            this.Pusenje = l._pusenje;
+            this.Rezervacije = l._rezervacije;
+            this.Cene = l._cene;
+            this.Kapacitet = l._kapacitet;
+            this.Etikete = l._etikete;
+            this.Slika = l._slika;
+            this.PozicijaX = l._pozicijaX;
+            this.PozicijaY = l._pozicijaY;
+            this.Mapa = l._mapa;
+            this.Datum = l._datum;
         }
 
         public static Lokal getCopyLokal(Lokal l)
@@ -69,24 +69,24 @@ namespace HCI_Project.NotBeans
             if (l == null)
                 return null;
             Lokal novi = new Lokal();
-            novi._oznaka = l._oznaka;
-            novi._alhohol = l._alhohol;
-            novi._cene = l._cene;
-            novi._datum = l._datum;
-            novi._etikete = new List<Etiketa>();
+            novi.Oznaka = l._oznaka;
+            novi.Alkohol = l._alhohol;
+            novi.Cene = l._cene;
+            novi.Datum = l._datum;
+            novi.Etikete = new List<Etiketa>();
             foreach (Etiketa e in l._etikete)
                 novi._etikete.Add(e);
-            novi._hendikep = l._hendikep;
-            novi._kapacitet = l._kapacitet;
-            novi._mapa = l._mapa;
-            novi._naziv = l._naziv;
-            novi._opis = l._opis;
-            novi._pozicijaX = l._pozicijaX;
-            novi._pozicijaY = l._pozicijaY;
-            novi._pusenje = l._pusenje;
-            novi._rezervacije = l._rezervacije;
-            novi._slika = l._slika;
-            novi._tip = l._tip;
+            novi.Hendikep = l._hendikep;
+            novi.Kapacitet = l._kapacitet;
+            novi.Mapa = l._mapa;
+            novi.Naziv = l._naziv;
+            novi.Opis = l._opis;
+            novi.PozicijaX = l._pozicijaX;
+            novi.PozicijaY = l._pozicijaY;
+            novi.Pusenje = l._pusenje;
+            novi.Rezervacije = l._rezervacije;
+            novi.Slika = l._slika;
+            novi.Tip = l._tip;
             return novi;
         }
 
@@ -351,6 +351,15 @@ namespace HCI_Project.NotBeans
             if (obj.Oznaka.Equals(this.Oznaka))
                 return true;
             return false;
+        }
+
+        public void izmeniTipPotpuno(TipLokala t)
+        {
+            TipLokala tip = this.Tip;
+            tip.izbaciLokal(this);
+            this.Tip = t;
+            if (t != null)
+                t.ubaciLokal(this);
         }
     }
 }

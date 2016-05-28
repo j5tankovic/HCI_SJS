@@ -16,6 +16,29 @@ namespace HCI_Project.NotBeans
         private string _opis;
         private string _slika;
 
+        public static TipLokala getCopyTip(TipLokala t)
+        {
+            if (t == null)
+                return null;
+            TipLokala novi = new TipLokala();
+            novi.Oznaka = t._oznaka;
+            novi.Opis = t._opis;
+            novi.Naziv = t._naziv;
+            novi.Slika = t._slika;
+            foreach (Lokal l in t.Lokali)
+                novi.Lokali.Add(l);
+            return novi;
+        }
+
+        public void setTipAs(TipLokala t)
+        {
+            this.Lokali = t.Lokali;
+            this.Naziv = t._naziv;
+            this.Opis = t._opis;
+            this.Oznaka = t._oznaka;
+            this.Slika = t._slika;
+        }
+
         public string Oznaka
         {
             get

@@ -28,8 +28,11 @@ namespace HCI_Project.Dijalozi
         public EtiketaDialog(MainWindow p)
         {
             this.parent = p;
-            InitializeComponent();
             etiketa = new Etiketa();
+            this.Resources.Add("etiketa", etiketa);
+            this.Resources.Add("parent", parent);
+            InitializeComponent();
+            
             this.DataContext = etiketa;
         }
 
@@ -62,6 +65,11 @@ namespace HCI_Project.Dijalozi
         {
             if (!ok)
                 etiketa = null;
+        }
+
+        private void EtiketaDialog_Loaded(object sender, RoutedEventArgs args)
+        {
+            oznakaEtikete.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
         }
     }
 }

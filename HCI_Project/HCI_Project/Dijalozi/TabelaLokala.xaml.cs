@@ -23,10 +23,12 @@ namespace HCI_Project.Dijalozi
     public partial class TabelaLokala : Window
     {
         public MainWindow parent { get; set; }
+        private string stariTipOznaka { get; set; }
   
         public TabelaLokala(MainWindow p)
         {
             this.parent = p;
+            this.Resources.Add("parent", parent);
             InitializeComponent();
             this.DataContext = this;
             initializeCombos();
@@ -111,20 +113,37 @@ namespace HCI_Project.Dijalozi
             }            
         }
 
-        private void oznakaTipa_TextChanged(object sender, TextChangedEventArgs e)
+        private void oznakaTipa_TextChanged(object sender, RoutedEventArgs args)
         {
             System.Windows.Controls.TextBox box = (System.Windows.Controls.TextBox)sender;
             TipLokala tip = parent.repoTipovi.nadjiPoOznaci(box.Text);
-            Lokal lokal = (Lokal)dgrMain.SelectedItem;
-            if (lokal == null)
+            if (tip == null)
                 return;
-            TipLokala stariTip = lokal.Tip;
+            Lokal lokal = (Lokal)dgrMain.SelectedItem;
+            if (lokal.Tip != null)
+            {
+                Console.WriteLine("Izbacujem iz "+lokal.Tip.Oznaka);
+                lokal.Tip.izbaciLokal(lokal);
+            }
             lokal.Tip = tip;
-            stariTip.izbaciLokal(lokal);
-            if (tip != null)
-                lokal.Tip.ubaciLokal(lokal);
+            lokal.Tip.ubaciLokal(lokal);
         }
 
+        private void dgrMain_SelectedCellsChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.stariTipOznaka = ((Lokal)dgrMain.SelectedItem).Tip.Oznaka;
+        }
+
+        private void oznakaTipa_SourceUpdated(object sender, DataTransferEventArgs args)
+        {
+            Lokal lokal = (Lokal)dgrMain.SelectedItem;
+            TipLokala noviTip = lokal.Tip;
+            if (lokal == null || noviTip == null)
+                return;
+            parent.repoTipovi.nadjiTipPoOznaciIIzbaciLokal(this.stariTipOznaka, lokal);
+            this.stariTipOznaka = lokal.Tip.Oznaka;
+            lokal.Tip.ubaciLokal(lokal);
+        }
       
     }
 

@@ -23,7 +23,9 @@ namespace HCI_Project.Dijalozi
     public partial class TipDialog : Window
     {
         public TipLokala tipLokala { get; set; }
-        private Boolean ok = false;
+        private TipLokala za_izmenu;
+        private bool ok = false;
+        private bool kreiranje;
 
         public TipLokala TipLokala
         {
@@ -32,18 +34,32 @@ namespace HCI_Project.Dijalozi
         }
         private MainWindow parent;
 
-        public TipDialog(MainWindow p)
+        public TipDialog(MainWindow p, TipLokala t)
         {
             this.parent = p;
-            InitializeComponent();
-            tipLokala = new TipLokala();
+            this.Resources.Add("parent", parent);
+            this.kreiranje = t == null ? true : false;
+            this.za_izmenu = t;
+            if (t == null)
+                tipLokala = new TipLokala();
+            else
+                tipLokala = TipLokala.getCopyTip(t);
+            this.Resources.Add("tip", tipLokala);
             this.DataContext = tipLokala;
+            InitializeComponent();
+            if (!kreiranje)
+                oznakaTipa.IsReadOnly = true;
         }
 
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs args)
         {
-
+            if (!kreiranje)
+            {
+                this.za_izmenu.setTipAs(this.tipLokala);
+                this.Close();
+                return;
+            }
             ok = parent.repoTipovi.dodaj(tipLokala);
             if (ok)
             {
@@ -94,6 +110,12 @@ namespace HCI_Project.Dijalozi
                 tipLokala.Slika = fileDialog.FileName;
 
             }
+        }
+
+        private void TipDialog_Loaded(object sender, RoutedEventArgs args)
+        {
+            oznakaTipa.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
+            nazivTipa.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
         }
         
     }

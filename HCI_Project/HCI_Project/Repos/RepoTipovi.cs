@@ -164,5 +164,13 @@ namespace HCI_Project.Repos
             }
             return false;
         }
+
+        public void nadjiTipPoOznaciIIzbaciLokal(string o, Lokal l)
+        {
+            TipLokala tip = nadjiPoOznaci(o);
+            if (tip == null)
+                return;
+            tip.izbaciLokal(l);
+        }
     }
 }
