@@ -4,8 +4,8 @@
         xmlns:local="clr-namespace:HCI_Project.NotBeans"
         xmlns:loc="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="MainWindow" Height="680" Width="1300"
-        Closing="MainWindow_Closing">
+        Title="MainWindow" Height="680" Width="1360"
+        Closing="MainWindow_Closing" WindowState="Maximized" ResizeMode="NoResize">
         
     <Window.Resources>
         <loc:CustomLokalConverter x:Key="CustomLokalConverter" />
@@ -186,7 +186,15 @@
                         </Canvas>
                     </ScrollViewer>
                 </Grid>
-                <ScrollViewer Grid.Column="0" Grid.Row="1"
+                <Grid  Grid.Column="0" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollViewer Grid.Column="0" Grid.Row="0"
                     HorizontalScrollBarVisibility="Disabled"
                     VerticalScrollBarVisibility="Auto">
                     <ContentPresenter Content="{Binding ElementName=trvLokali,Path=SelectedItem}">
@@ -319,6 +327,26 @@
                         </ContentPresenter.Resources>
                     </ContentPresenter>
                 </ScrollViewer>
+                <Grid  Grid.Column="1" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0">Filter za mapu:</TextBlock>
+                        <TextBox Grid.Column="1" Grid.Row="0" Name="filter" Width="100"></TextBox>
+                        <Button Grid.Column="2" Grid.Row="0" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Prikazi_Tabelu_Tipova">Filter</Button>
+                        <Button Grid.Column="2" Grid.Row="1" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Prikazi_Tabelu_Tipova">Ukloni filter</Button>
+                        <TextBlock Grid.Column="0" Grid.Row="2">Pronadji na mapi:</TextBlock>
+                        <TextBox Grid.Column="1" Grid.Row="2" Name="pretraga" Width="100"></TextBox>
+                        <Button Grid.Column="2" Grid.Row="2" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Prikazi_Tabelu_Tipova">Pronadji</Button>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
     </DockPanel>
