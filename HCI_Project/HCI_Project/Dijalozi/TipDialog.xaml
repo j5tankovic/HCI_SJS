@@ -3,117 +3,120 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="Unos novog tipa lokala" Height="391" Width="344"
+        Title="Unos novog tipa lokala" Height="391" Width="560"
+        MinWidth="560"
         Closing="TipDialog_Closing"
         Loaded="TipDialog_Loaded">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <Grid.Resources>
-            <Style TargetType="TextBlock" x:Key="FontStyleAndSize">
-                <Setter Property="FontFamily" Value="Arial"/>
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="Margin" Value="5,5,10,5"/>
-            </Style>
-        </Grid.Resources>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <Style TargetType="TextBlock" x:Key="FontStyleAndSize">
+                    <Setter Property="FontFamily" Value="Arial"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="Margin" Value="5,5,10,5"/>
+                </Style>
+            </Grid.Resources>
 
 
 
 
 
 
-        <TextBlock Style="{StaticResource FontStyleAndSize}">Oznaka:</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FontStyleAndSize}">Naziv:</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FontStyleAndSize}">Opis:</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource FontStyleAndSize}">Ikonica:</TextBlock>
+            <TextBlock Style="{StaticResource FontStyleAndSize}">Oznaka:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FontStyleAndSize}">Naziv:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FontStyleAndSize}">Opis:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource FontStyleAndSize}">Ikonica:</TextBlock>
 
-        <TextBox Name="oznakaTipa" Grid.Column="1" Margin="5 5 10 5">
-            <TextBox.Text>
-                <Binding Path="Oznaka" UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <val:OznakaValidationRule ValidationStep="RawProposedValue" parent="{StaticResource parent}" vrsta="TIP" tipLokala="{StaticResource tip}" />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-            <Validation.ErrorTemplate>
-                <ControlTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
+            <TextBox Name="oznakaTipa" Grid.Column="1" Margin="5 5 10 5">
+                <TextBox.Text>
+                    <Binding Path="Oznaka" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:OznakaValidationRule ValidationStep="RawProposedValue" parent="{StaticResource parent}" vrsta="TIP" tipLokala="{StaticResource tip}" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
 
-                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                    </Grid>
-                </ControlTemplate>
-            </Validation.ErrorTemplate>
-        </TextBox>
-        <TextBox Name="nazivTipa" Grid.Column="1" Grid.Row="1" Margin="5 5 10 5">
-            <TextBox.Text>
-                <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <val:StringValidationRule ValidationStep="RawProposedValue"/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-            <Validation.ErrorTemplate>
-                <ControlTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBox Name="nazivTipa" Grid.Column="1" Grid.Row="1" Margin="5 5 10 5">
+                <TextBox.Text>
+                    <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:StringValidationRule ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
 
-                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                    </Grid>
-                </ControlTemplate>
-            </Validation.ErrorTemplate>
-        </TextBox>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="5 5 10 5" Text="{Binding Path=Opis}"></TextBox>
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBox Grid.Column="1" Grid.Row="2" Margin="5 5 10 5" Text="{Binding Path=Opis}"></TextBox>
 
-        <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="10 0 10 5">
-            <Image Name="Ikonica" Source="{Binding Path=Slika}"/>
-        </Border>
-        <Button Grid.Column="1" Grid.Row="4" Width="90" HorizontalAlignment="Right" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" Click="izaberiFajlClicked">Izaberi ikonicu</Button>
-        <StackPanel Grid.Column="1" Grid.Row="6"  Margin="5,0,10,5" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Margin="0 0 5 0" FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonPotvrdiClicked" Content="Sacuvaj">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="IsEnabled" Value="false"/>
-                        <Style.Triggers>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding ElementName=oznakaTipa, Path=(Validation.HasError)}" Value="false"/>
-                                    <Condition Binding="{Binding ElementName=nazivTipa, Path=(Validation.HasError)}" Value="false"/>
-                                </MultiDataTrigger.Conditions>
-                                <Setter Property="IsEnabled" Value="true"/>
-                            </MultiDataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonOdustaniClicked">Odustani</Button>
-        </StackPanel>
-    </Grid>
+            <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="10 0 10 5">
+                <Image Name="Ikonica" Source="{Binding Path=Slika}"/>
+            </Border>
+            <Button Grid.Column="1" Grid.Row="4" Width="90" HorizontalAlignment="Right" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" Click="izaberiFajlClicked">Izaberi ikonicu</Button>
+            <StackPanel Grid.Column="1" Grid.Row="6"  Margin="5,0,10,5" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Margin="0 0 5 0" FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonPotvrdiClicked" Content="Sacuvaj">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="IsEnabled" Value="false"/>
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=oznakaTipa, Path=(Validation.HasError)}" Value="false"/>
+                                        <Condition Binding="{Binding ElementName=nazivTipa, Path=(Validation.HasError)}" Value="false"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="IsEnabled" Value="true"/>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonOdustaniClicked">Odustani</Button>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Window>

@@ -20,6 +20,24 @@ namespace HCI_Project.NotBeans
         
         private string _opis;
 
+
+        public static Etiketa getCopy(Etiketa e)
+        {
+            Etiketa et = new Etiketa();
+            et.Boja = e.Boja;
+            et.Opis = e.Opis;
+            et.Oznaka = e.Oznaka;
+            return et;
+        }
+
+        public void setValuesAs(Etiketa e)
+        {
+            this.Oznaka = e.Oznaka;
+            this.Opis = e.Opis;
+            this.Boja = e.Boja;
+        }
+
+
         public string Oznaka
         {
             get
@@ -79,6 +97,10 @@ namespace HCI_Project.NotBeans
 
         public bool Equals(Etiketa obj)
         {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
             if (obj.Oznaka.Equals(this.Oznaka))
                 return true;
             return false;

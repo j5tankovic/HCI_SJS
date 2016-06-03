@@ -14,119 +14,124 @@
         <ToolBar DockPanel.Dock="Top">
             <Button Click="IzmenaLokala" Content="Izmeni lokal" />
         </ToolBar>
-        <Grid DockPanel.Dock="Top">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
 
-        
-            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" IsReadOnly="True" AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
-                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
-                    <DataGridTemplateColumn Header="Tip" Width="3*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Path= Tip.Naziv}"></TextBlock>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Sluzenje alkohola" Width="3*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Alkohol, Converter={StaticResource EnumConverter}}"></TextBlock>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridCheckBoxColumn Header="Hendikep" Binding="{Binding Path= Hendikep}" Width="3*"></DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Rezervacije" Binding="{Binding Path= Rezervacije}" Width="3*"></DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Pusenje" Binding="{Binding Path= Pusenje}" Width="3*"></DataGridCheckBoxColumn>
-                    <DataGridTemplateColumn Header="Kategorije cena" Width="3*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Cene, Converter={StaticResource EnumConverter}}"></TextBlock>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Datum otvaranja" Binding="{Binding Datum}" Width="3*"/>
-                    <DataGridTextColumn Header="Slika" Binding="{Binding Slika}" Width="3*"/>
-                </DataGrid.Columns>
-                <DataGrid.RowDetailsTemplate>
-                    <DataTemplate>
-                        <DockPanel Background="Honeydew">
-                            <Image DockPanel.Dock="Left" Height="80"  Source="{Binding Path=Slika}"/>
-                            <Grid Margin="5,5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="Opis:" Grid.Column="0" Grid.Row="0" FontWeight="Black" Margin="5,5" />
-                                <TextBlock Text="Tip lokala:"  Grid.Column="0" Grid.Row="1" FontWeight="Black" Margin="5,5"/>
-                                <TextBlock Text="Etikete:"  Grid.Column="0" Grid.Row="2" FontWeight="Black" Margin="5,5"/>
-                                <TextBlock Text="{Binding Opis}" Grid.Column="1" Grid.Row="0" Margin="5,5"/>
-                                <TextBlock Text="{Binding Path= Tip.Naziv}" Grid.Column="1" Grid.Row="1" Margin="5,5"/>
-                                <ListBox ItemsSource="{Binding Etikete}"  Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Stretch">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Oznaka}">
+        <ScrollViewer>
+            <Grid DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+
+                <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
+                        <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
+                        <DataGridTemplateColumn Header="Tip" Width="3*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path= Tip.Naziv}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Sluzenje alkohola" Width="3*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Alkohol, Converter={StaticResource EnumConverter}}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridCheckBoxColumn Header="Hendikep" Binding="{Binding Path= Hendikep}" Width="3*"></DataGridCheckBoxColumn>
+                        <DataGridCheckBoxColumn Header="Rezervacije" Binding="{Binding Path= Rezervacije}" Width="3*"></DataGridCheckBoxColumn>
+                        <DataGridCheckBoxColumn Header="Pusenje" Binding="{Binding Path= Pusenje}" Width="3*"></DataGridCheckBoxColumn>
+                        <DataGridTemplateColumn Header="Kategorije cena" Width="3*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Cene, Converter={StaticResource EnumConverter}}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Datum otvaranja" Binding="{Binding Datum}" Width="3*"/>
+                        <DataGridTextColumn Header="Slika" Binding="{Binding Slika}" Width="3*"/>
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <DockPanel Background="Honeydew">
+                                <Image DockPanel.Dock="Left" Height="80"  Source="{Binding Path=Slika}"/>
+                                <Grid Margin="5,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Opis:" Grid.Column="0" Grid.Row="0" FontWeight="Black" Margin="5,5" />
+                                    <TextBlock Text="Tip lokala:"  Grid.Column="0" Grid.Row="1" FontWeight="Black" Margin="5,5"/>
+                                    <TextBlock Text="Etikete:"  Grid.Column="0" Grid.Row="2" FontWeight="Black" Margin="5,5"/>
+                                    <TextBlock Text="{Binding Opis}" Grid.Column="1" Grid.Row="0" Margin="5,5"/>
+                                    <TextBlock Text="{Binding Path= Tip.Naziv}" Grid.Column="1" Grid.Row="1" Margin="5,5"/>
+                                    <ListBox ItemsSource="{Binding Etikete}"  Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Stretch">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Oznaka}">
                                                     <TextBlock.Foreground>
                                                         <SolidColorBrush Color="{Binding Boja}"/>
                                                     </TextBlock.Foreground>
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
-                        </DockPanel>
-                    </DataTemplate>
-                </DataGrid.RowDetailsTemplate>
-            </DataGrid>
-            <Grid Grid.Row="1" VerticalAlignment="Top">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition Height="4*"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="Zamenite tip ovih lokala nekim drugim lokalom" Grid.Column="0" Grid.Row="0"></TextBlock>
-                <Grid Grid.Row="1" Grid.Column="0">
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </Grid>
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
+                <Grid Grid.Row="1" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
+                        <RowDefinition Height="4*"/>
                         <RowDefinition/>
-                        <RowDefinition Height="2*"/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="226*" />
-                        <ColumnDefinition Width="196*" />
-                        <ColumnDefinition Width="30" />
-                        <ColumnDefinition Width="226*" />
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <TextBlock Text="Zamenite tip ovih lokala nekim drugim lokalom" Grid.Column="0" Grid.Row="0"></TextBlock>
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Oznaka tipa:"></TextBlock>
-                    <TextBox Grid.Column="1" Name="OznakaTipa" TextChanged="oznakaTextChanged" Grid.ColumnSpan="2"></TextBox>
-                    <Button Grid.Column="3" Name="nadjiTip" Click="otvoriTabeluTipova" Margin="0,0,129,0">Nadji...</Button>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Naziv tipa:"></TextBlock>
-                    <TextBox Name="nazivTipa"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Naziv}" IsReadOnly="True"></TextBox>
-                    <Border Background="WhiteSmoke" Grid.Row="2" Grid.Column="0" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
-                        <Image Source="{Binding Path=Slika}" Height="58" />
-                    </Border>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Oznaka tipa:"></TextBlock>
+                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                            <TextBox Name="OznakaTipa" Width="100" TextChanged="oznakaTextChanged" ></TextBox>
+                            <Button Name="nadjiTip" Click="otvoriTabeluTipova">Nadji...</Button>
+                        </StackPanel>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Naziv tipa:"></TextBlock>
+                        <TextBox HorizontalAlignment="Left" Name="nazivTipa" Width="100" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Naziv}" IsReadOnly="True"></TextBox>
+                        <Border Background="WhiteSmoke" Grid.Row="2" Grid.Column="0" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
+                            <Image Source="{Binding Path=Slika}" Height="58" />
+                        </Border>
+                    </Grid>
+                    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Name="zameniBtn" Click="zameni" Width="100">Zameni i obrisi</Button>
+                        <Button Name="obrisiSveBtn" Click="obrisiSve" Width="100">Obrisi sve</Button>
+                        <Button Name="odustaniBtn" Click="odustani" Width="100" >Odustani</Button>
+                    </StackPanel>
                 </Grid>
-                <Button Name="odustaniBtn" Click="odustani" Grid.Row="3" Margin="545,0,0,0">Odustani</Button>
-                <Button Name="obrisiSveBtn" Click="obrisiSve" Margin="422,0,129,0" Grid.Row="3">Obrisi sve</Button>
-                <Button Name="zameniBtn" Click="zameni" Grid.Row="3" Margin="317,0,256,0">Zameni i obrisi</Button>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Window>

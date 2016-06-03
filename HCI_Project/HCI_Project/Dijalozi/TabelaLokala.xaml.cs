@@ -23,14 +23,16 @@ namespace HCI_Project.Dijalozi
     public partial class TabelaLokala : Window
     {
         public MainWindow parent { get; set; }
-        private string stariTipOznaka { get; set; }
+        private Lokal lokal_za_izmenu { get; set; }
+        private Lokal tekuci_lokal { get; set; }
   
         public TabelaLokala(MainWindow p)
         {
             this.parent = p;
+            this.tekuci_lokal = new Lokal();
             this.Resources.Add("parent", parent);
+            this.DataContext = tekuci_lokal;
             InitializeComponent();
-            this.DataContext = this;
             initializeCombos();
             dgrMain.ItemsSource = this.parent.repoLokali.sviLokali();
             
@@ -72,7 +74,7 @@ namespace HCI_Project.Dijalozi
                                     "Portable Network Graphic (*.png)|*.png";
                 if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    Lokal l = this.dgrMain.SelectedItem as Lokal;
+                    Lokal l = this.tekuci_lokal;
                     if (l != null)
                     {
                         l.Slika = fileDialog.FileName;
@@ -86,9 +88,10 @@ namespace HCI_Project.Dijalozi
         {
             if (dgrMain.SelectedItem != null)
             {
-                this.DataContext = (Lokal)dgrMain.SelectedItem;
+                //this.DataContext = (Lokal)dgrMain.SelectedItem;
                 Etikete etikete = new Etikete(this, this.parent.repoEtikete);
                 etikete.ShowDialog();
+                //this.DataContext = this.tekuci_lokal;
             }
 
         }
@@ -100,13 +103,15 @@ namespace HCI_Project.Dijalozi
 
         private void otvoriTabeluTipova(object sender, RoutedEventArgs args)
         {
+            if (this.tekuci_lokal.Oznaka == null)
+                return;
             TabelaTipova tabela = new TabelaTipova(this.parent);
             tabela.ShowDialog();
             TipLokala tip = tabela.IzabraniTip;
             if (tip != null)
             {
-                Lokal lokal = (Lokal)dgrMain.SelectedItem;
-                if (lokal == null)
+                Lokal lokal = this.tekuci_lokal;
+                if (lokal.Oznaka == null)
                     return;
                 NazivTipa.Text = tip.Naziv;
                 OznakaTipa.Text = tip.Oznaka;
@@ -118,33 +123,18 @@ namespace HCI_Project.Dijalozi
         {
             System.Windows.Controls.TextBox box = (System.Windows.Controls.TextBox)sender;
             TipLokala tip = parent.repoTipovi.nadjiPoOznaci(box.Text);
-            if (tip == null)
-                return;
-            Lokal lokal = (Lokal)dgrMain.SelectedItem;
-            if (lokal.Tip != null)
-            {
-                Console.WriteLine("Izbacujem iz "+lokal.Tip.Oznaka);
-                lokal.Tip.izbaciLokal(lokal);
-            }
-            lokal.Tip = tip;
-            lokal.Tip.ubaciLokal(lokal);
+            tekuci_lokal.Tip = tip;
+            OznakaTipa.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
         }
 
         private void dgrMain_SelectedCellsChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.stariTipOznaka = ((Lokal)dgrMain.SelectedItem).Tip.Oznaka;
+            this.lokal_za_izmenu = (Lokal)dgrMain.SelectedItem;
+            Lokal kopija = Lokal.getCopyLokal((Lokal) dgrMain.SelectedItem);
+            this.tekuci_lokal.setValuesAs(kopija);
         }
 
-        private void oznakaTipa_SourceUpdated(object sender, DataTransferEventArgs args)
-        {
-            Lokal lokal = (Lokal)dgrMain.SelectedItem;
-            TipLokala noviTip = lokal.Tip;
-            if (lokal == null || noviTip == null)
-                return;
-            parent.repoTipovi.nadjiTipPoOznaciIIzbaciLokal(this.stariTipOznaka, lokal);
-            this.stariTipOznaka = lokal.Tip.Oznaka;
-            lokal.Tip.ubaciLokal(lokal);
-        }
+       
 
         private void CheckboxChecked(object sender, RoutedEventArgs e)
         {
@@ -235,6 +225,20 @@ namespace HCI_Project.Dijalozi
                     return "Kasno nocu";
                 default:
                     return "";
+            }
+        }
+
+        private void sacuvajTekuci(object sender, RoutedEventArgs args)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                this.lokal_za_izmenu.izmeniTipPotpuno(this.tekuci_lokal.Tip);
+                this.lokal_za_izmenu.setValuesAs(this.tekuci_lokal);
+                this.parent.repoLokali.memorisi();
+                this.parent.repoTipovi.memorisi();
+
+                System.Windows.MessageBox.Show("Izmena uspesna!");
             }
         }
 

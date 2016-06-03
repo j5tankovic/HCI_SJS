@@ -93,6 +93,11 @@ namespace HCI_Project
            
         }
 
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
         private void Dodaj_Lokal(object sender, RoutedEventArgs e)
         {
             LokalDialog lokal = new LokalDialog(this, null);
@@ -106,21 +111,21 @@ namespace HCI_Project
             TipDialog tip = new TipDialog(this, null);
             //tip.Closed += dialogTipClosed;
             tip.InitializeComponent();
-            tip.Show();
+            tip.ShowDialog();
         }
 
         private void Dodaj_Etiketa(object sender, RoutedEventArgs e)
         {
             EtiketaDialog etiketa = new EtiketaDialog(this);
             etiketa.InitializeComponent();
-            etiketa.Show();
+            etiketa.ShowDialog();
         }
 
         private void Prikazi_Tabela(object sender, RoutedEventArgs e)
         {
             TabelaLokala tabela = new TabelaLokala(this);
             tabela.InitializeComponent();
-            tabela.Show();
+            tabela.ShowDialog();
         }
 
         private void Prikazi_Tabelu_Tipova(object sender, RoutedEventArgs e)
@@ -128,14 +133,14 @@ namespace HCI_Project
             TabelaTipova tabela = new TabelaTipova(this);
             tabela.Closed += tabelaTipovaClosed;
             tabela.InitializeComponent();
-            tabela.Show();
+            tabela.ShowDialog();
         }
 
         private void Prikazi_Tabelu_Etiketa(object sender, RoutedEventArgs e)
         {
             TabelaEtiketa tabela = new TabelaEtiketa(this);
             tabela.InitializeComponent();
-            tabela.Show();
+            tabela.ShowDialog();
         }
 
         private void OnSizeChanged(object sender, SizeChangedEventArgs args)

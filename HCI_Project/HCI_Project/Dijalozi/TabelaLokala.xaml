@@ -5,7 +5,8 @@
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:library="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="TabelaLokala" Height="774" Width="1000" Loaded="Window_Loaded">
+        Title="TabelaLokala" Height="650" Width="1000" Loaded="Window_Loaded"
+        Name="Prozor">
     <Window.Resources>
         <sys:Boolean x:Key="True">True</sys:Boolean>
         <sys:Boolean x:Key="False">False</sys:Boolean>
@@ -18,262 +19,266 @@
         <ToolBar DockPanel.Dock="Top">
             <Button Click="Delete" Content="Obrisi lokal" />
         </ToolBar>
-        <Grid DockPanel.Dock="Bottom">
-        
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition />
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock Text="Oznaka:"></TextBlock>
-                <TextBox Width="50" Name="OznakaFilter" TextChanged="textFieldChanged"></TextBox>
-                <TextBlock Text="Naziv:"></TextBlock>
-                <TextBox Width="50" Name="NazivFilter" TextChanged="textFieldChanged"></TextBox>
-                <TextBlock Text="Tip:"></TextBlock>
-                <TextBox Width="50" Name="TipFilter" TextChanged="textFieldChanged"></TextBox>
-                <TextBlock Text="Hedikep:"></TextBlock>
-                <CheckBox Name="HendikepFilter" Checked="CheckboxChecked" Unchecked="ItemUnchecked"></CheckBox>
-                <TextBlock Text="Rezervacije:"></TextBlock>
-                <CheckBox Name="RezervacijeFilter" Checked="CheckboxChecked" Unchecked="ItemUnchecked"></CheckBox>
-                <TextBlock Text="Pusenje:"></TextBlock>
-                <CheckBox Name="PusenjeFilter" Checked="CheckboxChecked" Unchecked="ItemUnchecked"></CheckBox>
-                <TextBlock Text="Kategorije cena:"></TextBlock>
-                <RadioButton GroupName="RbCene" Content="Niska" Name="rbNiska" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <RadioButton GroupName="RbCene" Content="Srednja" Name="rbSrednja" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <RadioButton GroupName="RbCene" Content="Visoka" Name="rbVisoka" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <TextBlock Text="Sluzenje alkohola:"></TextBlock>
-                <RadioButton GroupName="RbAlkohol" Content="Ne sluzi" Name="rbNeSluzi" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <RadioButton GroupName="RbAlkohol" Content="Do 23h" Name="rb23h" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <RadioButton GroupName="RbAlkohol" Content="Kasno nocu" Name="rbKasno" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <Button Width="Auto" Click="deleteFilters">Ponisti</Button>
-            </StackPanel>
-            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" SelectionChanged="dgrMain_SelectedCellsChanged" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
-                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
-                    <DataGridTemplateColumn Header="Tip" Width="3*">
+        <ScrollViewer>
+            <Grid DockPanel.Dock="Bottom">
+
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="Oznaka:"></TextBlock>
+                    <TextBox Width="50" Name="OznakaFilter" TextChanged="textFieldChanged"></TextBox>
+                    <TextBlock Text="Naziv:"></TextBlock>
+                    <TextBox Width="50" Name="NazivFilter" TextChanged="textFieldChanged"></TextBox>
+                    <TextBlock Text="Tip:"></TextBlock>
+                    <TextBox Width="50" Name="TipFilter" TextChanged="textFieldChanged"></TextBox>
+                    <TextBlock Text="Hedikep:"></TextBlock>
+                    <CheckBox Name="HendikepFilter" Checked="CheckboxChecked" Unchecked="ItemUnchecked"></CheckBox>
+                    <TextBlock Text="Rezervacije:"></TextBlock>
+                    <CheckBox Name="RezervacijeFilter" Checked="CheckboxChecked" Unchecked="ItemUnchecked"></CheckBox>
+                    <TextBlock Text="Pusenje:"></TextBlock>
+                    <CheckBox Name="PusenjeFilter" Checked="CheckboxChecked" Unchecked="ItemUnchecked"></CheckBox>
+                    <TextBlock Text="Kategorije cena:"></TextBlock>
+                    <RadioButton GroupName="RbCene" Content="Niska" Name="rbNiska" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
+                    <RadioButton GroupName="RbCene" Content="Srednja" Name="rbSrednja" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
+                    <RadioButton GroupName="RbCene" Content="Visoka" Name="rbVisoka" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
+                    <TextBlock Text="Sluzenje alkohola:"></TextBlock>
+                    <RadioButton GroupName="RbAlkohol" Content="Ne sluzi" Name="rbNeSluzi" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
+                    <RadioButton GroupName="RbAlkohol" Content="Do 23h" Name="rb23h" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
+                    <RadioButton GroupName="RbAlkohol" Content="Kasno nocu" Name="rbKasno" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
+                    <Button Width="Auto" Click="deleteFilters">Ponisti</Button>
+                </StackPanel>
+                <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" SelectionChanged="dgrMain_SelectedCellsChanged" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
+                        <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
+                        <DataGridTemplateColumn Header="Tip" Width="3*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Path= Tip.Naziv}"></TextBlock>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Sluzenje alkohola" Width="3*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Alkohol, Converter={StaticResource EnumConverter}}"></TextBlock>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridCheckBoxColumn Header="Hendikep" Binding="{Binding Path= Hendikep}" Width="3*"></DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Rezervacije" Binding="{Binding Path= Rezervacije}" Width="3*"></DataGridCheckBoxColumn>
-                    <DataGridCheckBoxColumn Header="Pusenje" Binding="{Binding Path= Pusenje}" Width="3*"></DataGridCheckBoxColumn>
-                    <DataGridTemplateColumn Header="Kategorije cena" Width="3*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Cene, Converter={StaticResource EnumConverter}}"></TextBlock>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Datum otvaranja" Binding="{Binding Datum, StringFormat=\{0:dd.MM.yyyy\}}" Width="3*"/>
-                    <DataGridTextColumn Header="Slika" Binding="{Binding Slika}" Width="3*"/>
-                </DataGrid.Columns>
-                <DataGrid.RowDetailsTemplate>
-                    <DataTemplate>
-                        <DockPanel Background="Honeydew">
-                            <Image DockPanel.Dock="Left" Height="80"  Source="{Binding Path=Slika}"/>  
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Sluzenje alkohola" Width="3*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Alkohol, Converter={StaticResource EnumConverter}}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridCheckBoxColumn Header="Hendikep" Binding="{Binding Path= Hendikep}" Width="3*"></DataGridCheckBoxColumn>
+                        <DataGridCheckBoxColumn Header="Rezervacije" Binding="{Binding Path= Rezervacije}" Width="3*"></DataGridCheckBoxColumn>
+                        <DataGridCheckBoxColumn Header="Pusenje" Binding="{Binding Path= Pusenje}" Width="3*"></DataGridCheckBoxColumn>
+                        <DataGridTemplateColumn Header="Kategorije cena" Width="3*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Cene, Converter={StaticResource EnumConverter}}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Datum otvaranja" Binding="{Binding Datum, StringFormat=\{0:dd.MM.yyyy\}}" Width="3*"/>
+                        <DataGridTextColumn Header="Slika" Binding="{Binding Slika}" Width="3*"/>
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <DockPanel Background="Honeydew">
+                                <Image DockPanel.Dock="Left" Height="80"  Source="{Binding Path=Slika}"/>
                                 <Grid Margin="5,5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="Opis:" Grid.Column="0" Grid.Row="0" FontWeight="Black" Margin="5,5" />
-                                <TextBlock Text="Tip lokala:"  Grid.Column="0" Grid.Row="1" FontWeight="Black" Margin="5,5"/>
-                                <TextBlock Text="Etikete:"  Grid.Column="0" Grid.Row="2" FontWeight="Black" Margin="5,5"/>
-                                <TextBlock Text="{Binding Opis}" Grid.Column="1" Grid.Row="0" Margin="5,5"/>
-                                <TextBlock Text="{Binding Path= Tip.Naziv}" Grid.Column="1" Grid.Row="1" Margin="5,5"/>
-                                <ListBox ItemsSource="{Binding Etikete}"  Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Stretch">
-                                 <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Oznaka}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Opis:" Grid.Column="0" Grid.Row="0" FontWeight="Black" Margin="5,5" />
+                                    <TextBlock Text="Tip lokala:"  Grid.Column="0" Grid.Row="1" FontWeight="Black" Margin="5,5"/>
+                                    <TextBlock Text="Etikete:"  Grid.Column="0" Grid.Row="2" FontWeight="Black" Margin="5,5"/>
+                                    <TextBlock Text="{Binding Opis}" Grid.Column="1" Grid.Row="0" Margin="5,5"/>
+                                    <TextBlock Text="{Binding Path= Tip.Naziv}" Grid.Column="1" Grid.Row="1" Margin="5,5"/>
+                                    <ListBox ItemsSource="{Binding Etikete}"  Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Stretch">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Oznaka}">
                                                 <TextBlock.Foreground>
                                                     <SolidColorBrush Color="{Binding Boja}"/>
                                                 </TextBlock.Foreground>
-                                            </TextBlock> 
-                                        </DataTemplate>
-                                 </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
-                        </DockPanel>
-                    </DataTemplate>
-                </DataGrid.RowDetailsTemplate>
-            </DataGrid>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </Grid>
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
 
-            <Grid Grid.Row="2" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" VerticalAlignment="Top" Height="438">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="42"/>
-                <RowDefinition Height="33"/>
-                <RowDefinition Height="29"/>
-                <RowDefinition Height="27"/>
-                <RowDefinition Height="28"/>
-                <RowDefinition Height="31"/>
-                <RowDefinition Height="29"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="49"/>
-                <RowDefinition Height="34*" />
-                </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="117" />
-                <ColumnDefinition Width="598*" />
-                <ColumnDefinition Width="400*" />
-            </Grid.ColumnDefinitions>
-
-
-            <Grid.Resources>
-                <Style TargetType="TextBlock" x:Key="FamilyAndSize">
-                    <Setter Property="FontFamily" Value="Arial"/>
-                    <Setter Property="FontSize" Value="14"/>
-                    <Setter Property="Margin" Value="5 5 5 5"/>
-                </Style>
-            </Grid.Resources>
-
-            
-            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource FamilyAndSize}">Oznaka:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}">Naziv:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Opis:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource FamilyAndSize}">Tip:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource FamilyAndSize}">Alkohol:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource FamilyAndSize}">Za hendik.:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="6" Style="{StaticResource FamilyAndSize}">Pusenje:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="7" Style="{StaticResource FamilyAndSize}">Rezervacije:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="8" Style="{StaticResource FamilyAndSize}">Cene:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="9" Style="{StaticResource FamilyAndSize}">Kapacitet:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="10" Style="{StaticResource FamilyAndSize}">Datum otvaranja:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="11" Style="{StaticResource FamilyAndSize}">Ikonica:</TextBlock>   
-            <TextBlock Grid.Column="0" Grid.Row="12" Style="{StaticResource FamilyAndSize}">Etikete:</TextBlock>
-
-            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5" IsReadOnly="True" ></TextBox>
-            <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5">
-                    <TextBox.Text>
-                        <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:StringValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </Grid>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
-            <TextBox SourceUpdated="oznakaTipa_SourceUpdated" TextChanged="oznakaTipa_TextChanged" Name="OznakaTipa" Grid.Column="1" Grid.Row="3" Margin="5,2,0,20" HorizontalAlignment="Left" Width="96">
-                    <TextBox.Text>
-                        <Binding NotifyOnSourceUpdated="True" Path="Tip" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource TipConverter}" ConverterParameter="{StaticResource parent}">
-                            <Binding.ValidationRules>
-                                <val:OznakaTipaValidationRule ValidationStep="RawProposedValue" parent="{StaticResource parent}" />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                                <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </Grid>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-            <Button Name="nadjiTip" Grid.Column="1" Grid.Row="3" Click="otvoriTabeluTipova" Margin="339,0,108,18">Nadji...</Button>
-            <ComboBox Name="comboAlkohol" Grid.Column="1" Grid.Row="4" SelectedValue="{Binding Path=Alkohol, Converter={StaticResource EnumConverter}}" Margin="5 5 10 5"></ComboBox>
-            <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal" Margin="5 5 10 5">
-                <RadioButton GroupName="hendikep" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Hendikep, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}">Da</RadioButton>
-                <RadioButton GroupName="hendikep" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Hendikep, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
-            </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal" Margin="5 5 10 5">
-                <RadioButton GroupName="pusenje" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Pusenje, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}">Da</RadioButton>
-                <RadioButton GroupName="pusenje" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Pusenje, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
-            </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal" Margin="5 5 10 5">
-                <RadioButton GroupName="rezervacije" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}">Da</RadioButton>
-                <RadioButton GroupName="rezervacije" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
-            </StackPanel>
-            <ComboBox Name="comboCene" Grid.Column="1" Grid.Row="8" Margin="5 5 10 5" SelectedValue="{Binding Path=Cene, Converter={StaticResource EnumConverter}}"></ComboBox>
-            <TextBox Grid.Column="1" Grid.Row="9" Margin="5 5 10 5">
-                    <TextBox.Text>
-                        <Binding Path="Kapacitet" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:IntegerValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </Grid>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-                <DatePicker Grid.Column="1" Grid.Row="10" Margin="5 5 10 5" SelectedDate="{Binding Path=Datum}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" DisplayDateStart="1/01/1970" DisplayDateEnd="5/31/2016"/>
-                <Grid Grid.Row="11" Grid.Column="1" >
+                <Grid Grid.Row="2" VerticalAlignment="Top" Height="600">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition/>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="473*" />
-                        <ColumnDefinition Width="111*" />
+                        <ColumnDefinition Width="117" />
+                        <ColumnDefinition Width="598*" />
+                        <ColumnDefinition Width="400*" />
                     </Grid.ColumnDefinitions>
-                    <Border Background="WhiteSmoke" Grid.Column="1" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
-                        <Image Source="{Binding Path=Slika}" Width="92" Height="44" />
-                    </Border>
-                    <Button Width="105" HorizontalAlignment="Right" Margin="0,20,25,5" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
+
+
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock" x:Key="FamilyAndSize">
+                            <Setter Property="FontFamily" Value="Arial"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="Margin" Value="5 5 5 5"/>
+                        </Style>
+                    </Grid.Resources>
+
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource FamilyAndSize}">Oznaka:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}">Naziv:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Opis:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource FamilyAndSize}">Tip:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource FamilyAndSize}">Alkohol:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource FamilyAndSize}">Za hendik.:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="6" Style="{StaticResource FamilyAndSize}">Pusenje:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="7" Style="{StaticResource FamilyAndSize}">Rezervacije:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="8" Style="{StaticResource FamilyAndSize}">Cene:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="9" Style="{StaticResource FamilyAndSize}">Kapacitet:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="10" Style="{StaticResource FamilyAndSize}">Datum otvaranja:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="11" Style="{StaticResource FamilyAndSize}">Ikonica:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="12" Style="{StaticResource FamilyAndSize}">Etikete:</TextBlock>
+
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5" IsReadOnly="True" ></TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5">
+                        <TextBox.Text>
+                            <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <val:StringValidationRule ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
+                    <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+                        <TextBox TextChanged="oznakaTipa_TextChanged" Name="OznakaTipa" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Width="96">
+                            <TextBox.Text>
+                                <Binding NotifyOnSourceUpdated="True" Path="Tip" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource TipConverter}" ConverterParameter="{StaticResource parent}">
+                                    <Binding.ValidationRules>
+                                        <val:OznakaTipaValidationRule ValidationStep="RawProposedValue" parent="{StaticResource parent}" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </TextBox>
+                        <TextBlock Name="NazivTipaLabel" VerticalAlignment="Top" Style="{StaticResource FamilyAndSize}">Naziv tipa:</TextBlock>
+                        <TextBox Name="NazivTipa" VerticalAlignment="Top" Text="{Binding Path=Tip.Naziv}" Height="20"  HorizontalAlignment="Right" Width="95"></TextBox>
+                        <Button Name="nadjiTip" VerticalAlignment="Top" Height="25" Click="otvoriTabeluTipova" >Nadji...</Button>
+                    </StackPanel>
+                    <ComboBox Name="comboAlkohol" Grid.Column="1" Grid.Row="4" SelectedValue="{Binding Path=Alkohol, Converter={StaticResource EnumConverter}}" Margin="5 5 10 5"></ComboBox>
+                    <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal" Margin="5 5 10 5">
+                        <RadioButton GroupName="hendikep" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Hendikep, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}">Da</RadioButton>
+                        <RadioButton GroupName="hendikep" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Hendikep, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal" Margin="5 5 10 5">
+                        <RadioButton GroupName="pusenje" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Pusenje, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}">Da</RadioButton>
+                        <RadioButton GroupName="pusenje" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Pusenje, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal" Margin="5 5 10 5">
+                        <RadioButton GroupName="rezervacije" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}">Da</RadioButton>
+                        <RadioButton GroupName="rezervacije" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
+                    </StackPanel>
+                    <ComboBox Name="comboCene" Grid.Column="1" Grid.Row="8" Margin="5 5 10 5" SelectedValue="{Binding Path=Cene, Converter={StaticResource EnumConverter}}"></ComboBox>
+                    <TextBox Grid.Column="1" Grid.Row="9" Margin="5 5 10 5">
+                        <TextBox.Text>
+                            <Binding Path="Kapacitet" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <val:IntegerValidationRule ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <DatePicker Grid.Column="1" Grid.Row="10" Margin="5 5 10 5" SelectedDate="{Binding Path=Datum}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" DisplayDateStart="1/01/1970" DisplayDateEnd="5/31/2016"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="11" Grid.Column="1" HorizontalAlignment="Right" >
+                        <Button Width="105" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
+                        <Border VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black"  Width="92" Height="44">
+                            <Image Source="{Binding Path=Slika}" Width="92" Height="44" />
+                        </Border>
+                    </StackPanel>
+                    <Grid Grid.Row="12" Grid.Column="1">
+                        <Button Grid.Column="1" Width="91" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">Taguj lokal</Button>
+                    </Grid>
+                    <Button Grid.Column="1" Grid.Row="14" Name="sacuvajBtn" Click="sacuvajTekuci" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13">Sacuvaj izmene</Button> 
+                    
                 </Grid>
-                <Grid Grid.Row="12" Grid.Column="1">
-                    <Button Grid.Column="1" Width="91" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">Taguj lokal</Button>
-                </Grid>
-                <TextBlock Name="NazivOznakeLabel" Style="{StaticResource FamilyAndSize}" Margin="121,5,316,20" Grid.Column="1" Grid.Row="3">Naziv tipa:</TextBlock>
-                <TextBox Name="NazivTipa" Text="{Binding Path=Tip.Naziv}" Margin="206,2,205,18" Grid.Column="1" Grid.Row="3" Height="22"></TextBox>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Window>

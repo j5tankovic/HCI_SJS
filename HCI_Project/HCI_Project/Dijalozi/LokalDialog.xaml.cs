@@ -102,6 +102,8 @@ namespace HCI_Project.Dijalozi
         {
             if (!ok)
                 lokal = null;
+            this.parent.repoLokali.memorisi();
+            this.parent.repoTipovi.memorisi();
         }
 
         private void izaberiFajlClicked(object sender, RoutedEventArgs args)
@@ -135,7 +137,7 @@ namespace HCI_Project.Dijalozi
         private void izberiEtikete(object sender, RoutedEventArgs args)
         {
             Etikete etikete = new Etikete(this,this.parent.repoEtikete);
-            etikete.Show();
+            etikete.ShowDialog();
 
         }
 
@@ -195,6 +197,8 @@ namespace HCI_Project.Dijalozi
                 return false;
             return true;
         }
+
+        
 
 
     }
