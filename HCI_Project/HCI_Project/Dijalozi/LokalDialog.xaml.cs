@@ -135,7 +135,7 @@ namespace HCI_Project.Dijalozi
         private void izberiEtikete(object sender, RoutedEventArgs args)
         {
             Etikete etikete = new Etikete(this,this.parent.repoEtikete);
-            etikete.Show();
+            etikete.ShowDialog();
 
         }
 

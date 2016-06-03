@@ -5,7 +5,7 @@
         xmlns:loc="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
         Title="MainWindow" Height="680" Width="1360"
-        Closing="MainWindow_Closing" WindowState="Maximized" ResizeMode="NoResize">
+        Closing="MainWindow_Closing" WindowState="Maximized" ResizeMode="NoResize" Closed="MainWindow_Closed">
         
     <Window.Resources>
         <loc:CustomLokalConverter x:Key="CustomLokalConverter" />

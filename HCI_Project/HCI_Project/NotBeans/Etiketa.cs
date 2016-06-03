@@ -79,6 +79,10 @@ namespace HCI_Project.NotBeans
 
         public bool Equals(Etiketa obj)
         {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
             if (obj.Oznaka.Equals(this.Oznaka))
                 return true;
             return false;
