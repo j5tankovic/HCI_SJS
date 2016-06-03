@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using HCI_Project.NotBeans;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace HCI_Project.Dijalozi
 {
@@ -24,6 +25,7 @@ namespace HCI_Project.Dijalozi
     {
         public MainWindow parent { get; set; }
         private string stariTipOznaka { get; set; }
+
   
         public TabelaLokala(MainWindow p)
         {
@@ -34,6 +36,7 @@ namespace HCI_Project.Dijalozi
             initializeCombos();
             dgrMain.ItemsSource = this.parent.repoLokali.sviLokali();
             
+
         }
 
         private void initializeCombos()
@@ -132,7 +135,8 @@ namespace HCI_Project.Dijalozi
 
         private void dgrMain_SelectedCellsChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.stariTipOznaka = ((Lokal)dgrMain.SelectedItem).Tip.Oznaka;
+            if (dgrMain.SelectedItem != null)
+                this.stariTipOznaka = ((Lokal)dgrMain.SelectedItem).Tip.Oznaka;
         }
 
         private void oznakaTipa_SourceUpdated(object sender, DataTransferEventArgs args)
@@ -146,28 +150,7 @@ namespace HCI_Project.Dijalozi
             lokal.Tip.ubaciLokal(lokal);
         }
 
-        private void CheckboxChecked(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Controls.CheckBox checkbox = sender as System.Windows.Controls.CheckBox;
-            ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
-            cv.Filter = o =>
-                {
-                    Lokal l = o as Lokal;
-                    if (checkbox.Name == "RezervacijeFilter")
-                        return l.Rezervacije == checkbox.IsChecked;
-                    else if (checkbox.Name == "HendikepFilter")
-                        return l.Hendikep == checkbox.IsChecked;
-                    return l.Pusenje == checkbox.IsChecked;
-                };
 
-
-        }
-
-        private void ItemUnchecked(object sender, RoutedEventArgs e)
-        {
-            ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
-            cv.Filter = null;
-        }
 
         public void textFieldChanged(object sender, TextChangedEventArgs e)
         {
@@ -181,62 +164,23 @@ namespace HCI_Project.Dijalozi
                 cv.Filter = o =>
                 {
                     Lokal lokal = o as Lokal;
-                    if (textbox.Name == "OznakaFilter")
-                        return lokal.Oznaka.ToUpper().StartsWith(filter.ToUpper());
-                    else if (textbox.Name == "NazivFilter")
-                        return lokal.Naziv.ToUpper().StartsWith(filter.ToUpper());
-                    else if (textbox.Name == "TipFilter")
-                        return lokal.Tip.Naziv.ToUpper().Equals(filter.ToUpper());
-                    return false;
+                    string[] words = filter.Split(' ');
+                    if (words.Contains(""))
+                        words = words.Where(word => word != "").ToArray();
+                    return words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
+                            lokal.Opis.ToUpper().Contains(word.ToUpper()) || lokal.Slika.ToUpper().Contains(word.ToUpper()) ||
+                            lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper()));
                 };
             }
         }
 
-        public void RButtonChecked(object sender, RoutedEventArgs e)
+      
+        public void deleteFilter(object sender, RoutedEventArgs e)
         {
-            System.Windows.Controls.RadioButton rbutton = sender as System.Windows.Controls.RadioButton;
-            ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
-            cv.Filter = o =>
-                {
-                    Lokal l = o as Lokal;
-                    if (rbutton.GroupName == "RbCene")
-                        return l.Cene.ToString().ToUpper().Equals(rbutton.Content.ToString().ToUpper());
-                    return convertAlkohol(l.Alkohol).ToUpper().Equals(rbutton.Content.ToString().ToUpper());
-                };
-
+            TextFilter.Text = "";
         }
 
-        public void deleteFilters(object sender, RoutedEventArgs e)
-        {
-            OznakaFilter.Text = "";
-            NazivFilter.Text = "";
-            TipFilter.Text = "";
-            RezervacijeFilter.IsChecked = false;
-            PusenjeFilter.IsChecked = false;
-            HendikepFilter.IsChecked = false;
-            //radio buttons to false
-            rb23h.IsChecked = false;
-            rbKasno.IsChecked = false;
-            rbNeSluzi.IsChecked = false;
-            rbNiska.IsChecked = false;
-            rbSrednja.IsChecked = false;
-            rbVisoka.IsChecked = false;
-        }
-
-        private string convertAlkohol(SluzenjeAlkohola alkoholTip)
-        {
-            switch (alkoholTip)
-            {
-                case SluzenjeAlkohola.NE_SLUZI:
-                    return "Ne sluzi";
-                case SluzenjeAlkohola.SLUZI_DO_23:
-                    return "Do 23h";
-                case SluzenjeAlkohola.DO_KASNO_NOCU:
-                    return "Kasno nocu";
-                default:
-                    return "";
-            }
-        }
+       
 
       
     }

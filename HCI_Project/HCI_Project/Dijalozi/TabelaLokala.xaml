@@ -30,27 +30,9 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock Text="Oznaka:"></TextBlock>
-                <TextBox Width="50" Name="OznakaFilter" TextChanged="textFieldChanged"></TextBox>
-                <TextBlock Text="Naziv:"></TextBlock>
-                <TextBox Width="50" Name="NazivFilter" TextChanged="textFieldChanged"></TextBox>
-                <TextBlock Text="Tip:"></TextBlock>
-                <TextBox Width="50" Name="TipFilter" TextChanged="textFieldChanged"></TextBox>
-                <TextBlock Text="Hedikep:"></TextBlock>
-                <CheckBox Name="HendikepFilter" Checked="CheckboxChecked" Unchecked="ItemUnchecked"></CheckBox>
-                <TextBlock Text="Rezervacije:"></TextBlock>
-                <CheckBox Name="RezervacijeFilter" Checked="CheckboxChecked" Unchecked="ItemUnchecked"></CheckBox>
-                <TextBlock Text="Pusenje:"></TextBlock>
-                <CheckBox Name="PusenjeFilter" Checked="CheckboxChecked" Unchecked="ItemUnchecked"></CheckBox>
-                <TextBlock Text="Kategorije cena:"></TextBlock>
-                <RadioButton GroupName="RbCene" Content="Niska" Name="rbNiska" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <RadioButton GroupName="RbCene" Content="Srednja" Name="rbSrednja" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <RadioButton GroupName="RbCene" Content="Visoka" Name="rbVisoka" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <TextBlock Text="Sluzenje alkohola:"></TextBlock>
-                <RadioButton GroupName="RbAlkohol" Content="Ne sluzi" Name="rbNeSluzi" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <RadioButton GroupName="RbAlkohol" Content="Do 23h" Name="rb23h" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <RadioButton GroupName="RbAlkohol" Content="Kasno nocu" Name="rbKasno" Checked="RButtonChecked" Unchecked="ItemUnchecked"></RadioButton>
-                <Button Width="Auto" Click="deleteFilters">Ponisti</Button>
+                <TextBlock Text="Filtriraj:"></TextBlock>
+                <TextBox Width="70" Name ="TextFilter" TextChanged="textFieldChanged"></TextBox>
+                <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
             </StackPanel>
             <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" SelectionChanged="dgrMain_SelectedCellsChanged" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
                 <DataGrid.Columns>

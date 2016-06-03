@@ -20,11 +20,9 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock Text="Oznaka:"></TextBlock>
-                <TextBox Width="50" Name="OznakaFilter" TextChanged="textFieldChanged"></TextBox>
-                <TextBlock Text="Naziv:"></TextBlock>
-                <TextBox Width="50" Name="NazivFilter" TextChanged="textFieldChanged"></TextBox>
-                <Button Width="Auto" Click="deleteFilters">Ponisti</Button>
+                <TextBlock Text="Filtriraj:"></TextBlock>
+                <TextBox Width="100" Name="TextFilter" TextChanged="textFieldChanged"></TextBox>
+                <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
             </StackPanel>
 
             <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoTipovi.tipovi}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">

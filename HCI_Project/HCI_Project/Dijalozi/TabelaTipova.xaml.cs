@@ -91,26 +91,25 @@ namespace HCI_Project.Dijalozi
             string filter = textbox.Text;
             ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
             if (filter == "")
-                cv.Filter = null;
+                cv.Filter = null; 
             else
             {
+                string[] words = filter.Split(' ');
+                if (words.Contains(""))
+                    words = words.Where(word => word != "").ToArray();
                 cv.Filter = o =>
                 {
                     TipLokala tip = o as TipLokala;
-                    if (textbox.Name == "OznakaFilter")
-                        return tip.Oznaka.ToUpper().StartsWith(filter.ToUpper());
-                    else if (textbox.Name == "NazivFilter")
-                        return tip.Naziv.ToUpper().StartsWith(filter.ToUpper());
-                    return false;
+                    return words.Any(word => tip.Oznaka.ToUpper().Contains(word.ToUpper()) || tip.Naziv.ToUpper().Contains(word.ToUpper()) ||
+                            tip.Opis.ToUpper().Contains(word.ToUpper()) || tip.Slika.ToUpper().Contains(word.ToUpper()));
                 };
             }
         }
 
 
-        public void deleteFilters(object sender, RoutedEventArgs e)
+        public void deleteFilter(object sender, RoutedEventArgs e)
         {
-            OznakaFilter.Text = "";
-            NazivFilter.Text = "";
+            TextFilter.Text = "";
         }
     }
 }
