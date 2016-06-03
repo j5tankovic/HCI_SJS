@@ -3,59 +3,66 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="TabelaEtiketa" Height="300" Width="300">
+        Title="TabelaEtiketa" Height="300" Width="350"
+        MinWidth="350">
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Button Click="Delete" Content="Obrisi etiketu" />
         </ToolBar>
-        <Grid DockPanel.Dock="Bottom">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition />
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock Text="Filtriraj:"></TextBlock>
-                <TextBox Width="100" Name="TextFilter" TextChanged="textFieldChanged"></TextBox>
-                <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
-            </StackPanel>
-            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
-                    <DataGridTextColumn Header="Opis" Binding="{Binding Opis}" Width="3*"/>
-                    <DataGridTextColumn Header="Boja" Binding="{Binding Boja}" Width="3*"/>
-                </DataGrid.Columns>
-            </DataGrid>
-
-                <Grid Grid.Column="0" Grid.Row="2" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
+        <ScrollViewer>
+            <Grid DockPanel.Dock="Bottom">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Grid.Resources>
-                    <Style TargetType="TextBlock" x:Key="FamilyAndSize">
-                        <Setter Property="FontFamily" Value="Arial"/>
-                        <Setter Property="FontSize" Value="14"/>
-                        <Setter Property="Margin" Value="5 5 5 5"/>
-                    </Style>
-                </Grid.Resources>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="Filtriraj:"></TextBlock>
+                        <TextBox Width="100" Name="TextFilter" TextChanged="textFieldChanged"></TextBox>
+                        <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
+                    </StackPanel>
+                    <DataGrid x:Name="dgrMain" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
+                        <DataGridTextColumn Header="Opis" Binding="{Binding Opis}" Width="3*"/>
+                        <DataGridTextColumn Header="Boja" Binding="{Binding Boja}" Width="3*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource FamilyAndSize}">Oznaka:</TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}">Opis:</TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Boja:</TextBlock>
+                <Grid Grid.Column="0" Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock" x:Key="FamilyAndSize">
+                            <Setter Property="FontFamily" Value="Arial"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="Margin" Value="5 5 5 5"/>
+                        </Style>
+                    </Grid.Resources>
 
-                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True" Margin="5 5 10 5"></TextBox>
-                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
-                <xctk:ColorPicker Grid.Column="1" Grid.Row="2" Margin="5 5 10 0" Name="ColorPicker" SelectedColorChanged="colorChanged" SelectedColor="{Binding Boja}"></xctk:ColorPicker>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource FamilyAndSize}">Oznaka:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}">Opis:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Boja:</TextBlock>
+
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True" Margin="5 5 10 5"></TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
+                    <xctk:ColorPicker Grid.Column="1" Grid.Row="2" Margin="5 5 10 0" Name="ColorPicker" SelectedColorChanged="colorChanged" SelectedColor="{Binding Boja}"></xctk:ColorPicker>
+                    
+                    <Button Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" Click="sacuvajTekuci">Sacuvaj tekuci</Button>
+                </Grid>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Window>

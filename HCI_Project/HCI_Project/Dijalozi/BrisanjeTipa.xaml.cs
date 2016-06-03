@@ -51,8 +51,12 @@ namespace HCI_Project.Dijalozi
         {
             System.Windows.Controls.TextBox box = (System.Windows.Controls.TextBox)sender;
             TipLokala tip1 = parent.repoTipovi.nadjiPoOznaci(box.Text);
-            if (tip1.Equals(tip))
+            if (tip.Equals(tip1))
+            {
+                noviTip = null;
+                this.DataContext = null;
                 return;
+            }
             noviTip = tip1;
             this.DataContext = noviTip;
         }

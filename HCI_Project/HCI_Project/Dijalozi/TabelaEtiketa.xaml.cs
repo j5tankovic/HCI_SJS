@@ -24,23 +24,26 @@ namespace HCI_Project.Dijalozi
     {
 
         public MainWindow parent { get; set; }
+        private Etiketa etiketa_za_izmenu { get; set; }
+        private Etiketa tekuca_etiketa { get; set; }
 
         public TabelaEtiketa(MainWindow p)
         {
             this.parent = p;
             InitializeComponent();
-            this.DataContext = this;
+            this.tekuca_etiketa = new Etiketa();
+            this.DataContext = this.tekuca_etiketa;
             this.dgrMain.ItemsSource = this.parent.repoEtikete.sveEtikete();
             
         }
 
         private void colorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
-            Etiketa etiketa = ((Etiketa)dgrMain.SelectedItem);
+            Etiketa etiketa = this.tekuca_etiketa;
             if (etiketa == null)
                 return;
             etiketa.Boja = ColorPicker.SelectedColor.Value;
-            azurirajLokale(etiketa);
+            //azurirajLokale(etiketa);
         }
 
         private void Delete(object sender, RoutedEventArgs args)
@@ -114,6 +117,25 @@ namespace HCI_Project.Dijalozi
         public void deleteFilter(object sender, RoutedEventArgs e)
         {
             TextFilter.Text = "";
+        }
+
+        private void sacuvajTekuci(object sender, RoutedEventArgs args)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                this.etiketa_za_izmenu.setValuesAs(this.tekuca_etiketa);
+                this.parent.repoEtikete.memorisi();
+                this.azurirajLokale(this.etiketa_za_izmenu);
+
+                System.Windows.MessageBox.Show("Uspesna izmena!");
+            }
+        }
+
+        private void dgr_SelectionChanged(object sender, SelectionChangedEventArgs args)
+        {
+            this.etiketa_za_izmenu = (Etiketa)dgrMain.SelectedItem;
+            this.tekuca_etiketa.setValuesAs(Etiketa.getCopy(this.etiketa_za_izmenu));
         }
     }
 }

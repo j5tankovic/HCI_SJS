@@ -24,6 +24,8 @@ namespace HCI_Project.Dijalozi
     {
 
         public MainWindow parent { get; set; }
+        private TipLokala tekuci_tip { get; set; }
+        private TipLokala tip_za_izmenu { get; set; }
 
         private TipLokala _izabraniTip;
         public TipLokala IzabraniTip
@@ -38,7 +40,8 @@ namespace HCI_Project.Dijalozi
         {
             this.parent = p;
             InitializeComponent();
-            this.DataContext = this;
+            this.tekuci_tip = new TipLokala();
+            this.DataContext = this.tekuci_tip;
             this.dgrMain.ItemsSource = this.parent.repoTipovi.sviTipovi();
         }
 
@@ -69,7 +72,7 @@ namespace HCI_Project.Dijalozi
                                 "Portable Network Graphic (*.png)|*.png";
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                TipLokala tl = this.dgrMain.SelectedItem as TipLokala;
+                TipLokala tl = this.tekuci_tip;
                 if (tl!= null)
                     tl.Slika = fileDialog.FileName;
 
@@ -110,6 +113,24 @@ namespace HCI_Project.Dijalozi
         public void deleteFilter(object sender, RoutedEventArgs e)
         {
             TextFilter.Text = "";
+        }
+
+        private void sacuvajTekuci(object sender, RoutedEventArgs args)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                this.tip_za_izmenu.setTipAs(this.tekuci_tip);
+                this.parent.repoTipovi.memorisi();
+
+                System.Windows.MessageBox.Show("Uspesne izmene!");
+            }
+        }
+
+        private void dgr_SelectionChanged(object sender, SelectionChangedEventArgs args)
+        {
+            this.tip_za_izmenu = (TipLokala)dgrMain.SelectedItem;
+            this.tekuci_tip.setTipAs(TipLokala.getCopyTip(this.tip_za_izmenu));
         }
     }
 }

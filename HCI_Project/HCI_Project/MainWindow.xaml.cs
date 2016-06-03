@@ -29,6 +29,10 @@ namespace HCI_Project
         public RepoEtikete repoEtikete { get; set; }
 
         string active_map = "1";
+        private static readonly int IMAGE_WIDTH = 32;
+        private static readonly int IMAGE_HEIGHT = 32;
+        private double DRAG_IMAGE_LEFT = -1;
+        private double DRAG_IMAGE_TOP = -1;
 
         Image drag_image = null;
         TreeView treeView = null;
@@ -89,6 +93,11 @@ namespace HCI_Project
            
         }
 
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
         private void Dodaj_Lokal(object sender, RoutedEventArgs e)
         {
             LokalDialog lokal = new LokalDialog(this, null);
@@ -102,21 +111,21 @@ namespace HCI_Project
             TipDialog tip = new TipDialog(this, null);
             //tip.Closed += dialogTipClosed;
             tip.InitializeComponent();
-            tip.Show();
+            tip.ShowDialog();
         }
 
         private void Dodaj_Etiketa(object sender, RoutedEventArgs e)
         {
             EtiketaDialog etiketa = new EtiketaDialog(this);
             etiketa.InitializeComponent();
-            etiketa.Show();
+            etiketa.ShowDialog();
         }
 
         private void Prikazi_Tabela(object sender, RoutedEventArgs e)
         {
             TabelaLokala tabela = new TabelaLokala(this);
             tabela.InitializeComponent();
-            tabela.Show();
+            tabela.ShowDialog();
         }
 
         private void Prikazi_Tabelu_Tipova(object sender, RoutedEventArgs e)
@@ -124,14 +133,14 @@ namespace HCI_Project
             TabelaTipova tabela = new TabelaTipova(this);
             tabela.Closed += tabelaTipovaClosed;
             tabela.InitializeComponent();
-            tabela.Show();
+            tabela.ShowDialog();
         }
 
         private void Prikazi_Tabelu_Etiketa(object sender, RoutedEventArgs e)
         {
             TabelaEtiketa tabela = new TabelaEtiketa(this);
             tabela.InitializeComponent();
-            tabela.Show();
+            tabela.ShowDialog();
         }
 
         private void OnSizeChanged(object sender, SizeChangedEventArgs args)
@@ -328,8 +337,8 @@ namespace HCI_Project
                 bind.Source = lokal;
                 bind.Mode = BindingMode.OneWay;
                 drag_image.SetBinding(Image.SourceProperty, bind);
-                drag_image.Height = 32;
-                drag_image.Width = 32;
+                drag_image.Height = IMAGE_HEIGHT;
+                drag_image.Width = IMAGE_WIDTH;
                 drag_image.DataContext = lokal;
                 drag_image.MouseDown += imageDoubleClickHandler;
                 // Initialize the drag & drop operation
@@ -356,10 +365,13 @@ namespace HCI_Project
                 }
                 ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
-
-                mapa.Children.Add(drag_image);
                 Point point = new Point();
                 point = e.GetPosition(mapa);
+                if (preklapaSe(point, mapa, null))
+                    return;
+
+                mapa.Children.Add(drag_image);
+                
                 Canvas.SetLeft(drag_image, point.X);
                 Canvas.SetTop(drag_image, point.Y);
 
@@ -374,6 +386,12 @@ namespace HCI_Project
             {
                 Point point = new Point();
                 point = e.GetPosition(mapa);
+                if (preklapaSe(point, mapa, drag_image))
+                {
+                    Canvas.SetLeft(drag_image, ((Lokal)drag_image.DataContext).PozicijaX);
+                    Canvas.SetTop(drag_image, ((Lokal)drag_image.DataContext).PozicijaY);
+                    return;
+                }
                 Canvas.SetLeft(drag_image, point.X);
                 Canvas.SetTop(drag_image, point.Y);
 
@@ -403,8 +421,8 @@ namespace HCI_Project
                 bind.Source = lokal;
                 bind.Mode = BindingMode.OneWay;
                 drag_image.SetBinding(Image.SourceProperty, bind);
-                drag_image.Height = 32;
-                drag_image.Width = 32;
+                drag_image.Height = IMAGE_HEIGHT;
+                drag_image.Width = IMAGE_WIDTH;
                 drag_image.DataContext = lokal;
                 drag_image.MouseDown += imageDoubleClickHandler;
                 // Initialize the drag & drop operation
@@ -432,10 +450,13 @@ namespace HCI_Project
                 }
                 ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
-
-                mapa14.Children.Add(drag_image);
                 Point point = new Point();
                 point = e.GetPosition(mapa14);
+                if (preklapaSe(point, mapa14, null))
+                    return;
+
+                mapa14.Children.Add(drag_image);
+                
                 Canvas.SetLeft(drag_image, point.X);
                 Canvas.SetTop(drag_image, point.Y);
 
@@ -457,8 +478,8 @@ namespace HCI_Project
                     bind.Source = lokal;
                     bind.Mode = BindingMode.OneWay;
                     drag_image.SetBinding(Image.SourceProperty, bind);
-                    drag_image.Height = 32;
-                    drag_image.Width = 32;
+                    drag_image.Height = IMAGE_HEIGHT;
+                    drag_image.Width = IMAGE_WIDTH;
                     drag_image.DataContext = lokal;
                     drag_image.MouseDown += imageDoubleClickHandler;
                     // Initialize the drag & drop operation
@@ -486,10 +507,13 @@ namespace HCI_Project
                     }
                     ctx.Items.Add(m1);
                     drag_image.ContextMenu = ctx;
-
-                    mapa14.Children.Add(drag_image);
                     Point point = new Point();
                     point = e.GetPosition(mapa14);
+                    if (preklapaSe(point, mapa14, null))
+                        return;
+
+                    mapa14.Children.Add(drag_image);
+                    
                     Canvas.SetLeft(drag_image, point.X);
                     Canvas.SetTop(drag_image, point.Y);
 
@@ -504,6 +528,13 @@ namespace HCI_Project
                 }
                 Point point2 = new Point();
                 point2 = e.GetPosition(mapa14);
+                if (preklapaSe(point2, mapa14, drag_image))
+                {
+                    Canvas.SetLeft(drag_image, ((Lokal)drag_image.DataContext).PozicijaX);
+                    Canvas.SetTop(drag_image, ((Lokal)drag_image.DataContext).PozicijaY);
+                    return;
+                }
+
                 Canvas.SetLeft(drag_image, point2.X);
                 Canvas.SetTop(drag_image, point2.Y);
 
@@ -531,8 +562,8 @@ namespace HCI_Project
                 bind.Source = lokal;
                 bind.Mode = BindingMode.OneWay;
                 drag_image.SetBinding(Image.SourceProperty, bind);
-                drag_image.Height = 32;
-                drag_image.Width = 32;
+                drag_image.Height = IMAGE_HEIGHT;
+                drag_image.Width = IMAGE_WIDTH;
                 drag_image.DataContext = lokal;
                 drag_image.MouseDown += imageDoubleClickHandler;
                 // Initialize the drag & drop operation
@@ -560,10 +591,13 @@ namespace HCI_Project
                 }
                 ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
-
-                mapa24.Children.Add(drag_image);
                 Point point = new Point();
                 point = e.GetPosition(mapa24);
+                if (preklapaSe(point, mapa24, null))
+                    return;
+
+                mapa24.Children.Add(drag_image);
+                
                 Canvas.SetLeft(drag_image, point.X);
                 Canvas.SetTop(drag_image, point.Y);
 
@@ -584,8 +618,8 @@ namespace HCI_Project
                     bind.Source = lokal;
                     bind.Mode = BindingMode.OneWay;
                     drag_image.SetBinding(Image.SourceProperty, bind);
-                    drag_image.Height = 32;
-                    drag_image.Width = 32;
+                    drag_image.Height = IMAGE_HEIGHT;
+                    drag_image.Width = IMAGE_WIDTH;
                     drag_image.DataContext = lokal;
                     drag_image.MouseDown += imageDoubleClickHandler;
                     // Initialize the drag & drop operation
@@ -613,10 +647,13 @@ namespace HCI_Project
                     }
                     ctx.Items.Add(m1);
                     drag_image.ContextMenu = ctx;
-
-                    mapa24.Children.Add(drag_image);
                     Point point = new Point();
                     point = e.GetPosition(mapa24);
+                    if (preklapaSe(point, mapa24, null))
+                        return;
+
+                    mapa24.Children.Add(drag_image);
+                    
                     Canvas.SetLeft(drag_image, point.X);
                     Canvas.SetTop(drag_image, point.Y);
 
@@ -631,6 +668,13 @@ namespace HCI_Project
                 }
                 Point point2 = new Point();
                 point2 = e.GetPosition(mapa24);
+                if (preklapaSe(point2, mapa24, drag_image))
+                {
+                    Canvas.SetLeft(drag_image, _CanvasDragStart.X);
+                    Canvas.SetTop(drag_image, _CanvasDragStart.Y);
+                    return;
+                }
+
                 Canvas.SetLeft(drag_image, point2.X);
                 Canvas.SetTop(drag_image, point2.Y);
 
@@ -658,8 +702,8 @@ namespace HCI_Project
                 bind.Source = lokal;
                 bind.Mode = BindingMode.OneWay;
                 drag_image.SetBinding(Image.SourceProperty, bind);
-                drag_image.Height = 32;
-                drag_image.Width = 32;
+                drag_image.Height = IMAGE_HEIGHT;
+                drag_image.Width = IMAGE_WIDTH;
                 drag_image.DataContext = lokal;
                 drag_image.MouseDown += imageDoubleClickHandler;
                 // Initialize the drag & drop operation
@@ -687,10 +731,13 @@ namespace HCI_Project
                 }
                 ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
-
-                mapa34.Children.Add(drag_image);
                 Point point = new Point();
                 point = e.GetPosition(mapa34);
+                if (preklapaSe(point, mapa34, null))
+                    return;
+
+                mapa34.Children.Add(drag_image);
+                
                 Canvas.SetLeft(drag_image, point.X);
                 Canvas.SetTop(drag_image, point.Y);
 
@@ -712,8 +759,8 @@ namespace HCI_Project
                     bind.Source = lokal;
                     bind.Mode = BindingMode.OneWay;
                     drag_image.SetBinding(Image.SourceProperty, bind);
-                    drag_image.Height = 32;
-                    drag_image.Width = 32;
+                    drag_image.Height = IMAGE_HEIGHT;
+                    drag_image.Width = IMAGE_WIDTH;
                     drag_image.DataContext = lokal;
                     drag_image.MouseDown += imageDoubleClickHandler;
                     // Initialize the drag & drop operation
@@ -741,10 +788,13 @@ namespace HCI_Project
                     }
                     ctx.Items.Add(m1);
                     drag_image.ContextMenu = ctx;
-
-                    mapa34.Children.Add(drag_image);
                     Point point = new Point();
                     point = e.GetPosition(mapa34);
+                    if (preklapaSe(point, mapa34, null))
+                        return;
+
+                    mapa34.Children.Add(drag_image);
+                    
                     Canvas.SetLeft(drag_image, point.X);
                     Canvas.SetTop(drag_image, point.Y);
 
@@ -759,6 +809,13 @@ namespace HCI_Project
                 }
                 Point point2 = new Point();
                 point2 = e.GetPosition(mapa34);
+                if (preklapaSe(point2, mapa34, drag_image))
+                {
+                    Canvas.SetLeft(drag_image, ((Lokal)drag_image.DataContext).PozicijaX);
+                    Canvas.SetTop(drag_image, ((Lokal)drag_image.DataContext).PozicijaY);
+                    return;
+                }
+
                 Canvas.SetLeft(drag_image, point2.X);
                 Canvas.SetTop(drag_image, point2.Y);
 
@@ -786,8 +843,8 @@ namespace HCI_Project
                 bind.Source = lokal;
                 bind.Mode = BindingMode.OneWay;
                 drag_image.SetBinding(Image.SourceProperty, bind);
-                drag_image.Height = 32;
-                drag_image.Width = 32;
+                drag_image.Height = IMAGE_HEIGHT;
+                drag_image.Width = IMAGE_WIDTH;
                 drag_image.DataContext = lokal;
                 drag_image.MouseDown += imageDoubleClickHandler;
                 // Initialize the drag & drop operation
@@ -815,10 +872,13 @@ namespace HCI_Project
                 }
                 ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
-
-                mapa44.Children.Add(drag_image);
                 Point point = new Point();
                 point = e.GetPosition(mapa44);
+                if (preklapaSe(point, mapa44, null))
+                    return;
+
+                mapa44.Children.Add(drag_image);
+                
                 Canvas.SetLeft(drag_image, point.X);
                 Canvas.SetTop(drag_image, point.Y);
 
@@ -840,8 +900,8 @@ namespace HCI_Project
                     bind.Source = lokal;
                     bind.Mode = BindingMode.OneWay;
                     drag_image.SetBinding(Image.SourceProperty, bind);
-                    drag_image.Height = 32;
-                    drag_image.Width = 32;
+                    drag_image.Height = IMAGE_HEIGHT;
+                    drag_image.Width = IMAGE_WIDTH;
                     drag_image.DataContext = lokal;
                     drag_image.MouseDown += imageDoubleClickHandler;
                     // Initialize the drag & drop operation
@@ -869,10 +929,13 @@ namespace HCI_Project
                     }
                     ctx.Items.Add(m1);
                     drag_image.ContextMenu = ctx;
-
-                    mapa44.Children.Add(drag_image);
                     Point point = new Point();
                     point = e.GetPosition(mapa44);
+                    if (preklapaSe(point, mapa44, null))
+                        return;
+
+                    mapa44.Children.Add(drag_image);
+                    
                     Canvas.SetLeft(drag_image, point.X);
                     Canvas.SetTop(drag_image, point.Y);
 
@@ -887,6 +950,13 @@ namespace HCI_Project
                 }
                 Point point2 = new Point();
                 point2 = e.GetPosition(mapa44);
+                if (preklapaSe(point2, mapa44, drag_image))
+                {
+                    Canvas.SetLeft(drag_image, ((Lokal)drag_image.DataContext).PozicijaX);
+                    Canvas.SetTop(drag_image, ((Lokal)drag_image.DataContext).PozicijaY);
+                    return;
+                }
+
                 Canvas.SetLeft(drag_image, point2.X);
                 Canvas.SetTop(drag_image, point2.Y);
 
@@ -931,6 +1001,8 @@ namespace HCI_Project
                         {
                             
                             drag_image = img;
+                            DRAG_IMAGE_LEFT = Canvas.GetLeft(drag_image);
+                            DRAG_IMAGE_TOP = Canvas.GetTop(drag_image);
                             DataObject dragData = new DataObject("canvasDND", lokal);
                             DragDrop.DoDragDrop(img, dragData, DragDropEffects.Move);
                         }
@@ -1141,8 +1213,8 @@ namespace HCI_Project
                     bind.Source = lokal;
                     bind.Mode = BindingMode.OneWay;
                     img.SetBinding(Image.SourceProperty, bind);
-                    img.Height = 32;
-                    img.Width = 32;
+                    img.Height = IMAGE_HEIGHT;
+                    img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
 
@@ -1186,8 +1258,8 @@ namespace HCI_Project
                     bind.Source = lokal;
                     bind.Mode = BindingMode.OneWay;
                     img.SetBinding(Image.SourceProperty, bind);
-                    img.Height = 32;
-                    img.Width = 32;
+                    img.Height = IMAGE_HEIGHT;
+                    img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
 
@@ -1228,8 +1300,8 @@ namespace HCI_Project
                     bind.Source = lokal;
                     bind.Mode = BindingMode.OneWay;
                     img.SetBinding(Image.SourceProperty, bind);
-                    img.Height = 32;
-                    img.Width = 32;
+                    img.Height = IMAGE_HEIGHT;
+                    img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
 
@@ -1270,8 +1342,8 @@ namespace HCI_Project
                     bind.Source = lokal;
                     bind.Mode = BindingMode.OneWay;
                     img.SetBinding(Image.SourceProperty, bind);
-                    img.Height = 32;
-                    img.Width = 32;
+                    img.Height = IMAGE_HEIGHT;
+                    img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
 
@@ -1312,8 +1384,8 @@ namespace HCI_Project
                     bind.Source = lokal;
                     bind.Mode = BindingMode.OneWay;
                     img.SetBinding(Image.SourceProperty, bind);
-                    img.Height = 32;
-                    img.Width = 32;
+                    img.Height = IMAGE_HEIGHT;
+                    img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
 
@@ -1423,6 +1495,22 @@ namespace HCI_Project
                 mapa44.Children.RemoveAt(i);
             }
         
+        }
+
+        private bool preklapaSe(Point new_point, Canvas mapa, Image self)
+        {
+            foreach (UIElement i in mapa.Children)
+            {
+                if (self == i)
+                    continue;
+                Image img = (Image)i;
+                double left = Canvas.GetLeft(i);
+                double top = Canvas.GetTop(i);
+                if (left - img.ActualWidth < new_point.X && left + img.ActualWidth >= new_point.X
+                    && top - img.ActualHeight < new_point.Y && top + img.ActualHeight >= new_point.Y)
+                    return true;
+            }
+            return false;
         }
 
     }

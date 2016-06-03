@@ -3,126 +3,125 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="TabelaTipova" Height="400" Width="300">
+        Title="TabelaTipova" Height="400" Width="350"
+        MinWidth="350">
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Button Click="Delete" Content="Obrisi tip" />
         </ToolBar>
-        
-        <Grid DockPanel.Dock="Bottom">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock Text="Filtriraj:"></TextBlock>
-                <TextBox Width="100" Name="TextFilter" TextChanged="textFieldChanged"></TextBox>
-                <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
-            </StackPanel>
-
-            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoTipovi.tipovi}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
-                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
-                    <DataGridTextColumn Header="Ikonica" Binding="{Binding Slika}" Width="3*"/>
-                </DataGrid.Columns>
-                <DataGrid.RowDetailsTemplate>
-                    <DataTemplate>
-                        <DockPanel Background="Honeydew">
-                            <Image DockPanel.Dock="Left" Height="80"  Source="{Binding Path=Slika}"/>
-                            <Grid Margin="5,5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="Lokali:"  Grid.Column="0" Grid.Row="1" FontWeight="Black" Margin="5,5"/>
-                                <ListBox ItemsSource="{Binding Path=Lokali}"  Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Stretch">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Naziv}">
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
-                        </DockPanel>
-                    </DataTemplate>
-                </DataGrid.RowDetailsTemplate>
-            </DataGrid>
-
-            <Grid Grid.Column="0" Grid.Row="2" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
+        <ScrollViewer>
+            <Grid DockPanel.Dock="Bottom">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Grid.Resources>
-                    <Style TargetType="TextBlock" x:Key="FamilyAndSize">
-                        <Setter Property="FontFamily" Value="Arial"/>
-                        <Setter Property="FontSize" Value="14"/>
-                        <Setter Property="Margin" Value="5 5 5 5"/>
-                    </Style>
-                </Grid.Resources>
 
-                <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource FamilyAndSize}">Oznaka:</TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}">Naziv:</TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Opis:</TextBlock>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="Filtriraj:"></TextBlock>
+                    <TextBox Width="100" Name="TextFilter" TextChanged="textFieldChanged"></TextBox>
+                    <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
+                </StackPanel>
 
-                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5" IsReadOnly="True"></TextBox>
-                <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5">
-                    <TextBox.Text>
-                        <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:StringValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+                <DataGrid x:Name="dgrMain" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoTipovi.tipovi}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
+                        <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
+                        <DataGridTextColumn Header="Ikonica" Binding="{Binding Slika}" Width="3*"/>
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <DockPanel Background="Honeydew">
+                                <Image DockPanel.Dock="Left" Height="80"  Source="{Binding Path=Slika}"/>
+                                <Grid Margin="5,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Lokali:"  Grid.Column="0" Grid.Row="1" FontWeight="Black" Margin="5,5"/>
+                                    <ListBox ItemsSource="{Binding Path=Lokali}"  Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Stretch">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Naziv}">
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </Grid>
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
 
-                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                            </Grid>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-                <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
-                <Grid Grid.Row="3" Grid.Column="1" >
+                <Grid Grid.Column="0" Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Border Background="WhiteSmoke" Grid.Column="1" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
-                        <Image Source="{Binding Path=Slika}" />
-                    </Border>
-                    <Button Width="108" HorizontalAlignment="Right" Margin="0,111,0,5" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock" x:Key="FamilyAndSize">
+                            <Setter Property="FontFamily" Value="Arial"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="Margin" Value="5 5 5 5"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource FamilyAndSize}">Oznaka:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}">Naziv:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Opis:</TextBlock>
+
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5" IsReadOnly="True"></TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5">
+                        <TextBox.Text>
+                            <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <val:StringValidationRule ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" >
+                        <Button VerticalAlignment="Bottom"  Width="100" Height="20" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
+                        <Border Background="WhiteSmoke" BorderThickness="1" BorderBrush="Black"  Width="80" Height="80"  HorizontalAlignment="Right" >
+                            <Image Source="{Binding Path=Slika}" />
+                        </Border>
+                    </StackPanel>
+                    <Button Click="sacuvajTekuci" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="5">Sacuvaj tekuci</Button>
+                    <Button Click="Clicked_OK" HorizontalAlignment="Right" Width="40" Grid.Column="2" Grid.Row="5">OK</Button>
                 </Grid>
-                <Button Click="Clicked_OK" Grid.Column="0" Grid.Row="5">OK</Button>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Window>
