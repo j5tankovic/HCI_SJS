@@ -135,11 +135,13 @@ namespace HCI_Project.Dijalozi
         private void dgrMain_SelectedCellsChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dgrMain.SelectedItem != null)
+            {
                 this.stariTipOznaka = ((Lokal)dgrMain.SelectedItem).Tip.Oznaka;
 
-            this.lokal_za_izmenu = (Lokal)dgrMain.SelectedItem;
-            Lokal kopija = Lokal.getCopyLokal((Lokal) dgrMain.SelectedItem);
-            this.tekuci_lokal.setValuesAs(kopija);
+                this.lokal_za_izmenu = (Lokal)dgrMain.SelectedItem;
+                Lokal kopija = Lokal.getCopyLokal((Lokal)dgrMain.SelectedItem);
+                this.tekuci_lokal.setValuesAs(kopija);
+            }
 
         }
 
