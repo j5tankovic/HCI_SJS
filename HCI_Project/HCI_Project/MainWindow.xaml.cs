@@ -318,7 +318,10 @@ namespace HCI_Project
             {
                 Lokal lokal = e.Data.GetData("myFormat") as Lokal;
                 if (MapaVecImaLokal(lokal, mapa))
+                {
+                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Lokal pod nazivom '"+lokal.Naziv+"' se vec nalazi na mapi!", "Oprez", System.Windows.MessageBoxButton.OK);
                     return;
+                }
   
                 drag_image = new Image();
                 Binding bind = new Binding("Slika");
@@ -339,8 +342,19 @@ namespace HCI_Project
                 m2.DataContext = lokal;
                 m2.Header = "Prikazi lokal";
                 m2.Click += PrikaziLokal;
-                ctx.Items.Add(m1);
                 ctx.Items.Add(m2);
+                for (int i = 1; i < 5; i++) {
+                    if (i != Int32.Parse(active_map))
+                    {
+                        MenuItem m = new MenuItem();
+                        m.DataContext = lokal;
+                        m.Tag = i;
+                        m.Header = "Premesti lokal na mapu " + i;
+                        m.Click += PremestiLokal;
+                        ctx.Items.Add(m);
+                    }
+                }
+                ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
 
                 mapa.Children.Add(drag_image);
@@ -379,7 +393,10 @@ namespace HCI_Project
             {
                 Lokal lokal = e.Data.GetData("myFormat") as Lokal;
                 if (MapaVecImaLokal(lokal, mapa14))
+                {
+                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Lokal pod nazivom '" + lokal.Naziv + "' se vec nalazi na mapi!", "Oprez", System.Windows.MessageBoxButton.OK);
                     return;
+                }
 
                 drag_image = new Image();
                 Binding bind = new Binding("Slika");
@@ -400,8 +417,20 @@ namespace HCI_Project
                 m2.DataContext = lokal;
                 m2.Header = "Prikazi lokal";
                 m2.Click += PrikaziLokal;
-                ctx.Items.Add(m1);
                 ctx.Items.Add(m2);
+                for (int i = 1; i < 5; i++)
+                {
+                    if (i != 1)
+                    {
+                        MenuItem m = new MenuItem();
+                        m.DataContext = lokal;
+                        m.Tag = i;
+                        m.Header = "Premesti lokal na mapu " + i;
+                        m.Click += PremestiLokal;
+                        ctx.Items.Add(m);
+                    }
+                }
+                ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
 
                 mapa14.Children.Add(drag_image);
@@ -442,8 +471,20 @@ namespace HCI_Project
                     m2.DataContext = lokal;
                     m2.Header = "Prikazi lokal";
                     m2.Click += PrikaziLokal;
-                    ctx.Items.Add(m1);
                     ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 1)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
                     drag_image.ContextMenu = ctx;
 
                     mapa14.Children.Add(drag_image);
@@ -480,7 +521,10 @@ namespace HCI_Project
             {
                 Lokal lokal = e.Data.GetData("myFormat") as Lokal;
                 if (MapaVecImaLokal(lokal, mapa24))
+                {
+                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Lokal pod nazivom '" + lokal.Naziv + "' se vec nalazi na mapi!", "Oprez", System.Windows.MessageBoxButton.OK);
                     return;
+                }
 
                 drag_image = new Image();
                 Binding bind = new Binding("Slika");
@@ -501,8 +545,20 @@ namespace HCI_Project
                 m2.DataContext = lokal;
                 m2.Header = "Prikazi lokal";
                 m2.Click += PrikaziLokal;
-                ctx.Items.Add(m1);
                 ctx.Items.Add(m2);
+                for (int i = 1; i < 5; i++)
+                {
+                    if (i != 2)
+                    {
+                        MenuItem m = new MenuItem();
+                        m.DataContext = lokal;
+                        m.Tag = i;
+                        m.Header = "Premesti lokal na mapu " + i;
+                        m.Click += PremestiLokal;
+                        ctx.Items.Add(m);
+                    }
+                }
+                ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
 
                 mapa24.Children.Add(drag_image);
@@ -542,8 +598,20 @@ namespace HCI_Project
                     m2.DataContext = lokal;
                     m2.Header = "Prikazi lokal";
                     m2.Click += PrikaziLokal;
-                    ctx.Items.Add(m1);
                     ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 2)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
                     drag_image.ContextMenu = ctx;
 
                     mapa24.Children.Add(drag_image);
@@ -580,7 +648,10 @@ namespace HCI_Project
             {
                 Lokal lokal = e.Data.GetData("myFormat") as Lokal;
                 if (MapaVecImaLokal(lokal, mapa34))
+                {
+                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Lokal pod nazivom '" + lokal.Naziv + "' se vec nalazi na mapi!", "Oprez", System.Windows.MessageBoxButton.OK);
                     return;
+                }
 
                 drag_image = new Image();
                 Binding bind = new Binding("Slika");
@@ -601,8 +672,20 @@ namespace HCI_Project
                 m2.DataContext = lokal;
                 m2.Header = "Prikazi lokal";
                 m2.Click += PrikaziLokal;
-                ctx.Items.Add(m1);
                 ctx.Items.Add(m2);
+                for (int i = 1; i < 5; i++)
+                {
+                    if (i != 3)
+                    {
+                        MenuItem m = new MenuItem();
+                        m.DataContext = lokal;
+                        m.Tag = i;
+                        m.Header = "Premesti lokal na mapu " + i;
+                        m.Click += PremestiLokal;
+                        ctx.Items.Add(m);
+                    }
+                }
+                ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
 
                 mapa34.Children.Add(drag_image);
@@ -643,8 +726,20 @@ namespace HCI_Project
                     m2.DataContext = lokal;
                     m2.Header = "Prikazi lokal";
                     m2.Click += PrikaziLokal;
-                    ctx.Items.Add(m1);
                     ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 3)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
                     drag_image.ContextMenu = ctx;
 
                     mapa34.Children.Add(drag_image);
@@ -681,7 +776,10 @@ namespace HCI_Project
             {
                 Lokal lokal = e.Data.GetData("myFormat") as Lokal;
                 if (MapaVecImaLokal(lokal, mapa44))
+                {
+                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Lokal pod nazivom '" + lokal.Naziv + "' se vec nalazi na mapi!", "Oprez", System.Windows.MessageBoxButton.OK);
                     return;
+                }
 
                 drag_image = new Image();
                 Binding bind = new Binding("Slika");
@@ -702,8 +800,20 @@ namespace HCI_Project
                 m2.DataContext = lokal;
                 m2.Header = "Prikazi lokal";
                 m2.Click += PrikaziLokal;
-                ctx.Items.Add(m1);
                 ctx.Items.Add(m2);
+                for (int i = 1; i < 5; i++)
+                {
+                    if (i != 4)
+                    {
+                        MenuItem m = new MenuItem();
+                        m.DataContext = lokal;
+                        m.Tag = i;
+                        m.Header = "Premesti lokal na mapu " + i;
+                        m.Click += PremestiLokal;
+                        ctx.Items.Add(m);
+                    }
+                }
+                ctx.Items.Add(m1);
                 drag_image.ContextMenu = ctx;
 
                 mapa44.Children.Add(drag_image);
@@ -744,8 +854,20 @@ namespace HCI_Project
                     m2.DataContext = lokal;
                     m2.Header = "Prikazi lokal";
                     m2.Click += PrikaziLokal;
-                    ctx.Items.Add(m1);
                     ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 4)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
                     drag_image.ContextMenu = ctx;
 
                     mapa44.Children.Add(drag_image);
@@ -993,6 +1115,20 @@ namespace HCI_Project
             dialog.ShowDialog();
         }
 
+        private void PremestiLokal(object sender, RoutedEventArgs args)
+        {
+            MenuItem m = (MenuItem)sender;
+            int mapa = (int)m.Tag;
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da premestite lokal na mapu "+mapa+"? \nLokal ce se nalaziti na istoj poziciji kao na trenutnoj mapi!", "Premestanje lokala", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                Lokal l = (Lokal)m.DataContext;
+                l.Mapa = mapa.ToString();
+                ObrisiDecu();
+                initializeMap();
+                MessageBoxResult messageBox = System.Windows.MessageBox.Show("Lokal uspresno premesten na mapu "+mapa+"!", "Lokal premesten", System.Windows.MessageBoxButton.OK);
+            }
+        }
 
         private void initializeMap()
         {
@@ -1019,8 +1155,20 @@ namespace HCI_Project
                     m2.DataContext = lokal;
                     m2.Header = "Prikazi lokal";
                     m2.Click += PrikaziLokal;
-                    ctx.Items.Add(m1);
                     ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != Int32.Parse(active_map))
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
                     img.ContextMenu = ctx;
 
                     mapa.Children.Add(img);
@@ -1052,8 +1200,20 @@ namespace HCI_Project
                     m2.DataContext = lokal;
                     m2.Header = "Prikazi lokal";
                     m2.Click += PrikaziLokal;
-                    ctx.Items.Add(m1);
                     ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 1)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
                     img.ContextMenu = ctx;
 
                     mapa14.Children.Add(img);
@@ -1082,8 +1242,20 @@ namespace HCI_Project
                     m2.DataContext = lokal;
                     m2.Header = "Prikazi lokal";
                     m2.Click += PrikaziLokal;
-                    ctx.Items.Add(m1);
                     ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 2)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
                     img.ContextMenu = ctx;
 
                     mapa24.Children.Add(img);
@@ -1112,8 +1284,20 @@ namespace HCI_Project
                     m2.DataContext = lokal;
                     m2.Header = "Prikazi lokal";
                     m2.Click += PrikaziLokal;
-                    ctx.Items.Add(m1);
                     ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 3)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
                     img.ContextMenu = ctx;
 
                     mapa34.Children.Add(img);
@@ -1142,8 +1326,20 @@ namespace HCI_Project
                     m2.DataContext = lokal;
                     m2.Header = "Prikazi lokal";
                     m2.Click += PrikaziLokal;
-                    ctx.Items.Add(m1);
                     ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 4)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
                     img.ContextMenu = ctx;
 
                     mapa44.Children.Add(img);
