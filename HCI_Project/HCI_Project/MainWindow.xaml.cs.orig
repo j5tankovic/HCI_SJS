@@ -1711,14 +1711,16 @@ namespace HCI_Project
             }
         
         }
-        
-                private void Filter(object sender, RoutedEventArgs e)
+
+        private void Filter(object sender, RoutedEventArgs e)
         {
             string text = filter.Text;
-            if (text != "") {
+            if (text != "")
+            {
+                ObrisiDecu();
                 initializeMapWithFilter(text);
             }
-            }
+        }
 
         private bool preklapaSe(Point new_point, Canvas mapa, Image self)
         {

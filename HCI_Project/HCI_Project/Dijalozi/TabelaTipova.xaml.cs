@@ -84,5 +84,33 @@ namespace HCI_Project.Dijalozi
                 _izabraniTip = null;
             this.Close();
         }
+
+        public void textFieldChanged(object sender, TextChangedEventArgs e)
+        {
+            System.Windows.Controls.TextBox textbox = sender as System.Windows.Controls.TextBox;
+            string filter = textbox.Text;
+            ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
+            if (filter == "")
+                cv.Filter = null;
+            else
+            {
+                cv.Filter = o =>
+                {
+                    TipLokala tip = o as TipLokala;
+                    if (textbox.Name == "OznakaFilter")
+                        return tip.Oznaka.ToUpper().StartsWith(filter.ToUpper());
+                    else if (textbox.Name == "NazivFilter")
+                        return tip.Naziv.ToUpper().StartsWith(filter.ToUpper());
+                    return false;
+                };
+            }
+        }
+
+
+        public void deleteFilters(object sender, RoutedEventArgs e)
+        {
+            OznakaFilter.Text = "";
+            NazivFilter.Text = "";
+        }
     }
 }

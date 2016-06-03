@@ -10,13 +10,23 @@
         </ToolBar>
         <Grid DockPanel.Dock="Bottom">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition />
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Oznaka:"></TextBlock>
+                <TextBox Width="50" Name="OznakaFilter" TextChanged="textFieldChanged"></TextBox>
+                <TextBlock Text="Opis:"></TextBlock>
+                <TextBox Width="50" Name="OpisFilter" TextChanged="textFieldChanged"></TextBox>
+                <TextBlock Text="Boja:"></TextBlock>
+                <xctk:ColorPicker Name="ColorFilter" Width="80" SelectedColorChanged="colorFilterChanged"></xctk:ColorPicker>
+                <Button Width="Auto" Click="deleteFilters">Ponisti</Button>
+            </StackPanel>
+            <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
                     <DataGridTextColumn Header="Opis" Binding="{Binding Opis}" Width="3*"/>
@@ -24,7 +34,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-                <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
+                <Grid Grid.Column="0" Grid.Row="2" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
