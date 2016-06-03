@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -225,6 +226,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="map4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Help\DodavanjeEtikete.htm" />
+    <Content Include="Help\DodavanjeLokala.htm" />
+    <Content Include="Help\DodavanjeTipova.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
