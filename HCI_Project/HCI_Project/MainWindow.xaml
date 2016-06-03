@@ -340,7 +340,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Grid.Row="0">Filter za mapu:</TextBlock>
                         <TextBox Grid.Column="1" Grid.Row="0" Name="filter" Width="100"></TextBox>
-                        <Button Grid.Column="2" Grid.Row="0" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Prikazi_Tabelu_Tipova">Filter</Button>
+                        <Button Grid.Column="2" Grid.Row="0" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Filter">Filter</Button>
                         <Button Grid.Column="2" Grid.Row="1" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Prikazi_Tabelu_Tipova">Ukloni filter</Button>
                         <TextBlock Grid.Column="0" Grid.Row="2">Pronadji na mapi:</TextBlock>
                         <TextBox Grid.Column="1" Grid.Row="2" Name="pretraga" Width="100"></TextBox>

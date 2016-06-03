@@ -1349,6 +1349,226 @@ namespace HCI_Project
             }
         }
 
+        private void initializeMapWithFilter(string text)
+        {
+            foreach (Lokal lokal in repoLokali.lokali)
+            {
+
+                if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == active_map)
+                {
+                    Image img = new Image();
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni lokal sa mape";
+                    m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
+                    ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != Int32.Parse(active_map))
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
+                    img.ContextMenu = ctx;
+
+                    mapa.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
+                }
+            }
+
+            foreach (Lokal lokal in repoLokali.lokali)
+            {
+                if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == "1")
+                {
+                    Image img = new Image();
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni lokal sa mape";
+                    m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
+                    ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 1)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
+                    img.ContextMenu = ctx;
+
+                    mapa14.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
+                }
+
+                else if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == "2")
+                {
+                    Image img = new Image();
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni lokal sa mape";
+                    m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
+                    ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 2)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
+                    img.ContextMenu = ctx;
+
+                    mapa24.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
+                }
+
+                else if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == "3")
+                {
+                    Image img = new Image();
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni lokal sa mape";
+                    m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
+                    ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 3)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
+                    img.ContextMenu = ctx;
+
+                    mapa34.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
+                }
+
+                else if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == "4")
+                {
+                    Image img = new Image();
+                    Binding bind = new Binding("Slika");
+                    bind.Source = lokal;
+                    bind.Mode = BindingMode.OneWay;
+                    img.SetBinding(Image.SourceProperty, bind);
+                    img.Height = 32;
+                    img.Width = 32;
+                    img.DataContext = lokal;
+                    img.MouseDown += imageDoubleClickHandler;
+
+                    ContextMenu ctx = new ContextMenu();
+                    MenuItem m1 = new MenuItem();
+                    m1.DataContext = lokal;
+                    m1.Header = "Ukloni lokal sa mape";
+                    m1.Click += UkloniLokalIzMape;
+                    MenuItem m2 = new MenuItem();
+                    m2.DataContext = lokal;
+                    m2.Header = "Prikazi lokal";
+                    m2.Click += PrikaziLokal;
+                    ctx.Items.Add(m2);
+                    for (int i = 1; i < 5; i++)
+                    {
+                        if (i != 4)
+                        {
+                            MenuItem m = new MenuItem();
+                            m.DataContext = lokal;
+                            m.Tag = i;
+                            m.Header = "Premesti lokal na mapu " + i;
+                            m.Click += PremestiLokal;
+                            ctx.Items.Add(m);
+                        }
+                    }
+                    ctx.Items.Add(m1);
+                    img.ContextMenu = ctx;
+
+                    mapa44.Children.Add(img);
+                    Canvas.SetLeft(img, lokal.PozicijaX);
+                    Canvas.SetTop(img, lokal.PozicijaY);
+                }
+            }
+        }
+
 
         private void Promeni_Mapu(object sender, RoutedEventArgs e)
         {
@@ -1423,6 +1643,15 @@ namespace HCI_Project
                 mapa44.Children.RemoveAt(i);
             }
         
+        }
+
+        private void Filter(object sender, RoutedEventArgs e)
+        {
+            string text = filter.Text;
+            if (text != "") {
+                initializeMapWithFilter(text);
+            }
+
         }
 
     }
