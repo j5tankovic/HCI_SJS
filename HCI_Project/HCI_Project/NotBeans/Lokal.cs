@@ -75,7 +75,7 @@ namespace HCI_Project.NotBeans
             novi.Datum = l._datum;
             novi.Etikete = new List<Etiketa>();
             foreach (Etiketa e in l._etikete)
-                novi._etikete.Add(e);
+                novi.Etikete.Add(e);
             novi.Hendikep = l._hendikep;
             novi.Kapacitet = l._kapacitet;
             novi.Mapa = l._mapa;

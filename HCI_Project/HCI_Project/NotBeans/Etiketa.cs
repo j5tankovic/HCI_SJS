@@ -20,6 +20,24 @@ namespace HCI_Project.NotBeans
         
         private string _opis;
 
+
+        public static Etiketa getCopy(Etiketa e)
+        {
+            Etiketa et = new Etiketa();
+            et.Boja = e.Boja;
+            et.Opis = e.Opis;
+            et.Oznaka = e.Oznaka;
+            return et;
+        }
+
+        public void setValuesAs(Etiketa e)
+        {
+            this.Oznaka = e.Oznaka;
+            this.Opis = e.Opis;
+            this.Boja = e.Boja;
+        }
+
+
         public string Oznaka
         {
             get

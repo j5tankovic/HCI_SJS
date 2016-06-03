@@ -102,6 +102,8 @@ namespace HCI_Project.Dijalozi
         {
             if (!ok)
                 lokal = null;
+            this.parent.repoLokali.memorisi();
+            this.parent.repoTipovi.memorisi();
         }
 
         private void izaberiFajlClicked(object sender, RoutedEventArgs args)
@@ -195,6 +197,8 @@ namespace HCI_Project.Dijalozi
                 return false;
             return true;
         }
+
+        
 
 
     }

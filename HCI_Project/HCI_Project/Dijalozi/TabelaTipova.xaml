@@ -29,7 +29,7 @@
                     <Button Width="Auto" Click="deleteFilters">Ponisti</Button>
                 </StackPanel>
 
-                <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoTipovi.tipovi}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                <DataGrid x:Name="dgrMain" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoTipovi.tipovi}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
                         <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
@@ -62,7 +62,7 @@
                     </DataGrid.RowDetailsTemplate>
                 </DataGrid>
 
-                <Grid Grid.Column="0" Grid.Row="2" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}">
+                <Grid Grid.Column="0" Grid.Row="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -121,6 +121,7 @@
                             <Image Source="{Binding Path=Slika}" />
                         </Border>
                     </StackPanel>
+                    <Button Click="sacuvajTekuci" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="5">Sacuvaj tekuci</Button>
                     <Button Click="Clicked_OK" HorizontalAlignment="Right" Width="40" Grid.Column="2" Grid.Row="5">OK</Button>
                 </Grid>
             </Grid>

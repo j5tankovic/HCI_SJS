@@ -5,7 +5,8 @@
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:library="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="TabelaLokala" Height="650" Width="1000" Loaded="Window_Loaded">
+        Title="TabelaLokala" Height="650" Width="1000" Loaded="Window_Loaded"
+        Name="Prozor">
     <Window.Resources>
         <sys:Boolean x:Key="True">True</sys:Boolean>
         <sys:Boolean x:Key="False">False</sys:Boolean>
@@ -120,7 +121,7 @@
                     </DataGrid.RowDetailsTemplate>
                 </DataGrid>
 
-                <Grid Grid.Row="2" DataContext="{Binding ElementName=dgrMain,Path=SelectedItem}" VerticalAlignment="Top" Height="438">
+                <Grid Grid.Row="2" VerticalAlignment="Top" Height="600">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
@@ -134,6 +135,8 @@
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition Height="2*"/>
+                        <RowDefinition />
+                        <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -194,7 +197,7 @@
                     </TextBox>
                     <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
                     <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-                        <TextBox SourceUpdated="oznakaTipa_SourceUpdated" TextChanged="oznakaTipa_TextChanged" Name="OznakaTipa" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Width="96">
+                        <TextBox TextChanged="oznakaTipa_TextChanged" Name="OznakaTipa" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Width="96">
                             <TextBox.Text>
                                 <Binding NotifyOnSourceUpdated="True" Path="Tip" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource TipConverter}" ConverterParameter="{StaticResource parent}">
                                     <Binding.ValidationRules>
@@ -272,6 +275,7 @@
                     <Grid Grid.Row="12" Grid.Column="1">
                         <Button Grid.Column="1" Width="91" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">Taguj lokal</Button>
                     </Grid>
+                    <Button Grid.Column="1" Grid.Row="14" Name="sacuvajBtn" Click="sacuvajTekuci" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13">Sacuvaj izmene</Button> 
                     
                 </Grid>
             </Grid>
