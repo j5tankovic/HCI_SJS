@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using HCI_Project.NotBeans;
+using Xceed.Wpf.Toolkit;
 
 namespace HCI_Project.Dijalozi
 {
@@ -30,6 +31,7 @@ namespace HCI_Project.Dijalozi
             InitializeComponent();
             this.DataContext = this;
             this.dgrMain.ItemsSource = this.parent.repoEtikete.sveEtikete();
+            
         }
 
         private void colorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
@@ -57,14 +59,61 @@ namespace HCI_Project.Dijalozi
         {
             foreach (Lokal l in this.parent.repoLokali.sviLokali())
             {
-                foreach (Etiketa e in l.Etikete)
-                {
-                    if (etiketa.Oznaka.Equals(e.Oznaka))
+                if (l.Etikete != null)
+                    foreach (Etiketa e in l.Etikete)
                     {
-                        e.Boja = etiketa.Boja;
+                        if (etiketa.Oznaka.Equals(e.Oznaka))
+                        {
+                            e.Boja = etiketa.Boja;
+                        }
                     }
-                }
             }
+        }
+
+        public void textFieldChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            string filter = textbox.Text;
+            ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
+            if (filter == "")
+                cv.Filter = null;
+            else
+            {
+                cv.Filter = o => 
+                {
+                    Etiketa etiketa = o as Etiketa;
+                    if (textbox.Name == "OznakaFilter")
+                        return etiketa.Oznaka.ToUpper().StartsWith(filter.ToUpper());
+                    else if (textbox.Name == "OpisFilter")
+                        return etiketa.Opis.ToUpper().StartsWith(filter.ToUpper());
+                    return false;
+                };
+            }
+        }
+
+        public void colorFilterChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
+            ColorPicker picker = sender as ColorPicker;
+            Color? choosedColor = picker.SelectedColor;
+            if (choosedColor == null)
+                cv.Filter = null;
+            else
+            {
+
+                cv.Filter = o =>
+                {
+                    Etiketa etiketa = o as Etiketa;
+                    return choosedColor.Equals(etiketa.Boja);
+                };
+            }
+
+        }
+
+        public void deleteFilters(object sender, RoutedEventArgs e)
+        {
+            OznakaFilter.Text = "";
+            OpisFilter.Text = "";
         }
     }
 }
