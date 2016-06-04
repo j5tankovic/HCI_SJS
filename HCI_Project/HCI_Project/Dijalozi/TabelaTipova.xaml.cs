@@ -138,5 +138,40 @@ namespace HCI_Project.Dijalozi
             this.tip_za_izmenu = (TipLokala)dgrMain.SelectedItem;
             this.tekuci_tip.setTipAs(TipLokala.getCopyTip(this.tip_za_izmenu));
         }
+
+        public void PretraziTipove(object sender, RoutedEventArgs e)
+        {
+            unselectRows();
+            string searchText = TextFieldPretraga.Text;
+            bool selected = true;
+            for (int i = 0; i < dgrMain.Items.Count; i++)
+            {
+                TipLokala tipLokala = dgrMain.Items[i] as TipLokala;
+                if (tipLokala.Oznaka.ToUpper().Equals(searchText.ToUpper()) || tipLokala.Opis.ToUpper().Equals(searchText.ToUpper()) ||
+                    tipLokala.Naziv.ToUpper().Equals(searchText.ToUpper()))
+                {
+                    DataGridRow row = (DataGridRow)dgrMain.ItemContainerGenerator.ContainerFromIndex(i);
+                    row.Background = new SolidColorBrush(Colors.DarkSeaGreen);
+                    if (selected)
+                    {
+                        dgrMain.SelectedItem = tipLokala;
+                        dgrMain.ScrollIntoView(tipLokala);
+                        row.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                        selected = false;
+                    }
+                }
+
+            }
+
+        }
+
+        public void unselectRows()
+        {
+            for (int i = 0; i < dgrMain.Items.Count; i++)
+            {
+                DataGridRow row = (DataGridRow)dgrMain.ItemContainerGenerator.ContainerFromIndex(i);
+                row.Background = new SolidColorBrush(Colors.White);
+            }
+        }
     }
 }

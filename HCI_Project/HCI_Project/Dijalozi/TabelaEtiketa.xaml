@@ -23,8 +23,11 @@
                         <TextBlock Text="Filtriraj:"></TextBlock>
                         <TextBox Width="100" Name="TextFilter" TextChanged="textFieldChanged"></TextBox>
                         <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
-                    </StackPanel>
-                    <DataGrid x:Name="dgrMain" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                        <TextBlock Text="Pretrazi:"></TextBlock>
+                        <TextBox Width="100" Name="TextFieldPretraga"></TextBox>
+                        <Button Width="Auto" Click="PretraziEtikete">Trazi</Button>
+                </StackPanel>
+                    <DataGrid x:Name="dgrMain" SelectionUnit="FullRow" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
                         <DataGridTextColumn Header="Opis" Binding="{Binding Opis}" Width="3*"/>

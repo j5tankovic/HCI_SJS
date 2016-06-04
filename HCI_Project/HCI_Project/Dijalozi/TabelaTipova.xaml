@@ -24,6 +24,8 @@
                     <TextBlock Text="Filtriraj:"></TextBlock>
                     <TextBox Width="100" Name="TextFilter" TextChanged="textFieldChanged"></TextBox>
                     <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
+                    <TextBox Width="100" Name="TextFieldPretraga"></TextBox>
+                    <Button Width="Auto" Click="PretraziTipove">Trazi</Button>
                 </StackPanel>
 
                 <DataGrid x:Name="dgrMain" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoTipovi.tipovi}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
