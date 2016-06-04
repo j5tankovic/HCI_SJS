@@ -48,7 +48,10 @@ namespace HCI_Project.Dijalozi
             this.DataContext = tipLokala;
             InitializeComponent();
             if (!kreiranje)
+            {
+                oznakaTipa.Background = new SolidColorBrush(Colors.WhiteSmoke);
                 oznakaTipa.IsReadOnly = true;
+            }
         }
 
 

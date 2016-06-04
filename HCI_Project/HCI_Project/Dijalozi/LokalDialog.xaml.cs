@@ -56,7 +56,10 @@ namespace HCI_Project.Dijalozi
             if (lokal.Tip != null)
                 oznakaTipa.Text = lokal.Tip.Oznaka;
             if (!kreiranje)
+            {
                 oznakaLokala.IsReadOnly = true;
+                oznakaLokala.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            }
             this.DataContext = lokal;
             initializeCombos();
         }

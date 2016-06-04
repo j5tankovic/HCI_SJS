@@ -106,7 +106,7 @@
                 <Grid Grid.Row="2" VerticalAlignment="Top" Height="600">
                     <Grid.RowDefinitions>
                         <RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="2*" />
                         <RowDefinition />
                         <RowDefinition/>
                         <RowDefinition />
@@ -114,8 +114,8 @@
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition  />
                         <RowDefinition Height="2*"/>
                         <RowDefinition />
                         <RowDefinition />
@@ -124,7 +124,6 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="117" />
                         <ColumnDefinition Width="598*" />
-                        <ColumnDefinition Width="400*" />
                     </Grid.ColumnDefinitions>
 
 
@@ -138,7 +137,7 @@
 
 
                     <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource FamilyAndSize}">Oznaka:</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}">Naziv:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}" Height="30" VerticalAlignment="Top">Naziv:</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Opis:</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource FamilyAndSize}">Tip:</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource FamilyAndSize}">Alkohol:</TextBlock>
@@ -146,13 +145,13 @@
                     <TextBlock Grid.Column="0" Grid.Row="6" Style="{StaticResource FamilyAndSize}">Pusenje:</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="7" Style="{StaticResource FamilyAndSize}">Rezervacije:</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="8" Style="{StaticResource FamilyAndSize}">Cene:</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="9" Style="{StaticResource FamilyAndSize}">Kapacitet:</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="9" Style="{StaticResource FamilyAndSize}" Height="30" VerticalAlignment="Top">Kapacitet:</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="10" Style="{StaticResource FamilyAndSize}">Datum otvaranja:</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="11" Style="{StaticResource FamilyAndSize}">Ikonica:</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="12" Style="{StaticResource FamilyAndSize}">Etikete:</TextBlock>
 
-                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5" IsReadOnly="True" ></TextBox>
-                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5">
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5" IsReadOnly="True"  Background="WhiteSmoke"></TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Height="30" VerticalAlignment="Top">
                         <TextBox.Text>
                             <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -165,14 +164,14 @@
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition />
+                                        <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition />
-                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
                                     <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                                 </Grid>
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
@@ -222,7 +221,7 @@
                         <RadioButton GroupName="rezervacije" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
                     </StackPanel>
                     <ComboBox Name="comboCene" Grid.Column="1" Grid.Row="8" Margin="5 5 10 5" SelectedValue="{Binding Path=Cene, Converter={StaticResource EnumConverter}}"></ComboBox>
-                    <TextBox Grid.Column="1" Grid.Row="9" Margin="5 5 10 5">
+                    <TextBox Grid.Column="1" Grid.Row="9" Margin="5 5 10 5" Height="30" VerticalAlignment="Top">
                         <TextBox.Text>
                             <Binding Path="Kapacitet" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -235,14 +234,14 @@
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition />
+                                        <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition />
-                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
                                     <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                                 </Grid>
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
