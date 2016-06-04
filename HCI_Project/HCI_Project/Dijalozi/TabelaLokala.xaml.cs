@@ -131,6 +131,8 @@ namespace HCI_Project.Dijalozi
         {
             System.Windows.Controls.TextBox box = (System.Windows.Controls.TextBox)sender;
             TipLokala tip = parent.repoTipovi.nadjiPoOznaci(box.Text);
+            if (tekuci_lokal == null)
+                return;
             tekuci_lokal.Tip = tip;
             OznakaTipa.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
         }
@@ -144,6 +146,11 @@ namespace HCI_Project.Dijalozi
                 this.lokal_za_izmenu = (Lokal)dgrMain.SelectedItem;
                 Lokal kopija = Lokal.getCopyLokal((Lokal)dgrMain.SelectedItem);
                 this.tekuci_lokal.setValuesAs(kopija);
+            }
+            else
+            {
+                this.tekuci_lokal = null;
+                this.DataContext = this.tekuci_lokal;
             }
 
         }

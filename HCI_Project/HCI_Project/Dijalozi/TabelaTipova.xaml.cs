@@ -136,7 +136,13 @@ namespace HCI_Project.Dijalozi
         private void dgr_SelectionChanged(object sender, SelectionChangedEventArgs args)
         {
             this.tip_za_izmenu = (TipLokala)dgrMain.SelectedItem;
-            this.tekuci_tip.setTipAs(TipLokala.getCopyTip(this.tip_za_izmenu));
+            if (this.tip_za_izmenu != null)
+                this.tekuci_tip.setTipAs(TipLokala.getCopyTip(this.tip_za_izmenu));
+            else
+            {
+                this.tekuci_tip = null;
+                this.DataContext = this.tekuci_tip;
+            }
         }
     }
 }

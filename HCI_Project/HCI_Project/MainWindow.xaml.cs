@@ -48,6 +48,7 @@ namespace HCI_Project
             repoLokali = new RepoLokali();
             repoEtikete = new RepoEtikete();
             popuniLokalima();
+            poveziEtikete();
             initializeMap();
             //ObservableCollection<TipLokala> popunjeniTipovi = popuniLokalima();
             /*
@@ -150,17 +151,27 @@ namespace HCI_Project
         }
 
 
-        private ObservableCollection<TipLokala> popuniLokalima()
+        private void popuniLokalima()
         {
             foreach (Lokal lokal in repoLokali.sviLokali())
             {
                 foreach (TipLokala t in repoTipovi.sviTipovi())
                 {
                     if (t.Oznaka.Equals(lokal.Tip.Oznaka))
+                    {
                         t.ubaciLokal(lokal);
+                        lokal.Tip = t;
+                    }
                 }
             }
-            return repoTipovi.sviTipovi();
+        }
+
+        private void poveziEtikete()
+        {
+            foreach (Etiketa e in repoEtikete.sveEtikete())
+            {
+                repoLokali.poveziEtikete(e);
+            }
         }
 
         public void dopuniTip(Lokal lokal)
@@ -1880,6 +1891,17 @@ namespace HCI_Project
                     return true;
             }
             return false;
+        }
+
+        private void SaveLokal(object sender, RoutedEventArgs args)
+        {
+            
+            
+        }
+
+        private void SaveTip(object sender, RoutedEventArgs args)
+        {
+
         }
 
     }

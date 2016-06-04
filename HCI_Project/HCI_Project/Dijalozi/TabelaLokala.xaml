@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:library="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="TabelaLokala" Height="650" Width="1000" Loaded="Window_Loaded"
+        Title="TabelaLokala" Height="650" Width="800" Loaded="Window_Loaded"
         Name="Prozor">
     <Window.Resources>
         <sys:Boolean x:Key="True">True</sys:Boolean>
@@ -108,7 +108,7 @@
                         <RowDefinition />
                         <RowDefinition Height="2*" />
                         <RowDefinition />
-                        <RowDefinition/>
+                        <RowDefinition Height="2*" />
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
@@ -206,6 +206,9 @@
                         <TextBlock Name="NazivTipaLabel" VerticalAlignment="Top" Style="{StaticResource FamilyAndSize}">Naziv tipa:</TextBlock>
                         <TextBox Name="NazivTipa" VerticalAlignment="Top" Text="{Binding Path=Tip.Naziv}" Height="20"  HorizontalAlignment="Right" Width="95"></TextBox>
                         <Button Name="nadjiTip" VerticalAlignment="Top" Height="25" Click="otvoriTabeluTipova" >Nadji...</Button>
+                        <Border VerticalAlignment="Top" HorizontalAlignment="Right" Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black"  Width="92" Height="63">
+                            <Image Source="{Binding Path=Tip.Slika}" Width="92" Height="63" />
+                        </Border>
                     </StackPanel>
                     <ComboBox Name="comboAlkohol" Grid.Column="1" Grid.Row="4" SelectedValue="{Binding Path=Alkohol, Converter={StaticResource EnumConverter}}" Margin="5 5 10 5"></ComboBox>
                     <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal" Margin="5 5 10 5">

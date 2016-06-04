@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="Tip lokala" Height="391" Width="560"
-        MinWidth="560"
+        Title="Tip lokala" Height="391" Width="500"
+        MinWidth="500"
         Closing="TipDialog_Closing"
         Loaded="TipDialog_Loaded">
     <ScrollViewer>

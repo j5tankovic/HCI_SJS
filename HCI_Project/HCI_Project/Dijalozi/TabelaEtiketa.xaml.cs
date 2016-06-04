@@ -58,7 +58,10 @@ namespace HCI_Project.Dijalozi
                 Etiketa etiketa = (Etiketa)dgrMain.SelectedItem;
                 if (etiketa == null)
                     return;
+                parent.repoLokali.izbaciEtiketuIzLokala(etiketa);
                 parent.repoEtikete.izbaci(etiketa);
+                this.tekuca_etiketa = null;
+                this.DataContext = this.tekuca_etiketa;
             }
         }
 
@@ -141,7 +144,10 @@ namespace HCI_Project.Dijalozi
         private void dgr_SelectionChanged(object sender, SelectionChangedEventArgs args)
         {
             this.etiketa_za_izmenu = (Etiketa)dgrMain.SelectedItem;
-            this.tekuca_etiketa.setValuesAs(Etiketa.getCopy(this.etiketa_za_izmenu));
+            if (this.etiketa_za_izmenu == null)
+                this.tekuca_etiketa = null;
+            else
+                this.tekuca_etiketa.setValuesAs(Etiketa.getCopy(this.etiketa_za_izmenu));
         }
     }
 }
