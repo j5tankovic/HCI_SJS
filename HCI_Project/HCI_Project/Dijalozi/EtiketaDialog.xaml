@@ -4,7 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="Unos nove etikete" Height="368" Width="400"
+        Title="Etikete" Height="368" Width="400"
         MinWidth="400"
         Closing="EtiketaDialog_Closing"
         Loaded="EtiketaDialog_Loaded">

@@ -4,7 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="Unos novog lokala" Height="663" Width="800"
+        Title="Lokal" Height="663" Width="800"
         MinWidth="800"
         Closing="LokalDialog_Closing"
         Loaded="LokalDialog_Loaded">
@@ -231,6 +231,7 @@
             </Grid>
 
             <StackPanel Grid.Column="1" Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Right">
+              
                 <Button FontFamily="Arial" FontSize="13" Click="ButtonPotvrdiClicked" IsDefault="True"  Content="Sacuvaj">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
