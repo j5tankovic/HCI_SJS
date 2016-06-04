@@ -1085,6 +1085,43 @@ namespace HCI_Project
 
         #endregion
 
+        private void treeView1_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            treeView = sender as TreeView;
+            treeViewItem = FindAncestor<TreeViewItem>((DependencyObject)e.OriginalSource);
+
+            if (treeViewItem != null)
+            {
+
+                object help = treeView.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+
+                //Find its parent
+                ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
+                //Get the bound object.
+
+                object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+                if (item != null)
+                {
+                    if (item.GetType() == typeof(Lokal))
+                    {
+                        Lokal l = (Lokal)item;
+                        LokalDialog dialog = new LokalDialog(this, l);
+                        dialog.InitializeComponent();
+                        dialog.ShowDialog();
+                    }
+                    else if (item.GetType() == typeof(TipLokala))
+                    {
+                        TipLokala l = (TipLokala)item;
+                        TipDialog dialog = new TipDialog(this, l);
+                        dialog.InitializeComponent();
+                        dialog.ShowDialog();
+                    }
+
+                }
+            }
+
+        }
+
         private void imageDoubleClickHandler(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
