@@ -109,10 +109,10 @@
                         <RowDefinition Height="2*" />
                         <RowDefinition />
                         <RowDefinition/>
-                        <RowDefinition/>
                         <RowDefinition />
                         <RowDefinition />
-                        <RowDefinition/>
+                        <RowDefinition />
+                        <RowDefinition />
                         <RowDefinition />
                         <RowDefinition Height="2*"/>
                         <RowDefinition  />
