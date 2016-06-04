@@ -29,6 +29,8 @@ namespace HCI_Project.Dijalozi
         private Lokal lokal_za_izmenu { get; set; }
         private Lokal tekuci_lokal { get; set; }
 
+        ObservableCollection<Lokal> lokali;
+
   
         public TabelaLokala(MainWindow p)
         {
@@ -39,6 +41,7 @@ namespace HCI_Project.Dijalozi
             InitializeComponent();
             initializeCombos();
             dgrMain.ItemsSource = this.parent.repoLokali.sviLokali();
+            lokali = new ObservableCollection<Lokal>(this.parent.repoLokali.sviLokali());
             
 
         }
@@ -153,7 +156,7 @@ namespace HCI_Project.Dijalozi
         {
             System.Windows.Controls.TextBox textbox = sender as System.Windows.Controls.TextBox;
             string filter = textbox.Text;
-            ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
+            ICollectionView cv = CollectionViewSource.GetDefaultView(lokali);
             if (filter == "")
                 cv.Filter = null;
             else
@@ -168,6 +171,8 @@ namespace HCI_Project.Dijalozi
                             lokal.Opis.ToUpper().Contains(word.ToUpper()) || lokal.Slika.ToUpper().Contains(word.ToUpper()) ||
                             lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper()));
                 };
+
+                dgrMain.ItemsSource = lokali;
             }
         }
 

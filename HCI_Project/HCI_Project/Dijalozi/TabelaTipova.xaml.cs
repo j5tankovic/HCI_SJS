@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using HCI_Project.NotBeans;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace HCI_Project.Dijalozi
 {
@@ -36,6 +37,8 @@ namespace HCI_Project.Dijalozi
             }
         }
 
+        ObservableCollection<TipLokala> tipovi;
+
         public TabelaTipova(MainWindow p)
         {
             this.parent = p;
@@ -43,6 +46,8 @@ namespace HCI_Project.Dijalozi
             this.tekuci_tip = new TipLokala();
             this.DataContext = this.tekuci_tip;
             this.dgrMain.ItemsSource = this.parent.repoTipovi.sviTipovi();
+            tipovi = new ObservableCollection<TipLokala>(this.parent.repoTipovi.sviTipovi());
+            
         }
 
         private void Delete(object sender, RoutedEventArgs args)
@@ -92,7 +97,7 @@ namespace HCI_Project.Dijalozi
         {
             System.Windows.Controls.TextBox textbox = sender as System.Windows.Controls.TextBox;
             string filter = textbox.Text;
-            ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
+            ICollectionView cv = CollectionViewSource.GetDefaultView(tipovi);
             if (filter == "")
                 cv.Filter = null; 
             else
@@ -106,6 +111,7 @@ namespace HCI_Project.Dijalozi
                     return words.Any(word => tip.Oznaka.ToUpper().Contains(word.ToUpper()) || tip.Naziv.ToUpper().Contains(word.ToUpper()) ||
                             tip.Opis.ToUpper().Contains(word.ToUpper()) || tip.Slika.ToUpper().Contains(word.ToUpper()));
                 };
+                dgrMain.ItemsSource = tipovi;
             }
         }
 

@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using HCI_Project.NotBeans;
 using Xceed.Wpf.Toolkit;
+using System.Collections;
 
 namespace HCI_Project.Dijalozi
 {
@@ -27,6 +28,8 @@ namespace HCI_Project.Dijalozi
         private Etiketa etiketa_za_izmenu { get; set; }
         private Etiketa tekuca_etiketa { get; set; }
 
+        ObservableCollection<Etiketa> etikete;
+
         public TabelaEtiketa(MainWindow p)
         {
             this.parent = p;
@@ -34,6 +37,7 @@ namespace HCI_Project.Dijalozi
             this.tekuca_etiketa = new Etiketa();
             this.DataContext = this.tekuca_etiketa;
             this.dgrMain.ItemsSource = this.parent.repoEtikete.sveEtikete();
+            etikete = new ObservableCollection<Etiketa>(this.parent.repoEtikete.sveEtikete());
             
         }
 
@@ -77,7 +81,7 @@ namespace HCI_Project.Dijalozi
         {
             TextBox textbox = sender as TextBox;
             string filter = textbox.Text;
-            ICollectionView cv = CollectionViewSource.GetDefaultView(dgrMain.ItemsSource);
+            ICollectionView cv = CollectionViewSource.GetDefaultView(etikete);
             if (filter == "")
                 cv.Filter = null;
             else
@@ -91,6 +95,8 @@ namespace HCI_Project.Dijalozi
                     return words.Any(word => etiketa.Oznaka.ToUpper().Contains(word.ToUpper()) || etiketa.Opis.ToUpper().Contains(word.ToUpper())
                            || etiketa.Boja.ToString().ToUpper().Contains(word.ToUpper()));
                 };
+
+                dgrMain.ItemsSource = etikete;
             }
         }
 
