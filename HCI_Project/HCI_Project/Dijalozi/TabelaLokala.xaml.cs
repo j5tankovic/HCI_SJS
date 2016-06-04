@@ -56,12 +56,12 @@ namespace HCI_Project.Dijalozi
 
         private void Delete(object sender, RoutedEventArgs args)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            Lokal lokal = (Lokal)dgrMain.SelectedItem;
+            if (lokal == null)
+                return;
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da obrisete lokal sa oznakom " + lokal.Oznaka + "?", "Brisanje lokala", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                Lokal lokal = (Lokal)dgrMain.SelectedItem;
-                if (lokal == null)
-                    return;
                 parent.removeLokalFromMap(lokal);
                 parent.repoLokali.izbaci(lokal);
                 TipLokala tip = parent.nadjiTipLokala(lokal);
@@ -193,7 +193,9 @@ namespace HCI_Project.Dijalozi
 
         private void sacuvajTekuci(object sender, RoutedEventArgs args)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (this.lokal_za_izmenu == null)
+                return;
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene za lokal sa oznakom " + lokal_za_izmenu.Oznaka +"?", "Izmena lokala", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 this.lokal_za_izmenu.izmeniTipPotpuno(this.tekuci_lokal.Tip);
@@ -201,7 +203,7 @@ namespace HCI_Project.Dijalozi
                 this.parent.repoLokali.memorisi();
                 this.parent.repoTipovi.memorisi();
 
-                System.Windows.MessageBox.Show("Izmena uspesna!");
+                System.Windows.MessageBox.Show("Izmena uspesna!", "Izmena lokala");
             }
         }
 

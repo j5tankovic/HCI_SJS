@@ -38,6 +38,9 @@ namespace HCI_Project.Dijalozi
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da dodate ovu etiketu?", "Unos etikete", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.No)
+                return;
             ok = parent.repoEtikete.dodaj(etiketa);
             if (ok)
             {
@@ -46,7 +49,7 @@ namespace HCI_Project.Dijalozi
             }
             else
             {
-                MessageBox.Show("Vec postoji etiketa sa tom oznakom! Molimo izaberite drugu.");
+                MessageBox.Show("Vec postoji etiketa sa tom oznakom! Molimo izaberite drugu.", "Greska!");
             }
         }
 

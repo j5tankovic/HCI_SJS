@@ -76,7 +76,7 @@ namespace HCI_Project.Dijalozi
 
         private void obrisiSve(object sender, RoutedEventArgs args)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da obrisete tip i sve njegove lokale?", "Brisanje tipa", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 parent.repoLokali.izbaciSve(tip.Lokali);
@@ -94,7 +94,7 @@ namespace HCI_Project.Dijalozi
         {
             if (noviTip != null)
             {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da obrisete tip, a njegovim lokalima dodelite novi tip?", "Brisanje tipa", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
                     parent.repoTipovi.zameniTip(tip.Lokali, noviTip);
