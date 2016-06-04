@@ -151,5 +151,40 @@ namespace HCI_Project.Dijalozi
             else
                 this.tekuca_etiketa.setValuesAs(Etiketa.getCopy(this.etiketa_za_izmenu));
         }
+
+
+        public void PretraziEtikete(object sender, RoutedEventArgs e)
+        {
+                unselectRows();
+                string searchText = TextFieldPretraga.Text;
+                bool selected = true;
+                for(int i=0;i<dgrMain.Items.Count;i++)
+                {
+                    Etiketa etiketa = dgrMain.Items[i] as Etiketa;
+                    if (etiketa.Oznaka.ToUpper().Equals(searchText.ToUpper()) || etiketa.Opis.ToUpper().Equals(searchText.ToUpper()))
+                    {
+                        DataGridRow row = (DataGridRow)dgrMain.ItemContainerGenerator.ContainerFromIndex(i);
+                        row.Background = new SolidColorBrush(Colors.DarkSeaGreen);
+                        if (selected)
+                        {
+                            dgrMain.SelectedItem = etiketa;
+                            dgrMain.ScrollIntoView(etiketa);
+                            row.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                            selected = false;
+                        }
+                    }
+                        
+                }    
+
+        }
+
+        public void unselectRows()
+        {
+            for (int i = 0; i < dgrMain.Items.Count; i++)
+            {
+                DataGridRow row = (DataGridRow)dgrMain.ItemContainerGenerator.ContainerFromIndex(i);
+                row.Background = new SolidColorBrush(Colors.White);
+            }
+        }
     }
 }

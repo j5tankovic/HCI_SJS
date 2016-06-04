@@ -207,6 +207,41 @@ namespace HCI_Project.Dijalozi
             }
         }
 
+        public void PretraziLokale(object sender, RoutedEventArgs e)
+        {
+            unselectRows();
+            string searchText = TextFieldPretraga.Text;
+            bool selected = true;
+            for (int i = 0; i < dgrMain.Items.Count; i++)
+            {
+                Lokal lokal = dgrMain.Items[i] as Lokal;
+                if (lokal.Oznaka.ToUpper().Equals(searchText.ToUpper()) || lokal.Opis.ToUpper().Equals(searchText.ToUpper()) ||
+                    lokal.Naziv.ToUpper().Equals(searchText.ToUpper()) || lokal.Tip.Naziv.ToUpper().Equals(searchText.ToUpper()))
+                {
+                    DataGridRow row = (DataGridRow)dgrMain.ItemContainerGenerator.ContainerFromIndex(i);
+                    row.Background = new SolidColorBrush(Colors.DarkSeaGreen);
+                    if (selected)
+                    {
+                        dgrMain.SelectedItem = lokal;
+                        dgrMain.ScrollIntoView(lokal);
+                        row.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                        selected = false;
+                    }
+                }
+
+            }
+
+        }
+
+        public void unselectRows()
+        {
+            for (int i = 0; i < dgrMain.Items.Count; i++)
+            {
+                DataGridRow row = (DataGridRow)dgrMain.ItemContainerGenerator.ContainerFromIndex(i);
+                row.Background = new SolidColorBrush(Colors.White);
+            }
+        }
+
       
     }
 
