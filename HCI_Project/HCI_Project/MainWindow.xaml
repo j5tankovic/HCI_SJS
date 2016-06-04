@@ -14,6 +14,7 @@
             <Setter Property="MaxHeight" Value="32"/>
             <Setter Property="Margin" Value="1"/>
         </Style>
+       
     </Window.Resources>
     <DockPanel>
         <Grid DockPanel.Dock="Top">
@@ -44,21 +45,39 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5"  Grid.ColumnSpan="3">Dodavanje novih podataka</TextBlock>
-                <Button Grid.Row="1" Grid.Column="0" FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Dodaj_Lokal">Dodaj lokal</Button>
-                <Button Grid.Row="1" Grid.Column="1" FontFamily="Arial" FontSize="13"  Margin="0 10 10 10" Padding="20 5 20 5" Click="Dodaj_Tip">Dodaj tip</Button>
-                <Button Grid.Row="1" Grid.Column="2" FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Dodaj_Etiketa">Dodaj etiketu</Button>
-                
+                <DockPanel Margin="5 0 0 5" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+                    <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
+                        <StackPanel Orientation="Horizontal" Width="336">
+                            <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Dodaj_Lokal">Dodaj lokal</Button>
+                            <Button  FontFamily="Arial" FontSize="13"  Margin="0 10 10 10" Padding="20 5 20 5" Click="Dodaj_Tip">Dodaj tip</Button>
+                            <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Dodaj_Etiketa">Dodaj etiketu</Button>
+                        </StackPanel>
+                    </Border>
+                </DockPanel>
+
                 <TextBlock Grid.Row="0" Grid.Column="3" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="3">Prikaz podataka</TextBlock>
-                <Button Grid.Row="1" Grid.Column="3" FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Tabela lokala</Button>
-                <Button Grid.Row="1" Grid.Column="4" FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Tipova">Tabela tipova</Button>
-                <Button Grid.Row="1" Grid.Column="5" FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Etiketa">Tabela etiketa</Button>
-                
+                <DockPanel  Margin="5 0 0 5" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3">
+                    <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
+                        <StackPanel Orientation="Horizontal" >
+                            <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Tabela lokala</Button>
+                            <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Tipova">Tabela tipova</Button>
+                            <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Etiketa">Tabela etiketa</Button>
+                        </StackPanel>
+                    </Border>
+                </DockPanel>
+
                 <TextBlock Grid.Row="0" Grid.Column="6" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="5">Mape</TextBlock>
-                <Button Height="28" Width="80" Grid.Row="1" Grid.Column="6"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="1">Zrenjanin</Button>
-                <Button Height="28" Width="80" Grid.Row="1" Grid.Column="7"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="2">Krusevac</Button>
-                <Button Height="28" Width="80" Grid.Row="1" Grid.Column="8"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="3">Vrsac</Button>
-                <Button Height="28" Width="80" Grid.Row="1" Grid.Column="9"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="4">Novi Sad</Button>
-                <Button Height="28" Width="91" Grid.Row="1" Grid.Column="10"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="5">Sve 4 mape</Button>
+                <DockPanel Margin="5 0 5 5" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="5">
+                    <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
+                        <StackPanel Orientation="Horizontal" Width="497">
+                            <Button Height="28" Width="80"   FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="1">Zrenjanin</Button>
+                            <Button Height="28" Width="80"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="2">Krusevac</Button>
+                            <Button Height="28" Width="80"   FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="3">Vrsac</Button>
+                            <Button Height="28" Width="80"   FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="4">Novi Sad</Button>
+                            <Button Height="28" Width="91"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 5 5" Click="Promeni_Mapu" Tag="5">Sve 4 mape</Button>
+                        </StackPanel>
+                    </Border>
+                </DockPanel>
             </Grid>
         </Grid>
         <Grid DockPanel.Dock="Bottom">
@@ -69,16 +88,19 @@
                 <ColumnDefinition  Width="1*"/>
                 <ColumnDefinition  Width="4*"/>
             </Grid.ColumnDefinitions>
-            <TreeView Grid.Column="0" Grid.Row="0" Name="trvLokali" ItemsSource="{Binding Path=repoTipovi.tipovi}" PreviewMouseLeftButtonDown="treeView1_PreviewMouseLeftButtonDown" MouseMove="treeView1_PreviewMouseMove">
+            <TreeView Grid.Column="0" Grid.Row="0" Name="trvLokali" ItemsSource="{Binding Path=repoTipovi.tipovi}" PreviewMouseLeftButtonDown="treeView1_PreviewMouseLeftButtonDown" MouseMove="treeView1_PreviewMouseMove" MouseDoubleClick="treeView1_DoubleClick">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type local:TipLokala}" ItemsSource="{Binding Lokali}">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="0,0,5,0" Source="{Binding Path=Slika}" Height="30" Width="30"/>
-                            <TextBlock Text="{Binding Naziv}"/>
+                            <TextBlock Text="{Binding Oznaka}" FontWeight="Bold"/>
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding Naziv}" FontWeight="Bold"/>
                             <StackPanel.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Dodaj tip" Click="Dodaj_Tip"></MenuItem>
                                     <MenuItem Header="Prikazi tip" Click="PrikaziTip" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
+                                    <MenuItem Header="Obrisi tip" Click="ObrisiTip" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
                                 </ContextMenu>
                             </StackPanel.ContextMenu>
                         </StackPanel>
@@ -86,11 +108,14 @@
                     <DataTemplate DataType="{x:Type local:Lokal}" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="0,0,5,0" Source="{Binding Path=Slika}" Height="30" Width="30"/>
+                            <TextBlock Text="{Binding Oznaka}" FontWeight="Bold"/>
+                            <TextBlock Text=" "/>
                             <TextBlock Text="{Binding Naziv}" FontWeight="Bold"/>
                             <StackPanel.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Dodaj lokal" Click="Dodaj_Lokal"></MenuItem>
                                     <MenuItem Header="Prikazi lokal" Click="PrikaziLokal" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
+                                    <MenuItem Header="Obrisi lokal" Click="ObrisiLokal" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
                                 </ContextMenu>
                             </StackPanel.ContextMenu>
                         </StackPanel>
@@ -222,9 +247,9 @@
                                     <TextBlock Grid.Column="0" Grid.Row="4">Datum otvaranja:</TextBlock>
 
                                         <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True"  Background="WhiteSmoke"></TextBox>
-                                        <TextBox Grid.Column="1" Grid.Row="1">
+                                        <TextBox Grid.Column="1" Grid.Row="1" Name="NazivLokala">
                                         <TextBox.Text>
-                                            <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding Path="Naziv" UpdateSourceTrigger="Explicit">
                                                 <Binding.ValidationRules>
                                                     <val:StringValidationRule ValidationStep="RawProposedValue"/>
                                                 </Binding.ValidationRules>
@@ -247,10 +272,16 @@
                                             </ControlTemplate>
                                         </Validation.ErrorTemplate>
                                     </TextBox>
-                                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}"></TextBox>
-                                    <TextBox Grid.Column="1" Grid.Row="3">
+                                    <TextBox Grid.Column="1" Grid.Row="2">
                                         <TextBox.Text>
-                                            <Binding Path="Kapacitet" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding Path="Opis" UpdateSourceTrigger="Explicit">
+                                                
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <TextBox Grid.Column="1" Grid.Row="3" Name="KapacitetLokala">
+                                        <TextBox.Text>
+                                            <Binding Path="Kapacitet" UpdateSourceTrigger="Explicit">
                                                 <Binding.ValidationRules>
                                                     <val:IntegerValidationRule ValidationStep="RawProposedValue"/>
                                                 </Binding.ValidationRules>
@@ -273,8 +304,17 @@
                                             </ControlTemplate>
                                         </Validation.ErrorTemplate>
                                     </TextBox>
-                                    <DatePicker Grid.Column="1" Grid.Row="4" SelectedDate="{Binding Path=Datum}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" DisplayDateStart="1/01/1970" DisplayDateEnd="5/31/2016"/>
-                                    <Button Grid.Column="1" Grid.Row="5" FontFamily="Arial" FontSize="13" Width="150" Margin="0 5 0 0" HorizontalAlignment="Center" Click="Prikazi_Tabela">Prikazi u tabeli</Button>
+                                    <DatePicker x:Name="DatumLokala" Grid.Column="1" Grid.Row="4" SelectedDateFormat="Long" FirstDayOfWeek="Monday" DisplayDateStart="1/01/1970" DisplayDateEnd="5/31/2016">
+                                        <DatePicker.SelectedDate >
+                                                <Binding Path="Datum" UpdateSourceTrigger="Explicit">
+                                                    
+                                                </Binding>
+                                        </DatePicker.SelectedDate>
+                                    </DatePicker>
+                                    <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+                                    <Button FontFamily="Arial" FontSize="13" Width="150" Margin="0 5 0 0" HorizontalAlignment="Center" Click="Prikazi_Tabela">Prikazi u tabeli</Button>
+                                        <Button FontFamily="Arial" FontSize="13" Width="100" Margin="0 5 0 0" HorizontalAlignment="Center" Click="SaveLokal"></Button>
+                                    </StackPanel>
                                 </Grid>
                             </DataTemplate>
                             <DataTemplate DataType="{x:Type local:TipLokala}">
@@ -294,10 +334,10 @@
                                     <TextBlock Grid.Column="0" Grid.Row="1">Naziv:</TextBlock>
                                     <TextBlock Grid.Column="0" Grid.Row="2">Opis:</TextBlock>
 
-                                        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True"  Background="WhiteSmoke"></TextBox>
-                                    <TextBox Grid.Column="1" Grid.Row="1">
+                                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True"  Background="WhiteSmoke"></TextBox>
+                                    <TextBox Grid.Column="1" Grid.Row="1" Name="NazivTipa">
                                         <TextBox.Text>
-                                            <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding Path="Naziv" UpdateSourceTrigger="Explicit">
                                                 <Binding.ValidationRules>
                                                     <val:StringValidationRule ValidationStep="RawProposedValue"/>
                                                 </Binding.ValidationRules>
@@ -320,8 +360,17 @@
                                             </ControlTemplate>
                                         </Validation.ErrorTemplate>
                                     </TextBox>
-                                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}"></TextBox>
-                                    <Button Grid.Column="1" Grid.Row="3" FontFamily="Arial" FontSize="13" Width="150" Margin="0 5 0 0" HorizontalAlignment="Center" Click="Prikazi_Tabelu_Tipova">Prikazi u tabeli</Button>
+                                    <TextBox Grid.Column="1" Grid.Row="2" Name="OpisTipa">
+                                        <TextBox.Text>
+                                            <Binding Path="Opis" UpdateSourceTrigger="Explicit">
+                                                    
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+                                        <Button FontFamily="Arial" FontSize="13" Width="150" Margin="0 5 0 0" HorizontalAlignment="Center" Click="Prikazi_Tabelu_Tipova">Prikazi u tabeli</Button>
+                                        <Button FontFamily="Arial" FontSize="13" Width="100" Margin="0 5 0 0" HorizontalAlignment="Center" Click="SaveTip">Sacuvaj</Button>
+                                    </StackPanel>
                                 </Grid>
                             </DataTemplate>
                         </ContentPresenter.Resources>

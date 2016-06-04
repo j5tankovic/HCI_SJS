@@ -4,8 +4,8 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="Lokal" Height="663" Width="800"
-        MinWidth="800"
+        Title="Lokal" Height="663" Width="600"
+        MinWidth="600"
         Closing="LokalDialog_Closing"
         Loaded="LokalDialog_Loaded">
     <Window.Resources>
@@ -187,8 +187,8 @@
             <StackPanel Grid.Column="1" Grid.Row="4"  Orientation="Horizontal">
                 <TextBlock Style="{StaticResource FamilyAndSize}" VerticalAlignment="Bottom" Text="Naziv tipa:" />
                 <TextBox Name="nazivTipa" VerticalAlignment="Bottom" Height="20" Width="200" Text="{Binding Path=Tip.Naziv}" IsReadOnly="True" ></TextBox>
-                <Border Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black" Width="99" HorizontalAlignment="Right">
-                    <Image Name="IkonicaTipa" Source="{Binding Path=Tip.Slika}" />
+                <Border Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black" Width="99" Height="50" HorizontalAlignment="Right">
+                    <Image Name="IkonicaTipa" Width="99" Height="50" Source="{Binding Path=Tip.Slika}" />
                 </Border>
             </StackPanel>
             <ComboBox Grid.Column="1" Grid.Row="6" Margin="10 0 10 5" SelectedValue="{Binding Path=Alkohol, Converter={StaticResource EnumConverter}}" Name="comboAlkohol"></ComboBox>
@@ -261,7 +261,7 @@
                 <Border Background="WhiteSmoke" Grid.Column="1" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="0,0,10,5">
                     <Image Name="Ikonica" Source="{Binding Slika}"/>
                 </Border>
-                <Button Width="91" HorizontalAlignment="Right" Margin="0,26,0,5" FontFamily="Arial" FontSize="13" Click="izaberiFajlClicked">
+                <Button VerticalAlignment="Bottom" Height="30" Width="91" HorizontalAlignment="Right" Margin="0,26,0,5" FontFamily="Arial" FontSize="13" Click="izaberiFajlClicked">
                     <Button.ToolTip>
                         <StackPanel>
                             <TextBlock TextWrapping="Wrap">

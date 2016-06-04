@@ -142,7 +142,36 @@ namespace HCI_Project.Repos
             }
             return false;
         }
-        
+
+        public void poveziEtikete(Etiketa e)
+        {
+            foreach (Lokal l in lokali)
+            {
+                for (int i = 0; i < l.Etikete.Count; i++)
+                {
+                    if (l.Etikete[i].Oznaka.Equals(e.Oznaka))
+                    {
+                        l.Etikete[i] = e;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void izbaciEtiketuIzLokala(Etiketa e)
+        {
+            foreach (Lokal l in lokali)
+            {
+                foreach (Etiketa et in l.Etikete)
+                {
+                    if (et.Oznaka.Equals(e.Oznaka))
+                    {
+                        l.Etikete.Remove(et);
+                        break;
+                    }
+                }
+            }
+        }
 
 
     }

@@ -102,7 +102,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Zamenite tip ovih lokala nekim drugim lokalom" Grid.Column="0" Grid.Row="0"></TextBlock>
+                    <TextBlock Text="Zamenite tip ovih lokala nekim drugim tipom" Grid.Column="0" Grid.Row="0"></TextBlock>
                     <Grid Grid.Row="1" Grid.Column="0">
                         <Grid.RowDefinitions>
                             <RowDefinition/>

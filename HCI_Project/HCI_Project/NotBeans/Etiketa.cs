@@ -23,6 +23,8 @@ namespace HCI_Project.NotBeans
 
         public static Etiketa getCopy(Etiketa e)
         {
+            if (e == null)
+                return null;
             Etiketa et = new Etiketa();
             et.Boja = e.Boja;
             et.Opis = e.Opis;

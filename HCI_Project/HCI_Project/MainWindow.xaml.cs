@@ -48,6 +48,7 @@ namespace HCI_Project
             repoLokali = new RepoLokali();
             repoEtikete = new RepoEtikete();
             popuniLokalima();
+            poveziEtikete();
             initializeMap();
             //ObservableCollection<TipLokala> popunjeniTipovi = popuniLokalima();
             /*
@@ -150,17 +151,27 @@ namespace HCI_Project
         }
 
 
-        private ObservableCollection<TipLokala> popuniLokalima()
+        private void popuniLokalima()
         {
             foreach (Lokal lokal in repoLokali.sviLokali())
             {
                 foreach (TipLokala t in repoTipovi.sviTipovi())
                 {
                     if (t.Oznaka.Equals(lokal.Tip.Oznaka))
+                    {
                         t.ubaciLokal(lokal);
+                        lokal.Tip = t;
+                    }
                 }
             }
-            return repoTipovi.sviTipovi();
+        }
+
+        private void poveziEtikete()
+        {
+            foreach (Etiketa e in repoEtikete.sveEtikete())
+            {
+                repoLokali.poveziEtikete(e);
+            }
         }
 
         public void dopuniTip(Lokal lokal)
@@ -1085,6 +1096,43 @@ namespace HCI_Project
 
         #endregion
 
+        private void treeView1_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            treeView = sender as TreeView;
+            treeViewItem = FindAncestor<TreeViewItem>((DependencyObject)e.OriginalSource);
+
+            if (treeViewItem != null)
+            {
+
+                object help = treeView.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+
+                //Find its parent
+                ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
+                //Get the bound object.
+
+                object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+                if (item != null)
+                {
+                    if (item.GetType() == typeof(Lokal))
+                    {
+                        Lokal l = (Lokal)item;
+                        LokalDialog dialog = new LokalDialog(this, l);
+                        dialog.InitializeComponent();
+                        dialog.ShowDialog();
+                    }
+                    else if (item.GetType() == typeof(TipLokala))
+                    {
+                        TipLokala l = (TipLokala)item;
+                        TipDialog dialog = new TipDialog(this, l);
+                        dialog.InitializeComponent();
+                        dialog.ShowDialog();
+                    }
+
+                }
+            }
+
+        }
+
         private void imageDoubleClickHandler(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
@@ -1157,6 +1205,34 @@ namespace HCI_Project
                     }
                 }
             }
+        }
+
+        private void ObrisiLokal(object sender, RoutedEventArgs args)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                MenuItem m = (MenuItem)sender;
+                Lokal lokal = (Lokal)m.DataContext;
+                if (lokal == null)
+                    return;
+                removeLokalFromMap(lokal);
+                repoLokali.izbaci(lokal);
+                TipLokala tip = nadjiTipLokala(lokal);
+                if (tip != null)
+                    tip.izbaciLokal(lokal);
+            }
+        }
+
+        private void ObrisiTip(object sender, RoutedEventArgs args)
+        {  
+            MenuItem m = (MenuItem)sender;
+            TipLokala tip = (TipLokala)m.DataContext;
+            if (tip == null)
+                return;
+            BrisanjeTipa dialog = new BrisanjeTipa(this, tip);
+            dialog.ShowDialog();
+
         }
 
         private void UkloniLokalIzMape(object sender, RoutedEventArgs args)
@@ -1843,6 +1919,17 @@ namespace HCI_Project
                     return true;
             }
             return false;
+        }
+
+        private void SaveLokal(object sender, RoutedEventArgs args)
+        {
+            
+            
+        }
+
+        private void SaveTip(object sender, RoutedEventArgs args)
+        {
+
         }
 
     }
