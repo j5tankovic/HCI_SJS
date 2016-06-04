@@ -82,14 +82,14 @@ namespace HCI_Project.Dijalozi
                 cv.Filter = null;
             else
             {
+                string[] words = filter.Split(' ');
+                if (words.Contains(""))
+                    words = words.Where(word => word != "").ToArray();
                 cv.Filter = o => 
                 {
                     Etiketa etiketa = o as Etiketa;
-                    if (textbox.Name == "OznakaFilter")
-                        return etiketa.Oznaka.ToUpper().StartsWith(filter.ToUpper());
-                    else if (textbox.Name == "OpisFilter")
-                        return etiketa.Opis.ToUpper().StartsWith(filter.ToUpper());
-                    return false;
+                    return words.Any(word => etiketa.Oznaka.ToUpper().Contains(word.ToUpper()) || etiketa.Opis.ToUpper().Contains(word.ToUpper())
+                           || etiketa.Boja.ToString().ToUpper().Contains(word.ToUpper()));
                 };
             }
         }
@@ -104,6 +104,7 @@ namespace HCI_Project.Dijalozi
             else
             {
 
+
                 cv.Filter = o =>
                 {
                     Etiketa etiketa = o as Etiketa;
@@ -113,10 +114,9 @@ namespace HCI_Project.Dijalozi
 
         }
 
-        public void deleteFilters(object sender, RoutedEventArgs e)
+        public void deleteFilter(object sender, RoutedEventArgs e)
         {
-            OznakaFilter.Text = "";
-            OpisFilter.Text = "";
+            TextFilter.Text = "";
         }
 
         private void sacuvajTekuci(object sender, RoutedEventArgs args)

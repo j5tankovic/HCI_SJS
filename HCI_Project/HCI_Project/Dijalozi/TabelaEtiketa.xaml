@@ -9,7 +9,6 @@
         <ToolBar DockPanel.Dock="Top">
             <Button Click="Delete" Content="Obrisi etiketu" />
         </ToolBar>
-
         <ScrollViewer>
             <Grid DockPanel.Dock="Bottom">
                 <Grid.RowDefinitions>
@@ -20,16 +19,12 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-                    <TextBlock Text="Oznaka:"></TextBlock>
-                    <TextBox Width="50" Name="OznakaFilter" TextChanged="textFieldChanged"></TextBox>
-                    <TextBlock Text="Opis:"></TextBlock>
-                    <TextBox Width="50" Name="OpisFilter" TextChanged="textFieldChanged"></TextBox>
-                    <TextBlock Text="Boja:"></TextBlock>
-                    <xctk:ColorPicker Name="ColorFilter" Width="80" SelectedColorChanged="colorFilterChanged"></xctk:ColorPicker>
-                    <Button Width="Auto" Click="deleteFilters">Ponisti</Button>
-                </StackPanel>
-                <DataGrid x:Name="dgrMain" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="Filtriraj:"></TextBlock>
+                        <TextBox Width="100" Name="TextFilter" TextChanged="textFieldChanged"></TextBox>
+                        <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
+                    </StackPanel>
+                    <DataGrid x:Name="dgrMain" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
                         <DataGridTextColumn Header="Opis" Binding="{Binding Opis}" Width="3*"/>
