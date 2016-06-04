@@ -125,7 +125,7 @@ namespace HCI_Project.Dijalozi
              {
                  for (int i =0;i< etikete1.Count; i++)
                  {
-                     int idx = this.sveEtikete.Items.IndexOf(etikete.ElementAt(i));
+                     int idx = this.sveEtikete.Items.IndexOf(etikete1[i]);
                      Etiketa e = this.sveEtikete.Items.GetItemAt(idx) as Etiketa;
                      if (e!=null && !this.etiketeLokala.Contains(e))
                          this.etiketeLokala.Add(e);

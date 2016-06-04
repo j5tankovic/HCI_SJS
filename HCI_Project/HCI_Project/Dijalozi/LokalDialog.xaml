@@ -231,6 +231,7 @@
             </Grid>
 
             <StackPanel Grid.Column="1" Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Right">
+              
                 <Button FontFamily="Arial" FontSize="13" Click="ButtonPotvrdiClicked" IsDefault="True"  Content="Sacuvaj">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
