@@ -1207,6 +1207,34 @@ namespace HCI_Project
             }
         }
 
+        private void ObrisiLokal(object sender, RoutedEventArgs args)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                MenuItem m = (MenuItem)sender;
+                Lokal lokal = (Lokal)m.DataContext;
+                if (lokal == null)
+                    return;
+                removeLokalFromMap(lokal);
+                repoLokali.izbaci(lokal);
+                TipLokala tip = nadjiTipLokala(lokal);
+                if (tip != null)
+                    tip.izbaciLokal(lokal);
+            }
+        }
+
+        private void ObrisiTip(object sender, RoutedEventArgs args)
+        {  
+            MenuItem m = (MenuItem)sender;
+            TipLokala tip = (TipLokala)m.DataContext;
+            if (tip == null)
+                return;
+            BrisanjeTipa dialog = new BrisanjeTipa(this, tip);
+            dialog.ShowDialog();
+
+        }
+
         private void UkloniLokalIzMape(object sender, RoutedEventArgs args)
         {
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
