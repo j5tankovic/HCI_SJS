@@ -4,22 +4,21 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="Etikete" Height="368" Width="400"
+        Title="Etikete" Height="300" Width="400"
         MinWidth="400"
         Closing="EtiketaDialog_Closing"
         Loaded="EtiketaDialog_Loaded">
     <ScrollViewer>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -33,10 +32,10 @@
             </Grid.Resources>
 
             <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource FamilyAndSize}">Oznaka:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}">Opis:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}" Height="30" VerticalAlignment="Bottom">Opis:</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Boja:</TextBlock>
 
-            <TextBox Name="oznakaEtikete" Grid.Column="1" Grid.Row="0" Margin="5 5 10 0">
+            <TextBox Name="oznakaEtikete" Grid.Column="1" Grid.Row="0" Margin="5 5 10 0" Height="30" VerticalAlignment="Top">
                 <TextBox.Text>
                     <Binding Path="Oznaka" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
@@ -49,20 +48,20 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
+                                <RowDefinition />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
-                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
                             <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                         </Grid>
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
-            <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Text="{Binding Path=Opis}"></TextBox>
-            <xctk:ColorPicker Grid.Column="1" Grid.Row="2" Margin="5 5 10 0" Name="ColorPicker" SelectedColorChanged="colorChanged"></xctk:ColorPicker>
+            <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Text="{Binding Path=Opis}" VerticalAlignment="Bottom" Height="50"></TextBox>
+            <xctk:ColorPicker VerticalAlignment="Top"  Height="25" Grid.Column="1" Grid.Row="2" Margin="5 5 10 0" Name="ColorPicker" SelectedColorChanged="colorChanged"></xctk:ColorPicker>
 
 
             <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" Margin="5 0 10 5" HorizontalAlignment="Right">

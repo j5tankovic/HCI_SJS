@@ -11,7 +11,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition/>
@@ -21,7 +21,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="2*"/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid.Resources>
@@ -38,8 +37,8 @@
 
 
             <TextBlock Style="{StaticResource FontStyleAndSize}">Oznaka:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FontStyleAndSize}">Naziv:</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FontStyleAndSize}">Opis:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FontStyleAndSize}" Height="30" VerticalAlignment="Bottom">Naziv:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FontStyleAndSize}" Height="30" VerticalAlignment="Bottom">Opis:</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource FontStyleAndSize}">Ikonica:</TextBlock>
 
             <TextBox Name="oznakaTipa" Grid.Column="1" Margin="5 5 10 5">
@@ -55,19 +54,19 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
+                                <RowDefinition />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
-                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
                             <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                         </Grid>
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
-            <TextBox Name="nazivTipa" Grid.Column="1" Grid.Row="1" Margin="5 5 10 5">
+            <TextBox Name="nazivTipa" Grid.Column="1" Grid.Row="1" Margin="5 5 10 5"  Height="30" VerticalAlignment="Bottom">
                 <TextBox.Text>
                     <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
@@ -80,19 +79,19 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
+                                <RowDefinition />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
-                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
                             <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                         </Grid>
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
-            <TextBox Grid.Column="1" Grid.Row="2" Margin="5 5 10 5" Text="{Binding Path=Opis}"></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="2" Margin="5 5 10 5" Text="{Binding Path=Opis}"  Height="60" VerticalAlignment="Bottom"></TextBox>
 
             <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="10 0 10 5">
                 <Image Name="Ikonica" Source="{Binding Path=Slika}"/>
