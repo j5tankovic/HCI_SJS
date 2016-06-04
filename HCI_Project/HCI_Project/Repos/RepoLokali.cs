@@ -147,12 +147,15 @@ namespace HCI_Project.Repos
         {
             foreach (Lokal l in lokali)
             {
-                for (int i = 0; i < l.Etikete.Count; i++)
+                if (l.Etikete != null)
                 {
-                    if (l.Etikete[i].Oznaka.Equals(e.Oznaka))
+                    for (int i = 0; i < l.Etikete.Count; i++)
                     {
-                        l.Etikete[i] = e;
-                        break;
+                        if (l.Etikete[i].Oznaka.Equals(e.Oznaka))
+                        {
+                            l.Etikete[i] = e;
+                            break;
+                        }
                     }
                 }
             }

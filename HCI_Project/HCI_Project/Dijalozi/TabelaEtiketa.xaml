@@ -27,11 +27,21 @@
                         <TextBox Width="100" Name="TextFieldPretraga"></TextBox>
                         <Button Width="Auto" Click="PretraziEtikete">Trazi</Button>
                 </StackPanel>
-                    <DataGrid x:Name="dgrMain" SelectionUnit="FullRow" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                    <DataGrid x:Name="dgrMain" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
                         <DataGridTextColumn Header="Opis" Binding="{Binding Opis}" Width="3*"/>
-                        <DataGridTextColumn Header="Boja" Binding="{Binding Boja}" Width="3*"/>
+                        <DataGridTemplateColumn Header="Boja" Width="3*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Rectangle>
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="{Binding Boja}"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
 
