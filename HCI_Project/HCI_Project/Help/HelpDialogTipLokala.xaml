@@ -9,7 +9,7 @@
 
     <FlowDocumentReader ViewingMode="Scroll">
         <FlowDocument>
-            <Paragraph TextAlignment="Center" FontSize="14pt">
+            <Paragraph TextAlignment="Center" FontSize="14pt" Name="Naslov">
                 <Bold>Dodavanje novog tipa lokala</Bold>
             </Paragraph>
             <Paragraph FontSize="10pt">

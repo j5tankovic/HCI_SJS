@@ -157,8 +157,13 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>Klikom na dugme
+<<<<<<< HEAD
                     <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži novi lokal.
+                    Na ovo dugme nije moguće kliknnuti ukoliko sva obavezna polja nisu popunjena.
+=======
+                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži nova etiketa.
                     Na ovo dugme nije moguće kliknuti ukoliko sva obavezna polja nisu popunjena.
+>>>>>>> fe84d2b7ff18de2464bc720ef83a0c9a2fd04983
                 </Paragraph>
                 <Paragraph>Klikom na dugme
                     <Italic>Odustani</Italic> ovaj dijalog se zatvara i neće biti dodat novi lokal.

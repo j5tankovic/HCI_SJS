@@ -139,7 +139,11 @@ namespace HCI_Project.Dijalozi
         private void PrikaziPomoc(object sender, RoutedEventArgs args)
         {
             HelpNavigationWindow helpWindow = new HelpNavigationWindow();
-            helpWindow.HelpFrame.Navigate(new HelpDialogTipLokala());
+            HelpDialogTipLokala helpTip = new HelpDialogTipLokala();
+            TextRange textRange = new TextRange(helpTip.Naslov.ContentStart, helpTip.Naslov.ContentEnd);
+            if (!kreiranje)
+                textRange.Text = "Izmena tipa lokala";
+            helpWindow.HelpFrame.Navigate(helpTip);
             helpWindow.ShowDialog();
         }
 
