@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using HCI_Project.NotBeans;
 using System.Windows.Forms;
 using System.Collections;
+using HCI_Project.Help;
 
 namespace HCI_Project.Dijalozi
 {
@@ -240,6 +241,13 @@ namespace HCI_Project.Dijalozi
                 DataGridRow row = (DataGridRow)dgrMain.ItemContainerGenerator.ContainerFromIndex(i);
                 row.Background = new SolidColorBrush(Colors.White);
             }
+        }
+
+        private void PrikaziPomoc(object sender, RoutedEventArgs args)
+        {
+            HelpNavigationWindow helpWindow = new HelpNavigationWindow();
+            helpWindow.HelpFrame.Navigate(new HelpTabelaLokala());
+            helpWindow.ShowDialog();
         }
 
         private void DeleteSomething_Executed(object sender, ExecutedRoutedEventArgs e)

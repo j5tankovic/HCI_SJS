@@ -1,0 +1,38 @@
+﻿<Page x:Class="HCI_Project.Help.PrikazMapa"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="500"
+	Title="PrikazMapa">
+
+    <FlowDocumentReader ViewingMode="Scroll">
+        <FlowDocument>
+            <Paragraph TextAlignment="Center" FontSize="14pt">
+                <Bold>Prikaz lokala preko mape</Bold>
+            </Paragraph>
+            <Paragraph Padding="0,20,0,0">
+                Aplikacija omogućava prikaz i manipulaciju lokalima preko mape.
+            </Paragraph>
+            <Paragraph>
+                <Image Width="450" Source="/HCI_Project;component/Resources/jednaMapa.png"></Image>
+            </Paragraph>
+            <Section FontSize="8pt">
+                <Paragraph>
+                    Lokali se mogu dodati na mapu njihovim prevlačenjem iz stabla (levi deo glavnog prozora). Na mapi se potom lokal može i premeštati.
+                </Paragraph>
+                <Paragraph>
+                    Desnim klikom na neki lokal na mapi dobija se meni sa opcijama prikaz lokala, dok se duplim klikom na lokal otvara dijalog popunjen njeogvim podacima.
+                </Paragraph>
+                <Paragraph>
+                    <Image Width="200" Source="/HCI_Project;component/Resources/desniMeni.png"></Image>
+                </Paragraph>
+                <Paragraph>
+                    Mape se mogu menjati. U aplikaciji su dostupne mape 4 različita grada.
+                    Takođe, postoji opcija prikaza svih mapa.
+                </Paragraph>
+            </Section>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

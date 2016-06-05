@@ -1,0 +1,98 @@
+﻿<Page x:Class="HCI_Project.Help.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="500"
+	Title="MainPage">
+
+    <FlowDocumentReader ViewingMode="Scroll">
+        <FlowDocument>
+            <Paragraph TextAlignment="Center" FontSize="14pt">
+                <Bold>Aplikacija za vođenje evidencije o lokalima</Bold>
+            </Paragraph>
+            <Paragraph FontSize="10pt">
+                Aplikacija nudi mogućnost manipulisanja lokalima,tipovima lokala kao i etiketama.
+                Takođe, omogućen je vizuelni prikaz svih lokala preko mapa četiri različita grada.
+            </Paragraph>
+            <Paragraph>
+                <Image Width="450"  Source="/HCI_Project;component/Resources/mainWindow.png"/>
+            </Paragraph>
+            <Paragraph FontSize="8pt">
+                Operacije za dodavanje novih podataka, tabelarni prikaz postojećih i prikaz lokala na mapi se nalazi u gornjem delu ekrana.
+            </Paragraph>
+            <Paragraph>
+                <Image Width="450" Source="/HCI_Project;component/Resources/dodavanjeSvega.png"></Image>
+            </Paragraph>
+            <Paragraph FontSize="10pt">
+                <Bold>Dodavanje novih podataka</Bold>
+            </Paragraph>
+            <Section Margin="20, 0, 20 ,0" FontSize="8pt">
+                <Paragraph>Klikom na neku od tri ponuđene opcije pojavljuje se određen dijalog.</Paragraph>
+                <Paragraph>Saznaj više:</Paragraph>
+                <List>
+                    <ListItem>
+                        <Paragraph>
+                            <Hyperlink NavigateUri="HelpDialogLokal.xaml">Dodavanje novog lokala</Hyperlink>
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            <Hyperlink NavigateUri="HelpDialogTipLokala.xaml">Dodavanje novog tipa lokala</Hyperlink>
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            <Hyperlink NavigateUri="HelpDialogEtiketa.xaml">Dodavanje nove etikete</Hyperlink>
+                        </Paragraph>
+                    </ListItem>
+                </List>
+            </Section>
+            <Paragraph FontSize="10pt">
+                <Bold>Tabelarni prikaz podataka</Bold>
+            </Paragraph>
+            <Section Margin="20, 0, 20 ,0" FontSize="8pt">
+                <Paragraph>Klikom na neku od tri ponuđene opcije pojavljuje se tabelarni prikaz podataka</Paragraph>
+                <Paragraph>Saznaj više:</Paragraph>
+                <List>
+                    <ListItem>
+                        <Paragraph>
+                            <Hyperlink NavigateUri="HelpDialogLokal.xaml">Dodavanje novog lokala</Hyperlink>
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            <Hyperlink NavigateUri="HelpDialogTipLokala.xaml">Dodavanje novog tipa lokala</Hyperlink>
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            <Hyperlink NavigateUri="HelpDialogEtiketa.xaml">Dodavanje nove etikete</Hyperlink>
+                        </Paragraph>
+                    </ListItem>
+                </List>
+            </Section>
+            <Paragraph FontSize="8pt">
+                Prikaz lokala grupisanih prema njihovim tipovima se nalazi sa leve strane ekrana.Odavde se takodje može manipulisati podacima.
+                Desnim klikom na odredjenu stavku,pojavljuje se meni sa opcijama.
+            </Paragraph>
+            <Paragraph>
+                <Image Width="450" Height="200" Source="/HCI_Project;component/Resources/stablo.png" HorizontalAlignment="Left"></Image>
+            </Paragraph>
+            <Paragraph FontSize="8pt">
+                Centralni deo ekrana zauzima prikaz lokala preko mape. Lokali se mogu dodati na mapu prevlačenjem iz stabla (levi deo ekrana).
+            </Paragraph>
+            <Section Margin="20, 0, 20 ,0" FontSize="8pt">
+                <Paragraph>Saznaj više:</Paragraph>
+                <List>
+                    <ListItem>
+                        <Paragraph>
+                            <Hyperlink NavigateUri="PrikazMapa.xaml">Mape</Hyperlink>
+                        </Paragraph>
+                    </ListItem>
+                </List>
+            </Section>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

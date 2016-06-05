@@ -8,13 +8,18 @@
         MinWidth="500"
         Closing="TipDialog_Closing"
         Loaded="TipDialog_Loaded">
+
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
     </Window.CommandBindings>
-    
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Click="PrikaziPomoc" Content="Pomoć" />
+        </ToolBar>
     <ScrollViewer>
-        <Grid>
+        <Grid DockPanel.Dock="Bottom">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="2*"/>
@@ -130,4 +135,5 @@
             </StackPanel>
         </Grid>
     </ScrollViewer>
+    </DockPanel>
 </Window>

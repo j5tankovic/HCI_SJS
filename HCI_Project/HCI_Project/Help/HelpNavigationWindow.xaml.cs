@@ -27,20 +27,42 @@ namespace HCI_Project.Help
 
         private void DodavanjeEtikete(object sender,RoutedEventArgs args)
         {
-            TreeViewItem viewItem = sender as TreeViewItem;
             HelpFrame.Navigate(new HelpDialogEtiketa());
         }
 
         private void DodavanjeTipa(object sender, RoutedEventArgs args)
         {
-            TreeViewItem viewItem = sender as TreeViewItem;
             HelpFrame.Navigate(new HelpDialogTipLokala());
         }
 
         private void DodavanjeLokala(object sender, RoutedEventArgs args)
         {
-            TreeViewItem viewItem = sender as TreeViewItem;
             HelpFrame.Navigate(new HelpDialogLokal());
+        }
+
+        private void GlavniProzor(object sender, RoutedEventArgs args)
+        {
+            HelpFrame.Navigate(new MainPage());
+        }
+
+        private void TabelaEtiketa(object sender, RoutedEventArgs args)
+        {
+            HelpFrame.Navigate(new HelpTabelaEtiketa());
+        }
+
+        private void TabelaTipova(object sender, RoutedEventArgs args)
+        {
+            HelpFrame.Navigate(new HelpTabelaLokala());
+        }
+
+        private void TabelaLokala(object sender, RoutedEventArgs args)
+        {
+            HelpFrame.Navigate(new HelpTabelaLokala());
+        }
+
+        private void PrikazMapa(object sender, RoutedEventArgs args)
+        {
+            HelpFrame.Navigate(new HelpTabelaLokala());
         }
     }
 }

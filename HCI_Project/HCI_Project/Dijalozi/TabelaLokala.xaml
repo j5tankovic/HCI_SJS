@@ -25,6 +25,7 @@
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Button Click="Delete" Content="Obrisi lokal" />
+            <Button Click="PrikaziPomoc" Content="Pomoć" />
         </ToolBar>
         <ScrollViewer>
             <Grid DockPanel.Dock="Bottom">
@@ -38,14 +39,15 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                     <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBlock Text="Filtriraj:"></TextBlock>
-                        <TextBox Width="70" Name ="TextFilter" TextChanged="textFieldChanged"></TextBox>
-                        <Button Width="Auto" Click="deleteFilter">Ponisti</Button>
-                        <TextBox Width="100" Name="TextFieldPretraga"></TextBox>
-                        <Button Width="Auto" Click="PretraziLokale">Trazi</Button>
-                    </StackPanel>
-                    <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" SelectionChanged="dgrMain_SelectedCellsChanged" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Filtriraj:"></TextBlock>
+                    <TextBox Margin="5,0,5,0" Width="100" Name="TextFilter" TextChanged="textFieldChanged"></TextBox>
+                    <Button Margin="0,0,5,0" Width="Auto" Click="deleteFilter">Poništi</Button>
+                    <TextBlock Margin="10,0,0,0" Text="Pretraži:"></TextBlock>
+                    <TextBox Margin="5,0,5,0" Width="100" Name="TextFieldPretraga"></TextBox>
+                    <Button Width="Auto" Click="PretraziLokale">Traži</Button>
+                </StackPanel>
+                <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=parent.repoLokali.lokali}" SelectionChanged="dgrMain_SelectedCellsChanged" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="3*" />
                         <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="3*"/>
@@ -187,7 +189,7 @@
                     </TextBox>
                     <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Opis}" Margin="5 5 10 5"></TextBox>
                     <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-                        <TextBox TextChanged="oznakaTipa_TextChanged" Name="OznakaTipa" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Width="96">
+                        <TextBox Margin="5 5 10 5" TextChanged="oznakaTipa_TextChanged" Name="OznakaTipa" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Width="96">
                             <TextBox.Text>
                                 <Binding NotifyOnSourceUpdated="True" Path="Tip" UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource TipConverter}" ConverterParameter="{StaticResource parent}">
                                     <Binding.ValidationRules>
@@ -212,10 +214,10 @@
                                 </ControlTemplate>
                             </Validation.ErrorTemplate>
                         </TextBox>
-                        <TextBlock Name="NazivTipaLabel" VerticalAlignment="Top" Style="{StaticResource FamilyAndSize}">Naziv tipa:</TextBlock>
-                        <TextBox Name="NazivTipa" VerticalAlignment="Top" Text="{Binding Path=Tip.Naziv}" Height="20"  HorizontalAlignment="Right" Width="95"></TextBox>
-                        <Button Name="nadjiTip" VerticalAlignment="Top" Height="25" Click="otvoriTabeluTipova" >Nadji...</Button>
-                        <Border VerticalAlignment="Top" HorizontalAlignment="Right" Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black"  Width="92" Height="63">
+                        <TextBlock Margin="0 5 0 5" Name="NazivTipaLabel" VerticalAlignment="Top" Style="{StaticResource FamilyAndSize}">Naziv tipa:</TextBlock>
+                        <TextBox Margin="5 5 5 5" Name="NazivTipa" VerticalAlignment="Top" Text="{Binding Path=Tip.Naziv}" Height="20"  HorizontalAlignment="Right" Width="95"></TextBox>
+                        <Button Name="nadjiTip" VerticalAlignment="Top" Click="otvoriTabeluTipova" Margin="0,5,5,0" >Nadji...</Button>
+                        <Border Margin="5 5 5 5" VerticalAlignment="Top" HorizontalAlignment="Right" Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black"  Width="88" Height="54">
                             <Image Source="{Binding Path=Tip.Slika}" Width="92" Height="63" />
                         </Border>
                     </StackPanel>
@@ -259,16 +261,16 @@
                         </Validation.ErrorTemplate>
                     </TextBox>
                     <DatePicker Grid.Column="1" Grid.Row="10" Margin="5 5 10 5" SelectedDate="{Binding Path=Datum}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" DisplayDateStart="1/01/1970" DisplayDateEnd="5/31/2016"/>
-                    <StackPanel Orientation="Horizontal" Grid.Row="11" Grid.Column="1" HorizontalAlignment="Right" >
-                        <Button Width="105" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
+                    <StackPanel  Margin="0,5,10,5" Orientation="Horizontal" Grid.Row="11" Grid.Column="1" HorizontalAlignment="Right" >
+                        <Button Margin="0,0,3,0" Width="105" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="13" Click="promeniIkonicu">Promeni ikonicu</Button>
                         <Border VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black"  Width="92" Height="44">
                             <Image Source="{Binding Path=Slika}" Width="92" Height="44" />
                         </Border>
                     </StackPanel>
                     <Grid Grid.Row="12" Grid.Column="1">
-                        <Button Grid.Column="1" Width="91" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">Taguj lokal</Button>
+                        <Button Grid.Column="1" Width="91" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,5">Tagovi lokala</Button>
                     </Grid>
-                    <Button Grid.Column="1" Grid.Row="14" Name="sacuvajBtn" Click="sacuvajTekuci" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Content="Sacuvaj izmene">
+                    <Button Margin="0,5,10,5" Grid.Column="1" Grid.Row="14" Name="sacuvajBtn" Click="sacuvajTekuci" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Content="Sačuvaj izmene">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="IsEnabled" Value="false"/>
@@ -284,8 +286,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
-                    </Button> 
-                    
+                    </Button>                    
                 </Grid>
             </Grid>
         </ScrollViewer>

@@ -10,11 +10,15 @@
         Closing="EtiketaDialog_Closing"
         Loaded="EtiketaDialog_Loaded">
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
         <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
     </Window.CommandBindings>
-    
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Click="PrikaziPomoc" Content="Pomoc" />
+        </ToolBar>
     <ScrollViewer>
-        <Grid>
+        <Grid DockPanel.Dock="Bottom">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition />
@@ -89,4 +93,5 @@
             </StackPanel>
         </Grid>
     </ScrollViewer>
+    </DockPanel>
 </Window>

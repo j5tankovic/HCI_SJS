@@ -18,7 +18,7 @@
             <Paragraph>
                 <Image Source="/HCI_Project;component/Resources/dodavanjeLokala.png" Width="450"/>
             </Paragraph>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Oznaka">
                 Oznaka
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
