@@ -1,9 +1,16 @@
 ﻿<Window x:Class="HCI_Project.Dijalozi.LogInDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Prijava na sistem" Height="151" Width="424" Closed="loginClosed">
+        xmlns:cmd="clr-namespace:HCI_Project.Komande"
+        Title="Prijava na sistem" Height="170" Width="424" Closed="loginClosed">
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
+    </Window.CommandBindings>
+    
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -13,13 +20,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
-        <TextBlock Grid.Row="0" Grid.Column="0" Margin="10 5 5 5" FontFamily="Arial" FontSize="13">Korisničko ime: </TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="0" Margin="10 5 5 5" FontFamily="Arial" FontSize="13">Šifra: </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontFamily="Arial" FontSize="14">Morate se ulogovati u sistem da biste mogli da koristite program.</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="10 5 5 5" FontFamily="Arial" FontSize="13">Korisničko ime: </TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="10 5 5 5" FontFamily="Arial" FontSize="13">Šifra: </TextBlock>
         
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="10 5 5 5" Name="KorisnickoIme"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="10 5 5 5" Name="Sifra"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="10 5 5 5" Name="KorisnickoIme"></TextBox>
+        <PasswordBox Grid.Row="3" Grid.Column="1" Margin="10 5 5 5" Name="Sifra"></PasswordBox>
         
-        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
             <Button Margin="10" FontFamily="Arial" FontSize="13" Click="UlogujSe">Uloguj se</Button>
         </StackPanel>
     </Grid>

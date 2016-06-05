@@ -3,10 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="Tip lokala" Height="391" Width="500"
+        xmlns:cmd="clr-namespace:HCI_Project.Komande"
+        Title="Unos tipa lokala" Height="391" Width="500"
         MinWidth="500"
         Closing="TipDialog_Closing"
         Loaded="TipDialog_Loaded">
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
+    </Window.CommandBindings>
+    
     <ScrollViewer>
         <Grid>
             <Grid.RowDefinitions>
@@ -98,7 +104,7 @@
             </Border>
             <Button Grid.Column="1" Grid.Row="4" Width="90" HorizontalAlignment="Right" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" Click="izaberiFajlClicked">Izaberi ikonicu</Button>
             <StackPanel Grid.Column="1" Grid.Row="6"  Margin="5,0,10,5" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Margin="0 0 5 0" FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonPotvrdiClicked" Content="Sacuvaj">
+                <Button Name="saveBtn" Margin="0 0 5 0" FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonPotvrdiClicked" Content="Sacuvaj">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="IsEnabled" Value="false"/>

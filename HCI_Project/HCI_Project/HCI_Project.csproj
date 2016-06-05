@@ -104,6 +104,7 @@
     <Compile Include="Dijalozi\TabelaTipova.xaml.cs">
       <DependentUpon>TabelaTipova.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Komande\RoutedCommands.cs" />
     <Compile Include="Library\CustomLokalConverter.cs" />
     <Compile Include="NotBeans\Etiketa.cs" />
     <Compile Include="NotBeans\Lokal.cs" />
@@ -238,6 +239,10 @@
     <Content Include="Help\DodavanjeEtikete.htm" />
     <Content Include="Help\DodavanjeLokala.htm" />
     <Content Include="Help\DodavanjeTipova.htm" />
+    <Resource Include="information-point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

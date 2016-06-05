@@ -43,7 +43,10 @@ namespace HCI_Project.Dijalozi
             if (t == null)
                 tipLokala = new TipLokala();
             else
+            {
                 tipLokala = TipLokala.getCopyTip(t);
+                this.Title = "Izmena tipa " + t.Oznaka;
+            }
             this.Resources.Add("tip", tipLokala);
             this.DataContext = tipLokala;
             InitializeComponent();
@@ -124,6 +127,17 @@ namespace HCI_Project.Dijalozi
         {
             oznakaTipa.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
             nazivTipa.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
+        }
+
+        private void EnterClicked_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (saveBtn.IsEnabled)
+                ButtonPotvrdiClicked(null, null);
+        }
+
+        private void Escape_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
         }
         
     }

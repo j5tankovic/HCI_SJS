@@ -146,6 +146,11 @@ namespace HCI_Project.Dijalozi
              }
          }
 
+         private void Escape_Executed(object sender, ExecutedRoutedEventArgs e)
+         {
+             this.Close();
+         }
+
 
 
     }

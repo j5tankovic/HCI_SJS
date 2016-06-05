@@ -43,6 +43,7 @@ namespace HCI_Project.Dijalozi
             this.parent = p;
             if (l != null)
             {
+                this.Title = "Izmena lokala " + l.Oznaka;
                 this.lokal = Lokal.getCopyLokal(l);
             }
             else
@@ -206,10 +207,17 @@ namespace HCI_Project.Dijalozi
             return true;
         }
 
-      //  public void 
+        private void EnterClicked_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (saveBtn.IsEnabled)
+                ButtonPotvrdiClicked(null, null);
+        }
 
-        
 
+        private void Escape_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
 
     }
 }

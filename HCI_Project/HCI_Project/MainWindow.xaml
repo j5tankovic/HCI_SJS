@@ -4,8 +4,10 @@
         xmlns:local="clr-namespace:HCI_Project.NotBeans"
         xmlns:loc="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="MainWindow" Height="680" Width="1360"
-        Closing="MainWindow_Closing" WindowState="Maximized" ResizeMode="NoResize" Closed="MainWindow_Closed">
+        xmlns:cmd="clr-namespace:HCI_Project.Komande"
+        Title="Evidencija lokala" Height="680" Width="1360"
+        Closing="MainWindow_Closing" WindowState="Maximized" ResizeMode="NoResize" Closed="MainWindow_Closed"
+        Icon="../../information-point.png">
         
     <Window.Resources>
         <loc:CustomLokalConverter x:Key="CustomLokalConverter" />
@@ -14,27 +16,40 @@
             <Setter Property="MaxHeight" Value="32"/>
             <Setter Property="Margin" Value="1"/>
         </Style>
-       
     </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.UnosLokala" Executed="UnosLokala_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.UnosTipa" Executed="UnosTipa_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.UnosEtikete" Executed="UnosEtikete_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.TabelaLokala" Executed="TabelaLokala_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.TabelaTipova" Executed="TabelaTipova_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.TabelaEtiketa" Executed="TabelaEtiketa_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Mapa1" Executed="Mapa1_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Mapa2" Executed="Mapa2_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Mapa3" Executed="Mapa3_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Mapa4" Executed="Mapa4_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Sve4Mape" Executed="Sve4Mape_Executed"></CommandBinding>
+    </Window.CommandBindings>
+    
     <DockPanel>
         <Menu DockPanel.Dock="Top" Width="Auto" Height="20">
             <MenuItem Header="_Unos">
-                <MenuItem Header="Dodaj _tip" Click="Dodaj_Tip" />
-                <MenuItem Header="Dodaj _lokal" Click="Dodaj_Lokal"/>
-                <MenuItem Header="Dodaj _etiketu" Click="Dodaj_Etiketa"/>
+                <MenuItem Header="Dodaj _tip" Click="Dodaj_Tip" InputGestureText="Ctrl+T"/>
+                <MenuItem Header="Dodaj _lokal" Click="Dodaj_Lokal" InputGestureText="Ctrl+L"/>
+                <MenuItem Header="Dodaj _etiketu" Click="Dodaj_Etiketa" InputGestureText="Ctrl+E"/>
             </MenuItem>
             <MenuItem Header="_Tabele">
-                <MenuItem Header="_Tipovi" Click="Prikazi_Tabelu_Tipova"/>
-                <MenuItem Header="_Lokali" Click="Prikazi_Tabela" />
-                <MenuItem Header="_Etikete" Click="Prikazi_Tabelu_Etiketa" />
+                <MenuItem Header="_Tipovi" Click="Prikazi_Tabelu_Tipova" InputGestureText="Ctrl+Shift+T"/>
+                <MenuItem Header="_Lokali" Click="Prikazi_Tabela" InputGestureText="Ctrl+Shift+L"/>
+                <MenuItem Header="_Etikete" Click="Prikazi_Tabelu_Etiketa" InputGestureText="Ctrl+Shift+E" />
             </MenuItem>
             <MenuItem Header="_Mape">
-                <MenuItem Header="_Zrenjanin" Click="Promeni_Mapu" Tag="1" />
-                <MenuItem Header="_Krusevac" Click="Promeni_Mapu" Tag="2"/>
-                <MenuItem Header="_Vrsac" Click="Promeni_Mapu" Tag="3"/>
-                <MenuItem Header="_Novi Sad" Click="Promeni_Mapu" Tag="4"/>
+                <MenuItem Header="_Zrenjanin" Click="Promeni_Mapu" Tag="1" InputGestureText="Ctrl+1"/>
+                <MenuItem Header="_Krusevac" Click="Promeni_Mapu" Tag="2" InputGestureText="Ctrl+2"/>
+                <MenuItem Header="_Vrsac" Click="Promeni_Mapu" Tag="3" InputGestureText="Ctrl+3"/>
+                <MenuItem Header="_Novi Sad" Click="Promeni_Mapu" Tag="4" InputGestureText="Ctrl+4"/>
                 <Separator/>
-                <MenuItem Header="Sve _4 mape" Click="Promeni_Mapu" Tag="5"/>
+                <MenuItem Header="Sve _4 mape" Click="Promeni_Mapu" Tag="5" InputGestureText="Ctrl+0"/>
             </MenuItem>
         </Menu>
         <DockPanel DockPanel.Dock="Bottom" Height="Auto">

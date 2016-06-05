@@ -242,6 +242,21 @@ namespace HCI_Project.Dijalozi
             }
         }
 
+        private void DeleteSomething_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Delete(null, null);
+        }
+
+        private void EnterClicked_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (sacuvajBtn.IsEnabled)
+                sacuvajTekuci(null, null);
+        }
+
+        private void Escape_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
       
     }
 

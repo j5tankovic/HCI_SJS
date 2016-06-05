@@ -16,6 +16,7 @@ using HCI_Project.Dijalozi;
 using HCI_Project.NotBeans;
 using System.Collections.ObjectModel;
 using HCI_Project.Repos;
+using HCI_Project.Komande;
 
 namespace HCI_Project
 {
@@ -363,6 +364,9 @@ namespace HCI_Project
                 drag_image.Width = IMAGE_WIDTH;
                 drag_image.DataContext = lokal;
                 drag_image.MouseDown += imageDoubleClickHandler;
+                ToolTip tt = new ToolTip();
+                tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                drag_image.ToolTip = tt;
                 // Initialize the drag & drop operation
                 ContextMenu ctx = new ContextMenu();
                 MenuItem m1 = new MenuItem();
@@ -1783,13 +1787,20 @@ namespace HCI_Project
                 myValue = (string)((Button)sender).Tag;
             else if (sender.GetType() == typeof(MenuItem))
                 myValue = (string)((MenuItem)sender).Tag;
+
+            changeMap(myValue);
+        }
+
+        private void changeMap(string myValue)
+        {
             Uri myUri;
 
             ObrisiDecu();
             filter.Text = "";
             pretraga.Text = "";
 
-            if (myValue == "1") {
+            if (myValue == "1")
+            {
                 myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "1";
                 theScrollViewer.Visibility = Visibility.Visible;
@@ -1816,7 +1827,8 @@ namespace HCI_Project
                 theScrollViewer.Visibility = Visibility.Visible;
                 theScrollViewer2.Visibility = Visibility.Hidden;
             }
-            else {
+            else
+            {
                 active_map = "0";
                 theScrollViewer.Visibility = Visibility.Hidden;
                 theScrollViewer2.Visibility = Visibility.Visible;
@@ -1975,7 +1987,7 @@ namespace HCI_Project
         
         private void SaveLokal(object sender, RoutedEventArgs args)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene?", "Izmena lokala", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 
@@ -1991,7 +2003,7 @@ namespace HCI_Project
 
         private void SaveTip(object sender, RoutedEventArgs args)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene?", "Izmena tipa", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
 
@@ -2013,7 +2025,8 @@ namespace HCI_Project
                 //Find its parent
                 ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
                 //Get the bound object.
-
+                if (parent == null)
+                    return;
                 object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
                 if (item != null)
                 {
@@ -2077,6 +2090,52 @@ namespace HCI_Project
                 SaveTip(null, null);
         }
 
+        private void UnosLokala_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Dodaj_Lokal(null, null);
+        }
+        private void UnosTipa_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Dodaj_Tip(null, null);
+        }
+        private void UnosEtikete_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Dodaj_Etiketa(null, null);
+        }
+
+        private void TabelaLokala_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Prikazi_Tabela(null, null);
+        }
+        private void TabelaTipova_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Prikazi_Tabelu_Tipova(null, null);
+        }
+        private void TabelaEtiketa_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Prikazi_Tabelu_Etiketa(null, null);
+        }
+
+        private void Mapa1_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            changeMap("1");
+        }
+        private void Mapa2_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            changeMap("2");
+        }
+        private void Mapa3_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            changeMap("3");
+        }
+        private void Mapa4_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            changeMap("4");
+        }
+        private void Sve4Mape_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            changeMap("0");
+        }
         
 
     }

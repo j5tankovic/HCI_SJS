@@ -4,10 +4,15 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="Lokal" Height="663" Width="600"
+        xmlns:cmd="clr-namespace:HCI_Project.Komande"
+        Title="Unos lokala" Height="663" Width="600"
         MinWidth="600"
         Closing="LokalDialog_Closing"
         Loaded="LokalDialog_Loaded">
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
+    </Window.CommandBindings>
     <Window.Resources>
         <sys:String x:Key="strOznaka">Oznaka lokala: </sys:String>
         <sys:String x:Key="strNaziv">Naziv lokala: </sys:String>
@@ -283,7 +288,7 @@
 
             <StackPanel Grid.Column="1" Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Right">
               
-                <Button FontFamily="Arial" FontSize="13" Click="ButtonPotvrdiClicked" IsDefault="True"  Content="Sacuvaj">
+                <Button Name="saveBtn" FontFamily="Arial" FontSize="13" Click="ButtonPotvrdiClicked" IsDefault="True"  Content="Sacuvaj">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="IsEnabled" Value="false"/>
