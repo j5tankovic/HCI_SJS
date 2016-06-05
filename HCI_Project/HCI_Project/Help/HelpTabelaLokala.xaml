@@ -55,7 +55,7 @@
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>
                     Klikom na dugme
-                    <Italic>Sačuvaj tekući</Italic> čuvaju se sve promene ukoliko ih je bilo.
+                    <Italic>Sačuvaj tekući</Italic> čuvaju se sve promene trenutno selektovanog lokala u tabeli, ukoliko ih je bilo.
                 </Paragraph>
             </Section>
         </FlowDocument>

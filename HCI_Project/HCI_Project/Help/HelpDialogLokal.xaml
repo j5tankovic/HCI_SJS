@@ -23,21 +23,21 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti oznaku novog lokala. Oznaka se može sastojati od slovnih,specijalnih karaktera i brojki.
-                Oznaka lokala je jedinstvena i obavezna</Paragraph>
+                Oznaka lokala je jedinstvena i obavezna.</Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt">
                 Naziv
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti naziv novog lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
-                Unos naziva lokala je obavezan</Paragraph>
+                Unos naziva lokala je obavezan.</Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt">
                 Opis
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti opis lokala. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
-                Unos opisa lokala nije obavezan</Paragraph>
+                Unos opisa lokala nije obavezan.</Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt">
                 Tip lokala
@@ -48,7 +48,7 @@
                 </Paragraph>
                 <Section Margin="20,0,20,0">
                     <Paragraph>U ovo polje je potrebno uneti oznaku tipa lokala. Moguće je i preko dugmeta
-                        <Italic>Nađi</Italic> izvšiti pregled vih tipova.
+                        <Italic>Nađi</Italic> izvšiti pregled svih tipova i na taj način odabrati željeni tip.
                     </Paragraph>
                 </Section>
                 <Paragraph FontSize="10pt">
@@ -64,7 +64,7 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>
-                    Izbor sa služenje alkohola se vrši preko odabira ponudjenih vrednosti,koje je moguće videti klikom na strlicu tog polja.
+                    Izbor sa služenje alkohola se vrši preko odabira ponudjenih vrednosti,koje je moguće videti klikom na strelicu tog polja.
                 </Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt">
@@ -99,7 +99,7 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>
-                    U ovo polje je potrebno uneti kapacitet lokala. Moguće je uneti samo brojčane vrednosti. Unos kapaciteta lokala je obavezan.
+                    U ovo polje je potrebno uneti kapacitet lokala. Moguće je uneti samo celobrojne vrednosti veće od nule. Unos kapaciteta lokala je obavezan.
                 </Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt">
@@ -149,11 +149,11 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>Klikom na dugme
-                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži nova etiketa.
+                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži novi lokal.
                     Na ovo dugme nije moguće kliknnuti ukoliko sva obavezna polja nisu popunjena.
                 </Paragraph>
                 <Paragraph>Klikom na dugme
-                    <Italic>Odustani</Italic> ovaj dijalog se zatvara.
+                    <Italic>Odustani</Italic> ovaj dijalog se zatvara i neće biti dodat novi lokal.
                 </Paragraph>
             </Section>
         </FlowDocument>

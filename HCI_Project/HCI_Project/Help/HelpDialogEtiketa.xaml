@@ -30,13 +30,13 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti opis etikete. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
-                Unos opisa lokale nije obavezan</Paragraph>
+                Unos opisa etikete nije obavezan.</Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt">
                 Boja
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
-                <Paragraph>Preko ovog polja se bira boja etikete. Nakon klika na strelicu, mogu se izabrati boje iz ponudjene palete. odabri boje etikete je obazan</Paragraph>
+                <Paragraph>Preko ovog polja se bira boja etikete. Nakon klika na strelicu, mogu se izabrati boje iz ponudjene palete. Odabir boje etikete je obavezan.</Paragraph>
             </Section>
         </FlowDocument>
     </FlowDocumentReader>
