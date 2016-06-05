@@ -1,0 +1,43 @@
+﻿<Page x:Class="HCI_Project.Help.HelpDialogEtiketa"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="500"
+	  Title="HelpDialogEtiketa">
+    
+    <FlowDocumentReader ViewingMode="Scroll">
+        <FlowDocument>
+            <Paragraph TextAlignment="Center" FontSize="14pt">
+                <Bold>Dodavanje nove etikete</Bold>
+            </Paragraph>
+            <Paragraph FontSize="10pt">
+                Ovaj dijalog je namenjen unosu nove etikete.
+            </Paragraph>
+            <Paragraph>
+                <Image Source="/HCI_Project;component/Resources/dodavanjeEtikete.png" Width="300"/>
+            </Paragraph>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+               Oznaka
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovo polje je potrebno uneti oznaku nove etikete. Oznaka se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Oznaka etikete je jedinstvena i obavezna</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Opis
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovo polje je potrebno uneti opis etikete. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Unos opisa lokale nije obavezan</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Boja
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>Preko ovog polja se bira boja etikete. Nakon klika na strelicu, mogu se izabrati boje iz ponudjene palete. odabri boje etikete je obazan</Paragraph>
+            </Section>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

@@ -4,11 +4,16 @@
         xmlns:local="clr-namespace:HCI_Project.NotBeans"
         xmlns:loc="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
+<<<<<<< HEAD
         xmlns:cmd="clr-namespace:HCI_Project.Komande"
         Title="Evidencija lokala" Height="680" Width="1360"
         Closing="MainWindow_Closing" WindowState="Maximized" ResizeMode="NoResize" Closed="MainWindow_Closed"
-        WindowStartupLocation="CenterScreen"
         Icon="../../information-point.png">
+=======
+        Title="MainWindow" Height="680" Width="1360" Background="#acb9e8"
+        Closing="MainWindow_Closing" WindowState="Maximized" Closed="MainWindow_Closed"
+        WindowStartupLocation="CenterScreen">
+>>>>>>> bf920d7495552c6020c7e09cef301c8acef4a438
         
     <Window.Resources>
         <loc:CustomLokalConverter x:Key="CustomLokalConverter" />

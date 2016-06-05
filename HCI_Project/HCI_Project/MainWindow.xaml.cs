@@ -17,6 +17,7 @@ using HCI_Project.NotBeans;
 using System.Collections.ObjectModel;
 using HCI_Project.Repos;
 using HCI_Project.Komande;
+using HCI_Project.Help;
 
 namespace HCI_Project
 {
@@ -2088,6 +2089,12 @@ namespace HCI_Project
                 SaveLokal(null, null);
             if (slc == 2)
                 SaveTip(null, null);
+        }
+
+        private void PrikaziPomoc(object sender, RoutedEventArgs args)
+        {
+            HelpNavigationWindow helpWindow = new HelpNavigationWindow();
+            helpWindow.ShowDialog();
         }
 
         private void UnosLokala_Executed(object sender, ExecutedRoutedEventArgs e)

@@ -8,12 +8,16 @@
         Title="Unos lokala" Height="663" Width="600"
         MinWidth="600"
         Closing="LokalDialog_Closing"
-        Loaded="LokalDialog_Loaded"
-        WindowStartupLocation="CenterScreen"
+<<<<<<< HEAD
+        Loaded="LokalDialog_Loaded">
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
     </Window.CommandBindings>
+=======
+        Loaded="LokalDialog_Loaded"
+        WindowStartupLocation="CenterScreen">
+>>>>>>> bf920d7495552c6020c7e09cef301c8acef4a438
     <Window.Resources>
         <sys:String x:Key="strOznaka">Oznaka lokala: </sys:String>
         <sys:String x:Key="strNaziv">Naziv lokala: </sys:String>

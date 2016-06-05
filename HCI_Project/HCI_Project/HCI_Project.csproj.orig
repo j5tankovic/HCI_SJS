@@ -104,9 +104,10 @@
     <Compile Include="Dijalozi\TabelaTipova.xaml.cs">
       <DependentUpon>TabelaTipova.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Komande\RoutedCommands.cs" />
-
-    <Compile Include="Komande\RoutedCommands.cs" />
+=======
+    <Compile Include="Help\HelpDialogEtiketa.xaml.cs">
       <DependentUpon>HelpDialogEtiketa.xaml</DependentUpon>
     </Compile>
     <Compile Include="Help\HelpDialogLokal.xaml.cs">
@@ -124,6 +125,7 @@
     <Compile Include="Help\UnosPodataka.xaml.cs">
       <DependentUpon>UnosPodataka.xaml</DependentUpon>
     </Compile>
+>>>>>>> bf920d7495552c6020c7e09cef301c8acef4a438
     <Compile Include="Library\CustomLokalConverter.cs" />
     <Compile Include="NotBeans\Etiketa.cs" />
     <Compile Include="NotBeans\Lokal.cs" />
@@ -279,18 +281,24 @@
     <Resource Include="map4.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\dodavanjeTipa.png" />
-    <Resource Include="Resources\dodavanjeEtikete.png" />
-  </ItemGroup>
+<<<<<<< HEAD
+    <Content Include="Help\DodavanjeEtikete.htm" />
+    <Content Include="Help\DodavanjeLokala.htm" />
+    <Content Include="Help\DodavanjeTipova.htm" />
     <Resource Include="information-point.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+=======
+    <Resource Include="Resources\dodavanjeTipa.png" />
+    <Resource Include="Resources\dodavanjeEtikete.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\dodavanjeLokala.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\etikete.png" />
+>>>>>>> bf920d7495552c6020c7e09cef301c8acef4a438
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

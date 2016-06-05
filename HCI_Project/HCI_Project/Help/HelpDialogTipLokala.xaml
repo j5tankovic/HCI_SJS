@@ -1,0 +1,64 @@
+﻿<Page x:Class="HCI_Project.Help.HelpDialogTipLokala"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="500"
+	  Title="HelpDialogTipLokala">
+
+    <FlowDocumentReader ViewingMode="Scroll">
+        <FlowDocument>
+            <Paragraph TextAlignment="Center" FontSize="14pt">
+                <Bold>Dodavanje novog tipa lokala</Bold>
+            </Paragraph>
+            <Paragraph FontSize="10pt">
+                Ovaj dijalog je namenjen unosu novog tipa lokala.
+            </Paragraph>
+            <Paragraph>
+                <Image Source="/HCI_Project;component/Resources/dodavanjeTipa.png" Width="300"/>
+            </Paragraph>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Oznaka
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovo polje je potrebno uneti oznaku novog tipa lokala. Oznaka se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Oznaka tipa je jedinstvena i obavezna</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Naziv
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovo polje je potrebno uneti naziv novog tipa lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Unos naziva tipa je obavezan</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Opis
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovo polje je potrebno uneti opis tipa. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Unos opisa tipa nije obavezan</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Ikonica
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>Izbor ikonice tipa se vrši preko dugmeta
+                    <Italic>Izaberi ikonicu</Italic> nakon čega se pojavljuje dijalog za izbor ikonice.
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Sačuvaj/Odustani
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>Klikom na dugme
+                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži nova etiketa.
+                    Na ovo dugme nije moguće kliknnuti ukoliko sva obavezna polja nisu popunjena.
+                </Paragraph>
+                <Paragraph>Klikom na dugme
+                    <Italic>Odustani</Italic> ovaj dijalog se zatvara.
+                </Paragraph>
+            </Section>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

@@ -1,0 +1,32 @@
+﻿<NavigationWindow x:Class="HCI_Project.Help.HelpNavigationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NavigationWindow" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <NavigationWindow.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+
+            <TreeView>
+                <TreeViewItem Header="Unos podataka" Tag="Help/HelpDialogEtiketa.xaml">
+                    <TreeViewItem Header="Dodavanje novog lokala" Selected="DodavanjeLokala" />
+                    <TreeViewItem Header="Dodavanje novog tipa lokala"  Selected="DodavanjeTipa"/>
+                    <TreeViewItem Header="Dodavanje nove etikete" Selected="DodavanjeEtikete"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Prikaz podataka" Tag="Help/Prikaz podataka.xaml">
+                    <TreeViewItem Header="Tabela lokala"/>
+                    <TreeViewItem Header="Tabela tipova"/>
+                    <TreeViewItem Header="Tabela etiketa"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Mape" Tag="Help/Mape.xaml"/>
+            </TreeView>
+            <GridSplitter Grid.Column="1" Width="5"/>
+            <Frame Name="HelpFrame" Grid.Column="2"/>
+        </Grid>
+    </NavigationWindow.Content>
+    
+</NavigationWindow>
