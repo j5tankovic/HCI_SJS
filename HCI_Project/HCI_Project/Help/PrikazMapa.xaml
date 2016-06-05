@@ -15,12 +15,22 @@
             <Paragraph Padding="0,20,0,0">
                 Aplikacija omogućava prikaz i manipulaciju lokalima preko mape.
             </Paragraph>
+            <Paragraph>
+                <Image Width="450" Source="/HCI_Project;component/Resources/jednaMapa.png"></Image>
+            </Paragraph>
             <Section FontSize="8pt">
                 <Paragraph>
                     Lokali se mogu dodati na mapu njihovim prevlačenjem iz stabla (levi deo glavnog prozora). Na mapi se potom lokal može i premeštati.
                 </Paragraph>
                 <Paragraph>
-                    Desnim klikom na neki lokal na mapi dobija se meni sa opcijama za manipulisanje lokalom.
+                    Desnim klikom na neki lokal na mapi dobija se meni sa opcijama prikaz lokala, dok se duplim klikom na lokal otvara dijalog popunjen njeogvim podacima.
+                </Paragraph>
+                <Paragraph>
+                    <Image Width="200" Source="/HCI_Project;component/Resources/desniMeni.png"></Image>
+                </Paragraph>
+                <Paragraph>
+                    Mape se mogu menjati. U aplikaciji su dostupne mape 4 različita grada.
+                    Takođe, postoji opcija prikaza svih mapa.
                 </Paragraph>
             </Section>
         </FlowDocument>
