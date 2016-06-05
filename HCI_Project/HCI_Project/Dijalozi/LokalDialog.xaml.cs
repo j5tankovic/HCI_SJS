@@ -29,6 +29,12 @@ namespace HCI_Project.Dijalozi
         private bool ok = false;
         private bool kreiranje;
 
+        public bool Kreiranje
+        {
+            get { return kreiranje; }
+            set { kreiranje = value; }
+        }
+
         public Lokal Lokal
         {
             get { return lokal; }
@@ -233,6 +239,10 @@ namespace HCI_Project.Dijalozi
             {
                 string str = HCI_Project.Help.HelpProvider.GetHelpKey((DependencyObject)focusedControl);
                 HCI_Project.Help.HelpProvider.ShowHelp(str, this);
+            }
+            else
+            {
+                HCI_Project.Help.HelpProvider.ShowHelp("index", this);
             }
         }
 

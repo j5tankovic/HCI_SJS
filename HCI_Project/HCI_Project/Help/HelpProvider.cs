@@ -39,7 +39,11 @@ namespace HCI_Project.Help
         {
             if (originator.GetType() == typeof(LokalDialog))
             {
+                LokalDialog lokalDialog = originator as LokalDialog;
                 HelpDialogLokal helplokal = new HelpDialogLokal();
+                TextRange textRange = new TextRange(helplokal.Naslov.ContentStart, helplokal.Naslov.ContentEnd);
+                if (!lokalDialog.Kreiranje)
+                    textRange.Text = "Izmena lokala";
                 if (key.Equals(""))
                 {
                     helpWindow.HelpFrame.Navigate(helplokal);
@@ -70,6 +74,10 @@ namespace HCI_Project.Help
             else if (originator.GetType() == typeof(TipDialog))
             {
                 HelpDialogTipLokala helpTip = new HelpDialogTipLokala();
+                TipDialog tipDialog = originator as TipDialog;
+                TextRange textRange = new TextRange(helpTip.Naslov.ContentStart, helpTip.Naslov.ContentEnd);
+                if (!tipDialog.Kreiranje)
+                    textRange.Text = "Izmena tipa lokala";
                 if (key.Equals("index"))
                 {
                     helpWindow.HelpFrame.Navigate(helpTip);

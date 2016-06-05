@@ -219,6 +219,10 @@ namespace HCI_Project.Dijalozi
                 string str = HCI_Project.Help.HelpProvider.GetHelpKey((DependencyObject)focusedControl);
                 HCI_Project.Help.HelpProvider.ShowHelp(str, this);
             }
+            else
+            {
+                HCI_Project.Help.HelpProvider.ShowHelp("index", this);
+            }
         }
     }
 }
