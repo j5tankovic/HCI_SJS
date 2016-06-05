@@ -33,6 +33,7 @@ namespace HCI_Project.Dijalozi
             this.tip = t;
             InitializeComponent();
             this.DataContext = noviTip;
+            this.Title = "Brisanje tipa " + t.Oznaka;
             dgrMain.ItemsSource = tip.Lokali;
             
 
@@ -102,6 +103,11 @@ namespace HCI_Project.Dijalozi
                     this.Close();
                 }
             }
+        }
+
+        private void Escape_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
         }
 
     }

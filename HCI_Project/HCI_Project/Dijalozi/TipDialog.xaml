@@ -3,18 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="Tip lokala" Height="391" Width="500"
+        xmlns:cmd="clr-namespace:HCI_Project.Komande"
+        Height="391" Width="500"
         MinWidth="500"
         Closing="TipDialog_Closing"
         Loaded="TipDialog_Loaded">
 
     <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
         <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
     </Window.CommandBindings>
-
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
-            <Button Click="PrikaziPomoc" Content="Pomoc" />
+            <Button Click="PrikaziPomoc" Content="Pomoć" />
         </ToolBar>
     <ScrollViewer>
         <Grid DockPanel.Dock="Bottom">
@@ -103,11 +105,17 @@
             <TextBox Grid.Column="1" Grid.Row="2" Margin="5 5 10 5" Text="{Binding Path=Opis}"  Height="60" VerticalAlignment="Bottom"></TextBox>
 
             <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="10 0 10 5">
-                <Image Name="Ikonica" Source="{Binding Path=Slika}"/>
+                <Image Name="Ikonica">
+                    <Image.Source>
+                        <Binding Path="Slika">
+                        </Binding>
+                    </Image.Source>
+                </Image>
             </Border>
+
             <Button Grid.Column="1" Grid.Row="4" Width="90" HorizontalAlignment="Right" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" Click="izaberiFajlClicked">Izaberi ikonicu</Button>
             <StackPanel Grid.Column="1" Grid.Row="6"  Margin="5,0,10,5" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Margin="0 0 5 0" FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonPotvrdiClicked" Content="Sacuvaj">
+                <Button Name="saveBtn" Margin="0 0 5 0" FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonPotvrdiClicked" Content="Sacuvaj">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="IsEnabled" Value="false"/>

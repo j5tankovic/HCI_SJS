@@ -33,7 +33,7 @@ namespace HCI_Project.Dijalozi
             this.Resources.Add("etiketa", etiketa);
             this.Resources.Add("parent", parent);
             InitializeComponent();
-            
+
             this.DataContext = etiketa;
         }
 
@@ -76,6 +76,7 @@ namespace HCI_Project.Dijalozi
             oznakaEtikete.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
         }
 
+
         private void PrikaziPomoc(object sender, RoutedEventArgs args)
         {
             HelpNavigationWindow helpWindow = new HelpNavigationWindow();
@@ -91,6 +92,12 @@ namespace HCI_Project.Dijalozi
                 string str = HCI_Project.Help.HelpProvider.GetHelpKey((DependencyObject)focusedControl);
                 HCI_Project.Help.HelpProvider.ShowHelp(str, this);
             }
+        }
+
+        private void Escape_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

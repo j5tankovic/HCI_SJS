@@ -4,12 +4,17 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:library="clr-namespace:HCI_Project.Library"
-        Title="BrisanjeTipa" Height="513" Width="700">
+        xmlns:cmd="clr-namespace:HCI_Project.Komande"
+        Height="513" Width="700">
     <Window.Resources>
         <local:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
         <local:EnumConverter x:Key="EnumConverter" />
         <library:CustomLokalConverter x:Key="CustomImagePathConverter" />
     </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
+    </Window.CommandBindings>
+    
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Button Click="IzmenaLokala" Content="Izmeni lokal" />

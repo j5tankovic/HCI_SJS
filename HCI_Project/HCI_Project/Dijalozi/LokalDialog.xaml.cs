@@ -44,10 +44,12 @@ namespace HCI_Project.Dijalozi
             this.parent = p;
             if (l != null)
             {
+                this.Title = "Izmena lokala " + l.Oznaka;
                 this.lokal = Lokal.getCopyLokal(l);
             }
             else
             {
+                this.Title = "Unos lokala";
                 this.lokal = new Lokal();
                 lokal.Datum = new DateTime(2016, 1, 1);
             }
@@ -78,6 +80,7 @@ namespace HCI_Project.Dijalozi
             {
                 this.lokal_za_izmenu.izmeniTipPotpuno(this.lokal.Tip);
                 this.lokal_za_izmenu.setValuesAs(this.lokal);
+                System.Windows.MessageBox.Show("Izmena uspesna!", "Izmena lokala");
                 this.Close();
                 return;
             }
@@ -185,6 +188,10 @@ namespace HCI_Project.Dijalozi
                 System.Windows.MessageBox.Show("Niste izabrali tip lokala.", "Greska!");
                 return false;
             }
+            if (lokal.Slika == null)
+            {
+                lokal.Slika = lokal.Tip.Slika;
+            }
             if (comboAlkohol.SelectedItem.Equals(""))
             {
                 System.Windows.MessageBox.Show("Niste izabrali nacin sluzenja alkohola.", "Greska!");
@@ -207,6 +214,7 @@ namespace HCI_Project.Dijalozi
             return true;
         }
 
+
         private void PrikaziPomoc(object sender, RoutedEventArgs args)
         {
             HelpNavigationWindow helpWindow = new HelpNavigationWindow();
@@ -224,8 +232,18 @@ namespace HCI_Project.Dijalozi
             }
         }
 
-        
+        private void EnterClicked_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (saveBtn.IsEnabled)
+                ButtonPotvrdiClicked(null, null);
 
+        }
+
+
+        private void Escape_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
 
     }
 }

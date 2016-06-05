@@ -30,17 +30,22 @@ namespace HCI_Project.Dijalozi
         public LogInDialog()
         {
             InitializeComponent();
+            KorisnickoIme.Focus();
         }
 
 
         public void UlogujSe(object sender, RoutedEventArgs args)
         {
             string korisnickoIme = KorisnickoIme.Text;
-            string sifra = Sifra.Text;
+            string sifra = Sifra.Password;
             if (korisnickoIme.Equals("covek") && sifra.Equals("covek"))
             {
                 success = true;
                 this.Close();
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Korisnicko ime ili lozinka nisu ispravni. Molimo pokusajte ponovo.", "Login nije uspeo", MessageBoxButton.OK);
             }
         }
 
@@ -48,6 +53,11 @@ namespace HCI_Project.Dijalozi
         {
             if (success == false)
                 Application.Current.Shutdown();
+        }
+
+        private void EnterClicked_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            UlogujSe(null, null);
         }
        
     }

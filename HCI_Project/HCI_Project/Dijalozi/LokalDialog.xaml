@@ -5,11 +5,17 @@
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
         xmlns:l="clr-namespace:HCI_Project"
+        xmlns:cmd="clr-namespace:HCI_Project.Komande"
         Title="Lokal" Height="663" Width="600"
         MinWidth="600"
         Closing="LokalDialog_Closing"
         Loaded="LokalDialog_Loaded"
         WindowStartupLocation="CenterScreen">
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
     <Window.Resources>
         <sys:String x:Key="strOznaka">Oznaka lokala: </sys:String>
         <sys:String x:Key="strNaziv">Naziv lokala: </sys:String>
@@ -30,9 +36,7 @@
         <local:EnumConverter x:Key="EnumConverter" />
         <local:TipConverter x:Key="TipConverter" />
     </Window.Resources>
-    <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
-    </Window.CommandBindings>
+
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Button Click="PrikaziPomoc" Content="Pomoć" />
@@ -290,29 +294,28 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="1" Width="67" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">Taguj lokal</Button>
                 </Grid>
-
-                <StackPanel Grid.Column="1" Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Right">
-
-                    <Button FontFamily="Arial" FontSize="13" Click="ButtonPotvrdiClicked" IsDefault="True"  Content="Sacuvaj">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="IsEnabled" Value="false"/>
-                                <Style.Triggers>
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding ElementName=oznakaLokala, Path=(Validation.HasError)}" Value="false"/>
-                                            <Condition Binding="{Binding ElementName=nazivLokala, Path=(Validation.HasError)}" Value="false"/>
-                                            <Condition Binding="{Binding ElementName=kapacitetLokala, Path=(Validation.HasError)}" Value="false"/>
-                                            <Condition Binding="{Binding ElementName=oznakaTipa, Path=(Validation.HasError)}" Value="false"/>
-                                        </MultiDataTrigger.Conditions>
-                                        <Setter Property="IsEnabled" Value="true"/>
-                                    </MultiDataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.ToolTip>
-                            <StackPanel>
-                                <TextBlock TextWrapping="Wrap">
+            <StackPanel Grid.Column="1" Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Right">
+              
+                <Button Name="saveBtn" FontFamily="Arial" FontSize="13" Click="ButtonPotvrdiClicked" IsDefault="True"  Content="Sacuvaj">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="IsEnabled" Value="false"/>
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=oznakaLokala, Path=(Validation.HasError)}" Value="false"/>
+                                        <Condition Binding="{Binding ElementName=nazivLokala, Path=(Validation.HasError)}" Value="false"/>
+                                        <Condition Binding="{Binding ElementName=kapacitetLokala, Path=(Validation.HasError)}" Value="false"/>
+                                        <Condition Binding="{Binding ElementName=oznakaTipa, Path=(Validation.HasError)}" Value="false"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="IsEnabled" Value="true"/>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
                                 Dugme za potvrdu unesenih parametara lokala.
                                 </TextBlock>
                             </StackPanel>

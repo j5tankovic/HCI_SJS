@@ -5,7 +5,8 @@
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:library="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="TabelaLokala" Height="727" Width="800" Loaded="Window_Loaded"
+        xmlns:cmd="clr-namespace:HCI_Project.Komande"
+        Title="Tabela lokala" Height="650" Width="800" Loaded="Window_Loaded"
         Name="Prozor">
     <Window.Resources>
         <sys:Boolean x:Key="True">True</sys:Boolean>
@@ -15,6 +16,12 @@
         <library:CustomLokalConverter x:Key="CustomImagePathConverter" />
         <local:TipConverter x:Key="TipConverter" />
     </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.DeleteSomething" Executed="DeleteSomething_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
+    </Window.CommandBindings>
+    
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Button Click="Delete" Content="Obrisi lokal" />
@@ -155,7 +162,7 @@
                     <TextBlock Grid.Column="0" Grid.Row="12" Style="{StaticResource FamilyAndSize}">Etikete:</TextBlock>
 
                     <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" Margin="5 5 10 5" IsReadOnly="True"  Background="WhiteSmoke"></TextBox>
-                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Height="30" VerticalAlignment="Top">
+                    <TextBox Name="NazivLokala" Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Height="30" VerticalAlignment="Top">
                         <TextBox.Text>
                             <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -210,7 +217,7 @@
                         <TextBlock Margin="0 5 0 5" Name="NazivTipaLabel" VerticalAlignment="Top" Style="{StaticResource FamilyAndSize}">Naziv tipa:</TextBlock>
                         <TextBox Margin="5 5 5 5" Name="NazivTipa" VerticalAlignment="Top" Text="{Binding Path=Tip.Naziv}" Height="20"  HorizontalAlignment="Right" Width="95"></TextBox>
                         <Button Name="nadjiTip" VerticalAlignment="Top" Click="otvoriTabeluTipova" Margin="0,5,5,0" >Nadji...</Button>
-                        <Border Margin="5 5 10 5" VerticalAlignment="Top" HorizontalAlignment="Right" Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black"  Width="92" Height="63">
+                        <Border Margin="5 5 5 5" VerticalAlignment="Top" HorizontalAlignment="Right" Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black"  Width="88" Height="54">
                             <Image Source="{Binding Path=Tip.Slika}" Width="92" Height="63" />
                         </Border>
                     </StackPanel>
@@ -228,7 +235,7 @@
                         <RadioButton GroupName="rezervacije" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}">Ne</RadioButton>
                     </StackPanel>
                     <ComboBox Name="comboCene" Grid.Column="1" Grid.Row="8" Margin="5 5 10 5" SelectedValue="{Binding Path=Cene, Converter={StaticResource EnumConverter}}"></ComboBox>
-                    <TextBox Grid.Column="1" Grid.Row="9" Margin="5 5 10 5" Height="30" VerticalAlignment="Top">
+                    <TextBox Name="KapacitetLokala" Grid.Column="1" Grid.Row="9" Margin="5 5 10 5" Height="30" VerticalAlignment="Top">
                         <TextBox.Text>
                             <Binding Path="Kapacitet" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -263,8 +270,23 @@
                     <Grid Grid.Row="12" Grid.Column="1">
                         <Button Grid.Column="1" Width="91" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,5">Tagovi lokala</Button>
                     </Grid>
-                    <Button  Margin="0,5,10,5" Grid.Column="1" Grid.Row="14" Name="sacuvajBtn" Click="sacuvajTekuci" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13">Sačuvaj izmene</Button> 
-                    
+                    <Button Margin="0,5,10,5" Grid.Column="1" Grid.Row="14" Name="sacuvajBtn" Click="sacuvajTekuci" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Content="Sačuvaj izmene">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="IsEnabled" Value="false"/>
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding ElementName=NazivLokala, Path=(Validation.HasError)}" Value="false"/>
+                                            <Condition Binding="{Binding ElementName=KapacitetLokala, Path=(Validation.HasError)}" Value="false"/>
+                                            <Condition Binding="{Binding ElementName=OznakaTipa, Path=(Validation.HasError)}" Value="false"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="IsEnabled" Value="true"/>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>                    
                 </Grid>
             </Grid>
         </ScrollViewer>

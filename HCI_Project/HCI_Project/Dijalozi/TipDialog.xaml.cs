@@ -42,9 +42,15 @@ namespace HCI_Project.Dijalozi
             this.kreiranje = t == null ? true : false;
             this.za_izmenu = t;
             if (t == null)
+            {
                 tipLokala = new TipLokala();
+                this.Title = "Unos tipa lokala";
+            }
             else
+            {
                 tipLokala = TipLokala.getCopyTip(t);
+                this.Title = "Izmena tipa " + t.Oznaka;
+            }
             this.Resources.Add("tip", tipLokala);
             this.DataContext = tipLokala;
             InitializeComponent();
@@ -58,6 +64,8 @@ namespace HCI_Project.Dijalozi
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs args)
         {
+            if (!checkForm())
+                return;
             string poruka = kreiranje ? "Da li ste sigurni da zelite da unesete ovaj tip?" : "Da li ste sigurni da zelite da izmenite ovaj tip?";
             string naslov = kreiranje ? "Unos tipa" : "Izmena tipa";
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(poruka, naslov, System.Windows.MessageBoxButton.YesNo);
@@ -66,6 +74,7 @@ namespace HCI_Project.Dijalozi
             if (!kreiranje)
             {
                 this.za_izmenu.setTipAs(this.tipLokala);
+                System.Windows.MessageBox.Show("Izmena uspesna!", "Izmena tipa");
                 this.Close();
                 return;
             }
@@ -142,6 +151,27 @@ namespace HCI_Project.Dijalozi
                 string str = HCI_Project.Help.HelpProvider.GetHelpKey((DependencyObject)focusedControl);
                 HCI_Project.Help.HelpProvider.ShowHelp(str, this);
             }
+        }
+
+        private bool checkForm()
+        {
+            if (tipLokala.Slika == null)
+            {
+                System.Windows.MessageBox.Show("Niste izabrali ikonicu.", "Greska!");
+                return false;
+            }
+            return true;
+        }
+
+        private void EnterClicked_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (saveBtn.IsEnabled)
+                ButtonPotvrdiClicked(null, null);
+        }
+
+        private void Escape_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
         }
         
     }

@@ -4,11 +4,16 @@
         xmlns:local="clr-namespace:HCI_Project.NotBeans"
         xmlns:loc="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
+<<<<<<< HEAD
         xmlns:cmd="clr-namespace:HCI_Project.Komande"
         Title="Evidencija lokala" Height="680" Width="1360"
         Closing="MainWindow_Closing" WindowState="Maximized" ResizeMode="NoResize" Closed="MainWindow_Closed"
-        WindowStartupLocation="CenterScreen"
-        Icon="information-point.png">
+        Icon="../../information-point.png">
+=======
+        Title="MainWindow" Height="680" Width="1360" Background="#acb9e8"
+        Closing="MainWindow_Closing" WindowState="Maximized" Closed="MainWindow_Closed"
+        WindowStartupLocation="CenterScreen">
+>>>>>>> bf920d7495552c6020c7e09cef301c8acef4a438
         
     <Window.Resources>
         <loc:CustomLokalConverter x:Key="CustomLokalConverter" />
@@ -86,8 +91,8 @@
                     <DockPanel Margin="5 0 0 5" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
                         <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
                             <StackPanel Orientation="Horizontal" Width="336">
-                                <Button  FontFamily="Arial" FontSize="13"  Margin="10 10 10 10" Padding="10 5 10 5" Click="Dodaj_Tip">Dodaj tip</Button>
-                                <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="20 5 20 5" Click="Dodaj_Lokal">Dodaj lokal</Button>
+                                <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Dodaj_Lokal">Dodaj lokal</Button>
+                                <Button  FontFamily="Arial" FontSize="13"  Margin="0 10 10 10" Padding="20 5 20 5" Click="Dodaj_Tip">Dodaj tip</Button>
                                 <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Dodaj_Etiketa">Dodaj etiketu</Button>
                             </StackPanel>
                         </Border>
@@ -97,8 +102,8 @@
                     <DockPanel  Margin="5 0 0 5" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3">
                         <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
                             <StackPanel Orientation="Horizontal" >
-                                <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Tipova">Tabela tipova</Button>
-                                <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Tabela lokala</Button>
+                                <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Tabela lokala</Button>
+                                <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Tipova">Tabela tipova</Button>
                                 <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Etiketa">Tabela etiketa</Button>
                             </StackPanel>
                         </Border>
