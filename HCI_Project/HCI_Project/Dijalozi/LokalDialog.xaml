@@ -5,11 +5,11 @@
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
         xmlns:cmd="clr-namespace:HCI_Project.Komande"
-        Title="Unos lokala" Height="663" Width="600"
+        Height="663" Width="600"
         MinWidth="600"
         Closing="LokalDialog_Closing"
         Loaded="LokalDialog_Loaded"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen">
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>

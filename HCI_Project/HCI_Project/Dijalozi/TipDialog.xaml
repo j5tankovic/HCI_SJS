@@ -4,7 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
         xmlns:cmd="clr-namespace:HCI_Project.Komande"
-        Title="Unos tipa lokala" Height="391" Width="500"
+        Height="391" Width="500"
         MinWidth="500"
         Closing="TipDialog_Closing"
         Loaded="TipDialog_Loaded">

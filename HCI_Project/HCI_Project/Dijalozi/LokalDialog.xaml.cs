@@ -48,6 +48,7 @@ namespace HCI_Project.Dijalozi
             }
             else
             {
+                this.Title = "Unos lokala";
                 this.lokal = new Lokal();
                 lokal.Datum = new DateTime(2016, 1, 1);
             }

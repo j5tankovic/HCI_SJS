@@ -74,7 +74,8 @@ namespace HCI_Project.Komande
             typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.NumPad1, ModifierKeys.Control)
+                new KeyGesture(Key.NumPad1, ModifierKeys.Control),
+                new KeyGesture(Key.D1, ModifierKeys.Control)
             }
         );
 
@@ -84,7 +85,8 @@ namespace HCI_Project.Komande
             typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.NumPad2, ModifierKeys.Control)
+                new KeyGesture(Key.NumPad2, ModifierKeys.Control),
+                new KeyGesture(Key.D2, ModifierKeys.Control)
             }
         );
 
@@ -94,7 +96,8 @@ namespace HCI_Project.Komande
             typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.NumPad3, ModifierKeys.Control)
+                new KeyGesture(Key.NumPad3, ModifierKeys.Control),
+                new KeyGesture(Key.D3, ModifierKeys.Control)
             }
         );
 
@@ -104,7 +107,8 @@ namespace HCI_Project.Komande
             typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.NumPad4, ModifierKeys.Control)
+                new KeyGesture(Key.NumPad4, ModifierKeys.Control),
+                new KeyGesture(Key.D4, ModifierKeys.Control)
             }
         );
 
@@ -114,7 +118,8 @@ namespace HCI_Project.Komande
             typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.NumPad0, ModifierKeys.Control)
+                new KeyGesture(Key.NumPad0, ModifierKeys.Control),
+                new KeyGesture(Key.D0, ModifierKeys.Control)
             }
         );
 

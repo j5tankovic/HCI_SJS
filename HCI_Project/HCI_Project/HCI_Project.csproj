@@ -106,7 +106,7 @@
     </Compile>
     <Compile Include="Komande\RoutedCommands.cs" />
 
-    <Compile Include="Komande\RoutedCommands.cs" />
+    <Compile Include="Help\HelpDialogEtiketa.xaml.cs">
       <DependentUpon>HelpDialogEtiketa.xaml</DependentUpon>
     </Compile>
     <Compile Include="Help\HelpDialogLokal.xaml.cs">
@@ -253,6 +253,7 @@
     <Resource Include="map.jpg" />
     <Resource Include="map2.jpg" />
     <Resource Include="map3.jpg" />
+	<Resource Include="information-point.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\etikete.txt">
@@ -282,10 +283,10 @@
     <Resource Include="Resources\dodavanjeTipa.png" />
     <Resource Include="Resources\dodavanjeEtikete.png" />
   </ItemGroup>
-    <Resource Include="information-point.png" />
-  </ItemGroup>
+    
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\dodavanjeLokala.png" />
   </ItemGroup>

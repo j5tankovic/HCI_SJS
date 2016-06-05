@@ -41,7 +41,10 @@ namespace HCI_Project.Dijalozi
             this.kreiranje = t == null ? true : false;
             this.za_izmenu = t;
             if (t == null)
+            {
                 tipLokala = new TipLokala();
+                this.Title = "Unos tipa lokala";
+            }
             else
             {
                 tipLokala = TipLokala.getCopyTip(t);

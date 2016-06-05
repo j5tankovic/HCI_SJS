@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:HCI_Project.Converter"
         xmlns:library="clr-namespace:HCI_Project.Library"
         xmlns:cmd="clr-namespace:HCI_Project.Komande"
-        Title="Brisanje tipa" Height="513" Width="700">
+        Height="513" Width="700">
     <Window.Resources>
         <local:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
         <local:EnumConverter x:Key="EnumConverter" />
