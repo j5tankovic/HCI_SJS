@@ -218,13 +218,17 @@ namespace HCI_Project.Dijalozi
         private void PrikaziPomoc(object sender, RoutedEventArgs args)
         {
             HelpNavigationWindow helpWindow = new HelpNavigationWindow();
-            helpWindow.HelpFrame.Navigate(new HelpDialogLokal());
+            HelpDialogLokal helpLokal = new HelpDialogLokal();
+            TextRange textRange = new TextRange(helpLokal.Naslov.ContentStart, helpLokal.Naslov.ContentEnd);
+            if (!kreiranje)
+                textRange.Text = "Izmena lokala";
+            helpWindow.HelpFrame.Navigate(helpLokal);
             helpWindow.ShowDialog();
         }
 
         private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            IInputElement focusedControl = FocusManager.GetFocusedElement(System.Windows.Application.Current.Windows[0]);
+            IInputElement focusedControl = FocusManager.GetFocusedElement(System.Windows.Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive));
             if (focusedControl is DependencyObject)
             {
                 string str = HCI_Project.Help.HelpProvider.GetHelpKey((DependencyObject)focusedControl);

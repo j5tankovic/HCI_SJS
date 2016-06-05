@@ -9,7 +9,7 @@
 
     <FlowDocumentReader ViewingMode="Scroll">
         <FlowDocument>
-            <Paragraph TextAlignment="Center" FontSize="14pt">
+            <Paragraph TextAlignment="Center" FontSize="14pt" Name="Naslov">
                 <Bold>Dodavanje novog lokala</Bold>
             </Paragraph>
             <Paragraph FontSize="10pt">
@@ -25,21 +25,21 @@
                 <Paragraph>U ovo polje je potrebno uneti oznaku novog lokala. Oznaka se može sastojati od slovnih,specijalnih karaktera i brojki.
                 Oznaka lokala je jedinstvena i obavezna</Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Naziv">
                 Naziv
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti naziv novog lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
                 Unos naziva lokala je obavezan</Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Opis">
                 Opis
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti opis lokala. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
                 Unos opisa lokala nije obavezan</Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="TipLokala">
                 Tip lokala
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -59,7 +59,7 @@
                     </Paragraph>
                 </Section>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Alkohol">
                 Status za služenje alkohola
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -67,7 +67,7 @@
                     Izbor sa služenje alkohola se vrši preko odabira ponudjenih vrednosti,koje je moguće videti klikom na strlicu tog polja.
                 </Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Hendikep">
                 Dostupan za hendikepirane
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -76,7 +76,7 @@
                     <Italic>Da/Ne</Italic> vrši se izbor dostupnosti lokala za hendikepirane
                 </Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Pusenje">
                 Dozvoljeno pušenje
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -85,7 +85,7 @@
                     <Italic>Da/Ne</Italic> vrši se izbor dozvole za pušenje u lokalu
                 </Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Rezervacije">
                 Prima rezervacije
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -94,7 +94,15 @@
                     <Italic>Da/Ne</Italic> vrši se izbor primanja rezervacija.
                 </Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Cene">
+                Kategorije cena
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>
+                    Izbor sa kategorije cena se vrši preko odabira ponudjenih vrednosti,koje je moguće videti klikom na strlicu tog polja.
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Kapacitet">
                 Kapacitet
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -102,7 +110,7 @@
                     U ovo polje je potrebno uneti kapacitet lokala. Moguće je uneti samo brojčane vrednosti. Unos kapaciteta lokala je obavezan.
                 </Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Datum">
                 Datum otvaranja
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -110,7 +118,7 @@
                     Klikom na sliku kalendara u ovom polju, vrši se odabir datuma otvaranja lokala.
                 </Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Ikonica">
                 Ikonica
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -150,7 +158,7 @@
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>Klikom na dugme
                     <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži nova etiketa.
-                    Na ovo dugme nije moguće kliknnuti ukoliko sva obavezna polja nisu popunjena.
+                    Na ovo dugme nije moguće kliknuti ukoliko sva obavezna polja nisu popunjena.
                 </Paragraph>
                 <Paragraph>Klikom na dugme
                     <Italic>Odustani</Italic> ovaj dijalog se zatvara.
