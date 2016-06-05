@@ -56,6 +56,24 @@ namespace HCI_Project.Help
                 helpWindow.ShowDialog();
 
             }
+            else if (originator.GetType() == typeof(TabelaLokala))
+            {
+                HelpTabelaLokala helpTabelaLokala = new HelpTabelaLokala();
+                helpWindow.HelpFrame.Navigate(helpTabelaLokala);
+                helpWindow.ShowDialog();
+            }
+            else if (originator.GetType() == typeof(TabelaTipova))
+            {
+                HelpTabelaTipova helpTabelaTipova = new HelpTabelaTipova();
+                helpWindow.HelpFrame.Navigate(helpTabelaTipova);
+                helpWindow.ShowDialog();
+            }
+            else if (originator.GetType() == typeof(TabelaEtiketa))
+            {
+                HelpTabelaEtiketa helpTabelaEtiketa = new HelpTabelaEtiketa();
+                helpWindow.HelpFrame.Navigate(helpTabelaEtiketa);
+                helpWindow.ShowDialog();
+            }
 
         }
     }

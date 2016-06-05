@@ -20,6 +20,7 @@
         <CommandBinding Command="cmd:RoutedCommands.DeleteSomething" Executed="DeleteSomething_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Escape" Executed="Escape_Executed"></CommandBinding>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
     </Window.CommandBindings>
     
     <DockPanel>

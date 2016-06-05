@@ -210,5 +210,15 @@ namespace HCI_Project.Dijalozi
         {
             this.Close();
         }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(System.Windows.Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HCI_Project.Help.HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HCI_Project.Help.HelpProvider.ShowHelp(str, this);
+            }
+        }
     }
 }

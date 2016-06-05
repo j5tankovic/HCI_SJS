@@ -10,7 +10,7 @@
     <FlowDocumentReader ViewingMode="Scroll">
         <FlowDocument>
             <Paragraph TextAlignment="Center" FontSize="14pt">
-                <Bold>Tabelarni prikaz tipova</Bold>
+                <Bold>Tabelarni prikaz lokala</Bold>
             </Paragraph>
             <Paragraph FontSize="10pt">
                 Ovaj dijalog tabelarno prikazuje sve lokale. Moguće je izmeniti ili obrisati postojeće lokale.
