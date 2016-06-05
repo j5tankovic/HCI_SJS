@@ -1055,7 +1055,7 @@ namespace HCI_Project
             foreach (Lokal lokal in repoLokali.lokali)
             {
                 if (words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
-                            lokal.Opis.ToUpper().Contains(word.ToUpper()) ||
+                            (lokal.Opis != null && lokal.Opis.ToUpper().Contains(word.ToUpper())) ||
                             lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper())))
                 {
                     if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == active_map)
@@ -1108,7 +1108,7 @@ namespace HCI_Project
             foreach (Lokal lokal in repoLokali.lokali)
             {
                 if (words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
-                            lokal.Opis.ToUpper().Contains(word.ToUpper()) ||
+                             (lokal.Opis != null && lokal.Opis.ToUpper().Contains(word.ToUpper())) ||
                             lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper())))
                 {
                     if (lokal.PozicijaX != -1 && lokal.PozicijaY != -1 && lokal.Mapa == "1")
@@ -1297,7 +1297,7 @@ namespace HCI_Project
                    {
                        Lokal lokal = (Lokal)img.DataContext;
                        if (words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
-                            lokal.Opis.ToUpper().Contains(word.ToUpper()) ||
+                           (lokal.Opis != null && lokal.Opis.ToUpper().Contains(word.ToUpper())) ||
                             lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper())))
                        {
                            theScrollViewer.ScrollToHorizontalOffset(lokal.PozicijaX);
@@ -1313,7 +1313,7 @@ namespace HCI_Project
                    {
                        Lokal lokal = (Lokal)img.DataContext;
                        if (words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
-                            lokal.Opis.ToUpper().Contains(word.ToUpper()) ||
+                             (lokal.Opis != null && lokal.Opis.ToUpper().Contains(word.ToUpper())) ||
                             lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper())))
                        {
                            theScrollViewer14.ScrollToHorizontalOffset(lokal.PozicijaX);
@@ -1328,7 +1328,7 @@ namespace HCI_Project
                    {
                        Lokal lokal = (Lokal)img.DataContext;
                        if (words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
-                            lokal.Opis.ToUpper().Contains(word.ToUpper()) ||
+                            (lokal.Opis != null && lokal.Opis.ToUpper().Contains(word.ToUpper())) ||
                             lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper())))
                        {
                            theScrollViewer24.ScrollToHorizontalOffset(lokal.PozicijaX);
@@ -1342,7 +1342,7 @@ namespace HCI_Project
                    {
                        Lokal lokal = (Lokal)img.DataContext;
                        if (words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
-                            lokal.Opis.ToUpper().Contains(word.ToUpper()) ||
+                             (lokal.Opis != null && lokal.Opis.ToUpper().Contains(word.ToUpper())) ||
                             lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper())))
                        {
                            theScrollViewer34.ScrollToHorizontalOffset(lokal.PozicijaX);
@@ -1356,7 +1356,7 @@ namespace HCI_Project
                    {
                        Lokal lokal = (Lokal)img.DataContext;
                        if (words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
-                            lokal.Opis.ToUpper().Contains(word.ToUpper()) ||
+                             (lokal.Opis != null && lokal.Opis.ToUpper().Contains(word.ToUpper())) ||
                             lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper())))
                        {
                            theScrollViewer44.ScrollToHorizontalOffset(lokal.PozicijaX);

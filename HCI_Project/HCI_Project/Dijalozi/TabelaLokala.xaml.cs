@@ -175,7 +175,7 @@ namespace HCI_Project.Dijalozi
                     if (words.Contains(""))
                         words = words.Where(word => word != "").ToArray();
                     return words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
-                            lokal.Opis.ToUpper().Contains(word.ToUpper()) || lokal.Slika.ToUpper().Contains(word.ToUpper()) ||
+                             (lokal.Opis != null && lokal.Opis.ToUpper().Contains(word.ToUpper())) || lokal.Slika.ToUpper().Contains(word.ToUpper()) ||
                             lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper()));
                 };
 
@@ -215,7 +215,7 @@ namespace HCI_Project.Dijalozi
             for (int i = 0; i < dgrMain.Items.Count; i++)
             {
                 Lokal lokal = dgrMain.Items[i] as Lokal;
-                if (lokal.Oznaka.ToUpper().Equals(searchText.ToUpper()) || lokal.Opis.ToUpper().Equals(searchText.ToUpper()) ||
+                if (lokal.Oznaka.ToUpper().Equals(searchText.ToUpper()) || (lokal.Opis != null && lokal.Opis.ToUpper().Contains(searchText.ToUpper())) ||
                     lokal.Naziv.ToUpper().Equals(searchText.ToUpper()) || lokal.Tip.Naziv.ToUpper().Equals(searchText.ToUpper()))
                 {
                     DataGridRow row = (DataGridRow)dgrMain.ItemContainerGenerator.ContainerFromIndex(i);
