@@ -74,7 +74,7 @@
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>
                     Klikom na dugme
-                    <Italic>Sačuvaj tekuću</Italic> čuvaju se sve promene ukoliko ih je bilo.
+                    <Italic>Sačuvaj tekuću</Italic> čuvaju se sve promene trenutno selektovane etikete u tabeli, ukoliko ih je bilo.
                 </Paragraph>
             </Section>
         </FlowDocument>

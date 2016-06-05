@@ -61,7 +61,7 @@ namespace HCI_Project.Dijalozi
             {
                 parent.repoLokali.izbaciEtiketuIzLokala(etiketa);
                 parent.repoEtikete.izbaci(etiketa);
-                this.tekuca_etiketa = null;
+                this.tekuca_etiketa = new Etiketa();
                 this.DataContext = this.tekuca_etiketa;
             }
         }
@@ -148,7 +148,7 @@ namespace HCI_Project.Dijalozi
         {
             this.etiketa_za_izmenu = (Etiketa)dgrMain.SelectedItem;
             if (this.etiketa_za_izmenu == null)
-                this.tekuca_etiketa = null;
+                this.tekuca_etiketa = new Etiketa();
             else
                 this.tekuca_etiketa.setValuesAs(Etiketa.getCopy(this.etiketa_za_izmenu));
         }

@@ -39,6 +39,11 @@ namespace HCI_Project.Dijalozi
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs e)
         {
+            if (ColorPicker.SelectedColor == null)
+            {
+                System.Windows.MessageBox.Show("Niste odabrali boju etikete. Morate odabrati boju da biste mogli da kreirate novu etiketu.", "Niste izabrali boju");
+                return;
+            }
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da dodate ovu etiketu?", "Unos etikete", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.No)
                 return;

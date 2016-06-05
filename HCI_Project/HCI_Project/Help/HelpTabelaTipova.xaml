@@ -29,7 +29,7 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>
-                    Klikom na opciju za brisanje tipa, selektovan tip se briše iz evidencije.
+                    Klikom na opciju za brisanje tipa, otvara se dijalog u kome je moguće upravljati procesom brisanja tipa lokala.
                 </Paragraph>
             </Section>
             <Paragraph FontSize="12pt" Name="Filter">
@@ -83,7 +83,7 @@
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>
                     Klikom na dugme
-                    <Italic>Sačuvaj tekuću</Italic> čuvaju se sve promene ukoliko ih je bilo.
+                    <Italic>Sačuvaj tekuću</Italic> čuvaju se sve promene selektovanog tipa lokala u tabeli, ukoliko ih je bilo.
                 </Paragraph>
             </Section>
         </FlowDocument>

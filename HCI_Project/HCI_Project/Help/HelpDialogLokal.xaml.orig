@@ -13,7 +13,7 @@
                 <Bold>Dodavanje novog lokala</Bold>
             </Paragraph>
             <Paragraph FontSize="10pt">
-                Ovaj dijalog je namenjen unosu novog lokala i izmeni postojećih.
+                Ovaj dijalog je namenjen unosu novog lokala.
             </Paragraph>
             <Paragraph>
                 <Image Source="/HCI_Project;component/Resources/dodavanjeLokala.png" Width="450"/>
@@ -29,7 +29,7 @@
                 Naziv
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
-                <Paragraph>U ovo polje je potrebno uneti naziv lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
+                <Paragraph>U ovo polje je potrebno uneti naziv novog lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
                 Unos naziva lokala je obavezan.</Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt" Name="Opis">
@@ -157,11 +157,16 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>Klikom na dugme
-                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i lokal će se sačuvati.
+<<<<<<< HEAD
+                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži novi lokal.
+                    Na ovo dugme nije moguće kliknnuti ukoliko sva obavezna polja nisu popunjena.
+=======
+                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži nova etiketa.
                     Na ovo dugme nije moguće kliknuti ukoliko sva obavezna polja nisu popunjena.
+>>>>>>> fe84d2b7ff18de2464bc720ef83a0c9a2fd04983
                 </Paragraph>
                 <Paragraph>Klikom na dugme
-                    <Italic>Odustani</Italic> ovaj dijalog se zatvara i neće biti urađene nikakve promene.
+                    <Italic>Odustani</Italic> ovaj dijalog se zatvara i neće biti dodat novi lokal.
                 </Paragraph>
             </Section>
         </FlowDocument>

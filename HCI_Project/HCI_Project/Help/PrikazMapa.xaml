@@ -30,7 +30,7 @@
                 </Paragraph>
                 <Paragraph>
                     Mape se mogu menjati. U aplikaciji su dostupne mape 4 različita grada.
-                    Takođe, postoji opcija prikaza svih mapa.
+                    Takođe, postoji opcija prikaza svih mapa istovremeno. Tada je moguće prevlačiti lokale sa jedne mape na drugu.
                 </Paragraph>
             </Section>
         </FlowDocument>

@@ -13,7 +13,7 @@
                 <Bold>Dodavanje novog tipa lokala</Bold>
             </Paragraph>
             <Paragraph FontSize="10pt">
-                Ovaj dijalog je namenjen unosu novog tipa lokala.
+                Ovaj dijalog je namenjen unosu novog tipa lokala i izmeni postojećih.
             </Paragraph>
             <Paragraph>
                 <Image Source="/HCI_Project;component/Resources/dodavanjeTipa.png" Width="300"/>
@@ -23,21 +23,21 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti oznaku novog tipa lokala. Oznaka se može sastojati od slovnih,specijalnih karaktera i brojki.
-                Oznaka tipa je jedinstvena i obavezna</Paragraph>
+                Oznaka tipa je jedinstvena i obavezna.</Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt" Name="Naziv">
                 Naziv
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
-                <Paragraph>U ovo polje je potrebno uneti naziv novog tipa lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
-                Unos naziva tipa je obavezan</Paragraph>
+                <Paragraph>U ovo polje je potrebno uneti naziv tipa lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Unos naziva tipa je obavezan.</Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt" Name="Opis">
                 Opis
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti opis tipa. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
-                Unos opisa tipa nije obavezan</Paragraph>
+                Unos opisa tipa nije obavezan.</Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt" Name="Ikonica">
                 Ikonica
@@ -52,11 +52,11 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>Klikom na dugme
-                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži nova etiketa.
-                    Na ovo dugme nije moguće kliknnuti ukoliko sva obavezna polja nisu popunjena.
+                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i tip lokala će se sačuvati.
+                    Na ovo dugme nije moguće kliknuti ukoliko sva obavezna polja nisu popunjena.
                 </Paragraph>
                 <Paragraph>Klikom na dugme
-                    <Italic>Odustani</Italic> ovaj dijalog se zatvara.
+                    <Italic>Odustani</Italic> ovaj dijalog se zatvara i neće biti urađene nikakve promene.
                 </Paragraph>
             </Section>
         </FlowDocument>
