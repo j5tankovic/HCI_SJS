@@ -143,7 +143,7 @@ namespace HCI_Project.Dijalozi
                 this.tekuci_tip.setTipAs(TipLokala.getCopyTip(this.tip_za_izmenu));
             else
             {
-                this.tekuci_tip = null;
+                this.tekuci_tip = new TipLokala() ;
                 this.DataContext = this.tekuci_tip;
             }
         }

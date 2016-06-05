@@ -13,7 +13,7 @@
                 <Bold>Dodavanje novog tipa lokala</Bold>
             </Paragraph>
             <Paragraph FontSize="10pt">
-                Ovaj dijalog je namenjen unosu novog tipa lokala.
+                Ovaj dijalog je namenjen unosu novog tipa lokala i izmeni postojećih.
             </Paragraph>
             <Paragraph>
                 <Image Source="/HCI_Project;component/Resources/dodavanjeTipa.png" Width="300"/>
@@ -29,7 +29,7 @@
                 Naziv
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
-                <Paragraph>U ovo polje je potrebno uneti naziv novog tipa lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
+                <Paragraph>U ovo polje je potrebno uneti naziv tipa lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
                 Unos naziva tipa je obavezan.</Paragraph>
             </Section>
             <Paragraph TextAlignment="Left" FontSize="12pt">
@@ -52,11 +52,11 @@
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>Klikom na dugme
-                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži novi tip lokala.
+                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i tip lokala će se sačuvati.
                     Na ovo dugme nije moguće kliknuti ukoliko sva obavezna polja nisu popunjena.
                 </Paragraph>
                 <Paragraph>Klikom na dugme
-                    <Italic>Odustani</Italic> ovaj dijalog se zatvara i neće biti kreiran nov tip lokala.
+                    <Italic>Odustani</Italic> ovaj dijalog se zatvara i neće biti urađene nikakve promene.
                 </Paragraph>
             </Section>
         </FlowDocument>

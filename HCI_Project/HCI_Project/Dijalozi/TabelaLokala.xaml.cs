@@ -150,7 +150,7 @@ namespace HCI_Project.Dijalozi
             }
             else
             {
-                this.tekuci_lokal = null;
+                this.tekuci_lokal = new Lokal() ;
                 this.DataContext = this.tekuci_lokal;
             }
 
