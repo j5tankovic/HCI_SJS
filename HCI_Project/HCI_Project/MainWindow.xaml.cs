@@ -1346,6 +1346,9 @@ namespace HCI_Project
                     img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
+                    ToolTip tt = new ToolTip();
+                    tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                    img.ToolTip = tt;
 
                     ContextMenu ctx = new ContextMenu();
                     MenuItem m1 = new MenuItem();
@@ -1391,6 +1394,9 @@ namespace HCI_Project
                     img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
+                    ToolTip tt = new ToolTip();
+                    tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                    img.ToolTip = tt;
 
                     ContextMenu ctx = new ContextMenu();
                     MenuItem m1 = new MenuItem();
@@ -1433,6 +1439,9 @@ namespace HCI_Project
                     img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
+                    ToolTip tt = new ToolTip();
+                    tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                    img.ToolTip = tt;
 
                     ContextMenu ctx = new ContextMenu();
                     MenuItem m1 = new MenuItem();
@@ -1475,6 +1484,9 @@ namespace HCI_Project
                     img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
+                    ToolTip tt = new ToolTip();
+                    tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                    img.ToolTip = tt;
 
                     ContextMenu ctx = new ContextMenu();
                     MenuItem m1 = new MenuItem();
@@ -1517,6 +1529,9 @@ namespace HCI_Project
                     img.Width = IMAGE_WIDTH;
                     img.DataContext = lokal;
                     img.MouseDown += imageDoubleClickHandler;
+                    ToolTip tt = new ToolTip();
+                    tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                    img.ToolTip = tt;
 
                     ContextMenu ctx = new ContextMenu();
                     MenuItem m1 = new MenuItem();
@@ -1570,6 +1585,9 @@ namespace HCI_Project
                         img.Width = 32;
                         img.DataContext = lokal;
                         img.MouseDown += imageDoubleClickHandler;
+                        ToolTip tt = new ToolTip();
+                        tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                        img.ToolTip = tt;
 
                         ContextMenu ctx = new ContextMenu();
                         MenuItem m1 = new MenuItem();
@@ -1620,6 +1638,9 @@ namespace HCI_Project
                         img.Width = 32;
                         img.DataContext = lokal;
                         img.MouseDown += imageDoubleClickHandler;
+                        ToolTip tt = new ToolTip();
+                        tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                        img.ToolTip = tt;
 
                         ContextMenu ctx = new ContextMenu();
                         MenuItem m1 = new MenuItem();
@@ -1662,6 +1683,9 @@ namespace HCI_Project
                         img.Width = 32;
                         img.DataContext = lokal;
                         img.MouseDown += imageDoubleClickHandler;
+                        ToolTip tt = new ToolTip();
+                        tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                        img.ToolTip = tt;
 
                         ContextMenu ctx = new ContextMenu();
                         MenuItem m1 = new MenuItem();
@@ -1704,6 +1728,9 @@ namespace HCI_Project
                         img.Width = 32;
                         img.DataContext = lokal;
                         img.MouseDown += imageDoubleClickHandler;
+                        ToolTip tt = new ToolTip();
+                        tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                        img.ToolTip = tt;
 
                         ContextMenu ctx = new ContextMenu();
                         MenuItem m1 = new MenuItem();
@@ -1746,6 +1773,9 @@ namespace HCI_Project
                         img.Width = 32;
                         img.DataContext = lokal;
                         img.MouseDown += imageDoubleClickHandler;
+                        ToolTip tt = new ToolTip();
+                        tt.Content = lokal.Oznaka + " " + lokal.Naziv;
+                        img.ToolTip = tt;
 
                         ContextMenu ctx = new ContextMenu();
                         MenuItem m1 = new MenuItem();

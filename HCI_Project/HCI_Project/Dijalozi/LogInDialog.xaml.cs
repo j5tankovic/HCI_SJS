@@ -30,6 +30,7 @@ namespace HCI_Project.Dijalozi
         public LogInDialog()
         {
             InitializeComponent();
+            KorisnickoIme.Focus();
         }
 
 
