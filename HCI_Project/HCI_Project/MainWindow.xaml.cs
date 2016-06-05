@@ -1153,19 +1153,9 @@ namespace HCI_Project
         {
             if (e.Key == Key.Enter)
             {
-                TreeView trv = sender as TreeView;
-                TreeViewItem trv_item = FindAncestor<TreeViewItem>((DependencyObject)e.OriginalSource);
-                if (treeViewItem != null)
-                {
-                    object help = treeView.ItemContainerGenerator.ItemFromContainer(treeViewItem);
-
-                    //Find its parent
-                    ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
-                    //Get the bound object.
-
-                    object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
-                    if (item != null)
-                    {
+                object item = treeView.SelectedItem;
+                if (item == null)
+                    return;
                         if (item.GetType() == typeof(Lokal))
                         {
                             Lokal l = (Lokal)item;
@@ -1181,8 +1171,7 @@ namespace HCI_Project
                             dialog.ShowDialog();
                         }
 
-                    }
-                }
+                    
             }
         }
 
@@ -2026,7 +2015,7 @@ namespace HCI_Project
                 treeViewSelectedLokal.Opis = working_lokal.Opis;
                 treeViewSelectedLokal.Kapacitet = working_lokal.Kapacitet;
                 treeViewSelectedLokal.Datum = working_lokal.Datum;
-                
+                System.Windows.MessageBox.Show("Izmena uspesna!", "Izmena lokala");
                 
             }
             
@@ -2039,26 +2028,25 @@ namespace HCI_Project
             {
 
                 treeViewSelectedTip.setTipAs(working_tip);
-                
+                System.Windows.MessageBox.Show("Izmena uspesna!", "Izmena tipa");
             }
         }
         
         private void TreeViewSelectionChanged(object sender, RoutedPropertyChangedEventArgs<Object> args)
         {
-            treeView = sender as TreeView;
+            //treeView = sender as TreeView;
             //treeViewItem = FindAncestor<TreeViewItem>((DependencyObject)args.OriginalSource);
+            object item = treeView.SelectedItem;
+            
 
-            if (treeViewItem != null)
-            {
-
-                object help = treeView.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+                //object help = treeView.ItemContainerGenerator.ItemFromContainer(treeViewItem);
 
                 //Find its parent
-                ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
+                //ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
                 //Get the bound object.
-                if (parent == null)
-                    return;
-                object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+                //if (parent == null)
+                    //return;
+                //object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
                 if (item != null)
                 {
                     if (item.GetType() == typeof(Lokal))
@@ -2102,7 +2090,7 @@ namespace HCI_Project
                     slc = 0;
                 }
 
-            }
+            
         }
 
         private void Prikazi_Stavec(object sender, RoutedEventArgs args)

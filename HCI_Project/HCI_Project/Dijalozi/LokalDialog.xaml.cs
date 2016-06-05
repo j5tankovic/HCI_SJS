@@ -79,6 +79,7 @@ namespace HCI_Project.Dijalozi
             {
                 this.lokal_za_izmenu.izmeniTipPotpuno(this.lokal.Tip);
                 this.lokal_za_izmenu.setValuesAs(this.lokal);
+                System.Windows.MessageBox.Show("Izmena uspesna!", "Izmena lokala");
                 this.Close();
                 return;
             }
