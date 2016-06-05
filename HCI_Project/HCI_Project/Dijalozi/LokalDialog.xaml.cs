@@ -68,6 +68,11 @@ namespace HCI_Project.Dijalozi
         {
             if (!checkForm())
                 return;
+            string poruka = kreiranje ? "Da li ste sigurni da zelite da unesete ovaj lokal?" : "Da li ste sigurni da zelite da izmenite ovaj lokal?";
+            string naslov = kreiranje ? "Unos lokala" : "Izmena lokala";
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(poruka, naslov, System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.No)
+                return;
             if (!kreiranje)
             {
                 this.lokal_za_izmenu.izmeniTipPotpuno(this.lokal.Tip);
@@ -85,7 +90,7 @@ namespace HCI_Project.Dijalozi
                 this.Close();
             }
             else
-                System.Windows.MessageBox.Show("Vec postoji lokal sa tom oznakom! Molimo izaberite drugu.");
+                System.Windows.MessageBox.Show("Vec postoji lokal sa tom oznakom! Molimo izaberite drugu.", "Greska!");
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs args)
@@ -176,17 +181,17 @@ namespace HCI_Project.Dijalozi
         {
             if (lokal.Tip == null)
             {
-                System.Windows.MessageBox.Show("Niste izabrali tip lokala.");
+                System.Windows.MessageBox.Show("Niste izabrali tip lokala.", "Greska!");
                 return false;
             }
             if (comboAlkohol.SelectedItem.Equals(""))
             {
-                System.Windows.MessageBox.Show("Niste izabrali nacin sluzenja alkohola.");
+                System.Windows.MessageBox.Show("Niste izabrali nacin sluzenja alkohola.", "Greska!");
                 return false;
             }
             if (comboAlkohol.SelectedItem.Equals(""))
             {
-                System.Windows.MessageBox.Show("Niste izabrali kategoriju cene.");
+                System.Windows.MessageBox.Show("Niste izabrali kategoriju cene.", "Greska!");
                 return false;
             }
             var result = Validation.GetErrors(oznakaLokala);

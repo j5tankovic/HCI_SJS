@@ -52,12 +52,12 @@ namespace HCI_Project.Dijalozi
 
         private void Delete(object sender, RoutedEventArgs args)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            Etiketa etiketa = (Etiketa)dgrMain.SelectedItem;
+            if (etiketa == null)
+                return;
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da obrisete etiketu sa oznakom " + etiketa.Oznaka + "?", "Brisanje etikete", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                Etiketa etiketa = (Etiketa)dgrMain.SelectedItem;
-                if (etiketa == null)
-                    return;
                 parent.repoLokali.izbaciEtiketuIzLokala(etiketa);
                 parent.repoEtikete.izbaci(etiketa);
                 this.tekuca_etiketa = null;
@@ -130,7 +130,9 @@ namespace HCI_Project.Dijalozi
 
         private void sacuvajTekuci(object sender, RoutedEventArgs args)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (etiketa_za_izmenu == null)
+                return;
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene za etiketu sa oznakom " + etiketa_za_izmenu.Oznaka +"?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 this.etiketa_za_izmenu.setValuesAs(this.tekuca_etiketa);

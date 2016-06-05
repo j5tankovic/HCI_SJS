@@ -17,386 +17,346 @@
        
     </Window.Resources>
     <DockPanel>
-        <Grid DockPanel.Dock="Top">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Row="0" Background="#A2A1AC">
+        <Menu DockPanel.Dock="Top" Width="Auto" Height="20">
+            <MenuItem Header="_Unos">
+                <MenuItem Header="Dodaj _tip" Click="Dodaj_Tip" />
+                <MenuItem Header="Dodaj _lokal" Click="Dodaj_Lokal"/>
+                <MenuItem Header="Dodaj _etiketu" Click="Dodaj_Etiketa"/>
+            </MenuItem>
+            <MenuItem Header="_Tabele">
+                <MenuItem Header="_Tipovi" Click="Prikazi_Tabelu_Tipova"/>
+                <MenuItem Header="_Lokali" Click="Prikazi_Tabela" />
+                <MenuItem Header="_Etikete" Click="Prikazi_Tabelu_Etiketa" />
+            </MenuItem>
+            <MenuItem Header="_Mape">
+                <MenuItem Header="_Zrenjanin" Click="Promeni_Mapu" Tag="1" />
+                <MenuItem Header="_Krusevac" Click="Promeni_Mapu" Tag="2"/>
+                <MenuItem Header="_Vrsac" Click="Promeni_Mapu" Tag="3"/>
+                <MenuItem Header="_Novi Sad" Click="Promeni_Mapu" Tag="4"/>
+                <Separator/>
+                <MenuItem Header="Sve _4 mape" Click="Promeni_Mapu" Tag="5"/>
+            </MenuItem>
+        </Menu>
+        <DockPanel DockPanel.Dock="Bottom" Height="Auto">
+            <Grid DockPanel.Dock="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5"  Grid.ColumnSpan="3">Dodavanje novih podataka</TextBlock>
-                <DockPanel Margin="5 0 0 5" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
-                    <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
-                        <StackPanel Orientation="Horizontal" Width="336">
-                            <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Dodaj_Lokal">Dodaj lokal</Button>
-                            <Button  FontFamily="Arial" FontSize="13"  Margin="0 10 10 10" Padding="20 5 20 5" Click="Dodaj_Tip">Dodaj tip</Button>
-                            <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Dodaj_Etiketa">Dodaj etiketu</Button>
-                        </StackPanel>
-                    </Border>
-                </DockPanel>
 
-                <TextBlock Grid.Row="0" Grid.Column="3" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="3">Prikaz podataka</TextBlock>
-                <DockPanel  Margin="5 0 0 5" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3">
-                    <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
-                        <StackPanel Orientation="Horizontal" >
-                            <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Tabela lokala</Button>
-                            <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Tipova">Tabela tipova</Button>
-                            <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Etiketa">Tabela etiketa</Button>
-                        </StackPanel>
-                    </Border>
-                </DockPanel>
-
-                <TextBlock Grid.Row="0" Grid.Column="6" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="5">Mape</TextBlock>
-                <DockPanel Margin="5 0 5 5" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="5">
-                    <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
-                        <StackPanel Orientation="Horizontal" Width="497">
-                            <Button Height="28" Width="80"   FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="1">Zrenjanin</Button>
-                            <Button Height="28" Width="80"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="2">Krusevac</Button>
-                            <Button Height="28" Width="80"   FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="3">Vrsac</Button>
-                            <Button Height="28" Width="80"   FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="4">Novi Sad</Button>
-                            <Button Height="28" Width="91"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 5 5" Click="Promeni_Mapu" Tag="5">Sve 4 mape</Button>
-                        </StackPanel>
-                    </Border>
-                </DockPanel>
-            </Grid>
-        </Grid>
-        <Grid DockPanel.Dock="Bottom">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition  Width="1*"/>
-                <ColumnDefinition  Width="4*"/>
-            </Grid.ColumnDefinitions>
-            <TreeView Grid.Column="0" Grid.Row="0" Name="trvLokali" ItemsSource="{Binding Path=repoTipovi.tipovi}" PreviewMouseLeftButtonDown="treeView1_PreviewMouseLeftButtonDown" MouseMove="treeView1_PreviewMouseMove" MouseDoubleClick="treeView1_DoubleClick">
-                <TreeView.Resources>
-                    <HierarchicalDataTemplate DataType="{x:Type local:TipLokala}" ItemsSource="{Binding Lokali}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Margin="0,0,5,0" Source="{Binding Path=Slika}" Height="30" Width="30"/>
-                            <TextBlock Text="{Binding Oznaka}" FontWeight="Bold"/>
-                            <TextBlock Text=" " />
-                            <TextBlock Text="{Binding Naziv}" FontWeight="Bold"/>
-                            <StackPanel.ContextMenu>
-                                <ContextMenu>
-                                    <MenuItem Header="Dodaj tip" Click="Dodaj_Tip"></MenuItem>
-                                    <MenuItem Header="Prikazi tip" Click="PrikaziTip" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
-                                    <MenuItem Header="Obrisi tip" Click="ObrisiTip" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
-                                </ContextMenu>
-                            </StackPanel.ContextMenu>
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                    <DataTemplate DataType="{x:Type local:Lokal}" >
-                        <StackPanel Orientation="Horizontal">
-                            <Image Margin="0,0,5,0" Source="{Binding Path=Slika}" Height="30" Width="30"/>
-                            <TextBlock Text="{Binding Oznaka}" FontWeight="Bold"/>
-                            <TextBlock Text=" "/>
-                            <TextBlock Text="{Binding Naziv}" FontWeight="Bold"/>
-                            <StackPanel.ContextMenu>
-                                <ContextMenu>
-                                    <MenuItem Header="Dodaj lokal" Click="Dodaj_Lokal"></MenuItem>
-                                    <MenuItem Header="Prikazi lokal" Click="PrikaziLokal" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
-                                    <MenuItem Header="Obrisi lokal" Click="ObrisiLokal" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
-                                </ContextMenu>
-                            </StackPanel.ContextMenu>
-                        </StackPanel>
-                    </DataTemplate>
-                </TreeView.Resources>
-            </TreeView>
-            <Grid  Grid.Column="1" Grid.Row="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="4*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <ScrollViewer Grid.Column="0" Grid.Row="0"
+                <Grid Grid.Row="0" Background="#A2A1AC">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5"  Grid.ColumnSpan="3">Dodavanje novih podataka</TextBlock>
+                    <DockPanel Margin="5 0 0 5" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+                        <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
+                            <StackPanel Orientation="Horizontal" Width="336">
+                                <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Dodaj_Lokal">Dodaj lokal</Button>
+                                <Button  FontFamily="Arial" FontSize="13"  Margin="0 10 10 10" Padding="20 5 20 5" Click="Dodaj_Tip">Dodaj tip</Button>
+                                <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Dodaj_Etiketa">Dodaj etiketu</Button>
+                            </StackPanel>
+                        </Border>
+                    </DockPanel>
+
+                    <TextBlock Grid.Row="0" Grid.Column="3" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="3">Prikaz podataka</TextBlock>
+                    <DockPanel  Margin="5 0 0 5" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3">
+                        <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
+                            <StackPanel Orientation="Horizontal" >
+                                <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Tabela lokala</Button>
+                                <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Tipova">Tabela tipova</Button>
+                                <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Etiketa">Tabela etiketa</Button>
+                            </StackPanel>
+                        </Border>
+                    </DockPanel>
+
+                    <TextBlock Grid.Row="0" Grid.Column="6" Margin="0 5 0 5" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="5">Mape</TextBlock>
+                    <DockPanel Margin="5 0 5 5" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="5">
+                        <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
+                            <StackPanel Orientation="Horizontal" Width="497">
+                                <Button Height="28" Width="80"   FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="1">Zrenjanin</Button>
+                                <Button Height="28" Width="80"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="2">Krusevac</Button>
+                                <Button Height="28" Width="80"   FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="3">Vrsac</Button>
+                                <Button Height="28" Width="80"   FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 10 5" Click="Promeni_Mapu" Tag="4">Novi Sad</Button>
+                                <Button Height="28" Width="91"  FontFamily="Arial" FontSize="13" Margin="5 10 10 5" Padding="10 5 5 5" Click="Promeni_Mapu" Tag="5">Sve 4 mape</Button>
+                            </StackPanel>
+                        </Border>
+                    </DockPanel>
+                </Grid>
+            </Grid>
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="1*"/>
+                    <ColumnDefinition  Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <TreeView Grid.Column="0" Grid.Row="0" Name="trvLokali" ItemsSource="{Binding Path=repoTipovi.tipovi}" PreviewMouseLeftButtonDown="treeView1_PreviewMouseLeftButtonDown" MouseMove="treeView1_PreviewMouseMove" MouseDoubleClick="treeView1_DoubleClick" KeyDown="TreeViewKeyDown" SelectedItemChanged="TreeViewSelectionChanged">
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate DataType="{x:Type local:TipLokala}" ItemsSource="{Binding Lokali}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="0,0,5,0" Source="{Binding Path=Slika}" Height="30" Width="30"/>
+                                <TextBlock Text="{Binding Oznaka}" FontWeight="Bold"/>
+                                <TextBlock Text=" " />
+                                <TextBlock Text="{Binding Naziv}" FontWeight="Bold"/>
+                                <StackPanel.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Dodaj tip" Click="Dodaj_Tip"></MenuItem>
+                                        <MenuItem Header="Prikazi tip" Click="PrikaziTip" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
+                                        <MenuItem Header="Obrisi tip" Click="ObrisiTip" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
+                                    </ContextMenu>
+                                </StackPanel.ContextMenu>
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                        <DataTemplate DataType="{x:Type local:Lokal}" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="0,0,5,0" Source="{Binding Path=Slika}" Height="30" Width="30"/>
+                                <TextBlock Text="{Binding Oznaka}" FontWeight="Bold"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding Naziv}" FontWeight="Bold"/>
+                                <StackPanel.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Dodaj lokal" Click="Dodaj_Lokal"></MenuItem>
+                                        <MenuItem Header="Prikazi lokal" Click="PrikaziLokal" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
+                                        <MenuItem Header="Obrisi lokal" Click="ObrisiLokal" DataContext="{Binding Converter={StaticResource CustomLokalConverter}}"></MenuItem>
+                                    </ContextMenu>
+                                </StackPanel.ContextMenu>
+                            </StackPanel>
+                        </DataTemplate>
+                    </TreeView.Resources>
+                </TreeView>
+                <Grid  Grid.Column="1" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollViewer Grid.Column="0" Grid.Row="0"
                     x:Name="theScrollViewer"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                    <Canvas Name="mapa" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
-                        <Canvas.Background>
-                            <VisualBrush  >
-                                <VisualBrush.Visual>
-                                    <Image  x:Name="myImage" Stretch="None"/>
-                                </VisualBrush.Visual>
-                            </VisualBrush>
-                        </Canvas.Background>
-                    </Canvas>           
-                </ScrollViewer>
-                <Grid Grid.Column="0" Grid.Row="0"
+                        <Canvas Name="mapa" AllowDrop="True" DragOver="Canvas_DragOver" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                            <Canvas.Background>
+                                <VisualBrush  >
+                                    <VisualBrush.Visual>
+                                        <Image  x:Name="myImage" Stretch="None"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Canvas.Background>
+                        </Canvas>
+                    </ScrollViewer>
+                    <Grid Grid.Column="0" Grid.Row="0"
                     x:Name="theScrollViewer2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="2*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <ScrollViewer Grid.Column="0" Grid.Row="0"
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <ScrollViewer Grid.Column="0" Grid.Row="0"
                     x:Name="theScrollViewer14"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                        <Canvas Name="mapa14" AllowDrop="True" DragOver="Canvas_DragOver14" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop14" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
-                            <Canvas.Background>
-                                <VisualBrush  >
-                                    <VisualBrush.Visual>
-                                        <Image  x:Name="myImage14" Stretch="None"/>
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </Canvas.Background>
-                        </Canvas>
-                    </ScrollViewer>
-                    <ScrollViewer Grid.Column="1" Grid.Row="0"
+                            <Canvas Name="mapa14" AllowDrop="True" DragOver="Canvas_DragOver14" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop14" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                                <Canvas.Background>
+                                    <VisualBrush  >
+                                        <VisualBrush.Visual>
+                                            <Image  x:Name="myImage14" Stretch="None"/>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Canvas.Background>
+                            </Canvas>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Column="1" Grid.Row="0"
                     x:Name="theScrollViewer24"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                        <Canvas Name="mapa24" AllowDrop="True" DragOver="Canvas_DragOver24" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop24" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
-                            <Canvas.Background>
-                                <VisualBrush  >
-                                    <VisualBrush.Visual>
-                                        <Image  x:Name="myImage24" Stretch="None"/>
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </Canvas.Background>
-                        </Canvas>
-                    </ScrollViewer>
-                    <ScrollViewer Grid.Column="0" Grid.Row="1"
+                            <Canvas Name="mapa24" AllowDrop="True" DragOver="Canvas_DragOver24" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop24" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                                <Canvas.Background>
+                                    <VisualBrush  >
+                                        <VisualBrush.Visual>
+                                            <Image  x:Name="myImage24" Stretch="None"/>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Canvas.Background>
+                            </Canvas>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Column="0" Grid.Row="1"
                     x:Name="theScrollViewer34"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                        <Canvas Name="mapa34" AllowDrop="True" DragOver="Canvas_DragOver34" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop34" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
-                            <Canvas.Background>
-                                <VisualBrush  >
-                                    <VisualBrush.Visual>
-                                        <Image  x:Name="myImage34" Stretch="None"/>
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </Canvas.Background>
-                        </Canvas>
-                    </ScrollViewer>
-                    <ScrollViewer Grid.Column="1" Grid.Row="1"
+                            <Canvas Name="mapa34" AllowDrop="True" DragOver="Canvas_DragOver34" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop34" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                                <Canvas.Background>
+                                    <VisualBrush  >
+                                        <VisualBrush.Visual>
+                                            <Image  x:Name="myImage34" Stretch="None"/>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Canvas.Background>
+                            </Canvas>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Column="1" Grid.Row="1"
                     x:Name="theScrollViewer44"
                     HorizontalScrollBarVisibility="Auto"
                     VerticalScrollBarVisibility="Auto">
-                        <Canvas Name="mapa44" AllowDrop="True" DragOver="Canvas_DragOver44" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop44" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
-                            <Canvas.Background>
-                                <VisualBrush  >
-                                    <VisualBrush.Visual>
-                                        <Image  x:Name="myImage44" Stretch="None"/>
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </Canvas.Background>
-                        </Canvas>
-                    </ScrollViewer>
-                </Grid>
-                <Grid  Grid.Column="0" Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <ScrollViewer Grid.Column="0" Grid.Row="0"
+                            <Canvas Name="mapa44" AllowDrop="True" DragOver="Canvas_DragOver44" MouseLeftButtonDown="Canvas_StartDrag" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop44" MouseMove="Canvas_MouseMove" Width="{Binding ActualWidth, ElementName=myImage}" Height="{Binding ActualHeight, ElementName=myImage}">
+                                <Canvas.Background>
+                                    <VisualBrush  >
+                                        <VisualBrush.Visual>
+                                            <Image  x:Name="myImage44" Stretch="None"/>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Canvas.Background>
+                            </Canvas>
+                        </ScrollViewer>
+                    </Grid>
+                    <Grid  Grid.Column="0" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <ScrollViewer Name="detaljiScroll" Grid.Column="0" Grid.Row="0"
                     HorizontalScrollBarVisibility="Disabled"
                     VerticalScrollBarVisibility="Auto">
-                    <ContentPresenter Content="{Binding ElementName=trvLokali,Path=SelectedItem}">
-                        <ContentPresenter.Resources>
-                            <DataTemplate DataType="{x:Type local:Lokal}">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
+                            <Grid Name="detalji">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" Name="red3" />
+                                    <RowDefinition Height="Auto" Name="red4" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Column="0" Grid.Row="0">Oznaka:</TextBlock>
-                                    <TextBlock Grid.Column="0" Grid.Row="1">Naziv:</TextBlock>
-                                    <TextBlock Grid.Column="0" Grid.Row="2">Opis:</TextBlock>
-                                    <TextBlock Grid.Column="0" Grid.Row="3">Kapacitet:</TextBlock>
-                                    <TextBlock Grid.Column="0" Grid.Row="4">Datum otvaranja:</TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="0">Oznaka:</TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="1">Naziv:</TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="2">Opis:</TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="3" Name="LabelaKapacitet">Kapacitet:</TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="4" Name="LabelaDatum">Datum otvaranja:</TextBlock>
 
-                                        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True"  Background="WhiteSmoke"></TextBox>
-                                        <TextBox Grid.Column="1" Grid.Row="1" Name="NazivLokala">
-                                        <TextBox.Text>
-                                            <Binding Path="Naziv" UpdateSourceTrigger="Explicit">
-                                                <Binding.ValidationRules>
-                                                    <val:StringValidationRule ValidationStep="RawProposedValue"/>
-                                                </Binding.ValidationRules>
-                                            </Binding>
-                                        </TextBox.Text>
-                                        <Validation.ErrorTemplate>
-                                            <ControlTemplate>
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition />
-                                                    </Grid.RowDefinitions>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition />
-                                                        <ColumnDefinition Width="Auto" />
-                                                    </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True"  Background="WhiteSmoke"></TextBox>
+                                <TextBox Grid.Column="1" Grid.Row="1" Name="NazivLokala">
+                                    <TextBox.Text>
+                                        <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding.ValidationRules>
+                                                <val:StringValidationRule ValidationStep="RawProposedValue"/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                    <Validation.ErrorTemplate>
+                                        <ControlTemplate>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
 
-                                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </Validation.ErrorTemplate>
-                                    </TextBox>
-                                    <TextBox Grid.Column="1" Grid.Row="2">
-                                        <TextBox.Text>
-                                            <Binding Path="Opis" UpdateSourceTrigger="Explicit">
-                                                
-                                            </Binding>
-                                        </TextBox.Text>
-                                    </TextBox>
-                                    <TextBox Grid.Column="1" Grid.Row="3" Name="KapacitetLokala">
-                                        <TextBox.Text>
-                                            <Binding Path="Kapacitet" UpdateSourceTrigger="Explicit">
-                                                <Binding.ValidationRules>
-                                                    <val:IntegerValidationRule ValidationStep="RawProposedValue"/>
-                                                </Binding.ValidationRules>
-                                            </Binding>
-                                        </TextBox.Text>
-                                        <Validation.ErrorTemplate>
-                                            <ControlTemplate>
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition />
-                                                    </Grid.RowDefinitions>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition />
-                                                        <ColumnDefinition Width="Auto" />
-                                                    </Grid.ColumnDefinitions>
+                                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Validation.ErrorTemplate>
+                                </TextBox>
+                                <TextBox Grid.Column="1" Grid.Row="2">
+                                    <TextBox.Text>
+                                        <Binding Path="Opis" UpdateSourceTrigger="PropertyChanged">
 
-                                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </Validation.ErrorTemplate>
-                                    </TextBox>
-                                    <DatePicker x:Name="DatumLokala" Grid.Column="1" Grid.Row="4" SelectedDateFormat="Long" FirstDayOfWeek="Monday" DisplayDateStart="1/01/1970" DisplayDateEnd="5/31/2016">
-                                        <DatePicker.SelectedDate >
-                                                <Binding Path="Datum" UpdateSourceTrigger="Explicit">
-                                                    
-                                                </Binding>
-                                        </DatePicker.SelectedDate>
-                                    </DatePicker>
-                                    <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
-                                    <Button FontFamily="Arial" FontSize="13" Width="150" Margin="0 5 0 0" HorizontalAlignment="Center" Click="Prikazi_Tabela">Prikazi u tabeli</Button>
-                                        <Button FontFamily="Arial" FontSize="13" Width="100" Margin="0 5 0 0" HorizontalAlignment="Center" Click="SaveLokal"></Button>
-                                    </StackPanel>
-                                </Grid>
-                            </DataTemplate>
-                            <DataTemplate DataType="{x:Type local:TipLokala}">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Grid.Row="0">Oznaka:</TextBlock>
-                                    <TextBlock Grid.Column="0" Grid.Row="1">Naziv:</TextBlock>
-                                    <TextBlock Grid.Column="0" Grid.Row="2">Opis:</TextBlock>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                                <TextBox Grid.Column="1" Grid.Row="3" Name="KapacitetLokala">
+                                    <TextBox.Text>
+                                        <Binding Path="Kapacitet" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding.ValidationRules>
+                                                <val:IntegerValidationRule ValidationStep="RawProposedValue"/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                    <Validation.ErrorTemplate>
+                                        <ControlTemplate>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
 
-                                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True"  Background="WhiteSmoke"></TextBox>
-                                    <TextBox Grid.Column="1" Grid.Row="1" Name="NazivTipa">
-                                        <TextBox.Text>
-                                            <Binding Path="Naziv" UpdateSourceTrigger="Explicit">
-                                                <Binding.ValidationRules>
-                                                    <val:StringValidationRule ValidationStep="RawProposedValue"/>
-                                                </Binding.ValidationRules>
-                                            </Binding>
-                                        </TextBox.Text>
-                                        <Validation.ErrorTemplate>
-                                            <ControlTemplate>
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition />
-                                                    </Grid.RowDefinitions>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition />
-                                                        <ColumnDefinition Width="Auto" />
-                                                    </Grid.ColumnDefinitions>
+                                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Validation.ErrorTemplate>
+                                </TextBox>
+                                <DatePicker x:Name="DatumLokala" Grid.Column="1" Grid.Row="4" SelectedDateFormat="Long" FirstDayOfWeek="Monday" DisplayDateStart="1/01/1970" DisplayDateEnd="5/31/2016">
+                                    <DatePicker.SelectedDate >
+                                        <Binding Path="Datum" UpdateSourceTrigger="PropertyChanged">
 
-                                                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </Validation.ErrorTemplate>
-                                    </TextBox>
-                                    <TextBox Grid.Column="1" Grid.Row="2" Name="OpisTipa">
-                                        <TextBox.Text>
-                                            <Binding Path="Opis" UpdateSourceTrigger="Explicit">
-                                                    
-                                            </Binding>
-                                        </TextBox.Text>
-                                    </TextBox>
-                                    <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-                                        <Button FontFamily="Arial" FontSize="13" Width="150" Margin="0 5 0 0" HorizontalAlignment="Center" Click="Prikazi_Tabelu_Tipova">Prikazi u tabeli</Button>
-                                        <Button FontFamily="Arial" FontSize="13" Width="100" Margin="0 5 0 0" HorizontalAlignment="Center" Click="SaveTip">Sacuvaj</Button>
-                                    </StackPanel>
-                                </Grid>
-                            </DataTemplate>
-                        </ContentPresenter.Resources>
-                    </ContentPresenter>
-                </ScrollViewer>
-                <Grid  Grid.Column="1" Grid.Row="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="25"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Grid.Row="0">Filter za mapu:</TextBlock>
-                        <TextBox Grid.Column="1" Grid.Row="0" Name="filter" Width="100"></TextBox>
-                        <Button Grid.Column="2" Grid.Row="0" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Filter">Filtriraj</Button>
-                        <Button Grid.Column="2" Grid.Row="1" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="RemoveFilter">Ukloni filter</Button>
-                        <TextBlock Grid.Column="0" Grid.Row="2">Pronadji na mapi:</TextBlock>
-                        <TextBox Grid.Column="1" Grid.Row="2" Name="pretraga" Width="100"></TextBox>
-                        <Button Grid.Column="2" Grid.Row="2" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Pretrazi">Pronadji</Button>
+                                        </Binding>
+                                    </DatePicker.SelectedDate>
+                                </DatePicker>
+                                <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+                                    <Button FontFamily="Arial" FontSize="13" Width="150" Margin="0 5 0 0" HorizontalAlignment="Center" Click="Prikazi_Stavec">Prikazi u tabeli</Button>
+                                    <Button FontFamily="Arial" FontSize="13" Width="100" Margin="0 5 0 0" HorizontalAlignment="Center" Click="SaveStavec">Sacuvaj</Button>
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
+                        <Grid  Grid.Column="1" Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0">Filter za mapu:</TextBlock>
+                            <TextBox Grid.Column="1" Grid.Row="0" Name="filter" Width="100"></TextBox>
+                            <Button Grid.Column="2" Grid.Row="0" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Filter">Filtriraj</Button>
+                            <Button Grid.Column="2" Grid.Row="1" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="RemoveFilter">Ukloni filter</Button>
+                            <TextBlock Grid.Column="0" Grid.Row="2">Pronadji na mapi:</TextBlock>
+                            <TextBox Grid.Column="1" Grid.Row="2" Name="pretraga" Width="100"></TextBox>
+                            <Button Grid.Column="2" Grid.Row="2" FontFamily="Arial" FontSize="13" Width="70" Margin="0 2 0 2" Click="Pretrazi">Pronadji</Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+        </DockPanel>
     </DockPanel>
 </Window>

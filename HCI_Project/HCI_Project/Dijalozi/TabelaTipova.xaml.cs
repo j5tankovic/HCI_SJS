@@ -123,13 +123,15 @@ namespace HCI_Project.Dijalozi
 
         private void sacuvajTekuci(object sender, RoutedEventArgs args)
         {
-            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (tip_za_izmenu == null)
+                return;
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni da zelite da sacuvate izmene za tip sa oznakom " + tip_za_izmenu.Oznaka +"?", "Izmena tipa", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 this.tip_za_izmenu.setTipAs(this.tekuci_tip);
                 this.parent.repoTipovi.memorisi();
 
-                System.Windows.MessageBox.Show("Uspesne izmene!");
+                System.Windows.MessageBox.Show("Uspesna izmena!", "Izmena tipa");
             }
         }
 

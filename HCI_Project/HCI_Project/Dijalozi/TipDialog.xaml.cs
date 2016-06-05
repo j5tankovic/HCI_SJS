@@ -57,6 +57,11 @@ namespace HCI_Project.Dijalozi
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs args)
         {
+            string poruka = kreiranje ? "Da li ste sigurni da zelite da unesete ovaj tip?" : "Da li ste sigurni da zelite da izmenite ovaj tip?";
+            string naslov = kreiranje ? "Unos tipa" : "Izmena tipa";
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(poruka, naslov, System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.No)
+                return;
             if (!kreiranje)
             {
                 this.za_izmenu.setTipAs(this.tipLokala);
@@ -70,7 +75,7 @@ namespace HCI_Project.Dijalozi
                 this.Close();
             }
             else
-                System.Windows.MessageBox.Show("Vec postoji tip sa tom oznakom! Molimo izaberite drugu.");
+                System.Windows.MessageBox.Show("Vec postoji tip sa tom oznakom! Molimo izaberite drugu.", "Greska!");
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs args)

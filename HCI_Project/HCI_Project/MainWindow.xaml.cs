@@ -40,8 +40,17 @@ namespace HCI_Project
         Point _DragStart = new Point();
         Point _CanvasDragStart = new Point();
 
+        private Lokal treeViewSelectedLokal;
+        private Lokal working_lokal = new Lokal();
+        private TipLokala treeViewSelectedTip;
+        private TipLokala working_tip = new TipLokala();
+        private int slc = 0; // 0 - nista; 1 - tip; 2 - lokal
+
         public MainWindow()
         {
+            this.Resources.Add("working_lokal", working_lokal);
+            this.Resources.Add("working_tip", working_tip);
+            this.Resources.Add("working", null);
             InitializeComponent();
             this.DataContext = this;
             repoTipovi = new RepoTipovi();
@@ -87,6 +96,8 @@ namespace HCI_Project
             JpegBitmapDecoder decoder4 = new JpegBitmapDecoder(myUri4, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
             BitmapSource bitmapSource4 = decoder4.Frames[0];
             myImage44.Source = bitmapSource4;
+
+            detaljiScroll.Visibility = Visibility.Hidden;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -1133,6 +1144,43 @@ namespace HCI_Project
 
         }
 
+        private void TreeViewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                TreeView trv = sender as TreeView;
+                TreeViewItem trv_item = FindAncestor<TreeViewItem>((DependencyObject)e.OriginalSource);
+                if (treeViewItem != null)
+                {
+                    object help = treeView.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+
+                    //Find its parent
+                    ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
+                    //Get the bound object.
+
+                    object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+                    if (item != null)
+                    {
+                        if (item.GetType() == typeof(Lokal))
+                        {
+                            Lokal l = (Lokal)item;
+                            LokalDialog dialog = new LokalDialog(this, l);
+                            dialog.InitializeComponent();
+                            dialog.ShowDialog();
+                        }
+                        else if (item.GetType() == typeof(TipLokala))
+                        {
+                            TipLokala l = (TipLokala)item;
+                            TipDialog dialog = new TipDialog(this, l);
+                            dialog.InitializeComponent();
+                            dialog.ShowDialog();
+                        }
+
+                    }
+                }
+            }
+        }
+
         private void imageDoubleClickHandler(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left && e.ClickCount == 2)
@@ -1730,34 +1778,38 @@ namespace HCI_Project
 
         private void Promeni_Mapu(object sender, RoutedEventArgs e)
         {
-            var myValue = ((Button)sender).Tag;
+            string myValue = "";
+            if (sender.GetType() == typeof(Button))
+                myValue = (string)((Button)sender).Tag;
+            else if (sender.GetType() == typeof(MenuItem))
+                myValue = (string)((MenuItem)sender).Tag;
             Uri myUri;
 
             ObrisiDecu();
             filter.Text = "";
             pretraga.Text = "";
 
-            if ((string)myValue == "1") {
+            if (myValue == "1") {
                 myUri = new Uri("../../map.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "1";
                 theScrollViewer.Visibility = Visibility.Visible;
                 theScrollViewer2.Visibility = Visibility.Hidden;
             }
-            else if ((string)myValue == "2")
+            else if (myValue == "2")
             {
                 myUri = new Uri("../../map2.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "2";
                 theScrollViewer.Visibility = Visibility.Visible;
                 theScrollViewer2.Visibility = Visibility.Hidden;
             }
-            else if ((string)myValue == "3")
+            else if (myValue == "3")
             {
                 myUri = new Uri("../../map3.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "3";
                 theScrollViewer.Visibility = Visibility.Visible;
                 theScrollViewer2.Visibility = Visibility.Hidden;
             }
-            else if ((string)myValue == "4")
+            else if (myValue == "4")
             {
                 myUri = new Uri("../../map4.jpg", UriKind.RelativeOrAbsolute);
                 active_map = "4";
@@ -1920,17 +1972,112 @@ namespace HCI_Project
             }
             return false;
         }
-
+        
         private void SaveLokal(object sender, RoutedEventArgs args)
         {
-            
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                
+                treeViewSelectedLokal.Naziv = working_lokal.Naziv;
+                treeViewSelectedLokal.Opis = working_lokal.Opis;
+                treeViewSelectedLokal.Kapacitet = working_lokal.Kapacitet;
+                treeViewSelectedLokal.Datum = working_lokal.Datum;
+                
+                
+            }
             
         }
 
         private void SaveTip(object sender, RoutedEventArgs args)
         {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Da li ste sigurni?", "Update Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
 
+                treeViewSelectedTip.setTipAs(working_tip);
+                
+            }
         }
+        
+        private void TreeViewSelectionChanged(object sender, RoutedPropertyChangedEventArgs<Object> args)
+        {
+            treeView = sender as TreeView;
+            //treeViewItem = FindAncestor<TreeViewItem>((DependencyObject)args.OriginalSource);
+
+            if (treeViewItem != null)
+            {
+
+                object help = treeView.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+
+                //Find its parent
+                ItemsControl parent = FindParent<ItemsControl>(treeViewItem);
+                //Get the bound object.
+
+                object item = parent.ItemContainerGenerator.ItemFromContainer(treeViewItem);
+                if (item != null)
+                {
+                    if (item.GetType() == typeof(Lokal))
+                    {
+                        detaljiScroll.Visibility = Visibility.Visible;
+                        treeViewSelectedLokal = (Lokal)item;
+                        working_lokal.setValuesAs(Lokal.getCopyLokal(treeViewSelectedLokal));
+                        detalji.SetBinding(Grid.DataContextProperty, new Binding()
+                        {
+                            Source = working_lokal
+                        });
+                        DatumLokala.Visibility = Visibility.Visible;
+                        LabelaDatum.Visibility = Visibility.Visible;
+                        KapacitetLokala.Visibility = Visibility.Visible;
+                        LabelaKapacitet.Visibility = Visibility.Visible;
+                        slc = 1;
+                    }
+                    else if (item.GetType() == typeof(TipLokala))
+                    {
+                        detaljiScroll.Visibility = Visibility.Visible;
+                        treeViewSelectedTip = (TipLokala)item;
+                        working_tip.setTipAs(TipLokala.getCopyTip(treeViewSelectedTip));
+                        detalji.SetBinding(Grid.DataContextProperty, new Binding()
+                        {
+                            Source = working_tip
+                        });
+
+                        DatumLokala.Visibility = Visibility.Hidden;
+                        LabelaDatum.Visibility = Visibility.Hidden;
+                        KapacitetLokala.Visibility = Visibility.Hidden;
+                        LabelaKapacitet.Visibility = Visibility.Hidden;
+                        slc = 2;
+                    }
+                    else
+                        slc = 0;
+                }
+                else
+                {
+                    treeViewSelectedLokal.setValuesAs(new Lokal());
+                    treeViewSelectedTip.setTipAs(new TipLokala());
+                    slc = 0;
+                }
+
+            }
+        }
+
+        private void Prikazi_Stavec(object sender, RoutedEventArgs args)
+        {
+            if (slc == 1)
+                Prikazi_Tabela(null, null);
+            else if (slc == 2)
+                Prikazi_Tabelu_Tipova(null, null);
+        }
+
+        private void SaveStavec(object sender, RoutedEventArgs args)
+        {
+            if (slc == 1)
+                SaveLokal(null, null);
+            if (slc == 2)
+                SaveTip(null, null);
+        }
+
+        
 
     }
 }
