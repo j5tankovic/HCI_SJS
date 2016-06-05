@@ -1,0 +1,161 @@
+﻿<Page x:Class="HCI_Project.Help.HelpDialogLokal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="500"
+	  Title="HelpDialogLokal">
+
+    <FlowDocumentReader ViewingMode="Scroll">
+        <FlowDocument>
+            <Paragraph TextAlignment="Center" FontSize="14pt">
+                <Bold>Dodavanje novog lokala</Bold>
+            </Paragraph>
+            <Paragraph FontSize="10pt">
+                Ovaj dijalog je namenjen unosu novog lokala.
+            </Paragraph>
+            <Paragraph>
+                <Image Source="/HCI_Project;component/Resources/dodavanjeLokala.png" Width="450"/>
+            </Paragraph>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Oznaka
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovo polje je potrebno uneti oznaku novog lokala. Oznaka se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Oznaka lokala je jedinstvena i obavezna</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Naziv
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovo polje je potrebno uneti naziv novog lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Unos naziva lokala je obavezan</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Opis
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovo polje je potrebno uneti opis lokala. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Unos opisa lokala nije obavezan</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Tip lokala
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph FontSize="10pt">
+                    <Italic>Oznaka tipa</Italic>
+                </Paragraph>
+                <Section Margin="20,0,20,0">
+                    <Paragraph>U ovo polje je potrebno uneti oznaku tipa lokala. Moguće je i preko dugmeta
+                        <Italic>Nađi</Italic> izvšiti pregled vih tipova.
+                    </Paragraph>
+                </Section>
+                <Paragraph FontSize="10pt">
+                    <Italic>Naziv tipa</Italic>
+                </Paragraph>
+                <Section Margin="20,0,20,0">
+                    <Paragraph>U ovo polje nije moguće uneti naziv tipa. Nakon što se prethodno unese oznaka tipa, u poljima se pojavljuju naziv i ikonica tipa.
+                    </Paragraph>
+                </Section>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Status za služenje alkohola
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>
+                    Izbor sa služenje alkohola se vrši preko odabira ponudjenih vrednosti,koje je moguće videti klikom na strlicu tog polja.
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Dostupan za hendikepirane
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>
+                    Klikom na opcije
+                    <Italic>Da/Ne</Italic> vrši se izbor dostupnosti lokala za hendikepirane
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Dozvoljeno pušenje
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>
+                    Klikom na opcije
+                    <Italic>Da/Ne</Italic> vrši se izbor dozvole za pušenje u lokalu
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Prima rezervacije
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>
+                    Klikom na opcije
+                    <Italic>Da/Ne</Italic> vrši se izbor primanja rezervacija.
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Kapacitet
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>
+                    U ovo polje je potrebno uneti kapacitet lokala. Moguće je uneti samo brojčane vrednosti. Unos kapaciteta lokala je obavezan.
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Datum otvaranja
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>
+                    Klikom na sliku kalendara u ovom polju, vrši se odabir datuma otvaranja lokala.
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Ikonica
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>Izbor ikonice lokala se vrši preko dugmeta
+                    <Italic>Izaberi ikonicu</Italic> nakon čega se pojavljuje dijalog za izbor ikonice.
+                </Paragraph>
+                <Paragraph>Ukoliko se ne odabere ikonica lokala, njemu će se dodeliti ikonica njegovog tipa.
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Etikete
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>Klikom na dugme
+                    <Italic>Taguj lokal</Italic> otvara se novi dijalog za manipulisanje etiketa lokala.
+                </Paragraph>
+                <Paragraph>
+                    <Image Width="300" Source="/HCI_Project;component/Resources/etikete.png"></Image>
+                </Paragraph>
+                <Paragraph>U dijalogu za tagovanje lokala moguće je dodati novu etiketu ili ukloniti neku ako je već dodata.</Paragraph>
+                <Paragraph>
+                Dodavanje nove etikete je moguće izvršiti klikom na ikonicu pored svake etikete
+                    <Image Width="20" Height="20" Source="/HCI_Project;component/Resources/add.png"/>
+                </Paragraph>
+                <Paragraph>
+                    Uklanjanje dodate etikete je moguće izvršiti klikom na ikonicu pored svake dodate etikete
+                    <Image Width="20" Height="20" Source="/HCI_Project;component/Resources/remove.png"/>
+                </Paragraph>
+                <Paragraph>
+                    Klikom na dugme 
+                    <Italic>Potvrdi</Italic> se čuvaju trenutno dodate etikete za lokal.
+                </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt">
+                Sačuvaj/Odustani
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>Klikom na dugme
+                    <Italic>Sačuvaj</Italic> se sve unesene vrednosti čuvaju i u sistem se beleži nova etiketa.
+                    Na ovo dugme nije moguće kliknnuti ukoliko sva obavezna polja nisu popunjena.
+                </Paragraph>
+                <Paragraph>Klikom na dugme
+                    <Italic>Odustani</Italic> ovaj dijalog se zatvara.
+                </Paragraph>
+            </Section>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

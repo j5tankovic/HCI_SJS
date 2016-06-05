@@ -104,6 +104,24 @@
     <Compile Include="Dijalozi\TabelaTipova.xaml.cs">
       <DependentUpon>TabelaTipova.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Help\HelpDialogEtiketa.xaml.cs">
+      <DependentUpon>HelpDialogEtiketa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpDialogLokal.xaml.cs">
+      <DependentUpon>HelpDialogLokal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpDialogTipLokala.xaml.cs">
+      <DependentUpon>HelpDialogTipLokala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpNavigationWindow.xaml.cs">
+      <DependentUpon>HelpNavigationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\PrikazPodataka.xaml.cs">
+      <DependentUpon>PrikazPodataka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\UnosPodataka.xaml.cs">
+      <DependentUpon>UnosPodataka.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Library\CustomLokalConverter.cs" />
     <Compile Include="NotBeans\Etiketa.cs" />
     <Compile Include="NotBeans\Lokal.cs" />
@@ -148,6 +166,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dijalozi\TipDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\HelpDialogEtiketa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\HelpDialogLokal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\HelpDialogTipLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\HelpNavigationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\PrikazPodataka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\UnosPodataka.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,9 +277,14 @@
     <Resource Include="map4.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Help\DodavanjeEtikete.htm" />
-    <Content Include="Help\DodavanjeLokala.htm" />
-    <Content Include="Help\DodavanjeTipova.htm" />
+    <Resource Include="Resources\dodavanjeTipa.png" />
+    <Resource Include="Resources\dodavanjeEtikete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dodavanjeLokala.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\etikete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

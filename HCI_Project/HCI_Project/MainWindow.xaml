@@ -4,8 +4,9 @@
         xmlns:local="clr-namespace:HCI_Project.NotBeans"
         xmlns:loc="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
-        Title="MainWindow" Height="680" Width="1360"
-        Closing="MainWindow_Closing" WindowState="Maximized" ResizeMode="NoResize" Closed="MainWindow_Closed">
+        Title="MainWindow" Height="680" Width="1360" Background="#acb9e8"
+        Closing="MainWindow_Closing" WindowState="Maximized" Closed="MainWindow_Closed"
+        WindowStartupLocation="CenterScreen">
         
     <Window.Resources>
         <loc:CustomLokalConverter x:Key="CustomLokalConverter" />
@@ -36,6 +37,7 @@
                 <Separator/>
                 <MenuItem Header="Sve _4 mape" Click="Promeni_Mapu" Tag="5"/>
             </MenuItem>
+            <MenuItem Header="_Pomoc" Click="PrikaziPomoc"/>
         </Menu>
         <DockPanel DockPanel.Dock="Bottom" Height="Auto">
             <Grid DockPanel.Dock="Top">
@@ -47,7 +49,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Row="0" Background="#A2A1AC">
+                <Grid Grid.Row="0" Background="#acb9e8">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
