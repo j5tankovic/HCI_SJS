@@ -187,6 +187,10 @@ namespace HCI_Project.Dijalozi
                 System.Windows.MessageBox.Show("Niste izabrali tip lokala.", "Greska!");
                 return false;
             }
+            if (lokal.Slika == null)
+            {
+                lokal.Slika = lokal.Tip.Slika;
+            }
             if (comboAlkohol.SelectedItem.Equals(""))
             {
                 System.Windows.MessageBox.Show("Niste izabrali nacin sluzenja alkohola.", "Greska!");

@@ -100,8 +100,14 @@
             <TextBox Grid.Column="1" Grid.Row="2" Margin="5 5 10 5" Text="{Binding Path=Opis}"  Height="60" VerticalAlignment="Bottom"></TextBox>
 
             <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="Black"  Width="90" HorizontalAlignment="Right" Margin="10 0 10 5">
-                <Image Name="Ikonica" Source="{Binding Path=Slika}"/>
+                <Image Name="Ikonica">
+                    <Image.Source>
+                        <Binding Path="Slika">
+                        </Binding>
+                    </Image.Source>
+                </Image>
             </Border>
+
             <Button Grid.Column="1" Grid.Row="4" Width="90" HorizontalAlignment="Right" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" Click="izaberiFajlClicked">Izaberi ikonicu</Button>
             <StackPanel Grid.Column="1" Grid.Row="6"  Margin="5,0,10,5" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Name="saveBtn" Margin="0 0 5 0" FontFamily="Arial" FontSize="13" Padding="5" Click="ButtonPotvrdiClicked" Content="Sacuvaj">

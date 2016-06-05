@@ -63,6 +63,8 @@ namespace HCI_Project.Dijalozi
 
         private void ButtonPotvrdiClicked(object sender, RoutedEventArgs args)
         {
+            if (!checkForm())
+                return;
             string poruka = kreiranje ? "Da li ste sigurni da zelite da unesete ovaj tip?" : "Da li ste sigurni da zelite da izmenite ovaj tip?";
             string naslov = kreiranje ? "Unos tipa" : "Izmena tipa";
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(poruka, naslov, System.Windows.MessageBoxButton.YesNo);
@@ -131,6 +133,16 @@ namespace HCI_Project.Dijalozi
         {
             oznakaTipa.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
             nazivTipa.GetBindingExpression(System.Windows.Controls.TextBox.TextProperty).UpdateSource();
+        }
+
+        private bool checkForm()
+        {
+            if (tipLokala.Slika == null)
+            {
+                System.Windows.MessageBox.Show("Niste izabrali ikonicu.", "Greska!");
+                return false;
+            }
+            return true;
         }
 
         private void EnterClicked_Executed(object sender, ExecutedRoutedEventArgs e)
