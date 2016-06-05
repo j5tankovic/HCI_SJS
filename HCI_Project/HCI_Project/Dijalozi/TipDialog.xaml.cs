@@ -71,6 +71,7 @@ namespace HCI_Project.Dijalozi
             if (!kreiranje)
             {
                 this.za_izmenu.setTipAs(this.tipLokala);
+                System.Windows.MessageBox.Show("Izmena uspesna!", "Izmena tipa");
                 this.Close();
                 return;
             }

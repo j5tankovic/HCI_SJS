@@ -32,7 +32,6 @@ namespace HCI_Project.NotBeans
 
         public void setTipAs(TipLokala t)
         {
-            this.Lokali = t.Lokali;
             this.Naziv = t._naziv;
             this.Opis = t._opis;
             this.Oznaka = t._oznaka;
