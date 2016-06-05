@@ -95,6 +95,9 @@
     <Compile Include="Dijalozi\Etikete.xaml.cs">
       <DependentUpon>Etikete.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dijalozi\LogInDialog.xaml.cs">
+      <DependentUpon>LogInDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dijalozi\TabelaEtiketa.xaml.cs">
       <DependentUpon>TabelaEtiketa.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
     <Page Include="Dijalozi\Etikete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dijalozi\LogInDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Dijalozi\LokalDialog.xaml">
       <SubType>Designer</SubType>

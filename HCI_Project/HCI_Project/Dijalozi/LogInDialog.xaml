@@ -1,7 +1,7 @@
 ﻿<Window x:Class="HCI_Project.Dijalozi.LogInDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Prijava na sistem" Height="151" Width="424">
+        Title="Prijava na sistem" Height="151" Width="424" Closed="loginClosed">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,11 +16,11 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Margin="10 5 5 5" FontFamily="Arial" FontSize="13">Korisničko ime: </TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="10 5 5 5" FontFamily="Arial" FontSize="13">Šifra: </TextBlock>
         
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="10 5 5 5"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="10 5 5 5"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="10 5 5 5" Name="KorisnickoIme"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10 5 5 5" Name="Sifra"></TextBox>
         
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
-            <Button Margin="10" FontFamily="Arial" FontSize="13">Uloguj se</Button>
+            <Button Margin="10" FontFamily="Arial" FontSize="13" Click="UlogujSe">Uloguj se</Button>
         </StackPanel>
     </Grid>
 </Window>
