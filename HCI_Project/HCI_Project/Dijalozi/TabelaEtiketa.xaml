@@ -4,7 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:cmd="clr-namespace:HCI_Project.Komande"
-        Title="Tabela etiketa" Height="300" Width="350"
+        Title="Tabela etiketa" Height="300" Width="400"
         MinWidth="350">
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.DeleteSomething" Executed="DeleteSomething_Executed"></CommandBinding>

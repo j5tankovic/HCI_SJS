@@ -1981,7 +1981,7 @@ namespace HCI_Project
                            theScrollViewer34.ScrollToVerticalOffset(lokal.PozicijaY);
                        }
                    }
-               } foreach (UIElement i in mapa14.Children)
+               } foreach (UIElement i in mapa44.Children)
                {
                    Image img = (Image)i;
                    if (img.DataContext != null)
