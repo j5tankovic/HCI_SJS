@@ -1,0 +1,63 @@
+﻿<Page x:Class="HCI_Project.Help.HelpTabelaTipova"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="500"
+	Title="HelpTabelaTipova">
+
+    <FlowDocumentReader ViewingMode="Scroll">
+        <FlowDocument>
+            <Paragraph TextAlignment="Center" FontSize="14pt">
+                <Bold>Tabelarni prikaz tipova</Bold>
+            </Paragraph>
+            <Paragraph FontSize="10pt">
+                Ovaj dijalog tabelarno prikazuje sve tipove. Moguće je izmeniti ili obrisati postojeće tipove.
+            </Paragraph>
+            <Paragraph>
+                <Image Source="/HCI_Project;component/Resources/tabelaTipova.png" Width="300"/>
+            </Paragraph>
+            <Paragraph FontSize="8pt">
+                Klikom na neki red u tabeli popunjavaju se polja u donjem delu ekrana. Odatle se mogu menjati podaci.
+            </Paragraph>
+            <Paragraph FontSize="8pt">
+                Moguće je filtrirati i pretražiti podatke u tabeli.
+            </Paragraph>
+            <Paragraph FontSize="12pt">
+                Obriši tip
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>
+                    Klikom na opciju za brisanje tipa, selektovan tip se briše iz evidencije.
+                </Paragraph>
+            </Section>
+            <Paragraph FontSize="12pt">
+                Filter
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>Unosom teksta u polje za filtriranje vrši se pretraga svih tipova koje sadrže uneseni pojam.
+                Klikom na dugme
+                    <Italic>Poništi</Italic> filter se poništava i ponovo se prikazuju svi tipovi
+                </Paragraph>
+            </Section>
+            <Paragraph FontSize="12pt">
+                Pretraga
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>Unosom teksta u polje i klikom na dugme
+                    <Italic>Traži</Italic> prikazuju se svi tipovi koji sadrže uneseni pojam.
+                </Paragraph>
+            </Section>
+            <Paragraph FontSize="12pt">
+                Sačuvaj tekuću
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>
+                    Klikom na dugme
+                    <Italic>Sačuvaj tekuću</Italic> čuvaju se sve promene ukoliko ih je bilo.
+                </Paragraph>
+            </Section>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

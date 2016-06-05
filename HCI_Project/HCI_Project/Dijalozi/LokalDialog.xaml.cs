@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using HCI_Project.NotBeans;
 using HCI_Project.Repos;
 using System.Windows.Forms;
+using HCI_Project.Help;
 
 namespace HCI_Project.Dijalozi
 {
@@ -206,7 +207,22 @@ namespace HCI_Project.Dijalozi
             return true;
         }
 
-      //  public void 
+        private void PrikaziPomoc(object sender, RoutedEventArgs args)
+        {
+            HelpNavigationWindow helpWindow = new HelpNavigationWindow();
+            helpWindow.HelpFrame.Navigate(new HelpDialogLokal());
+            helpWindow.ShowDialog();
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(System.Windows.Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HCI_Project.Help.HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HCI_Project.Help.HelpProvider.ShowHelp(str, this);
+            }
+        }
 
         
 

@@ -12,17 +12,18 @@
             </Grid.ColumnDefinitions>
 
             <TreeView>
-                <TreeViewItem Header="Unos podataka" Tag="Help/HelpDialogEtiketa.xaml">
+                <TreeViewItem Header="Aplikacija" Selected="GlavniProzor"/>
+                <TreeViewItem Header="Unos podataka">
                     <TreeViewItem Header="Dodavanje novog lokala" Selected="DodavanjeLokala" />
                     <TreeViewItem Header="Dodavanje novog tipa lokala"  Selected="DodavanjeTipa"/>
                     <TreeViewItem Header="Dodavanje nove etikete" Selected="DodavanjeEtikete"/>
                 </TreeViewItem>
-                <TreeViewItem Header="Prikaz podataka" Tag="Help/Prikaz podataka.xaml">
-                    <TreeViewItem Header="Tabela lokala"/>
-                    <TreeViewItem Header="Tabela tipova"/>
-                    <TreeViewItem Header="Tabela etiketa"/>
+                <TreeViewItem Header="Prikaz podataka">
+                    <TreeViewItem Header="Tabela lokala" Selected="TabelaLokala"/>
+                    <TreeViewItem Header="Tabela tipova" Selected="TabelaTipova" />
+                    <TreeViewItem Header="Tabela etiketa" Selected="TabelaEtiketa"/>
                 </TreeViewItem>
-                <TreeViewItem Header="Mape" Tag="Help/Mape.xaml"/>
+                <TreeViewItem Header="Mape" Selected="PrikazMapa"/>
             </TreeView>
             <GridSplitter Grid.Column="1" Width="5"/>
             <Frame Name="HelpFrame" Grid.Column="2"/>

@@ -116,6 +116,22 @@
     <Compile Include="Help\HelpNavigationWindow.xaml.cs">
       <DependentUpon>HelpNavigationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Help\HelpProvider.cs" />
+    <Compile Include="Help\HelpTabelaEtiketa.xaml.cs">
+      <DependentUpon>HelpTabelaEtiketa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpTabelaLokala.xaml.cs">
+      <DependentUpon>HelpTabelaLokala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpTabelaTipova.xaml.cs">
+      <DependentUpon>HelpTabelaTipova.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\PrikazMapa.xaml.cs">
+      <DependentUpon>PrikazMapa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Help\PrikazPodataka.xaml.cs">
       <DependentUpon>PrikazPodataka.xaml</DependentUpon>
     </Compile>
@@ -182,6 +198,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Help\HelpNavigationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\HelpTabelaEtiketa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\HelpTabelaLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\HelpTabelaTipova.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\PrikazMapa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -285,6 +321,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\etikete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\mainWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dodavanjeSvega.png" />
+    <Resource Include="Resources\mapa.png" />
+    <Resource Include="Resources\stablo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\tabelaEtiketa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TabelaLokala.png" />
+    <Resource Include="Resources\tabelaTipova.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

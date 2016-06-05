@@ -7,8 +7,17 @@
         MinWidth="500"
         Closing="TipDialog_Closing"
         Loaded="TipDialog_Loaded">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Click="PrikaziPomoc" Content="Pomoc" />
+        </ToolBar>
     <ScrollViewer>
-        <Grid>
+        <Grid DockPanel.Dock="Bottom">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="2*"/>
@@ -118,4 +127,5 @@
             </StackPanel>
         </Grid>
     </ScrollViewer>
+    </DockPanel>
 </Window>
