@@ -44,7 +44,7 @@ namespace HCI_Project.Help
                 TextRange textRange = new TextRange(helplokal.Naslov.ContentStart, helplokal.Naslov.ContentEnd);
                 if (!lokalDialog.Kreiranje)
                     textRange.Text = "Izmena lokala";
-                if (key.Equals(""))
+                if (key.Equals("index"))
                 {
                     helpWindow.HelpFrame.Navigate(helplokal);
                 }

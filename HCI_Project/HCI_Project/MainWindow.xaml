@@ -5,6 +5,7 @@
         xmlns:loc="clr-namespace:HCI_Project.Library"
         xmlns:val="clr-namespace:HCI_Project.Validacija"
         xmlns:cmd="clr-namespace:HCI_Project.Komande"
+        xmlns:l="clr-namespace:HCI_Project.Help"
         Title="Evidencija lokala" Height="680" Width="1360"
         Closing="MainWindow_Closing" WindowState="Maximized" ResizeMode="NoResize" Closed="MainWindow_Closed"
         WindowStartupLocation="CenterScreen"
@@ -30,6 +31,7 @@
         <CommandBinding Command="cmd:RoutedCommands.Mapa3" Executed="Mapa3_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Mapa4" Executed="Mapa4_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Sve4Mape" Executed="Sve4Mape_Executed"></CommandBinding>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -52,7 +54,7 @@
                 <Separator/>
                 <MenuItem Header="Sve _4 mape" Click="Promeni_Mapu" Tag="5" InputGestureText="Ctrl+0"/>
             </MenuItem>
-            <MenuItem Header="_Pomoc" Click="PrikaziPomoc"/>
+            <MenuItem Header="Pomoć" Click="PrikaziPomoc"/>
         </Menu>
         <DockPanel DockPanel.Dock="Bottom" Height="Auto">
             <Grid DockPanel.Dock="Top">

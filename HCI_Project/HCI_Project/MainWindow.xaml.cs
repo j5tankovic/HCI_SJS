@@ -1540,6 +1540,15 @@ namespace HCI_Project
         {
             changeMap("0");
         }
+
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            HelpNavigationWindow helpNavigation = new HelpNavigationWindow();
+            helpNavigation.HelpFrame.Navigate(new MainPage());
+            helpNavigation.ShowDialog();
+
+        }
         
 
     }

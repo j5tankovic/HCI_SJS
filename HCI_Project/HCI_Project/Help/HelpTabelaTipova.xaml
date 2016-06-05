@@ -49,27 +49,27 @@
                     <Italic>Traži</Italic> prikazuju se svi tipovi koji sadrže uneseni pojam.
                 </Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Oznaka">
                 Oznaka
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovom polju je prikazana oznaka selektovang tipa lokala. Nije moguće vršiti promene nad ovim poljem.a</Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Naziv">
                 Naziv
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti naziv novog tipa lokala. Naziv se može sastojati od slovnih,specijalnih karaktera i brojki.
                 Unos naziva tipa je obavezan</Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Opis">
                 Opis
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti opis tipa. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
                 Unos opisa tipa nije obavezan</Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Ikonica">
                 Ikonica
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -78,12 +78,12 @@
                 </Paragraph>
             </Section>
             <Paragraph FontSize="12pt">
-                Sačuvaj tekuću
+                Sačuvaj izmene
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>
                     Klikom na dugme
-                    <Italic>Sačuvaj tekuću</Italic> čuvaju se sve promene selektovanog tipa lokala u tabeli, ukoliko ih je bilo.
+                    <Italic>Sačuvaj izmene</Italic> čuvaju se sve promene selektovanog tipa lokala u tabeli, ukoliko ih je bilo.
                 </Paragraph>
             </Section>
         </FlowDocument>
