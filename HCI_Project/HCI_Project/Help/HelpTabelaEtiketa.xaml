@@ -32,7 +32,7 @@
                     Klikom na opciju za brisanje etikete, selektovana etiketa se briše iz evidencije.
                 </Paragraph>
             </Section>
-            <Paragraph FontSize="12pt">
+            <Paragraph FontSize="12pt" Name="Filter">
                 Filter
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
@@ -41,13 +41,32 @@
                     <Italic>Poništi</Italic> filter se poništava i ponovo se prikazuju sve etikete
                 </Paragraph>
             </Section>
-            <Paragraph FontSize="12pt">
+            <Paragraph FontSize="12pt" Name="Pretraga">
                 Pretraga
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>Unosom teksta u polje i klikom na dugme
                     <Italic>Traži</Italic> prikazuju se sve etikete koje sadrže uneseni pojam.
                 </Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Oznaka">
+                Oznaka
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovom polju je prikazana oznaka selektovane etikete. Nije moguće vršiti promene nad ovim poljem.</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Opis">
+                Opis
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>U ovo polje je moguće uneti opis etikete. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
+                Unos opisa etikete nije obavezan</Paragraph>
+            </Section>
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Boja">
+                Boja
+            </Paragraph>
+            <Section Margin="20,0,20,0" FontSize="8pt">
+                <Paragraph>Preko ovog polja se bira boja etikete. Nakon klika na strelicu, mogu se izabrati boje iz ponudjene palete. odabri boje etikete je obazan</Paragraph>
             </Section>
             <Paragraph FontSize="12pt">
                 Sačuvaj tekuću

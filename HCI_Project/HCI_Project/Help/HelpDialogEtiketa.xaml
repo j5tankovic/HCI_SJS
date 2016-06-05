@@ -9,7 +9,7 @@
     
     <FlowDocumentReader ViewingMode="Scroll">
         <FlowDocument>
-            <Paragraph TextAlignment="Center" FontSize="14pt">
+            <Paragraph TextAlignment="Center" FontSize="14pt" Name="Naslov">
                 <Bold>Dodavanje nove etikete</Bold>
             </Paragraph>
             <Paragraph FontSize="10pt">
@@ -18,21 +18,21 @@
             <Paragraph>
                 <Image Source="/HCI_Project;component/Resources/dodavanjeEtikete.png" Width="300"/>
             </Paragraph>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Oznaka">
                Oznaka
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti oznaku nove etikete. Oznaka se može sastojati od slovnih,specijalnih karaktera i brojki.
                 Oznaka etikete je jedinstvena i obavezna</Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="EtiketaOpis">
                 Opis
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>U ovo polje je potrebno uneti opis etikete. Opis se može sastojati od slovnih,specijalnih karaktera i brojki.
                 Unos opisa lokale nije obavezan</Paragraph>
             </Section>
-            <Paragraph TextAlignment="Left" FontSize="12pt">
+            <Paragraph TextAlignment="Left" FontSize="12pt" Name="Boja">
                 Boja
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">

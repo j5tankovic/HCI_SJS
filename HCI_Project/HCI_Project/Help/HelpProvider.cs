@@ -55,7 +55,7 @@ namespace HCI_Project.Help
             else if (originator.GetType() == typeof(EtiketaDialog))
             {
                 HelpDialogEtiketa helpEtiketa = new HelpDialogEtiketa();
-                if (key.Equals(""))
+                if (key.Equals("index"))
                 {
                     helpWindow.HelpFrame.Navigate(helpEtiketa);
                 }
@@ -70,7 +70,7 @@ namespace HCI_Project.Help
             else if (originator.GetType() == typeof(TipDialog))
             {
                 HelpDialogTipLokala helpTip = new HelpDialogTipLokala();
-                if (key.Equals(""))
+                if (key.Equals("index"))
                 {
                     helpWindow.HelpFrame.Navigate(helpTip);
                 }
@@ -85,7 +85,7 @@ namespace HCI_Project.Help
             else if (originator.GetType() == typeof(TabelaLokala))
             {
                 HelpTabelaLokala helpTabelaLokala = new HelpTabelaLokala();
-                if (key.Equals(""))
+                if (key.Equals("index"))
                 {
                     helpWindow.HelpFrame.Navigate(helpTabelaLokala);
                 }
@@ -99,7 +99,7 @@ namespace HCI_Project.Help
             else if (originator.GetType() == typeof(TabelaTipova))
             {
                 HelpTabelaTipova helpTabelaTipova = new HelpTabelaTipova();
-                if (key.Equals(""))
+                if (key.Equals("index"))
                 {
                     helpWindow.HelpFrame.Navigate(helpTabelaTipova);
                 }
@@ -113,7 +113,7 @@ namespace HCI_Project.Help
             else if (originator.GetType() == typeof(TabelaEtiketa))
             {
                 HelpTabelaEtiketa helpTabelaEtiketa = new HelpTabelaEtiketa();
-                if (key.Equals(""))
+                if (key.Equals("index"))
                 {
                     helpWindow.HelpFrame.Navigate(helpTabelaEtiketa);
                 }
