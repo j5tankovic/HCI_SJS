@@ -58,17 +58,17 @@
                 <List>
                     <ListItem>
                         <Paragraph>
-                            <Hyperlink NavigateUri="HelpDialogLokal.xaml">Dodavanje novog lokala</Hyperlink>
+                            <Hyperlink NavigateUri="HelpTabelaLokala.xaml">Dodavanje novog lokala</Hyperlink>
                         </Paragraph>
                     </ListItem>
                     <ListItem>
                         <Paragraph>
-                            <Hyperlink NavigateUri="HelpDialogTipLokala.xaml">Dodavanje novog tipa lokala</Hyperlink>
+                            <Hyperlink NavigateUri="HelpTabelaTipova.xaml">Dodavanje novog tipa lokala</Hyperlink>
                         </Paragraph>
                     </ListItem>
                     <ListItem>
                         <Paragraph>
-                            <Hyperlink NavigateUri="HelpDialogEtiketa.xaml">Dodavanje nove etikete</Hyperlink>
+                            <Hyperlink NavigateUri="HelpTabelaEtiketa.xaml">Dodavanje nove etikete</Hyperlink>
                         </Paragraph>
                     </ListItem>
                 </List>

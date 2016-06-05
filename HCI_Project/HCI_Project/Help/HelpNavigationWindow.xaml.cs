@@ -52,7 +52,7 @@ namespace HCI_Project.Help
 
         private void TabelaTipova(object sender, RoutedEventArgs args)
         {
-            HelpFrame.Navigate(new HelpTabelaLokala());
+            HelpFrame.Navigate(new HelpTabelaTipova());
         }
 
         private void TabelaLokala(object sender, RoutedEventArgs args)
@@ -62,7 +62,7 @@ namespace HCI_Project.Help
 
         private void PrikazMapa(object sender, RoutedEventArgs args)
         {
-            HelpFrame.Navigate(new HelpTabelaLokala());
+            HelpFrame.Navigate(new PrikazMapa());
         }
     }
 }
