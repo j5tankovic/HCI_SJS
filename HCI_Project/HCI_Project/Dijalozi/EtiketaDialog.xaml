@@ -53,6 +53,9 @@
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
+                    <TextBox.ToolTip>
+                        Polje za unos oznake etikete
+                    </TextBox.ToolTip>
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
                         <Grid>
@@ -70,9 +73,15 @@
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
-                <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Text="{Binding Path=Opis}" VerticalAlignment="Bottom" Height="50" l:HelpProvider.HelpKey="Opis"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Text="{Binding Path=Opis}" VerticalAlignment="Bottom" Height="50" l:HelpProvider.HelpKey="Opis">
+                    <TextBox.ToolTip>
+                        Polje za unos opisa etikete
+                    </TextBox.ToolTip>
+                </TextBox>
                 <xctk:ColorPicker VerticalAlignment="Top"  Height="25" Grid.Column="1" Grid.Row="2" Margin="5 5 10 0" Name="ColorPicker" SelectedColorChanged="colorChanged">
-                    
+                    <xctk:ColorPicker.ToolTip>
+                        Polje za izbor boje etikete
+                    </xctk:ColorPicker.ToolTip>
                 </xctk:ColorPicker>
 
 

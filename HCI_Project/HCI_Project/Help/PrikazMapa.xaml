@@ -32,6 +32,29 @@
                     Mape se mogu menjati. U aplikaciji su dostupne mape 4 različita grada.
                     Takođe, postoji opcija prikaza svih mapa istovremeno. Tada je moguće prevlačiti lokale sa jedne mape na drugu.
                 </Paragraph>
+                <Paragraph>
+                    Moguće je filtriranje lokala na mapi kao i njihova pretraga
+                </Paragraph>
+                <Paragraph>
+                    <Image Width="200" Source="/HCI_Project;component/Resources/filterPretraga.png"></Image>
+                </Paragraph>
+                <Paragraph FontSize="10pt" Name="Filter">
+                    Filter
+                </Paragraph>
+                <Section Margin="20,0,0,0">
+                    <Paragraph>
+                        Polje za unos određenog pojma po kom se izdvajaju lokali na mapi. Klikom na dugme
+                        <Italic> Ukloni fiter</Italic> ponovo se prikazuju svi lokali na mapi
+                    </Paragraph>
+                </Section>
+                <Paragraph FontSize="10pt" Name="Pretraga">
+                    Pretraga
+                </Paragraph>
+                <Section Margin="20,0,0,0">
+                    <Paragraph>
+                        Polje za unos određenog pojma po kom se selektuje odredjeni lokal na mapi.
+                    </Paragraph>
+                </Section>
             </Section>
         </FlowDocument>
     </FlowDocumentReader>

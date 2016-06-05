@@ -15,8 +15,10 @@
     
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
-            <Button Click="Delete" Content="Obrisi etiketu" />
-            <Button Click="PrikaziPomoc" Content="Pomoć"/>
+            <Button Click="Delete" Content="Obrisi etiketu">
+            </Button>
+            <Button Click="PrikaziPomoc" Content="Pomoć">
+            </Button>
         </ToolBar>
         <ScrollViewer>
             <Grid DockPanel.Dock="Bottom">
@@ -30,10 +32,18 @@
                 </Grid.ColumnDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock Text="Filtriraj:"></TextBlock>
-                        <TextBox Margin="5,0,5,0" Width="100" Name="TextFilter" TextChanged="textFieldChanged" l:HelpProvider.HelpKey="Filter"></TextBox>
+                        <TextBox Margin="5,0,5,0" Width="100" Name="TextFilter" TextChanged="textFieldChanged" l:HelpProvider.HelpKey="Filter">
+                        <TextBox.ToolTip>
+                            Polje za filtriranje tabele etiketa
+                        </TextBox.ToolTip>
+                    </TextBox>
                         <Button Margin="0,0,5,0" Width="Auto" Click="deleteFilter">Poništi</Button>
                         <TextBlock Margin="10,0,0,0" Text="Pretraži:"></TextBlock>
-                        <TextBox Margin="5,0,5,0" Width="100" Name="TextFieldPretraga"  l:HelpProvider.HelpKey="Pretraga"></TextBox>
+                        <TextBox Margin="5,0,5,0" Width="100" Name="TextFieldPretraga"  l:HelpProvider.HelpKey="Pretraga">
+                        <TextBox.ToolTip>
+                            Polje za pretragu tabele etiketa
+                        </TextBox.ToolTip>
+                    </TextBox>
                         <Button Width="Auto" Click="PretraziEtikete">Traži</Button>
                 </StackPanel>
                     <DataGrid x:Name="dgrMain" SelectionChanged="dgr_SelectionChanged" ItemsSource="{Binding Path=parent.repoEtikete.etikete}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
@@ -78,11 +88,27 @@
                     <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}">Opis:</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Boja:</TextBlock>
 
-                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True" Margin="5 5 10 5" Background="WhiteSmoke" l:HelpProvider.HelpKey="Oznaka"></TextBox>
-                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Opis}" Margin="5 5 10 5" l:HelpProvider.HelpKey="Opis"></TextBox>
-                    <xctk:ColorPicker Grid.Column="1" Grid.Row="2" Margin="5 5 10 0" Name="ColorPicker" SelectedColorChanged="colorChanged" SelectedColor="{Binding Boja}" l:HelpProvider.HelpKey="Boja"></xctk:ColorPicker>
+                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True" Margin="5 5 10 5" Background="WhiteSmoke" l:HelpProvider.HelpKey="Oznaka">
+                        <TextBox.ToolTip>
+                            Oznaka etikete
+                        </TextBox.ToolTip>
+                    </TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Opis}" Margin="5 5 10 5" l:HelpProvider.HelpKey="Opis">
+                        <TextBox.ToolTip>
+                            Polje za pregled/izmenu opisa etikete
+                        </TextBox.ToolTip>
+                    </TextBox>
+                    <xctk:ColorPicker Grid.Column="1" Grid.Row="2" Margin="5 5 10 0" Name="ColorPicker" SelectedColorChanged="colorChanged" SelectedColor="{Binding Boja}" l:HelpProvider.HelpKey="Boja">
+                        <xctk:ColorPicker.ToolTip>
+                            Polje za pregled/izmenu boje etikete
+                        </xctk:ColorPicker.ToolTip>
+                    </xctk:ColorPicker>
 
-                    <Button  Margin="0,5,10,5" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" Click="sacuvajTekuci">Sačuvaj izmene</Button>
+                    <Button  Margin="0,5,10,5" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" Click="sacuvajTekuci">
+                        <Button.ToolTip>
+                            Dugme za potvrdu unsenih promena etikete
+                        </Button.ToolTip>
+                        Sačuvaj izmene</Button>
                 </Grid>
             </Grid>
         </ScrollViewer>

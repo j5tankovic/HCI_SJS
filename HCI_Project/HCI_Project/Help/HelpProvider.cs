@@ -132,6 +132,20 @@ namespace HCI_Project.Help
                 }
                 helpWindow.ShowDialog();
             }
+            else if (originator.GetType() == typeof(MainWindow))
+            {
+                PrikazMapa mapa = new PrikazMapa();
+                if (key.Equals("index"))
+                {
+                    helpWindow.HelpFrame.Navigate(mapa);
+                }
+                else
+                {
+                    Uri helpUri = new Uri("pack://application:,,,/Help/PrikazMapa.xaml#" + key);
+                    helpWindow.HelpFrame.Navigate(helpUri);
+                }
+                helpWindow.ShowDialog();
+            }
 
         }
     }

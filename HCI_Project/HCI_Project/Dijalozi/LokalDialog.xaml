@@ -159,7 +159,15 @@
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
                 </TextBox>
-                <TextBox Grid.Column="1" Grid.Row="2" Margin="10 0 10 5" TextWrapping="Wrap" Height="30" VerticalAlignment="Bottom" AcceptsReturn="True" Text="{Binding Path=Opis}" l:HelpProvider.HelpKey="Opis"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="2" Margin="10 0 10 5" TextWrapping="Wrap" Height="30" VerticalAlignment="Bottom" AcceptsReturn="True" Text="{Binding Path=Opis}" l:HelpProvider.HelpKey="Opis">
+                    <TextBox.ToolTip>
+                        <StackPanel>
+                            <TextBlock>
+                            Polje za unos opisa lokala.
+                            </TextBlock>
+                        </StackPanel>
+                    </TextBox.ToolTip>
+                </TextBox>
                 <StackPanel Grid.Column="1" Grid.Row="3"  Orientation="Horizontal">
                     <TextBlock  Style="{StaticResource FamilyAndSize}" Text="Oznaka tipa:" ></TextBlock>
                     <TextBox  Name="oznakaTipa"  TextChanged="oznakaTipa_TextChanged" Width="200" l:HelpProvider.HelpKey="TipLokala">
@@ -173,7 +181,7 @@
                         <TextBox.ToolTip>
                             <StackPanel>
                                 <TextBlock>
-                                Polje za unos tipa lokala.Pritisnite F1 da saznate vise.
+                                Polje za unos tipa lokala.
                                 </TextBlock>
                             </StackPanel>
                         </TextBox.ToolTip>
@@ -199,33 +207,97 @@
 
                 <StackPanel Grid.Column="1" Grid.Row="4"  Orientation="Horizontal">
                     <TextBlock Style="{StaticResource FamilyAndSize}" VerticalAlignment="Bottom" Text="Naziv tipa:" l:HelpProvider.HelpKey="TipLokala" />
-                    <TextBox Name="nazivTipa" VerticalAlignment="Bottom" Height="20" Width="200" Text="{Binding Path=Tip.Naziv}" IsReadOnly="True" ></TextBox>
+                    <TextBox Name="nazivTipa" VerticalAlignment="Bottom" Height="20" Width="200" Text="{Binding Path=Tip.Naziv}" IsReadOnly="True" >
+                        <TextBox.ToolTip>
+                            <StackPanel>
+                                <TextBlock>
+                                    Polje za pregled naziva tipa.
+                                </TextBlock>
+                            </StackPanel>
+                        </TextBox.ToolTip>
+                    </TextBox>
                     <Border Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black" Width="99" Height="50" HorizontalAlignment="Right">
                         <Image Name="IkonicaTipa" Width="99" Height="50" Source="{Binding Path=Tip.Slika}" />
                     </Border>
                 </StackPanel>
-                <ComboBox Grid.Column="1" Grid.Row="6" Margin="10 0 10 5" SelectedValue="{Binding Path=Alkohol, Converter={StaticResource EnumConverter}}" Name="comboAlkohol" l:HelpProvider.HelpKey="Alkohol"></ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="6" Margin="10 0 10 5" SelectedValue="{Binding Path=Alkohol, Converter={StaticResource EnumConverter}}" Name="comboAlkohol" l:HelpProvider.HelpKey="Alkohol">
+                    <ComboBox.ToolTip>
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                                  Polje za izbor sluzenja alkohola
+                            </TextBlock>
+                        </StackPanel>
+                    </ComboBox.ToolTip>
+                </ComboBox>
                 <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal" Margin="10 3 10 5">
                     <RadioButton GroupName="hendikep" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Hendikep, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}" l:HelpProvider.HelpKey="Hendikep">
                         <RadioButton.ToolTip>
                             <StackPanel>
                                 <TextBlock TextWrapping="Wrap">
-                                    Polja za
+                                    Polja za izbor dostupnosti za hendikepirane
                                 </TextBlock>
                             </StackPanel>
                         </RadioButton.ToolTip> Da
                     </RadioButton>
-                    <RadioButton GroupName="hendikep" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Hendikep, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}" l:HelpProvider.HelpKey="Hendikep">Ne</RadioButton>
+                    <RadioButton GroupName="hendikep" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Hendikep, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}" l:HelpProvider.HelpKey="Hendikep">
+                        <RadioButton.ToolTip>
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap">
+                                    Polja za izbor dostupnosti za hendikepirane
+                                </TextBlock>
+                            </StackPanel>
+                        </RadioButton.ToolTip>
+                        Ne</RadioButton>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Grid.Row="8" Orientation="Horizontal" Margin="10 0 10 5">
-                    <RadioButton GroupName="pusenje" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Pusenje, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}" l:HelpProvider.HelpKey="Pusenje">Da</RadioButton>
-                    <RadioButton GroupName="pusenje" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Pusenje, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}" l:HelpProvider.HelpKey="Pusenje">Ne</RadioButton>
+                    <RadioButton GroupName="pusenje" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Pusenje, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}" l:HelpProvider.HelpKey="Pusenje">
+                        <RadioButton.ToolTip>
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap">
+                                    Polja za izbor dozvole za pusenje
+                                </TextBlock>
+                            </StackPanel>
+                        </RadioButton.ToolTip>
+                        Da</RadioButton>
+                    <RadioButton GroupName="pusenje" Margin="10 0 0 0" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Pusenje, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}" l:HelpProvider.HelpKey="Pusenje">
+                        <RadioButton.ToolTip>
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap">
+                                    Polja za izbor dozvole za pusenje
+                                </TextBlock>
+                            </StackPanel>
+                        </RadioButton.ToolTip>
+                        Ne</RadioButton>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Grid.Row="9" Orientation="Horizontal" Margin="10 0 10 5">
-                    <RadioButton GroupName="rezervacije" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}" l:HelpProvider.HelpKey="Rezervacije">Da</RadioButton>
-                    <RadioButton GroupName="rezervacije" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}" l:HelpProvider.HelpKey="Rezervacije">Ne</RadioButton>
+                    <RadioButton GroupName="rezervacije" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource True}}" l:HelpProvider.HelpKey="Rezervacije">
+                        <RadioButton.ToolTip>
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap">
+                                    Polja za izbor primanja rezervacija
+                                </TextBlock>
+                            </StackPanel>
+                        </RadioButton.ToolTip>
+                        Da</RadioButton>
+                    <RadioButton GroupName="rezervacije" Margin="10 0 10 5" FontFamily="Arial" FontSize="13" IsChecked="{Binding Path=Rezervacije, Converter={StaticResource RadioButtonCheckedConverter}, ConverterParameter={StaticResource False}}" l:HelpProvider.HelpKey="Rezervacije">
+                        <RadioButton.ToolTip>
+                            <StackPanel>
+                                <TextBlock TextWrapping="Wrap">
+                                    Polja za izbor primanja rezervacija
+                                </TextBlock>
+                            </StackPanel>
+                        </RadioButton.ToolTip>
+                        Ne</RadioButton>
                 </StackPanel>
-                <ComboBox Grid.Column="1" Grid.Row="10" Margin="10 0 10 5" SelectedValue="{Binding Path=Cene, Converter={StaticResource EnumConverter}}" Name="comboCene" l:HelpProvider.HelpKey="Cene"></ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="10" Margin="10 0 10 5" SelectedValue="{Binding Path=Cene, Converter={StaticResource EnumConverter}}" Name="comboCene" l:HelpProvider.HelpKey="Cene">
+                    <ComboBox.ToolTip>
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                                  Polje za izbor kategorije cena
+                            </TextBlock>
+                        </StackPanel>
+                    </ComboBox.ToolTip>
+                </ComboBox>
                 <TextBox Name="kapacitetLokala" Grid.Column="1" Grid.Row="11" Margin="10 0 10 5" l:HelpProvider.HelpKey="Kapacitet">
                     <TextBox.Text>
                         <Binding Path="Kapacitet" UpdateSourceTrigger="PropertyChanged">
@@ -279,7 +351,7 @@
                         <Button.ToolTip>
                             <StackPanel>
                                 <TextBlock TextWrapping="Wrap">
-                                Dugme za izbor ikonice lokala.Ukoliko ne izberete ikonicu, lokalu se dodeljuje ikonica tipa. Pritisnite F1 da saznate vise.
+                                Dugme za izbor ikonice lokala.
                                 </TextBlock>
                             </StackPanel>
                         </Button.ToolTip>
@@ -292,7 +364,11 @@
                         <ColumnDefinition Width="169*" />
                         <ColumnDefinition Width="123*" />
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Width="67" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">Taguj lokal</Button>
+                    <Button Grid.Column="1" Width="67" HorizontalAlignment="Right" FontFamily="Arial" FontSize="13" Click="izberiEtikete" Margin="0,5,10,0">
+                        <Button.ToolTip>
+                            Pregled/Dodavanje/Uklanjanje etiketa
+                        </Button.ToolTip>
+                        Taguj lokal</Button>
                 </Grid>
             <StackPanel Grid.Column="1" Grid.Row="17" Orientation="Horizontal" HorizontalAlignment="Right">
               

@@ -1491,6 +1491,7 @@ namespace HCI_Project
         private void PrikaziPomoc(object sender, RoutedEventArgs args)
         {
             HelpNavigationWindow helpWindow = new HelpNavigationWindow();
+            helpWindow.HelpFrame.Navigate(new MainPage());
             helpWindow.ShowDialog();
         }
 
@@ -1544,9 +1545,16 @@ namespace HCI_Project
 
         private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            HelpNavigationWindow helpNavigation = new HelpNavigationWindow();
-            helpNavigation.HelpFrame.Navigate(new MainPage());
-            helpNavigation.ShowDialog();
+            IInputElement focusedControl = FocusManager.GetFocusedElement(System.Windows.Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive));
+            if (focusedControl is DependencyObject)
+            {
+                string str = HCI_Project.Help.HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HCI_Project.Help.HelpProvider.ShowHelp(str, this);
+            }
+            else
+            {
+                HCI_Project.Help.HelpProvider.ShowHelp("index", this);
+            }
 
         }
         
