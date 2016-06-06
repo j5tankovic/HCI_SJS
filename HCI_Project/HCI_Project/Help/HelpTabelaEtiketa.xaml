@@ -69,12 +69,12 @@
                 <Paragraph>Preko ovog polja se bira boja etikete. Nakon klika na strelicu, mogu se izabrati boje iz ponudjene palete. odabri boje etikete je obazan</Paragraph>
             </Section>
             <Paragraph FontSize="12pt">
-                Sačuvaj tekuću
+                Sačuvaj izmene
             </Paragraph>
             <Section Margin="20,0,20,0" FontSize="8pt">
                 <Paragraph>
                     Klikom na dugme
-                    <Italic>Sačuvaj tekuću</Italic> čuvaju se sve promene trenutno selektovane etikete u tabeli, ukoliko ih je bilo.
+                    <Italic>Sačuvaj izmene</Italic> čuvaju se sve promene trenutno selektovane etikete u tabeli, ukoliko ih je bilo.
                 </Paragraph>
             </Section>
         </FlowDocument>

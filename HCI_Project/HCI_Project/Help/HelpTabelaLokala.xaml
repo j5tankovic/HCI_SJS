@@ -16,7 +16,7 @@
                 Ovaj dijalog tabelarno prikazuje sve lokale. Moguće je izmeniti ili obrisati postojeće lokale.
             </Paragraph>
             <Paragraph>
-                <Image Source="/HCI_Project;component/Resources/tabelaTipova.png" Width="300"/>
+                <Image Source="/HCI_Project;component/Resources/tabelaLokala.png" Width="300"/>
             </Paragraph>
             <Paragraph FontSize="8pt">
                 Klikom na neki red u tabeli popunjavaju se polja u donjem delu ekrana. Odatle se mogu menjati podaci.

@@ -32,6 +32,9 @@ namespace HCI_Project.Dijalozi
 
         ObservableCollection<Lokal> lokali;
 
+        string[] positive = { "SLUZI DO 23", "DO KASNO NOCU", "IZUZETNO VISOKA", "VISOKA", "SREDNJA", "NISKA", "DOZVOLJENO PUSENJE", "PRIMA REZERVACIJE", "ZA HENDIKEPIRANE", "NE SLUZI", "DA HENDIKEP"};
+        string[] negative = { "BEZ PUSENJA", "NE PUSENJE", "NE PRIMA REZERVACIJE", "NE REZERVACIJE", "NE ZA HENDIKEPIRANE", "NE HENDIKEP"};
+
   
         public TabelaLokala(MainWindow p)
         {
@@ -177,7 +180,7 @@ namespace HCI_Project.Dijalozi
                         words = words.Where(word => word != "").ToArray();
                     return words.Any(word => lokal.Oznaka.ToUpper().Contains(word.ToUpper()) || lokal.Naziv.ToUpper().Contains(word.ToUpper()) ||
                              (lokal.Opis != null && lokal.Opis.ToUpper().Contains(word.ToUpper())) || lokal.Slika.ToUpper().Contains(word.ToUpper()) ||
-                            lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper()));
+                            lokal.Tip.Naziv.ToUpper().Contains(word.ToUpper())) || FilterOstalihPolja(filter,lokal);
                 };
 
                 dgrMain.ItemsSource = lokali;
@@ -217,7 +220,7 @@ namespace HCI_Project.Dijalozi
             {
                 Lokal lokal = dgrMain.Items[i] as Lokal;
                 if (lokal.Oznaka.ToUpper().Equals(searchText.ToUpper()) || (lokal.Opis != null && lokal.Opis.ToUpper().Contains(searchText.ToUpper())) ||
-                    lokal.Naziv.ToUpper().Equals(searchText.ToUpper()) || lokal.Tip.Naziv.ToUpper().Equals(searchText.ToUpper()))
+                    lokal.Naziv.ToUpper().Equals(searchText.ToUpper()) || lokal.Tip.Naziv.ToUpper().Equals(searchText.ToUpper()) || FilterOstalihPolja(searchText,lokal))
                 {
                     DataGridRow row = (DataGridRow)dgrMain.ItemContainerGenerator.ContainerFromIndex(i);
                     row.Background = new SolidColorBrush(Colors.DarkSeaGreen);
@@ -278,6 +281,78 @@ namespace HCI_Project.Dijalozi
             {
                 HCI_Project.Help.HelpProvider.ShowHelp("index", this);
             }
+        }
+
+
+        private bool FilterOstalihPolja(string filter, Lokal lokal)
+        {
+             if (positive.Any(s => filter.ToUpper().Contains(s.ToUpper())))
+            {
+                //rec je o dozvoli za pusenje
+                if (filter.ToUpper().Contains("PUSENJE"))
+                {
+                    if (lokal.Pusenje) return true;
+                }
+                else if (filter.ToUpper().Contains("REZERVACIJE"))
+                {
+                    if (lokal.Rezervacije) return true;
+                }
+                else if (filter.ToUpper().Contains("HENDIKEPIRANE") || filter.ToUpper().Contains("HENDIKEP"))
+                {
+                    if (lokal.Hendikep) return true;
+                }
+                else 
+                    return filter.ToUpper().Equals(EnumAkoholToStr(lokal).ToUpper()) || filter.ToUpper().Equals(EnumCeneToStr(lokal).ToUpper());
+
+            }
+            else if (negative.Any(s => filter.ToUpper().Contains(s.ToUpper())))
+            {
+                if (filter.ToUpper().Contains("PUSENJE") || filter.ToUpper().Contains("PUSENJA"))
+                {
+                    if (!lokal.Pusenje) return true;
+                }
+                else if (filter.ToUpper().Contains("REZERVACIJE"))
+                {
+                    if (!lokal.Rezervacije) return true;
+                }
+                else if (filter.ToUpper().Contains("HENDIKEPIRANE") || filter.ToUpper().Contains("HENDIKEP"))
+                {
+                    if (!lokal.Hendikep) return true;
+                }
+            }
+            return false;
+
+        }
+
+
+        private string EnumAkoholToStr(Lokal l)
+        {
+           switch(l.Alkohol)
+           {
+               case SluzenjeAlkohola.DO_KASNO_NOCU:
+                   return "DO KASNO NOCU";
+               case SluzenjeAlkohola.NE_SLUZI:
+                   return "NE SLUZI";
+               case SluzenjeAlkohola.SLUZI_DO_23:
+                   return "SLUZI DO 23";
+               default: return "";
+           }
+        }
+
+        private string EnumCeneToStr(Lokal l)
+        {
+           switch(l.Cene)
+           {
+               case  KategorijaCene.IZUZETNO_VISOKA:
+                   return "IZUZETNO VISOKA";
+               case KategorijaCene.NISKA:
+                   return "NISKA";
+               case KategorijaCene.SREDNJA:
+                   return "SREDNJA";
+               case KategorijaCene.VISOKA:
+                   return "VISOKA";
+               default: return "";
+           }
         }
       
     }
