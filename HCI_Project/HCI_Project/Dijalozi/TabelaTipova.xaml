@@ -5,7 +5,7 @@
         xmlns:val="clr-namespace:HCI_Project.Validacija"
         xmlns:cmd="clr-namespace:HCI_Project.Komande"
         xmlns:l="clr-namespace:HCI_Project.Help"
-        Title="Tabela tipova" Height="400" Width="400" MinWidth="350">
+        Title="Tabela tipova" Height="381" Width="424" MinWidth="350">
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.DeleteSomething" Executed="DeleteSomething_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.EnterClicked" Executed="EnterClicked_Executed"></CommandBinding>

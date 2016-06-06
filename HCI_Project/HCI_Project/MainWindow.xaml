@@ -100,7 +100,7 @@
                         <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" CornerRadius="6" >
                             <StackPanel Orientation="Horizontal" >
                                 <Button  FontFamily="Arial" FontSize="13" Margin="10 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Tipova">Tabela tipova</Button>
-                                <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabela">Tabela lokala</Button>
+                                <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="20 5 20 5" Click="Prikazi_Tabela">Tabela lokala</Button>
                                 <Button  FontFamily="Arial" FontSize="13" Margin="0 10 10 10" Padding="10 5 10 5" Click="Prikazi_Tabelu_Etiketa">Tabela etiketa</Button>
                             </StackPanel>
                         </Border>

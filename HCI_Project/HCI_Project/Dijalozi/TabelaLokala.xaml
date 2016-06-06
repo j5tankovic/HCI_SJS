@@ -129,7 +129,7 @@
                         <RowDefinition />
                         <RowDefinition Height="2*" />
                         <RowDefinition />
-                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
@@ -246,7 +246,7 @@
                             </Button.ToolTip>
                             Nadji...
                         </Button>
-                        <Border Margin="5 5 5 5" VerticalAlignment="Top" HorizontalAlignment="Right" Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black"  Width="88" Height="54">
+                        <Border Margin="5 5 5 5" VerticalAlignment="Top" HorizontalAlignment="Right" Background="WhiteSmoke"  BorderThickness="1" BorderBrush="Black"  Width="92" Height="63">
                             <Image Source="{Binding Path=Tip.Slika}" Width="92" Height="63" />
                         </Border>
                     </StackPanel>
