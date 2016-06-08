@@ -176,7 +176,7 @@
                             Oznaka etikete
                         </TextBox.ToolTip>
                     </TextBox>
-                    <TextBox Name="NazivLokala" Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Height="30" VerticalAlignment="Top" l:HelpProvider.HelpKey="Naziv">
+                    <TextBox Name="NazivLokala"  MaxLength="20"  Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Height="30" VerticalAlignment="Top" l:HelpProvider.HelpKey="Naziv">
                         <TextBox.ToolTip>
                             Polje za pregled/izmenu naziva lokala
                         </TextBox.ToolTip>

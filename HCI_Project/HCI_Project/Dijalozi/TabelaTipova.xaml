@@ -109,7 +109,7 @@
                             Oznaka tipa
                         </TextBox.ToolTip>
                     </TextBox>
-                    <TextBox Name="NazivTipa" Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Height="20" VerticalAlignment="Top" l:HelpProvider.HelpKey="Naziv">
+                    <TextBox Name="NazivTipa"  MaxLength="20"  Grid.Column="1" Grid.Row="1" Margin="5 5 10 5" Height="20" VerticalAlignment="Top" l:HelpProvider.HelpKey="Naziv">
                         <TextBox.ToolTip>
                             Polje za pregled/izmenu naziva tipa
                         </TextBox.ToolTip>
@@ -176,7 +176,7 @@
                                 </Style>
                             </Button.Style>
                         </Button>
-                        <Button Margin="10 0 0 0 " Click="Clicked_OK" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40">OK</Button>
+                        <Button Margin="10 0 0 0 " Click="Clicked_OK" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40">Izaberi</Button>
                     </StackPanel>
                 </Grid>
             </Grid>

@@ -67,7 +67,7 @@ namespace HCI_Project.Dijalozi
             TabelaTipova tabela = new TabelaTipova(this.parent);
             tabela.ShowDialog();
             TipLokala tip1 = tabela.IzabraniTip;
-            if (tip1 != null && tip1.Equals(tip))
+            if (tip1 != null && !tip1.Equals(tip))
             {
                 noviTip = tip1;
                 this.DataContext = noviTip;

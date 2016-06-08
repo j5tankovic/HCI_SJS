@@ -95,7 +95,7 @@
                 <TextBlock Grid.Column="0" Grid.Row="13" Style="{StaticResource FamilyAndSize}" Text="{StaticResource ResourceKey=strIkonica}"></TextBlock>
                 <TextBlock Grid.Column="0" Grid.Row="14" Style="{StaticResource FamilyAndSize}" Text="{StaticResource ResourceKey=strEtikete}"></TextBlock>
 
-                <TextBox Name="oznakaLokala" Grid.Column="1" Grid.Row="0" Margin="10 3 10 5" l:HelpProvider.HelpKey="Oznaka">
+                <TextBox Name="oznakaLokala" MaxLength="20" Grid.Column="1" Grid.Row="0" Margin="10 3 10 5" l:HelpProvider.HelpKey="Oznaka">
                     <TextBox.ToolTip>
                         <StackPanel>
                             <TextBlock>
@@ -127,7 +127,7 @@
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
                 </TextBox>
-                <TextBox Name="nazivLokala" Height="30" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Margin="10 0 10 5" l:HelpProvider.HelpKey="Naziv">
+                <TextBox Name="nazivLokala"   MaxLength="20"  Height="30" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Margin="10 0 10 5" l:HelpProvider.HelpKey="Naziv">
                     <TextBox.ToolTip>
                         <StackPanel>
                             <TextBlock>

@@ -284,7 +284,7 @@
                                 <TextBlock Grid.Column="0" Grid.Row="4" Name="LabelaDatum">Datum otvaranja:</TextBlock>
 
                                 <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Oznaka}" IsReadOnly="True"  Background="WhiteSmoke"></TextBox>
-                                <TextBox Grid.Column="1" Grid.Row="1" Name="NazivLokala">
+                                <TextBox  MaxLength="20"  Grid.Column="1" Grid.Row="1" Name="NazivLokala">
                                     <TextBox.Text>
                                         <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
                                             <Binding.ValidationRules>

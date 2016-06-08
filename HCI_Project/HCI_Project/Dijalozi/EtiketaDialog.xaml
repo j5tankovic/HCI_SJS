@@ -45,7 +45,7 @@
             <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FamilyAndSize}" Height="30" VerticalAlignment="Bottom">Opis:</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FamilyAndSize}">Boja:</TextBlock>
 
-                <TextBox Name="oznakaEtikete" Grid.Column="1" Grid.Row="0" Margin="5 5 10 0" Height="30" VerticalAlignment="Top" l:HelpProvider.HelpKey="Oznaka">
+                <TextBox Name="oznakaEtikete"  MaxLength="20"  Grid.Column="1" Grid.Row="0" Margin="5 5 10 0" Height="30" VerticalAlignment="Top" l:HelpProvider.HelpKey="Oznaka">
                 <TextBox.Text>
                     <Binding Path="Oznaka" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
